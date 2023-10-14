@@ -18,7 +18,7 @@ def homepage():
 def calendar_view():
     """ Routes to Calendar page """
 
-    return render_template('calendar-view.html') # calendar template
+    return render_template('calendar-view.html')
 
 
 if __name__ == '__main__':

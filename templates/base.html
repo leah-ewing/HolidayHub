@@ -1,10 +1,33 @@
-<!doctype html>
+<head>
 
-<html>
-  <head>
-    <title></title>
-  </head>
-  <body></body>
-</html>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+     
+  <title>
+    {% block title %}{% endblock %}
+  </title>
 
-<!-- TBD -->
+  {% block head %}
+
+      <a class="nav-link" href="/sign-up"><b>Sign Up for Daily Emails</b></text></a> <!-- triggers sign up popup -->
+  </nav>
+
+  {% endblock %}
+  
+</head>
+
+
+  {% block body %}
+
+  {% endblock %}
+
+
+  {% block after_body %}
+  
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div class="created-by">
+    <text style="color:#046865"><small>Created by: Leah Ewing, 2023</small></text>
+          </img>
+    </div>
+  
+  {% endblock %}

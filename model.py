@@ -44,14 +44,19 @@ class Holiday(db.Model):
     user = db.relationship('Month', backref = 'holiday')
 
 
-    class Email(db.Model):
-        """ Email Information """
+class Email(db.Model):
+    """ Email Information """
 
-        __tablename__ = 'email'
+    __tablename__ = 'email'
 
-        email_id = db.Column(db.Integer,
-                             autoincrement = True,
-                             primary_key = True)
-        email_firstname = db.Column(db.String)
-        email_address = db.Column(db.String)
-        email_opt_in = db.Column(db.Boolean)
+    email_id = db.Column(db.Integer,
+                        autoincrement = True,
+                        primary_key = True)
+    email_firstname = db.Column(db.String)
+    email_address = db.Column(db.String)
+    email_opt_in = db.Column(db.Boolean)
+
+
+if __name__ == '__main__':
+    from server import app
+    connect_to_db(app)

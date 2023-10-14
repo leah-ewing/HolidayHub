@@ -17,7 +17,7 @@ model.db.create_all()
 
 
 """ Months """
-with open('static/months.json') as m:
+with open('api/months.json') as m:
     month_data = json.loads(m.read())
 
 months_in_db = []
@@ -29,9 +29,12 @@ for month in month_data:
 
 
 """Create 10 test emails"""
-for n in range(1, 10):
+current_date = datetime.now()
+
+for n in range(1, 11):
         email_firstname = f'User{n}'
         email_address = f'testuser{n}@test.com'
         email_opt_in = True
+        email_added_on = current_date.strftime("%m-%d-%Y %I:%M %p")
 
-        new_email = crud.create_email_address(email_firstname, email_address, email_opt_in)
+        new_email = crud.create_email_address(email_firstname, email_address, email_opt_in, email_added_on)

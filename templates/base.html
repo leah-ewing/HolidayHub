@@ -13,8 +13,19 @@
 
   {% block head %}
 
-    <a class="nav-link" id= "sign-up-link" href="{TBD}"><b>Sign Up for Daily Emails</b></text></a> <!-- triggers sign up popup -->
-  </nav>
+  <a href class="nav-link" id= "sign-up-link">Sign Up for Daily Emails!</a> <!-- triggers email form popup -->
+
+  <!-- Script for email form, reformat later to be an actual popup -->
+  <!-- Currently doesn't populate DB -->
+  <script>
+    const sign_up_link = document.querySelector('#sign-up-link');
+
+    const handleClick = () => {
+      prompt('Please enter your email:');
+    };
+
+    sign_up_link.addEventListener('click', handleClick);
+  </script>
 
   {% endblock %}
   
@@ -35,3 +46,5 @@
     </div>
   
   {% endblock %}
+
+  </body>

@@ -36,15 +36,14 @@ class Holiday(db.Model):
     holiday_id = db.Column(db.Integer,
                            autoincrement = True,
                            primary_key = True)
+    holiday_name = db.Column(db.String)
     holiday_month = db.Column(db.Integer, db.ForeignKey('month.month_id'))
     holiday_date = db.Column(db.Integer)
     holiday_link = db.Column(db.String) # link to holiday's HTML page
     holiday_notes = db.Column(db.String)
 
-    user = db.relationship('Month', backref = 'holiday')
-
     def __repr__(self):
-        return f'<Holiday holiday_id = {self.holiday_id} holiday_name = {self.holiday_name}, holiday_month = {self.holiday_month}, holiday_date = {self.holiday_date}, holiday_link = {self.holiday_link}, holiday_notes = {self.holiday_notes}>'
+        return f'<Holiday holiday_id = {self.holiday_id}, holiday_name = {self.holiday_name}, holiday_month = {self.holiday_month}, holiday_date = {self.holiday_date}, holiday_link = {self.holiday_link}, holiday_notes = {self.holiday_notes}>'
 
 
 class Email(db.Model):

@@ -11,7 +11,7 @@ app.jinja_env.undefined = StrictUndefined
 def homepage():
     """ Routes to app homepage """
 
-    return render_template('base.html')
+    return render_template('homepage.html')
 
 
 if __name__ == '__main__':

@@ -3,29 +3,40 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
 
+  <!-- CSS -->
+  <link
+      href="../static/static.css"
+      rel="stylesheet">
+
+  <!-- REACT
   <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script> -->
      
   <title>
-    {% block title %}{% endblock %}
+    {% block title %}
+    {% endblock %}
   </title>
 
   {% block head %}
 
-  <a href class="nav-link" id= "sign-up-link">Sign Up for Daily Emails!</a> <!-- triggers email form popup -->
+  <!-- <script src="../static/static.js"></script> -->
+
+  <!-- <a href class="nav-link" id= "sign-up-link">Sign Up for Daily Emails!</a> triggers email form popup -->
+
+  <button onclick = togglePopup() class=”email-button”>Sign Up for Daily Emails!</button> <!-- button version-->
 
   <!-- Script for email form, reformat later to be an actual popup -->
   <!-- Currently doesn't populate DB -->
-  <script>
+  <!-- <script>
     const sign_up_link = document.querySelector('#sign-up-link');
 
     const handleClick = () => {
-      prompt('Please enter your email:');
+      String(window.prompt("Enter your email:"));
     };
 
     sign_up_link.addEventListener('click', handleClick);
-  </script>
+  </script> -->
 
   {% endblock %}
   
@@ -33,7 +44,6 @@
 
 
   {% block body %}
-
   {% endblock %}
 
 

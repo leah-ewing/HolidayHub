@@ -1,0 +1,20 @@
+.email-button {
+    color: rgb(3, 48, 146);
+    font-size: 25px;
+    font-weight: 500;
+    padding: 15px 50px;
+    border-radius: 5px;
+    border: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #dadadb;
+    transition: box-shadow .35s ease !important;
+    outline: none;
+   }
+.email-button:active {  
+background-color: rgb(2, 42, 112);
+color: #fff;
+border: none;
+}

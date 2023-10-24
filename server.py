@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, flash, session, redirect
-from model import Email, connect_to_db
+from model import Email, Month, Holiday, connect_to_db
 from jinja2 import StrictUndefined
 import crud, json
 from datetime import datetime

@@ -34,7 +34,5 @@ current_date = datetime.now()
 for n in range(1, 11):
         email_firstname = f'User{n}'
         email_address = f'testuser{n}@test.com'
-        email_opt_in = True
-        email_added_on = current_date.strftime("%m-%d-%Y %I:%M %p")
 
-        new_email = crud.create_email_address(email_firstname, email_address, email_opt_in, email_added_on)
+        new_email = crud.create_email_address(email_firstname, email_address)

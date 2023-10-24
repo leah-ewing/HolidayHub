@@ -20,8 +20,10 @@ def calendarView():
 
     return render_template('calendar-view.html')
 
-# @app.route('/sign-up-for-email', methods = ["POST"]) 
-# ^ will take email from form and adds it to the email table (crud uses function)
+# @app.route('/', methods = ["POST"]) 
+def addNewEmail():
+    """ Adds new email and redirects user to homepage """
+    
 
 
 if __name__ == '__main__':

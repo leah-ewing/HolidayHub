@@ -33,14 +33,14 @@ def create_holiday(holiday_name, holiday_month, holiday_date, holiday_link, holi
     return new_holiday
 
 
-def create_email_address(email_firstname, email_address, email_opt_in, email_added_on):
+def create_email_address(email_firstname, email_address):
     """Create and return a new email entry."""
 
     current_date = datetime.now()
 
     new_email = Email(email_firstname = email_firstname, 
                 email_address = email_address, 
-                email_opt_in = email_opt_in,
+                email_opt_in = True,
                 email_added_on = current_date.strftime("%m-%d-%Y %I:%M %p"))
     
     db.session.add(new_email)

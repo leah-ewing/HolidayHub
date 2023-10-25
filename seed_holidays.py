@@ -11,13 +11,13 @@ import server
 model.connect_to_db(server.app)
 model.db.create_all()
 
+
 holiday_data = []
 
 """ January """
 with open('api/holidays/1-january.json') as jan:
     january_data = json.loads(jan.read())
     holiday_data.append(january_data)
-
 
 """ February """
 with open('api/holidays/2-february.json') as feb:
@@ -91,157 +91,3 @@ for month in holiday_data:
                                     holiday_link,
                                     holiday_notes)
     holidays_in_db.append(db_holiday)
-
-
-# for holiday in january_data:
-#     holiday_name = (holiday['holiday_name'])
-#     holiday_month = (holiday['holiday_month'])
-#     holiday_link = (holiday['holiday_link'])
-#     holiday_notes = (holiday['holiday_notes'])
-
-#     db_holiday = crud.create_holiday(holiday_name, 
-#                                    holiday_month,
-#                                    holiday_link,
-#                                    holiday_notes)
-#     holidays_in_db.append(db_holiday)
-
-
-
-
-# for holiday in february_data:
-#     holiday_name = (holiday['holiday_name'])
-#     holiday_month = (holiday['holiday_month'])
-#     holiday_link = (holiday['holiday_link'])
-#     holiday_notes = (holiday['holiday_notes'])
-
-#     db_holiday = crud.create_holiday(holiday_name, 
-#                                 holiday_month,
-#                                 holiday_link,
-#                                 holiday_notes)
-#     holidays_in_db.append(db_holiday)
-
-# for holiday in march_data:
-#     holiday_name = (holiday['holiday_name'])
-#     holiday_month = (holiday['holiday_month'])
-#     holiday_link = (holiday['holiday_link'])
-#     holiday_notes = (holiday['holiday_notes'])
-
-#     db_holiday = crud.create_holiday(holiday_name, 
-#                                    holiday_month,
-#                                    holiday_link,
-#                                    holiday_notes)
-#     holidays_in_db.append(db_holiday)
-
-
-# for holiday in april_data:
-#     holiday_name = (holiday['holiday_name'])
-#     holiday_month = (holiday['holiday_month'])
-#     holiday_link = (holiday['holiday_link'])
-#     holiday_notes = (holiday['holiday_notes'])
-
-#     db_holiday = crud.create_holiday(holiday_name, 
-#                                    holiday_month,
-#                                    holiday_link,
-#                                    holiday_notes)
-#     holidays_in_db.append(db_holiday)
-
-# for holiday in may_data:
-#     holiday_name = (holiday['holiday_name'])
-#     holiday_month = (holiday['holiday_month'])
-#     holiday_link = (holiday['holiday_link'])
-#     holiday_notes = (holiday['holiday_notes'])
-
-#     db_holiday = crud.create_holiday(holiday_name, 
-#                                    holiday_month,
-#                                    holiday_link,
-#                                    holiday_notes)
-#     holidays_in_db.append(db_holiday)
-
-
-# for holiday in june_data:
-#     holiday_name = (holiday['holiday_name'])
-#     holiday_month = (holiday['holiday_month'])
-#     holiday_link = (holiday['holiday_link'])
-#     holiday_notes = (holiday['holiday_notes'])
-
-#     db_holiday = crud.create_holiday(holiday_name, 
-#                                    holiday_month,
-#                                    holiday_link,
-#                                    holiday_notes)
-#     holidays_in_db.append(db_holiday)
-
-
-# for holiday in july_data:
-#     holiday_name = (holiday['holiday_name'])
-#     holiday_month = (holiday['holiday_month'])
-#     holiday_link = (holiday['holiday_link'])
-#     holiday_notes = (holiday['holiday_notes'])
-
-#     db_holiday = crud.create_holiday(holiday_name, 
-#                                    holiday_month,
-#                                    holiday_link,
-#                                    holiday_notes)
-#     holidays_in_db.append(db_holiday)
-
-# for holiday in august_data:
-#     holiday_name = (holiday['holiday_name'])
-#     holiday_month = (holiday['holiday_month'])
-#     holiday_link = (holiday['holiday_link'])
-#     holiday_notes = (holiday['holiday_notes'])
-
-#     db_holiday = crud.create_holiday(holiday_name, 
-#                                    holiday_month,
-#                                    holiday_link,
-#                                    holiday_notes)
-#     holidays_in_db.append(db_holiday)
-
-# for holiday in september_data:
-#     holiday_name = (holiday['holiday_name'])
-#     holiday_month = (holiday['holiday_month'])
-#     holiday_link = (holiday['holiday_link'])
-#     holiday_notes = (holiday['holiday_notes'])
-
-#     db_holiday = crud.create_holiday(holiday_name, 
-#                                    holiday_month,
-#                                    holiday_link,
-#                                    holiday_notes)
-#     holidays_in_db.append(db_holiday)
-
-
-
-
-# for holiday in october_data:
-#     holiday_name = (holiday['holiday_name'])
-#     holiday_month = (holiday['holiday_month'])
-#     holiday_link = (holiday['holiday_link'])
-#     holiday_notes = (holiday['holiday_notes'])
-
-#     db_holiday = crud.create_holiday(holiday_name, 
-#                                    holiday_month,
-#                                    holiday_link,
-#                                    holiday_notes)
-#     holidays_in_db.append(db_holiday)
-
-# for holiday in november_data:
-#     holiday_name = (holiday['holiday_name'])
-#     holiday_month = (holiday['holiday_month'])
-#     holiday_link = (holiday['holiday_link'])
-#     holiday_notes = (holiday['holiday_notes'])
-
-#     db_holiday = crud.create_holiday(holiday_name, 
-#                                    holiday_month,
-#                                    holiday_link,
-#                                    holiday_notes)
-#     holidays_in_db.append(db_holiday)
-
-# for holiday in december_data:
-#     holiday_name = (holiday['holiday_name'])
-#     holiday_month = (holiday['holiday_month'])
-#     holiday_link = (holiday['holiday_link'])
-#     holiday_notes = (holiday['holiday_notes'])
-
-#     db_holiday = crud.create_holiday(holiday_name, 
-#                                    holiday_month,
-#                                    holiday_link,
-#                                    holiday_notes)
-#     holidays_in_db.append(db_holiday)

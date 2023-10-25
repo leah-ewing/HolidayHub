@@ -1,4 +1,6 @@
-"""Script to seed database with holidays."""
+""" Script to seed database with holidays. """
+
+""" IMPORTANT!! Run `seed_database.py` script FIRST before running this one """
 
 import os
 import json

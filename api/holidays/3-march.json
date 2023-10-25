@@ -1,7 +1,7 @@
 [{
-    "holiday_name": "name",
-    "holiday_month": "month",
-    "holiday_date": "date",
+    "holiday_name": "march",
+    "holiday_month": 3,
+    "holiday_date": 1,
     "holiday_link": "link",
     "holiday_notes": "notes"
 }]

@@ -2,7 +2,6 @@
 
 """ IMPORTANT!! Run `seed_database.py` script FIRST before running this one. """
 
-import os
 import json
 from datetime import datetime
 

@@ -17,7 +17,7 @@ model.db.create_all()
 
 
 """ Months """
-with open('api/months.json') as m:
+with open('json/months.json') as m:
     month_data = json.loads(m.read())
 
 months_in_db = []

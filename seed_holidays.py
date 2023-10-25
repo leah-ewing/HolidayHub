@@ -75,8 +75,6 @@ with open('api/holidays/12-december.json') as dec:
     holiday_data.append(december_data)
 
 
-# holidays_in_db = []
-
 for month in holiday_data:
     for holiday in month:
         holiday_name = (holiday['holiday_name'])
@@ -90,4 +88,3 @@ for month in holiday_data:
                                     holiday_date,
                                     holiday_link,
                                     holiday_notes)
-    # holidays_in_db.append(db_holiday)

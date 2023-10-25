@@ -28,7 +28,7 @@ for month in month_data:
     months_in_db.append(db_month)
 
 
-"""Create 10 test emails"""
+""" Create 10 test emails """
 current_date = datetime.now()
 
 for n in range(1, 11):

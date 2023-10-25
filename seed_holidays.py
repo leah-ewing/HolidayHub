@@ -1,6 +1,6 @@
 """ Script to seed database with holidays. """
 
-""" IMPORTANT!! Run `seed_database.py` script FIRST before running this one """
+""" IMPORTANT!! Run `seed_database.py` script FIRST before running this one. """
 
 import os
 import json
@@ -84,9 +84,11 @@ for month in holiday_data:
         holiday_date = (holiday['holiday_date'])
         holiday_link = (holiday['holiday_link'])
         holiday_notes = (holiday['holiday_notes'])
+        holiday_email = (holiday['holiday_email'])
 
         db_holiday = crud.create_holiday(holiday_name, 
                                     holiday_month,
                                     holiday_date,
                                     holiday_link,
-                                    holiday_notes)
+                                    holiday_notes,
+                                    holiday_email)

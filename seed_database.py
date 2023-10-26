@@ -16,19 +16,25 @@ model.connect_to_db(server.app)
 model.db.create_all()
 
 
-""" Months """
-with open('json/months.json') as m:
-    month_data = json.loads(m.read())
+""" Seed Months """
+months = ["january", 
+          "february", 
+          "march", 
+          "april",
+          "may",
+          "june",
+          "july",
+          "august",
+          "september",
+          "october",
+          "november",
+          "december"]
 
-months_in_db = []
-for month in month_data:
-    month_name = (month['month_name'])
-                                                
-    db_month = crud.create_month(month_name)
-    months_in_db.append(db_month)
+for month in months:
+        crud.create_month(month)
 
 
-""" Create 10 test emails """
+""" Seed 10 test emails """
 current_date = datetime.now()
 
 for n in range(1, 11):

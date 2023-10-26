@@ -35,7 +35,7 @@ def create_holiday(holiday_name, holiday_month, holiday_date, holiday_link, holi
 
 
 def create_email_address(email_firstname, email_address):
-    """Create and return a new email entry."""
+    """ Create and return a new email entry """
 
     current_date = datetime.now()
 
@@ -48,6 +48,11 @@ def create_email_address(email_firstname, email_address):
     db.session.commit()
 
     return new_email
+
+
+def get_clicked_date():
+    """ Returns a date from a calendar click """
+    pass
 
 
 if __name__ == '__main__':

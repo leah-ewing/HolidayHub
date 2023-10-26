@@ -1,7 +1,6 @@
 """Script to seed database."""
 
 import os
-import json
 from random import choice, randint
 from datetime import datetime
 
@@ -14,7 +13,6 @@ os.system('createdb holidaydb')
 
 model.connect_to_db(server.app)
 model.db.create_all()
-
 
 """ Seed Months """
 months = ["january", 

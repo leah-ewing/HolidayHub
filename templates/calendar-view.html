@@ -2,16 +2,49 @@
 
 {% block title %}Calendar View{% endblock %}
 
-<!-- CSS -->
-<link
-rel="stylesheet"
-href="../static/calendar.css">
-
 {% block body %}
 
 <body>
+
+  <!-- CSS -->
+  <link
+    rel="stylesheet"
+    href="../static/calendar.css">
+
   <h1><font color = #f364a2>View Calendar</font></h1>
   <br>
+
+  <body class="light">
+
+    <div class="calendar">
+        <div class="calendar-header">
+            <span class="month-picker" id="month-picker">October</span>
+            <div class="year-picker">
+                <span class="year-change" id="prev-year">
+                    <pre><</pre>
+                </span>
+                <span id="year">2023</span>
+                <span class="year-change" id="next-year">
+                    <pre>></pre>
+                </span>
+            </div>
+        </div>
+        <div class="calendar-body">
+            <div class="calendar-week-day">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+            <div class="calendar-days"></div>
+        </div>
+       
+        <div class="month-list"></div>
+    </div>
+    <script src="../static/calendar.js"></script>
 
   <a href="/">
     <button id = "homepage-button">Back to Home</button>

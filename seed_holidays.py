@@ -3,7 +3,6 @@
 """ IMPORTANT!! Run `seed_database.py` script FIRST before running this one. """
 
 import json
-from datetime import datetime
 
 import crud
 import model

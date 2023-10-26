@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, flash, session, redirect
-from flask_migrate import Migrate
 from model import Email, Month, Holiday, connect_to_db, db
 from jinja2 import StrictUndefined
 import crud, json
@@ -10,7 +9,6 @@ app.app_context().push()
 
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
-migrate = Migrate(app, db)
 
 
 @app.route('/')

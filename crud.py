@@ -52,6 +52,17 @@ def create_email_address(email_firstname, email_address):
     return new_email
 
 
+def get_month_by_name(name):
+    """ Returns a month's corresponding number """
+
+    months = Month.query.all()
+
+    for month in months:
+        if month.month_name == name:
+            return month.month_id
+        
+
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

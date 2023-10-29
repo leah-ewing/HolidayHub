@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, session, redirect
+from flask import Flask, render_template, request, flash, session, redirect, jsonify
 from model import Email, Month, Holiday, connect_to_db, db
 from jinja2 import StrictUndefined
 import crud, json, controller
@@ -37,11 +37,16 @@ def addNewEmail():
     return redirect("/")
 
 
-@app.route('/clicked-date/')
+@app.route('/clicked-date', methods = ["POST"])
 def getClickedDate():
     """ Redirects a user to a calendar day """
+    clicked_date = request.json.get("date")
+    clicked_month = crud.get_month_by_name(request.json.get("month").lower())
 
-    return redirect("/")
+    return {
+        "success": True, 
+        "status": f"Date {clicked_month}/{clicked_date} has been sent to server"
+    }
 
 
 

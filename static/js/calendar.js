@@ -3,7 +3,7 @@
 // Calendar script
 
 let calendar = document.querySelector('.calendar')
-let clicked_date
+// let clicked_date
 
 const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -49,10 +49,53 @@ const generateCalendar = (month, year) => {
             }
             calendar_days.appendChild(day)
 
-            day.onclick = () => {
-                clicked_date = parseInt(day.innerHTML)
-                alert(clicked_date) // AJAX request here (clicked_date, currMonth)
-            }
+            // day.onclick = () => {
+            //     clicked_date = {
+            //         date: parseInt(day.innerHTML)
+            //     }
+            //     alert(clicked_date) // AJAX request here (clicked_date, currMonth)
+            // }
+
+            // day.addEventListener('click', (evt) => {
+            //     evt.preventDefault();
+              
+            //     clicked_date = {
+            //         date: parseInt(day.innerHTML)
+            //     }
+              
+            //     fetch('/clicked-date', {
+            //       method: 'POST',
+            //       body: JSON.stringify(clicked_date),
+            //       headers: {
+            //         'Content-Type': 'application/json',
+            //       },
+            //     })
+            //       .then((response) => response.json())
+            //       .then((responseJson) => {
+            //         alert(responseJson.status);
+            //       });
+            //   }); // THIS BLOCK
+
+            day.addEventListener('click', (evt) => {   
+                evt.preventDefault();
+
+                let clicked_date = {
+                    date: String(parseInt(day.innerHTML)),
+                    month: String(month_picker.innerHTML)
+                }
+
+                fetch('/clicked-date', {
+                    method: 'POST',
+                    body: JSON.stringify(clicked_date),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then((response) => response.json())
+                .then((responseJson) => {
+                    console.log(responseJson.status);
+                });
+            }) 
         }
     }
 }

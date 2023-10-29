@@ -62,6 +62,25 @@ def get_month_by_name(name):
             return month.month_id
         
 
+def get_holiday_by_date(month, day):
+    """ Return the first holiday matching a given date """
+
+    holidays = Holiday.query.all()
+
+    for holiday in holidays:
+        if holiday.holiday_month == month and holiday.holiday_date == day:
+            return holiday
+        
+
+def get_holiday_by_name(name):
+    """ Given a name, returns a matching holiday """
+
+    holidays = Holiday.query.all()
+
+    for holiday in holidays:
+        if holiday.holiday_name == name:
+            return holiday
+
 
 if __name__ == '__main__':
     from server import app

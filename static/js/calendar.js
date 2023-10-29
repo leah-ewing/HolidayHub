@@ -49,44 +49,22 @@ const generateCalendar = (month, year) => {
             }
             calendar_days.appendChild(day)
 
-            // day.onclick = () => {
-            //     clicked_date = {
-            //         date: parseInt(day.innerHTML)
-            //     }
-            //     alert(clicked_date) // AJAX request here (clicked_date, currMonth)
-            // }
-
-            // day.addEventListener('click', (evt) => {
-            //     evt.preventDefault();
-              
-            //     clicked_date = {
-            //         date: parseInt(day.innerHTML)
-            //     }
-              
-            //     fetch('/clicked-date', {
-            //       method: 'POST',
-            //       body: JSON.stringify(clicked_date),
-            //       headers: {
-            //         'Content-Type': 'application/json',
-            //       },
-            //     })
-            //       .then((response) => response.json())
-            //       .then((responseJson) => {
-            //         alert(responseJson.status);
-            //       });
-            //   }); // THIS BLOCK
-
             day.addEventListener('click', (evt) => {   
                 evt.preventDefault();
 
-                let clicked_date = {
+                let day_picker = {
                     date: String(parseInt(day.innerHTML)),
                     month: String(month_picker.innerHTML)
                 }
 
-                fetch('/clicked-date', {
+                // let date = String(parseInt(day.innerHTML))
+                // let month = String(month_picker.innerHTML)
+                // const url = `/clicked-date/${month}-${date}`
+
+                fetch('/day-picker', {
                     method: 'POST',
-                    body: JSON.stringify(clicked_date),
+                    body: JSON.stringify(day_picker),
+                    redirect: 'follow',
                     headers: {
                         'Content-Type': 'application/json',
                     },
@@ -95,6 +73,13 @@ const generateCalendar = (month, year) => {
                 .then((responseJson) => {
                     console.log(responseJson.status);
                 });
+
+                // fetch(url)
+                //     .then((response) => response.text())
+                //     .then ((status) => {
+                //         console.log(status)
+                //     })
+                
             }) 
         }
     }

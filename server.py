@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, flash, session, redirect
 from model import Email, Month, Holiday, connect_to_db, db
 from jinja2 import StrictUndefined
-import crud, json
+import crud, json, controller
 from datetime import datetime
 
 app = Flask(__name__)
@@ -33,6 +33,13 @@ def addNewEmail():
     email_address = request.form.get("email")
 
     crud.create_email_address(email_firstname, email_address)
+
+    return redirect("/")
+
+
+@app.route('/clicked-date/')
+def getClickedDate():
+    """ Redirects a user to a calendar day """
 
     return redirect("/")
 

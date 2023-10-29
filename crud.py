@@ -18,7 +18,9 @@ def create_month(month_name):
     return new_month
 
 
-def create_holiday(holiday_name, holiday_month, holiday_date, holiday_link, holiday_notes, holiday_email):
+def create_holiday(holiday_name, holiday_month, 
+                   holiday_date, holiday_link, 
+                   holiday_notes, holiday_email):
     """ Create and return a new daily holiday """
 
     new_holiday = Holiday(holiday_name = holiday_name,
@@ -48,11 +50,6 @@ def create_email_address(email_firstname, email_address):
     db.session.commit()
 
     return new_email
-
-
-def get_clicked_date():
-    """ Returns a date from a calendar click """
-    pass
 
 
 if __name__ == '__main__':

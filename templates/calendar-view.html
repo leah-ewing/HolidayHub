@@ -9,7 +9,15 @@
   <!-- CSS -->
   <link
     rel="stylesheet"
-    href="../static/calendar.css">
+    href="../static/css/calendar.css">
+
+  <!-- JQuery -->
+  <!-- <script
+    src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous">
+  </script> -->
+
 
   <h1><font color = #f364a2>View Calendar</font></h1>
   <br>
@@ -39,12 +47,12 @@
                 <div>Fri</div>
                 <div>Sat</div>
             </div>
-              <div class="calendar-days" onclick="location.href='/'"></div>
+              <div class="calendar-days" name="clicked-date" id="clicked-date"></div>
         </div>
        
         <div class="month-list"></div>
     </div>
-    <script src="../static/calendar.js"></script>
+    <script src="../static/js/calendar.js"></script>
 
   <a href="/">
     <button id = "homepage-button">Back to Home</button>

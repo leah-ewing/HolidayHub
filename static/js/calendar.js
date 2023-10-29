@@ -3,6 +3,7 @@
 // Calendar script
 
 let calendar = document.querySelector('.calendar')
+let clicked_date
 
 const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -46,8 +47,13 @@ const generateCalendar = (month, year) => {
             if (i - first_day.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
                 day.classList.add('curr-date')
             }
+            calendar_days.appendChild(day)
+
+            day.onclick = () => {
+                clicked_date = parseInt(day.innerHTML)
+                alert(clicked_date) // AJAX request here (clicked_date, currMonth)
+            }
         }
-        calendar_days.appendChild(day)
     }
 }
 
@@ -86,3 +92,5 @@ document.querySelector('#next-year').onclick = () => {
     ++curr_year.value
     generateCalendar(curr_month.value, curr_year.value)
 }
+
+

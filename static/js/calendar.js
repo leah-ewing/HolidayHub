@@ -53,11 +53,12 @@ const generateCalendar = (month, year) => {
 
                 let date_picked = String(parseInt(day.innerHTML))
                 let month_picked = String(month_picker.innerHTML)
+                let url = `day-picker/${month_picked}/${date_picked}`
 
-                fetch(`day-picker/${month_picked}/${date_picked}`)
+                fetch(url)
                 .then(response => {
                     if (response.status === 200) {
-                        window.location.href = `/day-picker/${month_picked}/${date_picked}`;
+                        window.location.href = url;
                     } else {
                         console.error('Error:', response.status);
                     }

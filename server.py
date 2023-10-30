@@ -43,11 +43,13 @@ def getClickedDate(month, day):
 
     month_numeral = crud.get_month_by_name(month.lower())
     holiday = crud.get_first_holiday_by_date(month_numeral, int(day))
+    blurb = crud.get_holiday_blurb(holiday.holiday_name)
 
     return render_template('holiday.html',
                            month = month_numeral,
                            day = day,
-                           holiday = holiday.holiday_name)
+                           holiday = holiday.holiday_name,
+                           blurb = blurb)
 
 
 

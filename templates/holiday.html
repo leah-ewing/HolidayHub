@@ -7,14 +7,27 @@
 {% block body %}
 
 <body>
-    <h1>
-        <font color = #f364a2>
-            {{holiday}}
-        </font>
-    </h1>
-    <h3>
-        {{month}}/{{day}}
-    </h3>
+    <div>
+        <h1>
+            <font color = #f364a2> <!-- remove later -->
+                {{holiday}}
+            </font>
+        </h1>
+        <br>
+        <style> 
+            h3 {text-align: center;}
+        </style> <!-- this too -->
+        <h3>
+            {{month}}/{{day}}
+        </h3>
+    </div>
+    <style>
+        #blurb {width: 500px; margin: auto;}
+    </style>
+    <div id="blurb">
+            {{blurb}}
+    </div>
+
     <a href="/calendar-view">
         <button id = "homepage-button">Back to Calendar</button>
       </a>

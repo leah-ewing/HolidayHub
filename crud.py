@@ -80,6 +80,16 @@ def get_holiday_by_name(name):
     for holiday in holidays:
         if holiday.holiday_name == name:
             return holiday
+        
+        
+def get_holiday_blurb(name):
+    """ Returns the blurb for a holiday """
+
+    holidays = Holiday.query.all()
+
+    for holiday in holidays:
+        if holiday.holiday_name == name:
+            return holiday.holiday_blurb
 
 
 if __name__ == '__main__':

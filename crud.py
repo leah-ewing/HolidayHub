@@ -19,15 +19,15 @@ def create_month(month_name):
 
 
 def create_holiday(holiday_name, holiday_month, 
-                   holiday_date, holiday_link, 
-                   holiday_notes, holiday_email):
+                   holiday_date, holiday_img, 
+                   holiday_blurb, holiday_email):
     """ Create and return a new daily holiday """
 
     new_holiday = Holiday(holiday_name = holiday_name,
                           holiday_month = holiday_month,
                           holiday_date = holiday_date,
-                          holiday_link = holiday_link,
-                          holiday_notes = holiday_notes,
+                          holiday_img = holiday_img,
+                          holiday_blurb = holiday_blurb,
                           holiday_email = holiday_email)
     
     db.session.add(new_holiday)

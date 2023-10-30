@@ -80,13 +80,13 @@ for month in holiday_data:
         holiday_name = (holiday['holiday_name'])
         holiday_month = (holiday['holiday_month'])
         holiday_date = (holiday['holiday_date'])
-        holiday_link = (holiday['holiday_link'])
-        holiday_notes = (holiday['holiday_notes'])
+        holiday_img = (holiday['holiday_img'])
+        holiday_blurb = (holiday['holiday_blurb'])
         holiday_email = (holiday['holiday_email'])
 
         db_holiday = crud.create_holiday(holiday_name, 
                                     holiday_month,
                                     holiday_date,
-                                    holiday_link,
-                                    holiday_notes,
+                                    holiday_img,
+                                    holiday_blurb,
                                     holiday_email)

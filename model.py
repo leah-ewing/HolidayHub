@@ -39,12 +39,12 @@ class Holiday(db.Model):
     holiday_name = db.Column(db.String)
     holiday_month = db.Column(db.Integer, db.ForeignKey('month.month_id'))
     holiday_date = db.Column(db.Integer)
-    holiday_link = db.Column(db.String) # link to holiday's HTML page
-    holiday_notes = db.Column(db.String)
+    holiday_img = db.Column(db.String) # link to holiday's HTML page
+    holiday_blurb = db.Column(db.String)
     holiday_email = db.Column(db.String) # text file address (?)
 
     def __repr__(self):
-        return f'<Holiday holiday_id = {self.holiday_id}, holiday_name = {self.holiday_name}, holiday_month = {self.holiday_month}, holiday_date = {self.holiday_date}, holiday_link = {self.holiday_link}, holiday_notes = {self.holiday_notes}, holiday_email = {self.holiday_email}>'
+        return f'<Holiday holiday_id = {self.holiday_id}, holiday_name = {self.holiday_name}, holiday_month = {self.holiday_month}, holiday_date = {self.holiday_date}, holiday_img = {self.holiday_img}, holiday_blurb = {self.holiday_blurb}, holiday_email = {self.holiday_email}>'
 
 
 class Email(db.Model):

@@ -14,5 +14,3 @@ urllib3==1.25.9
 Werkzeug==3.0.1
 flask-bootstrap==3.3.7.1
 blinker==1.6.2 
-selenium==4.14.0
-js2py==0.74

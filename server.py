@@ -6,6 +6,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.app_context().push()
+app.static_folder = 'static'
 
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
@@ -44,12 +45,14 @@ def getClickedDate(month, day):
     month_numeral = crud.get_month_by_name(month.lower())
     holiday = crud.get_first_holiday_by_date(month_numeral, int(day))
     blurb = crud.get_holiday_blurb(holiday.holiday_name)
+    image = crud.get_holiday_image(holiday.holiday_name)
 
     return render_template('holiday.html',
                            month = month_numeral,
                            day = day,
                            holiday = holiday.holiday_name,
-                           blurb = blurb)
+                           blurb = blurb,
+                           image = image)
 
 
 

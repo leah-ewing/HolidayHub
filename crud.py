@@ -90,6 +90,15 @@ def get_holiday_blurb(name):
     for holiday in holidays:
         if holiday.holiday_name == name:
             return holiday.holiday_blurb
+        
+def get_holiday_image(name):
+    """ Returns the image for a holiday """
+
+    holidays = Holiday.query.all()
+
+    for holiday in holidays:
+        if holiday.holiday_name == name:
+            return holiday.holiday_img
 
 
 if __name__ == '__main__':

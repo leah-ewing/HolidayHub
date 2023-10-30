@@ -42,7 +42,7 @@ def getClickedDate(month, day):
     """ When a calendar day is clicked, directs user to that day's page """
 
     month_numeral = crud.get_month_by_name(month.lower())
-    holiday = crud.get_holiday_by_date(month_numeral, int(day))
+    holiday = crud.get_first_holiday_by_date(month_numeral, int(day))
 
     return render_template('test_holiday.html',
                            month = month_numeral,

@@ -44,7 +44,7 @@ def getClickedDate(month, day):
     month_numeral = crud.get_month_by_name(month.lower())
     holiday = crud.get_first_holiday_by_date(month_numeral, int(day))
 
-    return render_template('test_holiday.html',
+    return render_template('holiday.html',
                            month = month_numeral,
                            day = day,
                            holiday = holiday.holiday_name)

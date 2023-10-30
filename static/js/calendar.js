@@ -52,34 +52,21 @@ const generateCalendar = (month, year) => {
             day.addEventListener('click', (evt) => {   
                 evt.preventDefault();
 
-                let day_picker = {
-                    date: String(parseInt(day.innerHTML)),
-                    month: String(month_picker.innerHTML)
-                }
+                let date_picked = String(parseInt(day.innerHTML))
+                let month_picked = String(month_picker.innerHTML)
 
-                // let date = String(parseInt(day.innerHTML))
-                // let month = String(month_picker.innerHTML)
-                // const url = `/clicked-date/${month}-${date}`
-
-                fetch('/day-picker', {
-                    method: 'POST',
-                    body: JSON.stringify(day_picker),
-                    redirect: 'follow',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                fetch(`day-picker/${month_picked}/${date_picked}`)
+                .then(response => {
+                    if (response.status === 200) {
+                        // Redirect to the new URL
+                        window.location.href = `/day-picker/${month_picked}/${date_picked}`;
+                    } else {
+                        console.error('Error:', response.status);
+                    }
                 })
-                .then((response) => response.json())
-                .then((responseJson) => {
-                    console.log(responseJson.status);
+                .catch(error => {
+                    console.error('Error:', error);
                 });
-
-                // fetch(url)
-                //     .then((response) => response.text())
-                //     .then ((status) => {
-                //         console.log(status)
-                //     })
-                
             }) 
         }
     }

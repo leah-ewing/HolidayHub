@@ -4,20 +4,13 @@
     {% block title %}{{holiday}}{% endblock %}
 </title>
 
-<head>
-    <!-- <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="icon" href="data:;base64,iVBORw0KGgo="> -->
-</head>
-<!-- eventually delete when base.html extension works -->
-
 {% block body %}
 
 <body>
-    <h2>
-        {{month}}/{{day}}<br><br>
+    <h1>
         {{holiday}}
-    </h2>
+    </h1>
+    <h3>{{month}}/{{day}}</h3>
     <a href="/">
         <button id = "homepage-button">Back to Home</button>
       </a>

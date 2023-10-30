@@ -14,7 +14,6 @@ app.jinja_env.undefined = StrictUndefined
 @app.route('/')
 def homepage():
     """ Routes to app homepage """
-    # session["clicked_date"] = None
 
     return render_template('homepage.html')
 

@@ -58,7 +58,6 @@ const generateCalendar = (month, year) => {
                 fetch(`day-picker/${month_picked}/${date_picked}`)
                 .then(response => {
                     if (response.status === 200) {
-                        // Redirect to the new URL
                         window.location.href = `/day-picker/${month_picked}/${date_picked}`;
                     } else {
                         console.error('Error:', response.status);

@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 import psycopg2
 from model import db, connect_to_db, Month, Holiday, Email
 from datetime import datetime
+import random
 
 
 def create_month(month_name):
@@ -91,6 +92,7 @@ def get_holiday_blurb(name):
         if holiday.holiday_name == name:
             return holiday.holiday_blurb
         
+
 def get_holiday_image(name):
     """ Returns the image for a holiday """
 
@@ -99,6 +101,36 @@ def get_holiday_image(name):
     for holiday in holidays:
         if holiday.holiday_name == name:
             return holiday.holiday_img
+        
+        
+def check_for_multiple_holidays(month, day):
+    """ Returns true if a date has multiple holidays """
+
+    holidays = Holiday.query.all()
+
+    holidays_on_date = []
+    for holiday in holidays:
+        if holiday.holiday_month == month and holiday.holiday_date == day:
+            holidays_on_date.append(holiday)
+    
+    if len(holidays_on_date) > 1:
+        return True
+    else:
+        return False
+    
+    
+def get_random_holiday_on_date(month, day):
+    """ Returns a random holiday from a given date """
+
+    holidays = Holiday.query.all()
+
+    holidays_on_date = []
+
+    for holiday in holidays:
+        if holiday.holiday_month == month and holiday.holiday_date == day:
+            holidays_on_date.append(holiday)
+            
+    return random.choice(holidays_on_date)
 
 
 if __name__ == '__main__':

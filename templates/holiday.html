@@ -34,9 +34,21 @@
             {{blurb}}
     </div>
 
-    <a href="/calendar-view">
-        <button id = "homepage-button">Back to Calendar</button>
-      </a>
+    <div>
+        <button id = "back-to-calendar-button" onclick="location.href='/calendar-view'">
+            Back to Calendar
+        </button>
+
+        {% if multiple_holidays == True %}
+        
+            <button id="random_holiday_on_date" onclick="location.href='/'">
+                But wait! It's also...
+            </button>
+
+            {{random_holiday}}
+    
+        {% endif %}
+    </div>
 </body>
 
 

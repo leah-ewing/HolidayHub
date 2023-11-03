@@ -142,6 +142,17 @@ def get_random_holiday():
     return random.choice(holidays)
 
 
+def get_month_by_number(num):
+    """ Returns the name of a month given a number """
+
+    months = Month.query.all()
+
+    for month in months:
+        if month.month_id == num:
+            return month.month_name
+
+
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

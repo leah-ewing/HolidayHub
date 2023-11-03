@@ -7,19 +7,19 @@
 {% block body %}
 
 <body>
-    <div>
+    <div><br>
+        <h3>
+            {{month_name}} {{day}} is...
+        </h3><br>
         <h1>
             <font color = #f364a2> <!-- remove later -->
-                {{holiday}}
+                {{holiday}}!
             </font>
         </h1>
         <br>
         <style> 
             h3 {text-align: center;}
         </style> <!-- this too -->
-        <h3>
-            {{month}}/{{day}}
-        </h3>
     </div>
     <div id = "holiday-image">
         <img class = "holiday-image"
@@ -32,7 +32,7 @@
     </style>
     <div id="blurb">
             {{blurb}}
-    </div>
+    </div><br>
 
     <div>
         <button id="back-to-home" onclick="location.href='/'">
@@ -42,7 +42,7 @@
         <button id="random_holiday_on_date_from_homepage" onclick="location.href='/random-holiday'">
             Show me another random holiday!
         </button>
-    </div>
+    </div><br>
 </body>
 
 

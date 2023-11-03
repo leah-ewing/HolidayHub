@@ -52,12 +52,12 @@ def getClickedDate(month, day):
 
     return render_template('holiday.html',
                             month = month_numeral,
+                            month_name = month.capitalize(),
                             day = day_numeral,
                             holiday = holiday.holiday_name,
                             blurb = blurb,
                             image = image,
-                            multiple_holidays_on_date = multiple_holidays_on_date,
-                            from_homepage = False)
+                            multiple_holidays_on_date = multiple_holidays_on_date)
 
 
 @app.route('/random-holiday/<month>/<day>', methods = ["GET"])
@@ -70,24 +70,28 @@ def random_holiday_on_date(month, day):
     holiday = crud.get_random_holiday_on_date(month_numeral, day_numeral)
     blurb = crud.get_holiday_blurb(holiday.holiday_name)
     image = crud.get_holiday_image(holiday.holiday_name)
+    month_name = crud.get_month_by_number(month_numeral)
     multiple_holidays_on_date = crud.check_for_multiple_holidays(month_numeral, day_numeral)
 
     return render_template('holiday.html',
                            month = month_numeral,
+                           month_name = month_name.capitalize(),
                            day = day,
                            holiday = holiday.holiday_name,
                            blurb = blurb,
                            image = image,
                            multiple_holidays_on_date = multiple_holidays_on_date)
 
+
 @app.route('/random-holiday')
 def random_holiday():
     """ Directs a user to a random holiday """
 
     holiday = crud.get_random_holiday()
+    month = crud.get_month_by_number(holiday.holiday_month)
 
     return render_template('random-holiday.html',
-                           month = holiday.holiday_month,
+                           month_name = month.capitalize(),
                            day = holiday.holiday_date,
                            holiday = holiday.holiday_name,
                            blurb = holiday.holiday_blurb,

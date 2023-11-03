@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, flash, session, redirect, jsonify
 from model import Email, Month, Holiday, connect_to_db, db
 from jinja2 import StrictUndefined
-import crud, json
+import crud, json, controller
 from datetime import datetime
 
 app = Flask(__name__)
@@ -49,6 +49,7 @@ def getClickedDate(month, day):
     blurb = crud.get_holiday_blurb(holiday.holiday_name)
     image = crud.get_holiday_image(holiday.holiday_name)
     multiple_holidays_on_date = crud.check_for_multiple_holidays(month_numeral, day_numeral)
+    suffix = controller.get_date_suffix(day)
 
     return render_template('holiday.html',
                             month = month_numeral,
@@ -57,7 +58,9 @@ def getClickedDate(month, day):
                             holiday = holiday.holiday_name,
                             blurb = blurb,
                             image = image,
-                            multiple_holidays_on_date = multiple_holidays_on_date)
+                            multiple_holidays_on_date = multiple_holidays_on_date,
+                            suffix = suffix,
+                            generate_scroll = True)
 
 
 @app.route('/random-holiday/<month>/<day>', methods = ["GET"])
@@ -72,6 +75,7 @@ def random_holiday_on_date(month, day):
     image = crud.get_holiday_image(holiday.holiday_name)
     month_name = crud.get_month_by_number(month_numeral)
     multiple_holidays_on_date = crud.check_for_multiple_holidays(month_numeral, day_numeral)
+    suffix = controller.get_date_suffix(day)
 
     return render_template('holiday.html',
                            month = month_numeral,
@@ -80,7 +84,9 @@ def random_holiday_on_date(month, day):
                            holiday = holiday.holiday_name,
                            blurb = blurb,
                            image = image,
-                           multiple_holidays_on_date = multiple_holidays_on_date)
+                           multiple_holidays_on_date = multiple_holidays_on_date,
+                           suffix = suffix,
+                           generate_scroll = False)
 
 
 @app.route('/random-holiday')
@@ -89,13 +95,15 @@ def random_holiday():
 
     holiday = crud.get_random_holiday()
     month = crud.get_month_by_number(holiday.holiday_month)
+    suffix = controller.get_date_suffix(str(holiday.holiday_date))
 
     return render_template('random-holiday.html',
                            month_name = month.capitalize(),
                            day = holiday.holiday_date,
                            holiday = holiday.holiday_name,
                            blurb = holiday.holiday_blurb,
-                           image = holiday.holiday_img)
+                           image = holiday.holiday_img,
+                           suffix = suffix)
 
 
 

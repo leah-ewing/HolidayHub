@@ -135,7 +135,7 @@ def get_random_holiday_on_date(month, day):
 
 
 def get_random_holiday():
-    """ Returns a random holiday from a given date """
+    """ Returns a random holiday """
 
     holidays = Holiday.query.all()
 

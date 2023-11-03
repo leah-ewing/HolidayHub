@@ -53,6 +53,20 @@ def create_email_address(email_firstname, email_address):
     return new_email
 
 
+def update_holiday_image(name, img):
+    """ Updates the image for a given holiday """
+
+    holidays = Holiday.query.all()
+
+    for holiday in holidays:
+        if holiday.holiday_name == name:
+            holiday.holiday_img = img
+
+    db.session.commit()
+
+    return holiday
+
+
 def get_month_by_name(name):
     """ Returns a month's corresponding number """
 
@@ -150,6 +164,16 @@ def get_month_by_number(num):
     for month in months:
         if month.month_id == num:
             return month.month_name
+        
+
+# def update_holiday_given_name(name):
+#     """ Updates a parameter of a given holiday """
+
+#     holidays = Month.query.all()
+
+#     for holiday in holidays:
+#         if holiday.holiday_name == name:
+#             continue
 
 
 

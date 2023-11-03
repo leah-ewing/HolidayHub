@@ -120,7 +120,7 @@ def check_for_multiple_holidays(month, day):
     
     
 def get_random_holiday_on_date(month, day):
-    """ Returns a random holiday from a given date (first time clicked) """
+    """ Returns a random holiday from a given date """
 
     holidays = Holiday.query.all()
     holidays_on_date = []

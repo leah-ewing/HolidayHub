@@ -35,29 +35,13 @@
     </div>
 
     <div>
-        {% if from_homepage == False %}
-
-            {% if multiple_holidays_on_date == True %}
-
-                <button id = "back-to-calendar-button" onclick="location.href='/calendar-view'">
-                    Back to Calendar
-                </button>
-            
-                <button id="random_holiday_on_date" onclick="location.href='/random-holiday/{{month}}/{{day}}'">
-                    But wait! It's also...
-                </button>
+        <button id="back-to-home" onclick="location.href='/'">
+            Back home
+        </button>
         
-            {% endif %}
-
-        {% else %}
-            <button id="back-to-home" onclick="location.href='/'">
-                Back home
-            </button>
-            
-            <button id="random_holiday_on_date_from_homepage" onclick="location.href='/random-holiday'">
-                Show me another random holiday!
-            </button>
-        {% endif %}
+        <button id="random_holiday_on_date_from_homepage" onclick="location.href='/random-holiday'">
+            Show me another random holiday!
+        </button>
     </div>
 </body>
 

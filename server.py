@@ -91,9 +91,7 @@ def random_holiday():
                            day = holiday.holiday_date,
                            holiday = holiday.holiday_name,
                            blurb = holiday.holiday_blurb,
-                           image = holiday.holiday_img,
-                           multiple_holidays = False,
-                           from_homepage = True)
+                           image = holiday.holiday_img)
 
 
 

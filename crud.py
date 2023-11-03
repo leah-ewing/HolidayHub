@@ -164,16 +164,6 @@ def get_month_by_number(num):
     for month in months:
         if month.month_id == num:
             return month.month_name
-        
-
-# def update_holiday_given_name(name):
-#     """ Updates a parameter of a given holiday """
-
-#     holidays = Month.query.all()
-
-#     for holiday in holidays:
-#         if holiday.holiday_name == name:
-#             continue
 
 
 

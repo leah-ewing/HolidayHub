@@ -76,5 +76,36 @@ def get_next_day(month, day, year):
 
 
 def get_previous_day(month, day, year):
-    """ Gets the previous date from a given date """
+    """ Gets the previous date to a given date """
     previous_date = dict()
+
+    if day == 1:
+        if month == 1:
+            previous_date["month"] = 12
+            previous_date["day"] = 31
+            previous_date["year"] = year - 1
+        else:
+            if month - 1 == 2:
+                leap_year = is_leap_year(year)
+                if leap_year == True:
+                    previous_date["month"] = month - 1
+                    previous_date["day"] = 29
+                    previous_date["year"] = year
+                else:
+                    previous_date["month"] = month - 1
+                    previous_date["day"] = 28
+                    previous_date["year"] = year
+            elif month - 1 == 4 or month - 1 == 6 or month - 1 == 9 or month - 1 == 11:
+                previous_date["month"] = month - 1
+                previous_date["day"] = 30
+                previous_date["year"] = year
+            elif month - 1 == 1 or month - 1 == 3 or month - 1 == 5 or month - 1 == 7 or month - 1 == 8 or month - 1 == 10:
+                previous_date["month"] = month - 1
+                previous_date["day"] = 31
+                previous_date["year"] = year
+    else:
+        previous_date["month"] = month
+        previous_date["day"] = day - 1
+        previous_date["year"] = year
+
+    return(previous_date)

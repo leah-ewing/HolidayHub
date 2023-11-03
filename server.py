@@ -51,7 +51,9 @@ def getClickedDate(month, day, year):
     image = crud.get_holiday_image(holiday.holiday_name)
     multiple_holidays_on_date = crud.check_for_multiple_holidays(month_numeral, day_numeral)
     suffix = controller.get_date_suffix(day)
+
     next_date = controller.get_next_day(month_numeral, day_numeral, year_numeral)
+    previous_date = controller.get_previous_day(month_numeral, day_numeral, year_numeral)
 
     return render_template('holiday.html',
                             month = month_numeral,
@@ -63,7 +65,8 @@ def getClickedDate(month, day, year):
                             multiple_holidays_on_date = multiple_holidays_on_date,
                             suffix = suffix,
                             generate_scroll = True,
-                            next_date = next_date)
+                            next_date = next_date,
+                            previous_date = previous_date)
 
 
 @app.route('/random-holiday/<month>/<day>', methods = ["GET"])

@@ -30,10 +30,19 @@
                 </img>
     </div>
 
+    <div>
     {% if generate_scroll == True %}
-        Previous: {{previous_date}}<br>
-        Next: {{next_date}}
+
+        <button id = "previous-date-button" onclick="location.href='/previous/{{previous_date.month}}/{{previous_date.day}}/{{previous_date.year}}'">
+            Previous
+        </button>
+
+        <button id = "previous-date-button" onclick="location.href='/next/{{next_date.month}}/{{next_date.day}}/{{next_date.year}}'">
+            Next
+        </button>
+
     {% endif %}
+    </div>
 
     <style>
         #blurb {width: 500px; margin: auto;}

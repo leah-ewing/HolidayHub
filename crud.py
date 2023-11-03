@@ -120,17 +120,26 @@ def check_for_multiple_holidays(month, day):
     
     
 def get_random_holiday_on_date(month, day):
+    """ Returns a random holiday from a given date (first time clicked) """
+
+    holidays = Holiday.query.all()
+    holidays_on_date = []
+
+    for holiday in holidays:
+            if holiday.holiday_month == month and holiday.holiday_date == day:
+                holidays_on_date.append(holiday)
+    
+    holidays_on_date.pop(0)
+
+    return random.choice(holidays_on_date)
+
+
+def get_random_holiday():
     """ Returns a random holiday from a given date """
 
     holidays = Holiday.query.all()
 
-    holidays_on_date = []
-
-    for holiday in holidays:
-        if holiday.holiday_month == month and holiday.holiday_date == day:
-            holidays_on_date.append(holiday)
-            
-    return random.choice(holidays_on_date)
+    return random.choice(holidays)
 
 
 if __name__ == '__main__':

@@ -7,7 +7,7 @@ let calendar = document.querySelector('.calendar')
 const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 const isLeapYear = (year) => {
-    return (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) || (year % 100 === 0 && year % 400 ===0)
+    return (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) || (year % 100 === 0 && year % 400 === 0)
 }
 
 const getFebDays = (year) => {
@@ -48,7 +48,8 @@ const generateCalendar = (month, year) => {
             evt.preventDefault();
             const date_picked = String(day);
             const month_picked = month_names[month];
-            const url = `day-picker/${month_picked}/${date_picked}`
+            const year_picked = calendar_header_year.innerHTML
+            const url = `day-picker/${month_picked}/${date_picked}/${year_picked}`
 
             fetch(url)
                 .then(response => {

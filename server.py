@@ -38,12 +38,13 @@ def addNewEmail():
     return redirect("/")
 
 
-@app.route('/day-picker/<month>/<day>', methods = ["GET"])
-def getClickedDate(month, day):
+@app.route('/day-picker/<month>/<day>/<year>', methods = ["GET"])
+def getClickedDate(month, day, year):
     """ When a calendar day is clicked, directs user to that day's page """
 
     month_numeral = crud.get_month_by_name(month.lower())
     day_numeral = int(day)
+    year_numeral = int(year)
 
     holiday = crud.get_first_holiday_by_date(month_numeral, day_numeral)
     blurb = crud.get_holiday_blurb(holiday.holiday_name)
@@ -60,7 +61,8 @@ def getClickedDate(month, day):
                             image = image,
                             multiple_holidays_on_date = multiple_holidays_on_date,
                             suffix = suffix,
-                            generate_scroll = True)
+                            generate_scroll = True,
+                            year = year_numeral)
 
 
 @app.route('/random-holiday/<month>/<day>', methods = ["GET"])

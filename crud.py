@@ -67,6 +67,30 @@ def update_holiday_image(name, img):
     return holiday
 
 
+def update_holiday_blurb(name, blurb):
+    """ Updates the blurb for a given holiday """
+
+    holidays = Holiday.query.all()
+
+    for holiday in holidays:
+        if holiday.holiday_name == name:
+            holiday.holiday_blurb = blurb
+
+    db.session.commit()
+
+
+def update_holiday_email(name, email):
+    """ Updates the email for a given holiday """
+
+    holidays = Holiday.query.all()
+
+    for holiday in holidays:
+        if holiday.holiday_name == name:
+            holiday.holiday_email = email
+    
+    db.session.commit()
+
+
 def get_month_by_name(name):
     """ Returns a month's corresponding number """
 

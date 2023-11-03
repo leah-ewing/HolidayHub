@@ -1,8 +1,7 @@
-from flask import Flask, render_template, request, flash, session, redirect, jsonify
-from model import Email, Month, Holiday, connect_to_db, db
+from flask import Flask, render_template, request, flash, session, redirect
+from model import connect_to_db
 from jinja2 import StrictUndefined
-import crud, json, controller
-from datetime import datetime
+import crud, controller
 
 app = Flask(__name__)
 app.app_context().push()
@@ -10,6 +9,7 @@ app.static_folder = 'static'
 
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
+
 
 
 @app.route('/')

@@ -153,6 +153,7 @@ def next_holiday(month, day, year):
 
     return render_template('holiday.html',
                            holiday = holiday.holiday_name,
+                           month = month_num,
                            month_name = month_name.capitalize(),
                            day = day,
                            suffix = suffix,

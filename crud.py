@@ -118,26 +118,6 @@ def get_holiday_by_name(name):
             return holiday
         
         
-def get_holiday_blurb(name):
-    """ Returns the blurb for a holiday """
-
-    holidays = Holiday.query.all()
-
-    for holiday in holidays:
-        if holiday.holiday_name == name:
-            return holiday.holiday_blurb
-        
-
-def get_holiday_image(name):
-    """ Returns the image for a holiday """
-
-    holidays = Holiday.query.all()
-
-    for holiday in holidays:
-        if holiday.holiday_name == name:
-            return holiday.holiday_img
-        
-        
 def check_for_multiple_holidays(month, day):
     """ Returns true if a date has multiple holidays """
 

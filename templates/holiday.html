@@ -33,11 +33,11 @@
     <div>
     {% if generate_scroll == True %}
 
-        <button id = "previous-date-button" onclick="location.href='/previous/{{previous_date.month}}/{{previous_date.day}}/{{previous_date.year}}'">
+        <button id = "previous-date-button" onclick="location.href='/day-picker/{{previous_date_month}}/{{previous_date.day}}/{{previous_date.year}}'">
             Previous
         </button>
 
-        <button id = "next-date-button" onclick="location.href='/next/{{next_date.month}}/{{next_date.day}}/{{next_date.year}}'">
+        <button id = "next-date-button" onclick="location.href='/day-picker/{{next_date_month}}/{{next_date.day}}/{{next_date.year}}'">
             Next
         </button>
 

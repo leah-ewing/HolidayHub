@@ -60,7 +60,9 @@ def getClickedDate(month, day, year):
     suffix = controller.get_date_suffix(day)
 
     next_date = controller.get_next_day(month_num, day_num, year_num)
+    next_date_month_string = crud.get_month_by_number(next_date["month"])
     previous_date = controller.get_previous_day(month_num, day_num, year_num)
+    previous_date_month_string = crud.get_month_by_number(previous_date["month"])
 
     return render_template('holiday.html',
                             month = month_num,
@@ -73,7 +75,9 @@ def getClickedDate(month, day, year):
                             suffix = suffix,
                             generate_scroll = True,
                             next_date = next_date,
-                            previous_date = previous_date)
+                            next_date_month = next_date_month_string.capitalize(),
+                            previous_date = previous_date,
+                            previous_date_month = previous_date_month_string.capitalize())
 
 
 @app.route('/random-holiday/<month>/<day>', methods = ["GET"])
@@ -115,63 +119,6 @@ def random_holiday():
                            blurb = holiday.holiday_blurb,
                            image = holiday.holiday_img,
                            suffix = suffix)
-
-
-@app.route('/previous/<month>/<day>/<year>', methods = ["GET"])
-def previous_holiday(month, day, year):
-    """ Directs a user to the holiday on the previous date """
-    month_num = int(month)
-    day_num = int(day)
-    year_num = int(year)
-
-    holiday = crud.get_first_holiday_by_date(month_num, day_num)
-    month_name = crud.get_month_by_number(month_num)
-    multiple_holidays_on_date = crud.check_for_multiple_holidays(month_num, day_num)
-
-    suffix = controller.get_date_suffix(day)
-    previous_date = controller.get_previous_day(month_num, day_num, year_num)
-    next_date = controller.get_next_day(month_num, day_num, year_num)
-
-    return render_template('holiday.html',
-                           holiday = holiday.holiday_name,
-                           month_name = month_name.capitalize(),
-                           day = day,
-                           suffix = suffix,
-                           image = holiday.holiday_img,
-                           generate_scroll = True,
-                           previous_date = previous_date,
-                           next_date = next_date,
-                           blurb = holiday.holiday_blurb,
-                           multiple_holidays_on_date = multiple_holidays_on_date)
-
-
-@app.route('/next/<month>/<day>/<year>', methods = ["GET"])
-def next_holiday(month, day, year):
-    """ Directs a user to the holiday on the next date """
-    month_num = int(month)
-    day_num = int(day)
-    year_num = int(year)
-
-    holiday = crud.get_first_holiday_by_date(month_num, day_num)
-    month_name = crud.get_month_by_number(month_num)
-    multiple_holidays_on_date = crud.check_for_multiple_holidays(month_num, day_num)
-
-    suffix = controller.get_date_suffix(day)
-    previous_date = controller.get_previous_day(month_num, day_num, year_num)
-    next_date = controller.get_next_day(month_num, day_num, year_num)
-
-    return render_template('holiday.html',
-                           holiday = holiday.holiday_name,
-                           month = month_num,
-                           month_name = month_name.capitalize(),
-                           day = day,
-                           suffix = suffix,
-                           image = holiday.holiday_img,
-                           generate_scroll = True,
-                           previous_date = previous_date,
-                           next_date = next_date,
-                           blurb = holiday.holiday_blurb,
-                           multiple_holidays_on_date = multiple_holidays_on_date)
 
 
 

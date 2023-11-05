@@ -5,6 +5,7 @@ from datetime import date
 
 def get_date_suffix(num):
     """ Gets the suffix for a given date ('st', 'nd', 'rd', or 'th') """
+
     num = int(num[-1])
 
     if num == 1:
@@ -21,12 +22,14 @@ def get_date_suffix(num):
 
 def is_leap_year(year):
     """ Checks if a given year is a leap year """
+
     if year % 4 == 0 and year % 100 != 0 and year % 400 != 0 or year % 100 == 0 and year % 400 % 100 == 0:
         return True
 
 
 def get_next_day(month, day, year):
     """ Gets the next date to a given date """
+
     next_date = dict()
 
     if day in range(28, 32):
@@ -79,6 +82,7 @@ def get_next_day(month, day, year):
 
 def get_previous_day(month, day, year):
     """ Gets the previous date to a given date """
+
     previous_date = dict()
 
     if day == 1:
@@ -110,7 +114,7 @@ def get_previous_day(month, day, year):
         previous_date["day"] = day - 1
         previous_date["year"] = year
 
-    return(previous_date)
+    return previous_date
 
 
 def get_current_date():

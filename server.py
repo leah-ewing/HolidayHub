@@ -45,7 +45,7 @@ def addNewEmail():
 
 @app.route('/day-picker/<month>/<day>/<year>', methods = ["GET"])
 def getClickedDate(month, day, year):
-    """ When a calendar day is clicked, directs user to that day's page """
+    """ When a calendar day is clicked, directs user to that day's holiday page """
 
     month_num = crud.get_month_by_name(month.lower())
     day_num = int(day)

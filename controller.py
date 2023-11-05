@@ -1,6 +1,7 @@
 """ Controller operations """
 
 from datetime import date
+import crud
 
 
 def get_date_suffix(num):
@@ -121,9 +122,12 @@ def get_current_date():
     """ Returns the current date """
 
     current_date = str(date.today()).split('-')
+    month_string = crud.get_month_by_number(int(current_date[1]))
+    
     today = {
-        "month": int(current_date[1]),
-        "day": int(current_date[2])
+        "month": month_string,
+        "day": int(current_date[2]),
+        "year": int(current_date[0])
     }
 
     return today

@@ -39,7 +39,7 @@ class Holiday(db.Model):
     holiday_name = db.Column(db.String)
     holiday_month = db.Column(db.Integer, db.ForeignKey('month.month_id'))
     holiday_date = db.Column(db.Integer)
-    holiday_img = db.Column(db.String) # link to holiday's HTML page
+    holiday_img = db.Column(db.String)
     holiday_blurb = db.Column(db.String)
     holiday_email = db.Column(db.String) # text file address (?)
 
@@ -61,7 +61,7 @@ class Email(db.Model):
     email_added_on = db.Column(db.String)
 
     def __repr__(self):
-        return f'<Email email_id = {self.email_id} email_firstname = {self.email_firstname}, email_address = {self.email_address}, email_opt_in = {self.email_opt_in}, email_added_on = {self.email_added_on}>'
+        return f'<Email email_id = {self.email_id}, email_firstname = {self.email_firstname}, email_address = {self.email_address}, email_opt_in = {self.email_opt_in}, email_added_on = {self.email_added_on}>'
 
     
 if __name__ == '__main__':

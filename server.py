@@ -17,11 +17,15 @@ def homepage():
     """ Routes to app homepage """
 
     today = controller.get_current_date()
-    holiday = crud.get_first_holiday_by_date(today["month"], today["day"])
+    month_num = crud.get_month_by_name(today["month"])
+    holiday = crud.get_first_holiday_by_date(month_num, today["day"])
 
     return render_template('homepage.html',
                            holiday = holiday.holiday_name,
-                           image = holiday.holiday_img)
+                           image = holiday.holiday_img,
+                           day = holiday.holiday_date,
+                           month_name = today["month"].capitalize(),
+                           year = today["year"])
 
 
 @app.route('/calendar-view')

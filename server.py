@@ -16,7 +16,12 @@ app.jinja_env.undefined = StrictUndefined
 def homepage():
     """ Routes to app homepage """
 
-    return render_template('homepage.html')
+    today = controller.get_current_date()
+    holiday = crud.get_first_holiday_by_date(today["month"], today["day"])
+
+    return render_template('homepage.html',
+                           holiday = holiday.holiday_name,
+                           image = holiday.holiday_img)
 
 
 @app.route('/calendar-view')

@@ -1,5 +1,7 @@
 """ Controller operations """
 
+from datetime import date, datetime
+
 
 def get_date_suffix(num):
     """ Gets the suffix for a given date ('st', 'nd', 'rd', or 'th') """
@@ -22,8 +24,6 @@ def is_leap_year(year):
     
     if year % 4 == 0 and year % 100 != 0 and year % 400 != 0 or year % 100 == 0 and year % 400 % 100 == 0:
         return True
-    else:
-        return False
 
 
 def get_next_day(month, day, year):
@@ -113,3 +113,15 @@ def get_previous_day(month, day, year):
         previous_date["year"] = year
 
     return(previous_date)
+
+
+def get_current_date():
+    """ Returns the current date """
+
+    current_date = str(date.today()).split('-')
+    today = {
+        "month": int(current_date[1]),
+        "day": int(current_date[2])
+    }
+
+    return today

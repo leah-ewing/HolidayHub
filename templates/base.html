@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 
 <head>
+  {% block head %}
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
-<!-- CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
 
@@ -20,8 +21,6 @@
     {% endblock %}
   </title>
 
-  {% block head %}
-
   <div>
     <button id = "homepage-button" onclick="location.href='/'">
       HolidayApp
@@ -33,7 +32,9 @@
   </div>
 
   <div id="popup-window" class="popup-window">
-    <h3>Please enter first name and email:</h3>
+    <h3>
+      Please enter first name and email:
+    </h3>
 
     <form action = "/add-email" method = "POST">
       <div class = "add-email" style="line-height:1.75;">

@@ -1,6 +1,6 @@
 """ CRUD operations """
 
-from model import db, connect_to_db, Month, Holiday, Email
+from model import db, connect_to_db, Month, Holiday, Email, MonthlyHoliday
 from datetime import datetime
 import random
 
@@ -48,6 +48,18 @@ def create_email_address(email_firstname, email_address):
     db.session.commit()
 
     return new_email
+
+
+def create_monthly_holiday(monthly_holiday_name, monthly_holiday_month):
+    """ Create and return a new monthly holiday """
+
+    new_monthly_holiday = MonthlyHoliday(monthly_holiday_name = monthly_holiday_name,
+                                        monthly_holiday_month = monthly_holiday_month)
+
+    db.session.add(new_monthly_holiday)
+    db.session.commit()
+
+    return new_monthly_holiday
 
 
 def update_holiday_image(name, img):

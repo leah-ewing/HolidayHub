@@ -15,7 +15,7 @@ def connect_to_db(flask_app, db_uri='postgresql:///holidaydb', echo=True):
 
 
 class Month(db.Model):
-    """ Months of the Year """
+    """ Months of the year """
 
     __tablename__ = 'month'
 
@@ -25,7 +25,7 @@ class Month(db.Model):
     month_name = db.Column(db.String)
 
     def __repr__(self):
-        return f'<Month month_id = {self.month_id} month_name = {self.month_name}>'
+        return f'<Month - month_id = {self.month_id} month_name = {self.month_name}>'
     
 
 class Holiday(db.Model):
@@ -44,7 +44,7 @@ class Holiday(db.Model):
     holiday_email = db.Column(db.String) # text file address (?)
 
     def __repr__(self):
-        return f'<Holiday holiday_id = {self.holiday_id}, holiday_name = {self.holiday_name}, holiday_month = {self.holiday_month}, holiday_date = {self.holiday_date}, holiday_img = {self.holiday_img}, holiday_blurb = {self.holiday_blurb}, holiday_email = {self.holiday_email}>'
+        return f'<Holiday - holiday_id = {self.holiday_id}, holiday_name = {self.holiday_name}, holiday_month = {self.holiday_month}, holiday_date = {self.holiday_date}, holiday_img = {self.holiday_img}, holiday_blurb = {self.holiday_blurb}, holiday_email = {self.holiday_email}>'
 
 
 class Email(db.Model):
@@ -61,7 +61,22 @@ class Email(db.Model):
     email_added_on = db.Column(db.String)
 
     def __repr__(self):
-        return f'<Email email_id = {self.email_id}, email_firstname = {self.email_firstname}, email_address = {self.email_address}, email_opt_in = {self.email_opt_in}, email_added_on = {self.email_added_on}>'
+        return f'<Email - email_id = {self.email_id}, email_firstname = {self.email_firstname}, email_address = {self.email_address}, email_opt_in = {self.email_opt_in}, email_added_on = {self.email_added_on}>'
+    
+
+class MonthlyHoliday(db.Model):
+    """ Monthly Holidays """
+
+    __tablename__ = 'monthly_holiday'
+
+    monthly_holiday_id = db.Column(db.Integer,
+                                   autoincrement = True,
+                                   primary_key = True)
+    monthly_holiday_name = db.Column(db.String)
+    monthly_holiday_month = db.Column(db.Integer, db.ForeignKey('month.month_id'))
+
+    def __repr__(self):
+        return f'<Monthly Holiday - monthly_holiday_id = {self.monthly_holiday_id}, monthly_holiday_name = {self.monthly_holiday_name}, monthly_holiday_month = {self.monthly_holiday_month}>'
 
     
 if __name__ == '__main__':

@@ -176,6 +176,8 @@ body {
     padding: 5px 10px;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 40px;
+    padding-bottom: 10px;
 }
 
 .month-picker:hover {
@@ -256,4 +258,8 @@ body {
 
 .month-list > div > div:hover {
     background-color: var(--color-hover);
+}
+
+#year {
+    padding-bottom: 15px;
 }

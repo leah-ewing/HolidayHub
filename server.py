@@ -60,8 +60,8 @@ def getClickedDate(month, day, year):
     suffix = controller.get_date_suffix(day)
 
     next_date = controller.get_next_day(month_num, day_num, year_num)
-    next_date_month_string = crud.get_month_by_number(next_date["month"])
     previous_date = controller.get_previous_day(month_num, day_num, year_num)
+    next_date_month_string = crud.get_month_by_number(next_date["month"])
     previous_date_month_string = crud.get_month_by_number(previous_date["month"])
 
     return render_template('holiday.html',

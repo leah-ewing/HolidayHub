@@ -54,8 +54,7 @@ class Email(db.Model):
 
     email_id = db.Column(db.Integer,
                         autoincrement = True,
-                        primary_key = True,
-                        )
+                        primary_key = True)
     email_firstname = db.Column(db.String)
     email_address = db.Column(db.String, unique = True)
     email_opt_in = db.Column(db.Boolean)

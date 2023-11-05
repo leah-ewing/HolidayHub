@@ -1,6 +1,6 @@
 """ Controller operations """
 
-from datetime import date, datetime
+from datetime import date
 
 
 def get_date_suffix(num):
@@ -21,14 +21,12 @@ def get_date_suffix(num):
 
 def is_leap_year(year):
     """ Checks if a given year is a leap year """
-    
     if year % 4 == 0 and year % 100 != 0 and year % 400 != 0 or year % 100 == 0 and year % 400 % 100 == 0:
         return True
 
 
 def get_next_day(month, day, year):
     """ Gets the next date to a given date """
-
     next_date = dict()
 
     if day in range(28, 32):

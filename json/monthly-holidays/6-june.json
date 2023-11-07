@@ -1,4 +1,17 @@
 [{
-    "monthly_holiday_name": "june holidays",
+    "monthly_holiday_name": "Candy Month",
+    "monthly_holiday_month": 6
+},
+{
+    "monthly_holiday_name": "Great Outdoors Month",
+    "monthly_holiday_month": 6
+},{
+    "monthly_holiday_name": "Adopt a Cat Month",
+    "monthly_holiday_month": 6
+},{
+    "monthly_holiday_name": "National Iced Tea Month",
+    "monthly_holiday_month": 6
+},{
+    "monthly_holiday_name": "African-American Music Appreciation Month",
     "monthly_holiday_month": 6
 }]

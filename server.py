@@ -41,16 +41,16 @@ def calendarView():
                            monthly_holidays = monthly_holidays)
 
 
-@app.route('/add-email', methods = ["POST"]) 
+@app.route('/add-email', methods = ["POST"])
 def addNewEmail():
     """ Adds new email and redirects user to homepage """
 
-    email_firstname = request.form.get("fname")
-    email_address = request.form.get("email")
+    first_name = request.json.get("fname")
+    email = request.json.get("email")
 
-    crud.create_email_address(email_firstname, email_address)
+    crud.create_email_address(first_name, email)
 
-    return redirect("/")
+    return {"success": True, "status": 200}
 
 
 @app.route('/day-picker/<month>/<day>/<year>', methods = ["GET"])

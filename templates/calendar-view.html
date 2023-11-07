@@ -47,13 +47,15 @@
       <script src="../static/js/calendar.js"></script>
     </div>
     <div class="col">
-      <h2>
+      <h2><br>
         <b>Did you know...?</b>
       </h2>
       <div id="monthly-holiday">
-        <h5>
-          <br><b><span id="this-month">{{month}}</span> is also...</b>
-        </h5>
+        <h4>
+          <br><b><font color=#f364a2>
+            <span id="this-month">{{month}}</span> is also...</b>
+          </font>
+        </h4>
       </div>
       <ol id="monthly-holiday-list">
         {% for holiday in monthly_holidays %}

@@ -98,7 +98,7 @@ monthly_holiday_data = []
 """ January """
 with open('json/monthly-holidays/1-january.json') as jan:
     january_data = json.loads(jan.read())
-    holiday_data.append(january_data)
+    monthly_holiday_data.append(january_data)
 
 """ February """
 with open('json/monthly-holidays/2-february.json') as feb:

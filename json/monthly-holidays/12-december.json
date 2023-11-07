@@ -1,4 +1,20 @@
 [{
-    "monthly_holiday_name": "dec holidays",
+    "monthly_holiday_name": "Art and Architecture Mnonth",
+    "monthly_holiday_month": 12
+},
+{
+    "monthly_holiday_name": "'Hi Neighbor' Month",
+    "monthly_holiday_month": 12
+},
+{
+    "monthly_holiday_name": "Bingo Month",
+    "monthly_holiday_month": 12
+},
+{
+    "monthly_holiday_name": "Learn a Foreign Language Month",
+    "monthly_holiday_month": 12
+},
+{
+    "monthly_holiday_name": "National Cat Lovers' Month",
     "monthly_holiday_month": 12
 }]

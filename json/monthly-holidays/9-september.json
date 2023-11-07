@@ -1,4 +1,20 @@
 [{
-    "monthly_holiday_name": "sept holidays",
+    "monthly_holiday_name": "Classical Music Month",
+    "monthly_holiday_month": 9
+},
+{
+    "monthly_holiday_name": "National Sewing Month",
+    "monthly_holiday_month": 9
+},
+{
+    "monthly_holiday_name": "National Mushroom Month",
+    "monthly_holiday_month": 9
+},
+{
+    "monthly_holiday_name": "Better Breakfast Month",
+    "monthly_holiday_month": 9
+},
+{
+    "monthly_holiday_name": "National Courtesy Month",
     "monthly_holiday_month": 9
 }]

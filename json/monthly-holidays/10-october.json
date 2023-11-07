@@ -1,4 +1,20 @@
 [{
-    "monthly_holiday_name": "oct holidays",
+    "monthly_holiday_name": "National Dessert Month",
+    "monthly_holiday_month": 10
+},
+{
+    "monthly_holiday_name": "Apple Month",
+    "monthly_holiday_month": 10
+},
+{
+    "monthly_holiday_name": "Adopt a Shelter Dog Month",
+    "monthly_holiday_month": 10
+},
+{
+    "monthly_holiday_name": "National Pasta Month",
+    "monthly_holiday_month": 10
+},
+{
+    "monthly_holiday_name": "Country Music Month",
     "monthly_holiday_month": 10
 }]

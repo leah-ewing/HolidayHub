@@ -1,4 +1,20 @@
 [{
-    "monthly_holiday_name": "nov holidays",
+    "monthly_holiday_name": "History of Aviation Month",
+    "monthly_holiday_month": 11
+},
+{
+    "monthly_holiday_name": "Banana Pudding Lovers Month",
+    "monthly_holiday_month": 11
+},
+{
+    "monthly_holiday_name": "Child Safety Protection Month",
+    "monthly_holiday_month": 11
+},
+{
+    "monthly_holiday_name": "International Drum Month",
+    "monthly_holiday_month": 11
+},
+{
+    "monthly_holiday_name": "Manatee Awareness Month",
     "monthly_holiday_month": 11
 }]

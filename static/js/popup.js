@@ -36,7 +36,7 @@ submitButton.addEventListener('click', (evt) => {
     })
     .then((response) => response.json())
     .then((responseJson) => {
-      console.log(responseJson.status)
+      console.log("Email Added Successfully:", responseJson.status)
       thankYouWindow.style.display = "block"
     })
 })

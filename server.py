@@ -50,7 +50,8 @@ def addNewEmail():
 
     crud.create_email_address(first_name, email)
 
-    return {"success": True, "status": 200}
+    return {"success": True, 
+            "status": 200}
 
 
 @app.route('/day-picker/<month>/<day>/<year>', methods = ["GET"])

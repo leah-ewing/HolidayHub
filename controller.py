@@ -4,17 +4,26 @@ from datetime import date
 import crud
 
 
-def get_date_suffix(num):
+def get_date_suffix(number):
     """ Gets the suffix for a given date ('st', 'nd', 'rd', or 'th') """
 
-    num = int(num[-1])
+    num = int(number[-1])
 
     if num == 1:
-        suffix = 'st'
+        if int(number) == 11:
+            suffix = 'th'
+        else:
+            suffix = 'st'
     elif num == 2:
-        suffix = 'nd'
+        if int(number) == 12:
+            suffix = 'th'
+        else:
+            suffix = 'nd'
     elif num == 3:
-        suffix = 'rd'
+        if int(number) == 13:
+            suffix = 'th'
+        else:
+            suffix = 'rd'
     else:
         suffix = 'th'
 

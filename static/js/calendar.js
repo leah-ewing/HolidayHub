@@ -76,7 +76,7 @@ month_names.forEach((e, index) => {
         month_list.classList.remove('show')
         curr_month.value = index
         generateCalendar(index, curr_year.value)
-        let shown_month = month.innerHTML
+        let shown_month = month_picker.innerHTML
         let this_month = document.getElementById("this-month")
         this_month.innerHTML = shown_month
     })

@@ -32,10 +32,13 @@ def homepage():
 def calendarView():
     """ Routes to Calendar page """
 
-    month = controller.get_current_date()
+    current_date = controller.get_current_date()
+    month_num = crud.get_month_by_name(current_date["month"])
+    monthly_holidays = crud.get_holidays_in_month(month_num)
 
     return render_template('calendar-view.html',
-                           month = month["month"].capitalize())
+                           month = current_date["month"].capitalize(),
+                           monthly_holidays = monthly_holidays)
 
 
 @app.route('/add-email', methods = ["POST"]) 
@@ -122,6 +125,20 @@ def random_holiday():
                            blurb = holiday.holiday_blurb,
                            image = holiday.holiday_img,
                            suffix = suffix)
+
+
+@app.route('/get-monthly-holidays/<month>', methods = ["GET"])
+def get_monthly_holidays(month):
+    """ Gets a list of holidays in a given month and sends them back to the client"""
+
+    month_num = crud.get_month_by_name(month.lower())
+    monthly_holidays = crud.get_holidays_in_month(month_num)
+    monthly_holiday_names = []
+
+    for holiday in monthly_holidays:
+        monthly_holiday_names.append(holiday.monthly_holiday_name)
+
+    return monthly_holiday_names
 
 
 

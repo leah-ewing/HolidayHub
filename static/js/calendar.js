@@ -76,9 +76,21 @@ month_names.forEach((e, index) => {
         month_list.classList.remove('show')
         curr_month.value = index
         generateCalendar(index, curr_year.value)
+
         let shown_month = month_picker.innerHTML
         let this_month = document.getElementById("this-month")
         this_month.innerHTML = shown_month
+
+        fetch(`get-monthly-holidays/${shown_month}`)
+            .then((response) => response.json())
+            .then((monthly_holiday_names) => {
+                let holiday_list = document.getElementById("monthly-holiday-list")
+                holiday_list.innerHTML = ''
+
+                for (let holiday of monthly_holiday_names) {
+                    holiday_list.innerHTML = holiday_list.innerHTML + `• ${holiday}` + '<br>'
+                }
+            })
     })
     month_list.appendChild(month)
 })

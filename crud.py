@@ -179,10 +179,17 @@ def get_month_by_number(num):
             return month.month_name
         
         
-def get_holidays_for_month(month):
+def get_holidays_in_month(month):
     """ Returns all the holidays from a given month """
 
-    pass
+    monthly_holidays = MonthlyHoliday.query.all()
+
+    holiday_list = []
+    for holiday in monthly_holidays:
+        if holiday.monthly_holiday_month == month:
+            holiday_list.append(holiday)
+    
+    return holiday_list
 
 
 

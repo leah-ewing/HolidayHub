@@ -55,7 +55,11 @@
           <br><b><span id="this-month">{{month}}</span> is also...</b>
         </h5>
       </div>
-        <li id="monthly-holiday-list">list will go here</li>
+      <ol id="monthly-holiday-list">
+        {% for holiday in monthly_holidays %}
+          • {{holiday.monthly_holiday_name}}<br>
+        {% endfor %}
+      </ol>
     </div>
   </div>
 </div>

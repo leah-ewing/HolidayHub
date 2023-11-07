@@ -1,4 +1,20 @@
 [{
-    "monthly_holiday_name": "jan holidays",
+    "monthly_holiday_name": "National Soup Month",
+    "monthly_holiday_month": 1
+},
+{
+    "monthly_holiday_name": "Be Kind to Food Servers Month",
+    "monthly_holiday_month": 1
+},
+{
+    "monthly_holiday_name": "National Train Your Dog Month",
+    "monthly_holiday_month": 1
+},
+{
+    "monthly_holiday_name": "National Braille Literacy Month",
+    "monthly_holiday_month": 1
+},
+{
+    "monthly_holiday_name": "National Clean Up Your Computer Month",
     "monthly_holiday_month": 1
 }]

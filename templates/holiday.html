@@ -52,9 +52,23 @@
     </div>
 
     <div>
+        {% if from_homepage == False %}
+
         <button id = "back-to-calendar-button" onclick="location.href='/calendar-view'">
             Back to Calendar
         </button>
+
+        {% else %}
+
+        <button id ="back-to-homepage" onclick="location.href='/'">
+            Back to Homepage
+        </button>
+
+        <button id="calendar-view-button-holiday" onclick="location.href='/calendar-view'">
+            View Calendar
+          </button>
+
+        {% endif %}
 
         {% if multiple_holidays_on_date == True %}
         

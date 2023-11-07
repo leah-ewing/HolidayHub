@@ -5,12 +5,6 @@
 
 {% block body %}
 
-<header>
-  <h3>
-    Daily Holiday Calendar
-  </h3>
-</header>
-
 <body>
 
   <!-- CSS -->
@@ -19,6 +13,10 @@
     href="../static/css/static.css">
 
   <div class="homepage">
+    <h3>
+      Daily Holiday Calendar
+      <br><br><br>
+    </h3>
 
     <h2>
       <b>Today is...</b>
@@ -30,13 +28,7 @@
       </font>
     </h1><br>
 
-    <img
-      src="{{image}}"
-      width=250
-      alt="">
-    </img><br>
-
-    <button id="learn-more-button" onclick="location.href='/day-picker/{{month_name}}/{{day}}/{{year}}'">
+    <button id="learn-more-button" onclick="location.href='/{{holiday}}'">
       Learn more about {{holiday}}!
     </button><br><br><br>
 

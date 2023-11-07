@@ -83,7 +83,8 @@ def getClickedDate(month, day, year):
                             next_date = next_date,
                             next_date_month = next_date_month_string.capitalize(),
                             previous_date = previous_date,
-                            previous_date_month = previous_date_month_string.capitalize())
+                            previous_date_month = previous_date_month_string.capitalize(),
+                            from_homepage = False)
 
 
 @app.route('/random-holiday/<month>/<day>', methods = ["GET"])
@@ -107,7 +108,31 @@ def random_holiday_on_date(month, day):
                            image = holiday.holiday_img,
                            multiple_holidays_on_date = multiple_holidays_on_date,
                            suffix = suffix,
-                           generate_scroll = False)
+                           generate_scroll = False,
+                           from_homepage = False)
+
+
+@app.route('/<holiday>', methods = ["GET"])
+def learn_more_about_holiday(holiday):
+    """ Navigates to a holiday's page after clicking 'Learn More' on the homepage """
+
+    holiday_data = crud.get_holiday_by_name(holiday)
+    month_name = crud.get_month_by_number(holiday_data.holiday_month)
+    day = holiday_data.holiday_date
+    suffix = controller.get_date_suffix(str(day))
+    image = holiday_data.holiday_img
+    multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday_data.holiday_month, day)
+
+    return render_template('holiday.html',
+                           holiday = holiday,
+                           month_name = month_name.capitalize(),
+                           day = day,
+                           suffix = suffix,
+                           image = image,
+                           generate_scroll = False,
+                           blurb = holiday_data.holiday_blurb,
+                           from_homepage = True,
+                           multiple_holidays_on_date = multiple_holidays_on_date)
 
 
 @app.route('/random-holiday')

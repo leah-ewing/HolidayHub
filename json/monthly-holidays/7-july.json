@@ -1,4 +1,17 @@
 [{
-    "monthly_holiday_name": "july holidays",
+    "monthly_holiday_name": "National Baked Bean Month",
+    "monthly_holiday_month": 7
+},
+{
+    "monthly_holiday_name": "Family Reunion Month",
+    "monthly_holiday_month": 7
+},{
+    "monthly_holiday_name": "Anti-Boredom Month",
+    "monthly_holiday_month": 7
+},{
+    "monthly_holiday_name": "Cell Phone Courtesy Month",
+    "monthly_holiday_month": 7
+},{
+    "monthly_holiday_name": "National Culinary Arts Month",
     "monthly_holiday_month": 7
 }]

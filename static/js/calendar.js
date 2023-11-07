@@ -36,7 +36,7 @@ const generateCalendar = (month, year) => {
     for (let day = 1; day <= daysInMonth; day++) {
         const dayElement = document.createElement('div')
         dayElement.classList.add('calendar-day-hover')
-        dayElement.innerHTML = day;
+        dayElement.innerHTML = day
 
         if (day === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
             dayElement.classList.add('curr-date')
@@ -45,9 +45,9 @@ const generateCalendar = (month, year) => {
         calendar_days.appendChild(dayElement)
 
         dayElement.addEventListener('click', (evt) => {
-            evt.preventDefault();
-            const date_picked = String(day);
-            const month_picked = month_names[month];
+            evt.preventDefault()
+            const date_picked = String(day)
+            const month_picked = month_names[month]
             const year_picked = calendar_header_year.innerHTML
             const url = `day-picker/${month_picked}/${date_picked}/${year_picked}`
 
@@ -71,11 +71,16 @@ let month_list = calendar.querySelector('.month-list')
 month_names.forEach((e, index) => {
     let month = document.createElement('div')
     month.innerHTML = `<div data-month="${index}">${e}</div>`
-    month.querySelector('div').onclick = () => {
+    month.querySelector('div').addEventListener('click', (evt) => {
+        evt.preventDefault()
         month_list.classList.remove('show')
         curr_month.value = index
         generateCalendar(index, curr_year.value)
-    }
+        console.log(month_picker.innerHTML)
+        let shown_month = month.innerHTML
+        let this_month = document.getElementById("this-month")
+        this_month.innerHTML = shown_month
+    })
     month_list.appendChild(month)
 })
 
@@ -101,5 +106,3 @@ document.querySelector('#next-year').onclick = () => {
     ++curr_year.value
     generateCalendar(curr_month.value, curr_year.value)
 }
-
-

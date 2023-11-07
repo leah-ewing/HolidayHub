@@ -177,6 +177,12 @@ def get_month_by_number(num):
     for month in months:
         if month.month_id == num:
             return month.month_name
+        
+        
+def get_holidays_for_month(month):
+    """ Returns all the holidays from a given month """
+
+    pass
 
 
 

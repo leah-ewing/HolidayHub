@@ -32,7 +32,10 @@ def homepage():
 def calendarView():
     """ Routes to Calendar page """
 
-    return render_template('calendar-view.html')
+    month = controller.get_current_date()
+
+    return render_template('calendar-view.html',
+                           month = month["month"].capitalize())
 
 
 @app.route('/add-email', methods = ["POST"]) 

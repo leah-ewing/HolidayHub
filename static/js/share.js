@@ -33,27 +33,51 @@ closeButtonSharePopUpWindow.addEventListener("click", function() {
 })
 
 twitterShareButton.addEventListener("click", function() {
+    const currentUrl = window.location.href
+    const twitterShareURL = "https://twitter.com/intent/tweet?url=" + encodeURIComponent(currentUrl)
+
+    window.open(twitterShareURL, "_blank")
+
     sharePopUpWindow.style.display = "none"
     thankYouForSharingPopUpWindow.style.display = "block"
 })
 
 facebookShareButton.addEventListener("click", function() {
+    const currentUrl = window.location.href
+    const facebookShareURL = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(currentUrl)
+
+    window.open(facebookShareURL, "_blank")
+
     sharePopUpWindow.style.display = "none"
     thankYouForSharingPopUpWindow.style.display = "block"
 })
 
 pinterestShareButton.addEventListener("click", function() {
+    const currentUrl = window.location.href
+    const pinterestSaveURL = "https://www.pinterest.com/pin/create/button/?url=" + encodeURIComponent(currentUrl)
+
+    window.open(pinterestSaveURL, "_blank")
+
     sharePopUpWindow.style.display = "none"
     thankYouForSharingPopUpWindow.style.display = "block"
 })
 
 emailShareButton.addEventListener("click", function() {
+    const currentUrl = window.location.href
+    const subject = "Check out this page!"
+    const body = "I wanted to show you this! - " + currentUrl
+
+    const mailtoLink = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body)
+    window.location.href = mailtoLink
+
     sharePopUpWindow.style.display = "none"
     thankYouForSharingPopUpWindow.style.display = "block"
 })
 
 copyLinkButton.addEventListener("click", function() {
     copyToClipboard(window.location.href);
+    sharePopUpWindow.style.display = "none"
+    
 })
 
 closeButtonThankYouForSharing.addEventListener("click", function() {

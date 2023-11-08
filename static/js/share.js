@@ -15,7 +15,6 @@ shareButton.addEventListener("click", async () => {
             console.error("Share failed:", err.message)
         }
     } else {
-        // alert("test")
         sharePopUpWindow.style.display = "block"
     }
 })

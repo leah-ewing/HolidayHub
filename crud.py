@@ -40,7 +40,7 @@ def create_email_address(email_firstname, email_address):
     current_date = datetime.now()
 
     new_email = Email(email_firstname = email_firstname, 
-                email_address = email_address, 
+                email_address = email_address.lower(), 
                 email_opt_in = True,
                 email_added_on = current_date.strftime("%m-%d-%Y %I:%M %p"))
     
@@ -191,6 +191,15 @@ def get_holidays_in_month(month):
     
     return holiday_list
 
+
+def check_for_email(email):
+    """ Checks if an email is already in the database """
+
+    db_emails = Email.query.all()
+
+    for db_email in db_emails:
+        if db_email == email.lower():
+            return True
 
 
 if __name__ == '__main__':

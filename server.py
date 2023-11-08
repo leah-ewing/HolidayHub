@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, session, redirect
+from flask import Flask, render_template, request, flash, session, redirect, jsonify
 from model import connect_to_db
 from jinja2 import StrictUndefined
 import crud, controller
@@ -43,15 +43,19 @@ def calendarView():
 
 @app.route('/add-email', methods = ["POST"])
 def addNewEmail():
-    """ Adds new email and redirects user to homepage """
+    """ Adds new email from input form """
 
     first_name = request.json.get("fname")
     email = request.json.get("email")
+    email_exists = crud.check_for_email(email)
 
-    crud.create_email_address(first_name, email)
-
-    return {"success": True, 
-            "status": 200}
+    if email_exists == False:
+        crud.create_email_address(first_name, email)
+        return jsonify({"memo": "Email added successfully", 
+                "status": 200})
+    else: 
+        return jsonify({"memo": "Email already exists",
+                "status": 409})
 
 
 @app.route('/day-picker/<month>/<day>/<year>', methods = ["GET"])

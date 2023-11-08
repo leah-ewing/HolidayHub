@@ -77,12 +77,12 @@ function copyToClipboard(text) {
     selection.addRange(range)
 
     try {
-        document.execCommand('copy');
+        document.execCommand('copy')
         console.log('Link copied to clipboard')
         alert('Link copied!')
     } catch (err) {
         console.error('Unable to copy to clipboard', err)
     } finally {
-        document.body.removeChild(tempElement);
+        document.body.removeChild(tempElement)
     }
 }

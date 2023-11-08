@@ -13,6 +13,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/share.css') }}">
 
   <!-- JQUERY -->
   <!-- <script
@@ -45,6 +46,16 @@
     </button>
   </div>
 
+  <div class="share-popup-window" id="share-popup-window" style="line-height:1.75;">
+    <div id="share-popup-window-text">
+      <h1><b><font color=#f364a2><br><br><br>
+        Share:
+      </font></h1></b><br>
+      Links will go here<br><br>
+      <button id="share-close-button">Close</button>
+    </div>
+  </div>
+
   <div id="popup-window" class="popup-window">
     <h5><b><font color=#f364a2>
       Please enter first name and email:
@@ -60,7 +71,6 @@
             <button id="submit-button" class="submit-button" type="submit">Submit!</button><br>
             <small>By clicking submit you are giving HolidayApp permission to send you daily emails, you may opt out at any time.<br></small>
         </div></form>
-
       </div>
     <button id="close-button">Close</button>
   </div>

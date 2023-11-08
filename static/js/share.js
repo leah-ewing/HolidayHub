@@ -6,6 +6,9 @@ const shareButton = document.getElementById("share-button")
 const sharePopUpWindow = document.getElementById("share-popup-window")
 const closeButtonSharePopUpWindow = document.getElementById("share-close-button")
 
+const thankYouForSharingPopUpWindow = document.getElementById("thank-you-for-sharing-window")
+const closeButtonThankYouForSharing = document.getElementById("close-button-thank-you-for-sharing")
+
 const twitterShareButton = document.getElementById("twitter-share-button")
 const facebookShareButton = document.getElementById("facebook-share-button")
 const pinterestShareButton = document.getElementById("pinterest-share-button")
@@ -30,21 +33,30 @@ closeButtonSharePopUpWindow.addEventListener("click", function() {
 })
 
 twitterShareButton.addEventListener("click", function() {
-    alert("twitter")
+    sharePopUpWindow.style.display = "none"
+    thankYouForSharingPopUpWindow.style.display = "block"
 })
 
 facebookShareButton.addEventListener("click", function() {
-    alert("facebook")
+    sharePopUpWindow.style.display = "none"
+    thankYouForSharingPopUpWindow.style.display = "block"
 })
 
 pinterestShareButton.addEventListener("click", function() {
-    alert("pinterest")
+    sharePopUpWindow.style.display = "none"
+    thankYouForSharingPopUpWindow.style.display = "block"
 })
 
 emailShareButton.addEventListener("click", function() {
-    alert("email")
+    sharePopUpWindow.style.display = "none"
+    thankYouForSharingPopUpWindow.style.display = "block"
 })
 
 copyLinkButton.addEventListener("click", function() {
-    alert("copy link")
+    sharePopUpWindow.style.display = "none"
+    thankYouForSharingPopUpWindow.style.display = "block"
+})
+
+closeButtonThankYouForSharing.addEventListener("click", function() {
+    thankYouForSharingPopUpWindow.style.display = "none"
 })

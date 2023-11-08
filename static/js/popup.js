@@ -81,7 +81,7 @@ submitButton.addEventListener('click', (evt) => {
     .then((response) => response.json())
     .then((responseJson) => {
       if (responseJson.status == 200) {
-        console.info(responseJson.memo, responseJson.status)
+        console.log(responseJson.memo, responseJson.status)
         thankYouWindow.style.display = "block"
       } else if (responseJson.status == 409) {
             console.error(responseJson.memo, responseJson.status)

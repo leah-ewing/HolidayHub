@@ -18,7 +18,7 @@ const copyLinkButton = document.getElementById("copy-link-button")
 shareButton.addEventListener("click", async () => {
     if (navigator.share) {
         try {
-            await navigator.share({ title: "Example Page", url: "" })
+            await navigator.share({ url: "" })
             console.log("Data was shared successfully")
         } catch (err) {
             console.error("Share failed:", err.message)
@@ -53,10 +53,36 @@ emailShareButton.addEventListener("click", function() {
 })
 
 copyLinkButton.addEventListener("click", function() {
-    sharePopUpWindow.style.display = "none"
-    thankYouForSharingPopUpWindow.style.display = "block"
+    copyToClipboard(window.location.href);
 })
 
 closeButtonThankYouForSharing.addEventListener("click", function() {
     thankYouForSharingPopUpWindow.style.display = "none"
 })
+
+function copyToClipboard(text) {
+    const tempElement = document.createElement('div')
+    tempElement.contentEditable = true
+    tempElement.innerHTML = text
+
+    tempElement.style.position = 'absolute'
+    tempElement.style.left = '-9999px'
+
+    document.body.appendChild(tempElement)
+    
+    const range = document.createRange()
+    range.selectNodeContents(tempElement)
+    const selection = window.getSelection()
+    selection.removeAllRanges()
+    selection.addRange(range)
+
+    try {
+        document.execCommand('copy');
+        console.log('Link copied to clipboard')
+        alert('Link copied!')
+    } catch (err) {
+        console.error('Unable to copy to clipboard', err)
+    } finally {
+        document.body.removeChild(tempElement);
+    }
+}

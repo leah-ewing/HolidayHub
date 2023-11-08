@@ -196,10 +196,11 @@ def check_for_email(email):
     """ Checks if an email is already in the database """
 
     db_emails = Email.query.all()
-
-    for db_email in db_emails:
-        if db_email == email.lower():
-            return True
+        
+    if email.lower() in db_emails:
+        return True
+    else:
+        return False
 
 
 if __name__ == '__main__':

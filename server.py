@@ -47,10 +47,10 @@ def addNewEmail():
 
     first_name = request.json.get("fname")
     email = request.json.get("email")
-    valid_email = controller.check_for_valid_email("email")
-    email_exists = crud.check_for_email(email)
+    valid_email = controller.check_for_valid_email(email)
 
     if valid_email == True:
+        email_exists = crud.check_for_email(email)
         if email_exists == True:
             return jsonify({"memo": "Email already exists",
                     "status": 409})

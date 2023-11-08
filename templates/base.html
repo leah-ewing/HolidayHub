@@ -80,6 +80,16 @@
     </div>
   </div>
 
+  <div class="invalid-email-window" id="invalid-email-window" style="line-height:1.75;">
+    <div id="invalid-email-text">
+      <h1><b><font color=#f364a2><br><br><br>
+        Invalid email, please try again!
+      </font></h1></b><br>
+      <button id="try-again-button-invalid-email">Try again</button>
+      <button id="close-button-invalid-email">Close</button>
+    </div>
+  </div>
+
   <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
 
   {% endblock %}

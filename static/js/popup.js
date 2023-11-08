@@ -14,6 +14,10 @@ const duplicateEmailWindow = document.getElementById("duplicate-email-window")
 const closeButtonDuplicateEmail = document.getElementById("close-button-duplicate-email")
 const tryAgainButton = document.getElementById("try-again-button")
 
+const invalidEmailWindow = document.getElementById("invalid-email-window")
+const closeButtonInvalidEmail = document.getElementById("close-button-invalid-email")
+const tryAgainButtonInvalidEmail = document.getElementById("try-again-button-invalid-email")
+
 
 popupButton.addEventListener("click", function(evt) {
     evt.preventDefault()
@@ -33,8 +37,28 @@ closeButtonDuplicateEmail.addEventListener("click", function() {
     document.getElementById("email").value = ""
 })
 
+closeButtonInvalidEmail.addEventListener("click", function() {
+    popupWindow.style.display = "none"
+    invalidEmailWindow.style.display = "none"
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
+closeButtonThankYou.addEventListener("click", function() {
+    thankYouWindow.style.display = "none"
+    popupWindow.style.display = "none"
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
 tryAgainButton.addEventListener("click", function() {
     duplicateEmailWindow.style.display = "none"
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
+tryAgainButtonInvalidEmail.addEventListener("click", function() {
+    invalidEmailWindow.style.display = "none"
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
@@ -62,13 +86,9 @@ submitButton.addEventListener('click', (evt) => {
       } else if (responseJson.status == 409) {
             console.log(responseJson.memo, responseJson.status)
             duplicateEmailWindow.style.display = "block"
+      } else if (responseJson.status == 400) {
+            console.log(responseJson.memo, responseJson.status)
+            invalidEmailWindow.style.display = "block"
       }
     })
-})
-
-closeButtonThankYou.addEventListener("click", function() {
-    thankYouWindow.style.display = "none"
-    popupWindow.style.display = "none"
-    document.getElementById("fname").value = ""
-    document.getElementById("email").value = ""
 })

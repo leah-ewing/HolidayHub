@@ -47,15 +47,20 @@ def addNewEmail():
 
     first_name = request.json.get("fname")
     email = request.json.get("email")
+    valid_email = controller.check_for_valid_email("email")
     email_exists = crud.check_for_email(email)
-    
-    if email_exists == True:
-        return jsonify({"memo": "Email already exists",
-                "status": 409})
+
+    if valid_email == True:
+        if email_exists == True:
+            return jsonify({"memo": "Email already exists",
+                    "status": 409})
+        else:
+            crud.create_email_address(first_name, email)
+            return jsonify({"memo": "Email added successfully", 
+                    "status": 200})
     else:
-        crud.create_email_address(first_name, email)
-        return jsonify({"memo": "Email added successfully", 
-                "status": 200})
+        return jsonify({"memo": "Email not valid",
+                        "status": 400})
     
 
 @app.route('/day-picker/<month>/<day>/<year>', methods = ["GET"])

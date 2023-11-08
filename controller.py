@@ -140,3 +140,12 @@ def get_current_date():
     }
 
     return today
+
+
+def check_for_valid_email(email):
+    """ Checks if a given email is valid """
+
+    if "@" in email.lower() and "." in email.lower():
+        return True
+    else:
+        return False

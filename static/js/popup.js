@@ -81,13 +81,13 @@ submitButton.addEventListener('click', (evt) => {
     .then((response) => response.json())
     .then((responseJson) => {
       if (responseJson.status == 200) {
-        console.log(responseJson.memo, responseJson.status)
+        console.info(responseJson.memo, responseJson.status)
         thankYouWindow.style.display = "block"
       } else if (responseJson.status == 409) {
-            console.log(responseJson.memo, responseJson.status)
+            console.error(responseJson.memo, responseJson.status)
             duplicateEmailWindow.style.display = "block"
       } else if (responseJson.status == 400) {
-            console.log(responseJson.memo, responseJson.status)
+            console.error(responseJson.memo, responseJson.status)
             invalidEmailWindow.style.display = "block"
       }
     })

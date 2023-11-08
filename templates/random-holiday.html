@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 <title>
-    {% block title %}{{holiday}}{% endblock %}
+    {% block title %}
+        {{holiday}}
+    {% endblock %}
 </title>
 
 {% block body %}
@@ -23,15 +25,15 @@
     </div>
     <div id = "holiday-image">
         <img class = "holiday-image"
-                    src = "{{image}}"
-                    width = 300>
-                </img>
+            src = "{{image}}"
+            width = 300>
+        </img>
     </div>
     <style>
         #blurb {width: 500px; margin: auto;}
     </style>
     <div id="blurb">
-            {{blurb}}
+        {{blurb}}
     </div><br>
 
     <div>
@@ -44,6 +46,5 @@
         </button>
     </div><br>
 </body>
-
 
 {% endblock %}

@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 
-{% block title %}Calendar View{% endblock %}
+<title>
+  {% block title %}Calendar View{% endblock %}
+</title>
 
-{% block body %}
-
-<!-- CSS -->
-<link
+<head>
+    <!-- CSS -->
+  <link
   rel="stylesheet"
   href="../static/css/calendar.css">
+</head>
+
+{% block body %}
 
 <h1><font color=#f364a2>
   Click on a day to view its holiday!

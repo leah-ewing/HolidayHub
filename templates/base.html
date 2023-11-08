@@ -32,8 +32,12 @@
   </title>
 
   <div>
-    <button id = "homepage-button" onclick="location.href='/'">
+    <button id="homepage-button" onclick="location.href='/'">
       HolidayApp
+    </button>
+
+    <button id="share-button">
+      Share
     </button>
 
     <button id="popup-button">
@@ -91,6 +95,7 @@
   </div>
 
   <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/share.js') }}"></script>
 
   {% endblock %}
   

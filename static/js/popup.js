@@ -22,11 +22,15 @@ popupButton.addEventListener("click", function(evt) {
 
 closeButton.addEventListener("click", function() {
     popupWindow.style.display = "none"
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
 })
 
 closeButtonDuplicateEmail.addEventListener("click", function() {
     duplicateEmailWindow.style.display = "none"
     popupWindow.style.display = "none"
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
 })
 
 tryAgainButton.addEventListener("click", function() {
@@ -56,8 +60,8 @@ submitButton.addEventListener('click', (evt) => {
         console.log(responseJson.memo, responseJson.status)
         thankYouWindow.style.display = "block"
       } else if (responseJson.status == 409) {
-        console.log(responseJson.memo, responseJson.status)
-        duplicateEmailWindow.style.display = "block"
+            console.log(responseJson.memo, responseJson.status)
+            duplicateEmailWindow.style.display = "block"
       }
     })
 })
@@ -65,9 +69,6 @@ submitButton.addEventListener('click', (evt) => {
 closeButtonThankYou.addEventListener("click", function() {
     thankYouWindow.style.display = "none"
     popupWindow.style.display = "none"
-})
-
-closeButtonDuplicateEmail.addEventListener("click", function() {
-    thankYouWindow.style.display = "none"
-    popupWindow.style.display = "none"
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
 })

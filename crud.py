@@ -195,13 +195,17 @@ def get_holidays_in_month(month):
 def check_for_email(email):
     """ Checks if an email is already in the database """
 
-    db_emails = Email.query.all()
-        
+    db_email_data = Email.query.all()
+    db_emails = []
+
+    for data in db_email_data:
+        db_emails.append(data.email_address)
+
     if email.lower() in db_emails:
-        return True
+         return True
     else:
         return False
-
+    
 
 if __name__ == '__main__':
     from server import app

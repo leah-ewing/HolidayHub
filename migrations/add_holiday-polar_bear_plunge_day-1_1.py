@@ -1,5 +1,7 @@
-import sys
-sys.path.append('/Users/leahewing/Documents/Repositories/Holiday App')
+import sys, os
+
+ROOT_FOLDER = os.environ['ROOT_FOLDER']
+sys.path.append(ROOT_FOLDER)
 
 import crud
 import model

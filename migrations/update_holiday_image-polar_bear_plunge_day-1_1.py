@@ -1,9 +1,10 @@
-import sys
-sys.path.append('/Users/leahewing/Documents/Repositories/Holiday App')
+import sys, os
 
-import model
+ROOT_FOLDER = os.environ['ROOT_FOLDER']
+sys.path.append(ROOT_FOLDER)
+
 import crud
-from model import connect_to_db, db
+from model import connect_to_db
 import server
 
 connect_to_db(server.app)

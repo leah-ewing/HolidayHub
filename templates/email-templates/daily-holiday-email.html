@@ -11,6 +11,9 @@
         #email-body {
             display: grid;
             place-items: center;
+            border: 2px solid black;
+            border-radius: 5px;
+            width: auto;
         }
     </style>
 
@@ -20,6 +23,7 @@
 <body>
     {% block body %}
     <div id="email-body">
+        <br>
         <a href="/">
             <button>
                 HolidayApp
@@ -70,6 +74,7 @@
                 HolidayApp
             </button>
         </a>
+        <br>
     </div>
 
     {% endblock %}

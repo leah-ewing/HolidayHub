@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<head>
+    {% block head %}
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+    <style>
+        #email-body {
+            display: grid;
+            place-items: center;
+        }
+    </style>
+
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+    <div id="email-body">
+        <font color=#f364a2>
+            <h2>{{random_salutation}} {{fname}}!</h2>
+        </font>
+
+        <h3>{{random_today_is_statement}} {{month}} {{day}}{{suffix}},</h3>
+
+        <h2>{{random_it_is_also_statement}}</h2>
+
+        <font color=#f364a2>
+            <h2>{{holiday.holiday_name}}!</h2>
+        </font>
+
+        <img class = "email-holiday-image"
+            src = "{{holiday.holiday_img}}"
+            width = 300>
+        </img>
+
+        <br><br>
+
+        {{holiday.holiday_email}}
+
+        TEST BLURB
+
+        <br><br>
+
+        <a href="/{{holiday.holiday_name}}">
+            <b>Click here to learn more about {{holiday.holiday_name}}!</b>
+        </a>
+        
+        <br><br>
+
+        <a href="/unsubscribe/{{email}}">
+            <small>Click here to unsubscribe</small>
+        </a>
+    </div>
+
+    {% endblock %}
+</body>

@@ -1,7 +1,7 @@
 """ Controller operations """
 
 from datetime import date
-import crud
+import crud, random
 
 
 def get_date_suffix(number):
@@ -149,3 +149,38 @@ def check_for_valid_email(email):
         return True
     else:
         return False
+    
+
+def get_random_salutation():
+    """ Returns a random salutation from a list of salutations """
+    salutations = ["Hi there, ", 
+                   "Howdy, ",
+                   "Well hello, ",
+                   "Good day, ",
+                   "Hi, ",
+                   "Hey, ",
+                   "Hey there, ",
+                   "Greetings, "]
+    
+    return random.choice(salutations)
+
+
+def get_random_today_is_statement():
+    """ Returns a random 'today is...' statement from a list of statements """
+    statements = ["Today is ",
+                  "It is ",
+                  "Today happens to be ",
+                  "Today's date is "]
+    
+    return random.choice(statements)
+
+
+def get_random_it_is_also_statement():
+    """ Returns a random 'it is also...' statement from a list of statements """
+    statements = ["But it's also... ",
+                  "But did you know it's also... ",
+                  "But wait! It's also... ",
+                  "But it ALSO happens to be... ",
+                  "But did you know it ALSO happens to be... "]
+    
+    return random.choice(statements)

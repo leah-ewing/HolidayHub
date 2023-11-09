@@ -207,6 +207,28 @@ def check_for_email(email):
         return False
     
 
+def get_fname_by_email(email):
+    """ Returns the first name attached to a given email """
+
+    db_emails = Email.query.all()
+
+    for db_email in db_emails:
+        if db_email.email_address == email:
+            return db_email.email_firstname
+        
+
+def update_opt_in_status(email):
+    """ Updates the opt in status for an email """
+
+    db_emails = Email.query.all()
+
+    for db_email in db_emails:
+        if db_email.email_address == email:
+            db_email.email_opt_in = False
+    
+    db.session.commit()
+    
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

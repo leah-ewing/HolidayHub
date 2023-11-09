@@ -40,7 +40,7 @@ class Holiday(db.Model):
     holiday_date = db.Column(db.Integer)
     holiday_img = db.Column(db.String)
     holiday_blurb = db.Column(db.String)
-    holiday_email = db.Column(db.String) # text file address (?)
+    holiday_email = db.Column(db.String)
 
     def __repr__(self):
         return f'<Holiday - holiday_id = {self.holiday_id}, holiday_name = {self.holiday_name}, holiday_month = {self.holiday_month}, holiday_date = {self.holiday_date}, holiday_img = {self.holiday_img}, holiday_blurb = {self.holiday_blurb}, holiday_email = {self.holiday_email}>'

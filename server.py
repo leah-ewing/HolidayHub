@@ -124,7 +124,7 @@ def random_holiday_on_date(month, day):
 
 @app.route('/<holiday>', methods = ["GET"])
 def learn_more_about_holiday(holiday):
-    """ Navigates to a holiday's page after clicking 'Learn More' on the homepage """
+    """ Navigates to a holiday's page after clicking 'Learn More' on the homepage or email """
 
     holiday_data = crud.get_holiday_by_name(holiday)
     month_name = crud.get_month_by_number(holiday_data.holiday_month)
@@ -183,6 +183,43 @@ def get_monthly_holidays(month):
         monthly_holiday_names.append(holiday.monthly_holiday_name)
 
     return monthly_holiday_names
+
+
+@app.route('/test_email/<email>', methods = ["GET"])
+def test_email(email):
+    """ FOR TESTING - REMOVE LATER """
+    
+    random_salutation = controller.get_random_salutation()
+    random_today_is_statement = controller.get_random_today_is_statement()
+    random_it_is_also_statement = controller.get_random_it_is_also_statement()
+    
+    fname = crud.get_fname_by_email(email)
+    current_date = controller.get_current_date()
+    month = current_date["month"]
+    day = current_date["day"]
+    suffix = controller.get_date_suffix(str(day))
+    month_num = crud.get_month_by_name(month)
+    holiday = crud.get_first_holiday_by_date(month_num, day)
+
+    return render_template('/email-templates/daily-holiday-email.html',
+                           random_salutation = random_salutation,
+                           random_today_is_statement = random_today_is_statement,
+                           random_it_is_also_statement = random_it_is_also_statement,
+                           fname = fname,
+                           month = month.capitalize(),
+                           day = day,
+                           suffix = suffix,
+                           holiday = holiday,
+                           email = email)
+
+
+@app.route('/unsubscribe/<email>', methods = ["GET"])
+def unsubscribe_email(email):
+    """ Unsubscribes an email from receiving daily emails """
+
+    crud.update_opt_in_status(email)
+
+    return render_template('unsubscribe.html')
 
 
 

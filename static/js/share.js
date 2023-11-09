@@ -30,6 +30,7 @@ shareButton.addEventListener("click", async () => {
 
 closeButtonSharePopUpWindow.addEventListener("click", function() {
     sharePopUpWindow.style.display = "none"
+    document.getElementById("link-copied-label").innerHTML = ""
 })
 
 twitterShareButton.addEventListener("click", function() {
@@ -75,9 +76,8 @@ emailShareButton.addEventListener("click", function() {
 })
 
 copyLinkButton.addEventListener("click", function() {
-    copyToClipboard(window.location.href);
-    sharePopUpWindow.style.display = "none"
-    
+    copyToClipboard(window.location.href)
+    document.getElementById("link-copied-label").innerHTML = "Link Copied!"
 })
 
 closeButtonThankYouForSharing.addEventListener("click", function() {
@@ -103,7 +103,6 @@ function copyToClipboard(text) {
     try {
         document.execCommand('copy')
         console.log('Link copied to clipboard')
-        alert('Link copied!')
     } catch (err) {
         console.error('Unable to copy to clipboard', err)
     } finally {

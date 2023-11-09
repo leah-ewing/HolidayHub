@@ -151,7 +151,7 @@ def get_random_holiday():
 
     holiday = crud.get_random_holiday()
 
-    return redirect(f'/random-holiday/{holiday.holiday_name}')
+    return redirect(f"/random-holiday/{holiday.holiday_name}")
 
 
 @app.route('/random-holiday/<name>', methods = ["GET"])

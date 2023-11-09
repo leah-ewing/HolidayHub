@@ -146,10 +146,19 @@ def learn_more_about_holiday(holiday):
 
 
 @app.route('/random-holiday')
-def random_holiday():
-    """ Directs a user to a random holiday """
+def get_random_holiday():
+    """ Gets a random holiday """
 
     holiday = crud.get_random_holiday()
+
+    return redirect(f'/random-holiday/{holiday.holiday_name}')
+
+
+@app.route('/random-holiday/<name>', methods = ["GET"])
+def random_holiday(name):
+    """ Directs a user to a random holiday's page """
+
+    holiday = crud.get_holiday_by_name(name)
     month = crud.get_month_by_number(holiday.holiday_month)
     suffix = controller.get_date_suffix(str(holiday.holiday_date))
 

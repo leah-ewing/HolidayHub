@@ -1,3 +1,6 @@
 env
 notes.txt
 secrets.sh
+credentials.json
+google-cloud-sdk
+token.json

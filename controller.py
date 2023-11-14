@@ -2,7 +2,9 @@
 
 from datetime import date
 import crud, random
+import os
 
+DEVELOPER = os.environ['DEVELOPER']
 
 def get_date_suffix(number):
     """ Gets the suffix for a given date ('st', 'nd', 'rd', or 'th') """
@@ -184,3 +186,81 @@ def get_random_it_is_also_statement():
                   "But did you know it ALSO happens to be... "]
     
     return random.choice(statements)
+
+
+def get_template_variables(email_template, email):
+    """ Returns the required Jinja2 variables for a given email_template """
+    
+    # random_salutation = get_random_salutation()
+    # fname = crud.get_fname_by_email(email)
+    # current_date = get_current_date()
+    # month = current_date["month"]
+    # day = current_date["day"]
+    # month_num = crud.get_month_by_name(month)
+    # holiday = crud.get_first_holiday_by_date(month_num, day) # not pulling holiday correctly
+
+    random_salutation = get_random_salutation()
+    fname = crud.get_fname_by_email(email)
+    # current_date = get_current_date()
+    # month = current_date["month"]
+    # day = current_date["day"]
+    # month_num = crud.get_month_by_name(month)
+    # holiday = crud.get_first_holiday_by_date(month_num, day)
+
+    today = get_current_date()
+    month_num = crud.get_month_by_name(today["month"])
+    holiday = crud.get_first_holiday_by_date(month_num, today["day"])
+
+
+    if email_template == "daily_holiday_email":
+        # random_today_is_statement = get_random_today_is_statement()
+        # random_it_is_also_statement = get_random_it_is_also_statement()
+        # suffix = get_date_suffix(str(day))
+
+        # variables = {
+        #     'random_salutation': random_salutation,
+        #     'random_today_is_statement': random_today_is_statement,
+        #     'random_it_is_also_statement':random_it_is_also_statement,
+        #     'fname':fname,
+        #     'month': month.capitalize(),
+        #     'day': str(day),
+        #     'suffix': suffix,
+        #     'holiday': {
+        #         'holiday_name': holiday.holiday_name,
+        #         'holiday_img': holiday.holiday_img
+        #     },
+        #     'email': email
+        # }
+        variables = holiday
+        return variables
+    
+    if email_template == "welcome_email":
+        variables = {
+            'random_salutation': random_salutation,
+            'fname': fname,
+            'holiday': holiday,
+            'email': month,
+        }
+
+        return variables
+    
+
+def get_formatted_github_holiday_name(holiday_name):
+    """ Returns the formatted holiday name for a Github URL """
+
+    holiday_name = "_".join(holiday_name.lower().split())
+
+    return holiday_name
+
+
+def get_formatted_github_image_url(holiday_name):
+    """ Returns the formatted Github URL for a given holiday """
+
+    holiday = crud.get_holiday_by_name(holiday_name)
+    month_num = str(holiday.holiday_month)
+    month_name = crud.get_month_by_number(month_num)
+    day_num = str(holiday.holiday_date)
+    formatted_holiday_name = get_formatted_github_holiday_name(holiday_name)
+    
+
+    return(f"https://github.com/{DEVELOPER}/HolidayApp/blob/main/static/media/holiday_images/{month_num}-{month_name}/{month_num}-{day_num}-{formatted_holiday_name}.jpg?raw=true")

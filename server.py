@@ -1,15 +1,45 @@
 from flask import Flask, render_template, request, flash, session, redirect, jsonify
 from model import connect_to_db
-from jinja2 import StrictUndefined
+from jinja2 import StrictUndefined, Template
 import crud, controller, os
+import requests
+
+API_KEY = os.environ['API_KEY']
+SENDER_EMAIL = os.environ['SENDER_EMAIL']
+ROOT_FOLDER = os.environ['ROOT_FOLDER']
+DEV_KEY = os.environ['DEV_KEY']
+DOMAIN = os.environ['DOMAIN']
 
 app = Flask(__name__)
 app.app_context().push()
 app.static_folder = 'static'
-
-DEV_KEY = os.environ['DEV_KEY']
 app.secret_key = DEV_KEY
+
 app.jinja_env.undefined = StrictUndefined
+
+class ApiClient:
+	apiUri = 'https://api.elasticemail.com/v2'
+	apiKey = API_KEY
+
+	def Request(method, url, data):
+		data['apikey'] = ApiClient.apiKey
+		if method == 'POST':
+			result = requests.post(ApiClient.apiUri + url, data = data)
+		elif method == 'PUT':
+			result = requests.put(ApiClient.apiUri + url, data = data)
+		elif method == 'GET':
+			attach = ''
+			for key in data:
+				attach = attach + key + '=' + data[key] + '&' 
+			url = url + '?' + attach[:-1]
+			result = requests.get(ApiClient.apiUri + url)	
+			
+		jsonMy = result.json()
+		
+		if jsonMy['success'] is False:
+			return jsonMy['error']
+			
+		return jsonMy['data']
 
 
 @app.route('/')
@@ -194,52 +224,49 @@ def unsubscribe_email(email):
     return render_template('unsubscribe.html')
 
 
-@app.route('/test-email/<email>', methods = ["GET"])
+@app.route('/send-holiday-email/<email>/', methods = ["GET"])
 def test_email(email):
-    """ FOR TESTING - REMOVE LATER """
-    
-    random_salutation = controller.get_random_salutation()
-    random_today_is_statement = controller.get_random_today_is_statement()
-    random_it_is_also_statement = controller.get_random_it_is_also_statement()
-    
-    fname = crud.get_fname_by_email(email)
-    current_date = controller.get_current_date()
-    month = current_date["month"]
-    day = current_date["day"]
-    suffix = controller.get_date_suffix(str(day))
-    month_num = crud.get_month_by_name(month)
-    holiday = crud.get_first_holiday_by_date(month_num, day)
+    file_name = "templates/email-templates/daily-holiday-email.html"
+    html_file = open(file_name, 'r', encoding='utf-8')
+    source_code = html_file.read()
+    template = Template(source_code)
 
-    return render_template('/email-templates/daily-holiday-email.html',
-                           random_salutation = random_salutation,
-                           random_today_is_statement = random_today_is_statement,
-                           random_it_is_also_statement = random_it_is_also_statement,
-                           fname = fname,
-                           month = month.capitalize(),
-                           day = day,
-                           suffix = suffix,
-                           holiday = holiday,
-                           email = email)
-
-
-@app.route('/welcome-email/<email>', methods = ["GET"])
-def welcome_email(email):
-    """ FOR TESTING - REMOVE LATER """
+    template_variables = {
+			'random_salutation': "Hi there, ",
+			'random_today_is_statement': "Did you know that today is ",
+			'random_it_is_also_statement': "But did you know that it's also...",
+			'fname':"Test User",
+			'month': "November",
+			'day': "13",
+			'suffix': "th",
+			'holiday': {
+				'holiday_name': "World Kindness Day",
+				'holiday_img': "https://github.com/leah-ewing/HolidayApp/blob/main/static/media/holiday_images/11-november/11-13-world_kindness_day.jpg?raw=true",
+                'holiday_email': "TEST BLURB"
+			},
+			'email': SENDER_EMAIL,
+            'domain': DOMAIN
+		} # testing variables
     
-    random_salutation = controller.get_random_salutation()
-    
-    fname = crud.get_fname_by_email(email)
-    current_date = controller.get_current_date()
-    month = current_date["month"]
-    day = current_date["day"]
-    month_num = crud.get_month_by_name(month)
-    holiday = crud.get_first_holiday_by_date(month_num, day)
+    rendered_html = template.render(template_variables) # test
 
-    return render_template('/email-templates/welcome-email.html',
-                           random_salutation = random_salutation,
-                           fname = fname,
-                           holiday = holiday,
-                           email = email)
+    subject = "Your Daily Holiday email!" # insert holiday
+    EEfrom = SENDER_EMAIL
+    fromName = "HolidayApp"
+    to = SENDER_EMAIL
+    bodyHtml = rendered_html
+    bodyText = "Text body will go here"
+    isTransactional = True
+
+    return ApiClient.Request('POST', '/email/send', {
+        'subject': subject,
+        'from': EEfrom,
+        'fromName': fromName,
+        'to': to,
+        'bodyHtml': bodyHtml,
+        'bodyText': bodyText,
+        'isTransactional': isTransactional
+        }) 
 
 
 if __name__ == '__main__':

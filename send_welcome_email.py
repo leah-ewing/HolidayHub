@@ -1,4 +1,3 @@
-import ElasticEmail
 import os
 import requests
 
@@ -40,4 +39,4 @@ def Send(subject, EEfrom, fromName, to, bodyHtml, bodyText, isTransactional):
 		'bodyText': bodyText,
 		'isTransactional': isTransactional})
 				
-print(Send("This is a daily holiday email", SENDER_EMAIL, "HolidayApp", SENDER_EMAIL, "<h1>HTML WILL GO HERE</h1>", "Text Body Will Go Here", True))
+print(Send("This is a welcome email", SENDER_EMAIL, "HolidayApp", SENDER_EMAIL, "<h1>HTML WILL GO HERE</h1>", "This email will be sent automatically whenever a user signs up for daily emails", True))

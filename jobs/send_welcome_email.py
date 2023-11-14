@@ -5,9 +5,6 @@ import requests
 API_KEY = os.environ['API_KEY']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
 
-configuration = ElasticEmail.Configuration(host="https://api.elasticemail.com/v4")
-configuration.api_key['apikey'] = API_KEY
-
 class ApiClient:
 	apiUri = 'https://api.elasticemail.com/v2'
 	apiKey = API_KEY

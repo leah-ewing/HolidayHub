@@ -185,7 +185,16 @@ def get_monthly_holidays(month):
     return monthly_holiday_names
 
 
-@app.route('/test_email/<email>', methods = ["GET"])
+@app.route('/unsubscribe/<email>', methods = ["GET"])
+def unsubscribe_email(email):
+    """ Changes an email's opt-in status for receiving daily emails """
+
+    crud.update_opt_in_status(email)
+
+    return render_template('unsubscribe.html')
+
+
+@app.route('/test-email/<email>', methods = ["GET"])
 def test_email(email):
     """ FOR TESTING - REMOVE LATER """
     
@@ -213,14 +222,24 @@ def test_email(email):
                            email = email)
 
 
-@app.route('/unsubscribe/<email>', methods = ["GET"])
-def unsubscribe_email(email):
-    """ Unsubscribes an email from receiving daily emails """
+@app.route('/welcome-email/<email>', methods = ["GET"])
+def welcome_email(email):
+    """ FOR TESTING - REMOVE LATER """
+    
+    random_salutation = controller.get_random_salutation()
+    
+    fname = crud.get_fname_by_email(email)
+    current_date = controller.get_current_date()
+    month = current_date["month"]
+    day = current_date["day"]
+    month_num = crud.get_month_by_name(month)
+    holiday = crud.get_first_holiday_by_date(month_num, day)
 
-    crud.update_opt_in_status(email)
-
-    return render_template('unsubscribe.html')
-
+    return render_template('/email-templates/welcome-email.html',
+                           random_salutation = random_salutation,
+                           fname = fname,
+                           holiday = holiday,
+                           email = email)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<head>
+    {% block head %}
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+    <style>
+        #email-body {
+            display: grid;
+            place-items: center;
+            border: 2px solid black;
+            border-radius: 5px;
+            width: auto;
+        }
+    </style>
+
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+    <div id="email-body">
+        <br>
+        <a href="/">
+            <button>
+                HolidayApp
+            </button>
+        </a>
+
+        <br>
+
+        <font color=#f364a2>
+            <h2>{{random_salutation}} {{fname}}!</h2>
+        </font>
+
+        <h3>Welcome to HolidayApp!</h3>
+
+        <font color=#f364a2>
+            <h2>Happy to meet you on this fine, {{holiday.holiday_name}}!</h2>
+        </font>
+
+        <h2>- Welcome blurb -</h2>
+
+        <br><br>
+
+        <a href="/{{holiday.holiday_name}}">
+            <b>Click here to learn more about {{holiday.holiday_name}}!</b>
+        </a>
+        
+        <br><br>
+
+        <a href="/unsubscribe/{{email}}">
+            <small>Click here to unsubscribe</small>
+        </a>
+
+        <br><br>
+
+        <a href="/">
+            <button>
+                HolidayApp
+            </button>
+        </a>
+        <br>
+    </div>
+
+    {% endblock %}
+</body>

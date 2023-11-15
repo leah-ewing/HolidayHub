@@ -249,20 +249,13 @@ def send_welcome_email(email):
 
     rendered_html = template.render(template_variables)
 
-    subject = random_subject
-    EEfrom = SENDER_EMAIL
-    fromName = "HolidayApp"
-    to = email
-    bodyHtml = rendered_html
-    bodyText = "Text body will go here"
-
     return ApiClient.Request('POST', '/email/send', {
-        'subject': subject,
-        'from': EEfrom,
-        'fromName': fromName,
-        'to': to,
-        'bodyHtml': bodyHtml,
-        'bodyText': bodyText,
+        'subject': random_subject,
+        'from': SENDER_EMAIL,
+        'fromName': "HolidayApp",
+        'to': email,
+        'bodyHtml': rendered_html,
+        'bodyText': "Text body will go here",
         'isTransactional': True
     })
 
@@ -305,20 +298,13 @@ def send_holiday_email(email):
     
     rendered_html = template.render(template_variables)
 
-    subject = random_subject # randomize this
-    EEfrom = SENDER_EMAIL
-    fromName = "HolidayApp"
-    to = email
-    bodyHtml = rendered_html
-    bodyText = "Text body will go here"
-
     return ApiClient.Request('POST', '/email/send', {
-        'subject': subject,
-        'from': EEfrom,
-        'fromName': fromName,
-        'to': to,
-        'bodyHtml': bodyHtml,
-        'bodyText': bodyText,
+        'subject': random_subject,
+        'from': SENDER_EMAIL,
+        'fromName': "HolidayApp",
+        'to': email,
+        'bodyHtml': rendered_html,
+        'bodyText': "Text body will go here",
         'isTransactional': True
     }) 
 

@@ -3,7 +3,7 @@
 from model import db, connect_to_db, Month, Holiday, Email, MonthlyHoliday
 from datetime import datetime
 import random
-import controller, email_jobs
+import email_jobs
 
 
 def create_month(month_name):

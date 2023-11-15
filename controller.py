@@ -3,8 +3,6 @@
 from datetime import date
 import crud, random
 import os
-import requests
-from jinja2 import Template
 
 DEVELOPER = os.environ['DEVELOPER']
 DOMAIN = os.environ['DOMAIN']

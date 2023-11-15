@@ -4,12 +4,13 @@ from jinja2 import Template
 import os, requests, time
 from celery import Celery
 from celery.schedules import crontab
+import schedule # this might work alternatively to celery?
 
 DOMAIN = os.environ['DOMAIN']
 API_KEY = os.environ['API_KEY']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
 
-app = Celery('myapp', broker='pyamqp://guest:guest@localhost//') #figure out what broker to go with
+app = Celery('myapp', broker='pyamqp://guest:guest@localhost//') # figure out what broker(?) to go with
 app.conf.timezone = 'UTC'
 
 class ApiClient:

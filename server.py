@@ -246,16 +246,7 @@ def send_welcome_email(email):
         'domain': DOMAIN
     }
 
-    # test_variables = {
-    #     'random_salutation': "Hey there,",
-    #     'fname': "Test User",
-    #     'holiday_name': "National Pickle Day",
-    #     'email': 'dev.email.holidayapp@gmail.com',
-    #     'domain': DOMAIN
-    # }
-
     rendered_html = template.render(template_variables)
-    # rendered_html = template.render(test_variables)
 
     subject = "Welcome to HolidayApp!" # randomize this
     EEfrom = SENDER_EMAIL
@@ -263,8 +254,6 @@ def send_welcome_email(email):
     to = email
     bodyHtml = rendered_html
     bodyText = "Text body will go here"
-
-    # print(f"***********\n\n{template_variables}\n\n***********")
 
     return ApiClient.Request('POST', '/email/send', {
         'subject': subject,

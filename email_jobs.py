@@ -3,11 +3,14 @@ import crud
 from jinja2 import Template
 import os, requests, time
 from celery import Celery
+from celery.schedules import crontab
 
 DOMAIN = os.environ['DOMAIN']
 API_KEY = os.environ['API_KEY']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
 
+app = Celery('myapp', broker='pyamqp://guest:guest@localhost//') #figure out what broker to go with
+app.conf.timezone = 'UTC'
 
 class ApiClient:
 	apiUri = 'https://api.elasticemail.com/v2'
@@ -37,6 +40,15 @@ class ApiClient:
 def start_daily_email_job():
 
     # schedule.every().day.at('20:00').do(daily_email_job())
+
+    # app.conf.beat_schedule = {
+    # # Executes every Monday morning at 7:30 a.m.
+    #     'send-every-morning': {
+    #         'task': 'tasks.add',
+    #         'schedule': crontab(hour=7, minute=0),
+    #         'args': (16, 16),
+    #     },
+    # }
 	
     return 'email job executed successfully: 200'
 
@@ -44,6 +56,15 @@ def start_daily_email_job():
 def start_opt_out_removal_job():
 
     # schedule.every().day.at('20:00').do(remove_opted_out_emails_from_db())
+
+    # app.conf.beat_schedule = {
+    # # Executes 2x a day at noon and midnight
+    #     'send-every-morning': {
+    #         'task': 'tasks.add',
+    #         'schedule': crontab(hour='0, 12', minute=0),
+    #         'args': (16, 16),
+    #     },
+    # }
 	
     return 'opted-out email job executed successfully: 200'
 

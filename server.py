@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, flash, session, redirect, jso
 from model import connect_to_db
 from jinja2 import StrictUndefined
 import crud, controller, os
-import email_jobs
+# import email_jobs
 
 DEV_KEY = os.environ['DEV_KEY']
 
@@ -13,9 +13,8 @@ app.secret_key = DEV_KEY
 
 app.jinja_env.undefined = StrictUndefined
 
-email_jobs.start_daily_email_job()
-email_jobs.start_opt_out_removal_job()
-
+# email_jobs.start_daily_email_job()
+# email_jobs.start_opt_out_removal_job()
 
 @app.route('/')
 def homepage():
@@ -199,21 +198,21 @@ def unsubscribe_email(email):
     return render_template('unsubscribe.html')
 
 
-@app.route('/send-welcome-email/<email>/', methods = ["GET"])
-def send_welcome_email(email):
-    """ Sends a welcome email to an email when they first sign up """
+# @app.route('/send-welcome-email/<email>/', methods = ["GET"])
+# def send_welcome_email(email):
+#     """ Sends a welcome email to an email when they first sign up """
 
-    email_jobs.send_welcome_email(email)
+#     email_jobs.send_welcome_email(email)
 
-    return 'welcome email sent successfully: 200'
+#     return 'welcome email sent successfully: 200'
 
 
-@app.route('/send-holiday-email/<email>/', methods = ["GET"])
-def send_holiday_email(email):
+# @app.route('/send-holiday-email/<email>/', methods = ["GET"])
+# def send_holiday_email(email):
      
-    email_jobs.send_daily_holiday_email(email)
+#     email_jobs.send_daily_holiday_email(email)
 
-    return 'daily holiday email sent successfully: 200'
+#     return 'daily holiday email sent successfully: 200'
 
 
 if __name__ == '__main__':

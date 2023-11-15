@@ -3,6 +3,7 @@
 from model import db, connect_to_db, Month, Holiday, Email, MonthlyHoliday
 from datetime import datetime
 import random
+import controller
 
 
 def create_month(month_name):
@@ -46,6 +47,8 @@ def create_email_address(email_firstname, email_address):
     
     db.session.add(new_email)
     db.session.commit()
+
+    controller.send_welcome_email()
 
     return new_email
 

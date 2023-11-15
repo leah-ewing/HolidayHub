@@ -3,6 +3,7 @@ from model import connect_to_db
 from jinja2 import StrictUndefined, Template
 import crud, controller, os
 import requests
+import email_jobs
 
 API_KEY = os.environ['API_KEY']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
@@ -226,87 +227,19 @@ def unsubscribe_email(email):
 
 @app.route('/send-welcome-email/<email>/', methods = ["GET"])
 def send_welcome_email(email):
-     
-    file_name = "templates/email-templates/welcome-email.html"
-    html_file = open(file_name, 'r', encoding='utf-8')
-    source_code = html_file.read()
-    template = Template(source_code)
+    """ Sends a welcome email to an email when they first sign up """
 
-    random_salutation = controller.get_random_salutation()
-    fname = crud.get_fname_by_email(email)
-    current_date = controller.get_current_date()
-    month_num = crud.get_month_by_name(current_date["month"])
-    holiday = crud.get_first_holiday_by_date(month_num, current_date["day"])
-    random_subject = controller.get_random_welcome_email_subject()
+    email_jobs.send_welcome_email(email)
 
-    template_variables = {
-        'random_salutation': random_salutation,
-        'fname': fname,
-        'holiday_name': holiday.holiday_name,
-        'email': email,
-        'domain': DOMAIN
-    }
-
-    rendered_html = template.render(template_variables)
-
-    return ApiClient.Request('POST', '/email/send', {
-        'subject': random_subject,
-        'from': SENDER_EMAIL,
-        'fromName': "HolidayApp",
-        'to': email,
-        'bodyHtml': rendered_html,
-        'bodyText': "Text body will go here",
-        'isTransactional': True
-    })
+    return 'welcome email sent successfully: 200'
 
 
 @app.route('/send-holiday-email/<email>/', methods = ["GET"])
 def send_holiday_email(email):
+     
+    email_jobs.send_daily_holiday_email(email)
 
-    file_name = "templates/email-templates/daily-holiday-email.html"
-    html_file = open(file_name, 'r', encoding='utf-8')
-    source_code = html_file.read()
-    template = Template(source_code)
-
-    random_salutation = controller.get_random_salutation()
-    random_today_is_statement = controller.get_random_today_is_statement()
-    random_it_is_also_statement = controller.get_random_it_is_also_statement()
-    fname = crud.get_fname_by_email(email)
-    current_date = controller.get_current_date()
-    suffix = controller.get_date_suffix(str(current_date["day"]))
-    month_num = crud.get_month_by_name(current_date["month"])
-    holiday = crud.get_first_holiday_by_date(month_num, current_date["day"])
-    holiday_img = controller.get_formatted_github_image_url(holiday.holiday_name)
-    random_subject = controller.get_random_holiday_email_subject()
-
-    template_variables = {
-        'random_salutation': random_salutation,
-        'random_today_is_statement': random_today_is_statement,
-        'random_it_is_also_statement': random_it_is_also_statement,
-        'fname': fname,
-        'month': current_date["month"].capitalize(),
-        'day': str(current_date["day"]),
-        'suffix': suffix,
-        'holiday': {
-            'holiday_name': holiday.holiday_name,
-            'holiday_img': holiday_img,
-            'holiday_email': "TEST BLURB" # will eventually be holiday.holiday_email
-        },
-        'email': email,
-        'domain': DOMAIN
-    }
-    
-    rendered_html = template.render(template_variables)
-
-    return ApiClient.Request('POST', '/email/send', {
-        'subject': random_subject,
-        'from': SENDER_EMAIL,
-        'fromName': "HolidayApp",
-        'to': email,
-        'bodyHtml': rendered_html,
-        'bodyText': "Text body will go here",
-        'isTransactional': True
-    }) 
+    return 'daily holiday email sent successfully: 200'
 
 
 if __name__ == '__main__':

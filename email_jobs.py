@@ -4,10 +4,10 @@ from jinja2 import Template
 import os
 import requests
 
+
 DOMAIN = os.environ['DOMAIN']
 API_KEY = os.environ['API_KEY']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
-
 
 
 class ApiClient:
@@ -33,6 +33,7 @@ class ApiClient:
 			return jsonMy['error']
 			
 		return jsonMy['data']
+	
 
 def send_welcome_email(email):
     """ Sends a daily holiday email """
@@ -117,6 +118,8 @@ def send_daily_holiday_email(email):
         'isTransactional': True
     }) 
 
+
 def remove_opted_out_emails_from_db():
-    """ Checks 2x a day for opted out emails and removeds them from the database """
+    """ Checks 2x a day for opted out emails and removes them from the database """
+	
     pass

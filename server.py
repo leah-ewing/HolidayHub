@@ -237,6 +237,7 @@ def send_welcome_email(email):
     current_date = controller.get_current_date()
     month_num = crud.get_month_by_name(current_date["month"])
     holiday = crud.get_first_holiday_by_date(month_num, current_date["day"])
+    random_subject = controller.get_random_welcome_email_subject()
 
     template_variables = {
         'random_salutation': random_salutation,
@@ -248,7 +249,7 @@ def send_welcome_email(email):
 
     rendered_html = template.render(template_variables)
 
-    subject = "Welcome to HolidayApp!" # randomize this
+    subject = random_subject # randomize this
     EEfrom = SENDER_EMAIL
     fromName = "HolidayApp"
     to = email
@@ -283,6 +284,7 @@ def send_holiday_email(email):
     month_num = crud.get_month_by_name(current_date["month"])
     holiday = crud.get_first_holiday_by_date(month_num, current_date["day"])
     holiday_img = controller.get_formatted_github_image_url(holiday.holiday_name)
+    random_subject = controller.get_random_holiday_email_subject()
 
     template_variables = {
         'random_salutation': random_salutation,
@@ -303,7 +305,7 @@ def send_holiday_email(email):
     
     rendered_html = template.render(template_variables)
 
-    subject = "Your Daily Holiday email has arrived!" # randomize this
+    subject = random_subject # randomize this
     EEfrom = SENDER_EMAIL
     fromName = "HolidayApp"
     to = email

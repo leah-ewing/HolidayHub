@@ -230,6 +230,29 @@ def update_opt_in_status(email):
             db_email.email_opt_in = False
     
     db.session.commit()
+
+
+def remove_opted_out_emails():
+    """ Deletes all emails that have opted out of receiving daily emails from database """
+
+    delete_emails = f"DELETE FROM emails WHERE email_opt_in = False"
+
+    db.session.execute(delete_emails)
+
+    db.session.commit()
+
+
+def get_opted_in_emails():
+    """ Returns all emails that have opted in to recieve daily emails """
+
+    emails = Email.query.all()
+    opted_in_emails = []
+
+    for email in emails:
+        if email.email_opt_in == True:
+            opted_in_emails.append(email)
+
+    return opted_in_emails
     
 
 if __name__ == '__main__':

@@ -13,3 +13,4 @@ SQLAlchemy
 urllib3
 Werkzeug
 flask-bootstrap
+celery

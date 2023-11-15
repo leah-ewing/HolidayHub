@@ -1,9 +1,8 @@
 import controller
 import crud
 from jinja2 import Template
-import os
-import requests
-
+import os, requests, time
+from celery import Celery
 
 DOMAIN = os.environ['DOMAIN']
 API_KEY = os.environ['API_KEY']
@@ -33,10 +32,36 @@ class ApiClient:
 			return jsonMy['error']
 			
 		return jsonMy['data']
+
+
+def start_daily_email_job():
+
+    # schedule.every().day.at('20:00').do(daily_email_job())
 	
+    return 'email job executed successfully: 200'
+
+
+def start_opt_out_removal_job():
+
+    # schedule.every().day.at('20:00').do(remove_opted_out_emails_from_db())
+	
+    return 'opted-out email job executed successfully: 200'
+
+
+def daily_email_job():
+    """ Retrieves opted-in emails and triggers function to send holiday emails once a day """
+
+    emails = crud.get_opted_in_emails()
+	
+    for email in emails:
+        send_daily_holiday_email(email)
+
+    return 'email sent successfully: 200'
+
 
 def send_welcome_email(email):
     """ Sends a daily holiday email """
+	
     file_name = "templates/email-templates/welcome-email.html"
     html_file = open(file_name, 'r', encoding='utf-8')
     source_code = html_file.read()
@@ -120,6 +145,8 @@ def send_daily_holiday_email(email):
 
 
 def remove_opted_out_emails_from_db():
-    """ Checks 2x a day for opted out emails and removes them from the database """
+    """ Checks for opted out emails and removes them from the database """
 	
-    pass
+    crud.remove_opted_out_emails()
+	
+    return 'emails deleted from db: 200'

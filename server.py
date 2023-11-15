@@ -1,15 +1,10 @@
 from flask import Flask, render_template, request, flash, session, redirect, jsonify
 from model import connect_to_db
-from jinja2 import StrictUndefined, Template
+from jinja2 import StrictUndefined
 import crud, controller, os
-import requests
 import email_jobs
 
-API_KEY = os.environ['API_KEY']
-SENDER_EMAIL = os.environ['SENDER_EMAIL']
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
 DEV_KEY = os.environ['DEV_KEY']
-DOMAIN = os.environ['DOMAIN']
 
 app = Flask(__name__)
 app.app_context().push()
@@ -18,29 +13,8 @@ app.secret_key = DEV_KEY
 
 app.jinja_env.undefined = StrictUndefined
 
-class ApiClient:
-	apiUri = 'https://api.elasticemail.com/v2'
-	apiKey = API_KEY
-
-	def Request(method, url, data):
-		data['apikey'] = ApiClient.apiKey
-		if method == 'POST':
-			result = requests.post(ApiClient.apiUri + url, data = data)
-		elif method == 'PUT':
-			result = requests.put(ApiClient.apiUri + url, data = data)
-		elif method == 'GET':
-			attach = ''
-			for key in data:
-				attach = attach + key + '=' + data[key] + '&' 
-			url = url + '?' + attach[:-1]
-			result = requests.get(ApiClient.apiUri + url)	
-			
-		jsonMy = result.json()
-		
-		if jsonMy['success'] is False:
-			return jsonMy['error']
-			
-		return jsonMy['data']
+email_jobs.start_daily_email_job()
+email_jobs.start_opt_out_removal_job()
 
 
 @app.route('/')

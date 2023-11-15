@@ -6,35 +6,8 @@ import os
 import requests
 from jinja2 import Template
 
-
 DEVELOPER = os.environ['DEVELOPER']
-API_KEY = os.environ['API_KEY']
 DOMAIN = os.environ['DOMAIN']
-SENDER_EMAIL = os.environ['SENDER_EMAIL']
-
-class ApiClient:
-	apiUri = 'https://api.elasticemail.com/v2'
-	apiKey = API_KEY
-
-	def Request(method, url, data):
-		data['apikey'] = ApiClient.apiKey
-		if method == 'POST':
-			result = requests.post(ApiClient.apiUri + url, data = data)
-		elif method == 'PUT':
-			result = requests.put(ApiClient.apiUri + url, data = data)
-		elif method == 'GET':
-			attach = ''
-			for key in data:
-				attach = attach + key + '=' + data[key] + '&' 
-			url = url + '?' + attach[:-1]
-			result = requests.get(ApiClient.apiUri + url)	
-			
-		jsonMy = result.json()
-		
-		if jsonMy['success'] is False:
-			return jsonMy['error']
-			
-		return jsonMy['data']
 
 def get_date_suffix(number):
     """ Gets the suffix for a given date ('st', 'nd', 'rd', or 'th') """

@@ -205,7 +205,7 @@ def get_random_welcome_email_subject():
     subjects = ["Welcome to HolidayApp!",
                 "So happy to have you apart of the HolidayApp community!",
                 "Welcome!",
-                "Yay! You're first HolidayApp email!",
+                "Yay! Your first HolidayApp email!",
                 "HolidayApp is happy to meet you!"]
     
     return random.choice(subjects)

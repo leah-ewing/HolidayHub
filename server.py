@@ -225,7 +225,7 @@ def unsubscribe_email(email):
 
 
 @app.route('/send-holiday-email/<email>/', methods = ["GET"])
-def test_email(email):
+def send_holiday_email(email):
     file_name = "templates/email-templates/daily-holiday-email.html"
     html_file = open(file_name, 'r', encoding='utf-8')
     source_code = html_file.read()
@@ -251,8 +251,11 @@ def test_email(email):
         'suffix': suffix,
         'holiday': {
             'holiday_name': holiday.holiday_name,
-            'holiday_img': holiday_img
-        }
+            'holiday_img': holiday_img,
+            'holiday_email': "TEST BLURB" # will eventually be holiday.holiday_email
+        },
+        'email': email,
+        'domain': DOMAIN
     }
     
     rendered_html = template.render(template_variables)

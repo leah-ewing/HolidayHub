@@ -201,9 +201,8 @@ def get_formatted_github_image_url(holiday_name):
 
     holiday = crud.get_holiday_by_name(holiday_name)
     month_num = str(holiday.holiday_month)
-    month_name = crud.get_month_by_number(month_num)
+    month_name = crud.get_month_by_number(int(month_num))
     day_num = str(holiday.holiday_date)
     formatted_holiday_name = get_formatted_github_holiday_name(holiday_name)
     
-
     return(f"https://github.com/{DEVELOPER}/HolidayApp/blob/main/static/media/holiday_images/{month_num}-{month_name}/{month_num}-{day_num}-{formatted_holiday_name}.jpg?raw=true")

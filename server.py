@@ -231,29 +231,36 @@ def test_email(email):
     source_code = html_file.read()
     template = Template(source_code)
 
-    template_variables = {
-			'random_salutation': "Hi there, ",
-			'random_today_is_statement': "Did you know that today is ",
-			'random_it_is_also_statement': "But did you know that it's also...",
-			'fname':"Test User",
-			'month': "November",
-			'day': "13",
-			'suffix': "th",
-			'holiday': {
-				'holiday_name': "World Kindness Day",
-				'holiday_img': "https://github.com/leah-ewing/HolidayApp/blob/main/static/media/holiday_images/11-november/11-13-world_kindness_day.jpg?raw=true",
-                'holiday_email': "TEST BLURB"
-			},
-			'email': SENDER_EMAIL,
-            'domain': DOMAIN
-		} # testing variables
-    
-    rendered_html = template.render(template_variables) # test
+    random_salutation = controller.get_random_salutation()
+    random_today_is_statement = controller.get_random_today_is_statement()
+    random_it_is_also_statement = controller.get_random_it_is_also_statement()
+    fname = crud.get_fname_by_email(email)
+    current_date = controller.get_current_date()
+    suffix = controller.get_date_suffix(str(current_date["day"]))
+    month_num = crud.get_month_by_name(current_date["month"])
+    holiday = crud.get_first_holiday_by_date(month_num, current_date["day"])
+    holiday_img = controller.get_formatted_github_image_url(holiday.holiday_name)
 
-    subject = "Your Daily Holiday email!" # insert holiday
+    template_variables = {
+        'random_salutation': random_salutation,
+        'random_today_is_statement': random_today_is_statement,
+        'random_it_is_also_statement': random_it_is_also_statement,
+        'fname': fname,
+        'month': current_date["month"].capitalize(),
+        'day': str(current_date["day"]),
+        'suffix': suffix,
+        'holiday': {
+            'holiday_name': holiday.holiday_name,
+            'holiday_img': holiday_img
+        }
+    }
+    
+    rendered_html = template.render(template_variables)
+
+    subject = "Your Daily Holiday email has arrived!" # randomize this
     EEfrom = SENDER_EMAIL
     fromName = "HolidayApp"
-    to = SENDER_EMAIL
+    to = email
     bodyHtml = rendered_html
     bodyText = "Text body will go here"
     isTransactional = True

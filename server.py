@@ -249,7 +249,7 @@ def send_welcome_email(email):
 
     rendered_html = template.render(template_variables)
 
-    subject = random_subject # randomize this
+    subject = random_subject
     EEfrom = SENDER_EMAIL
     fromName = "HolidayApp"
     to = email

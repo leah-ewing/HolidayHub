@@ -224,8 +224,62 @@ def unsubscribe_email(email):
     return render_template('unsubscribe.html')
 
 
+@app.route('/send-welcome-email/<email>/', methods = ["GET"])
+def send_welcome_email(email):
+     
+    file_name = "templates/email-templates/welcome-email.html"
+    html_file = open(file_name, 'r', encoding='utf-8')
+    source_code = html_file.read()
+    template = Template(source_code)
+
+    random_salutation = controller.get_random_salutation()
+    fname = crud.get_fname_by_email(email)
+    current_date = controller.get_current_date()
+    month_num = crud.get_month_by_name(current_date["month"])
+    holiday = crud.get_first_holiday_by_date(month_num, current_date["day"])
+
+    template_variables = {
+        'random_salutation': random_salutation,
+        'fname': fname,
+        'holiday_name': holiday.holiday_name,
+        'email': email,
+        'domain': DOMAIN
+    }
+
+    # test_variables = {
+    #     'random_salutation': "Hey there,",
+    #     'fname': "Test User",
+    #     'holiday_name': "National Pickle Day",
+    #     'email': 'dev.email.holidayapp@gmail.com',
+    #     'domain': DOMAIN
+    # }
+
+    rendered_html = template.render(template_variables)
+    # rendered_html = template.render(test_variables)
+
+    subject = "Welcome to HolidayApp!" # randomize this
+    EEfrom = SENDER_EMAIL
+    fromName = "HolidayApp"
+    to = email
+    bodyHtml = rendered_html
+    bodyText = "Text body will go here"
+
+    # print(f"***********\n\n{template_variables}\n\n***********")
+
+    return ApiClient.Request('POST', '/email/send', {
+        'subject': subject,
+        'from': EEfrom,
+        'fromName': fromName,
+        'to': to,
+        'bodyHtml': bodyHtml,
+        'bodyText': bodyText,
+        'isTransactional': True
+    })
+
+
 @app.route('/send-holiday-email/<email>/', methods = ["GET"])
 def send_holiday_email(email):
+
     file_name = "templates/email-templates/daily-holiday-email.html"
     html_file = open(file_name, 'r', encoding='utf-8')
     source_code = html_file.read()
@@ -266,7 +320,6 @@ def send_holiday_email(email):
     to = email
     bodyHtml = rendered_html
     bodyText = "Text body will go here"
-    isTransactional = True
 
     return ApiClient.Request('POST', '/email/send', {
         'subject': subject,
@@ -275,8 +328,8 @@ def send_holiday_email(email):
         'to': to,
         'bodyHtml': bodyHtml,
         'bodyText': bodyText,
-        'isTransactional': isTransactional
-        }) 
+        'isTransactional': True
+    }) 
 
 
 if __name__ == '__main__':

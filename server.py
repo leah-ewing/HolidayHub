@@ -1,8 +1,7 @@
-from flask import Flask, render_template, request, flash, session, redirect, jsonify, current_app
+from flask import Flask, render_template, request, flash, session, redirect, jsonify
 from model import connect_to_db
 from jinja2 import StrictUndefined
 import crud, controller, os
-from email_jobs import start_daily_email_job, start_opt_out_removal_job
 DEV_KEY = os.environ['DEV_KEY']
 
 app = Flask(__name__)
@@ -11,6 +10,7 @@ app.secret_key = DEV_KEY
 app.app_context().push()
 
 app.jinja_env.undefined = StrictUndefined
+
 
 @app.route('/')
 def homepage():
@@ -213,9 +213,13 @@ def unsubscribe_email(email):
 
 if __name__ == '__main__':
     connect_to_db(app)
-    import email_jobs
+    # import email_jobs
+
+    # threading.Thread(target=email_jobs.start_daily_email_job).start()
+    # threading.Thread(target=email_jobs.start_opt_out_removal_job).start()
+
     app.run(host='0.0.0.0', debug=True, port=8000)
 
-    with app.app_context():
-        email_jobs.start_daily_email_job()
-        email_jobs.start_opt_out_removal_job()
+    # with app.app_context():
+    #     email_jobs.start_daily_email_job()
+    #     email_jobs.start_opt_out_removal_job()

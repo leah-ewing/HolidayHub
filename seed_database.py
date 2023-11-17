@@ -1,7 +1,6 @@
 """Script to seed database."""
 
 import os
-from random import choice, randint
 from datetime import datetime
 
 import crud

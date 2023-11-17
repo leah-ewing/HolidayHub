@@ -3,3 +3,4 @@ notes.txt
 secrets.sh
 token.json
 __pycache__
+.DS_Store

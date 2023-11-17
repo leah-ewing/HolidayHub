@@ -13,6 +13,5 @@ SQLAlchemy
 urllib3
 Werkzeug
 flask-bootstrap
-Celery
 requests
-schedule
+python-crontab

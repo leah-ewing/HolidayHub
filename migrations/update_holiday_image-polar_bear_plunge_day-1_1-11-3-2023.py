@@ -10,6 +10,7 @@ import server
 connect_to_db(server.app)
 
 """ 
+Holiday:
 
 holiday_name = String
 holiday_img = String

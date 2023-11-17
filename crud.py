@@ -3,8 +3,8 @@
 from model import db, connect_to_db, Month, Holiday, Email, MonthlyHoliday
 from datetime import datetime
 import random
-import email_jobs
-
+import send_welcome_email
+import sqlalchemy
 
 def create_month(month_name):
     """ Create and return all 12 months """
@@ -48,7 +48,7 @@ def create_email_address(email_firstname, email_address):
     db.session.add(new_email)
     db.session.commit()
 
-    email_jobs.send_welcome_email(email_address)
+    send_welcome_email.send_welcome_email(email_address)
 
     return new_email
 
@@ -235,7 +235,7 @@ def update_opt_in_status(email):
 def remove_opted_out_emails():
     """ Deletes all emails that have opted out of receiving daily emails from database """
 
-    delete_emails = f"DELETE FROM emails WHERE email_opt_in = False"
+    delete_emails = sqlalchemy.sql.text('DELETE FROM email WHERE email_opt_in = False')
 
     db.session.execute(delete_emails)
 
@@ -243,7 +243,7 @@ def remove_opted_out_emails():
 
 
 def get_opted_in_emails():
-    """ Returns all emails that have opted in to recieve daily emails """
+    """ Returns all emails that have opted in to receive daily emails """
 
     emails = Email.query.all()
     opted_in_emails = []

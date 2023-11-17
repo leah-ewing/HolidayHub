@@ -12,12 +12,12 @@ model.connect_to_db(server.app)
 """ 
 Holiday:
 
-holiday_name
-holiday_month
-holiday_date
-holiday_img
-holiday_blurb
-holiday_email 
+holiday_name: String
+holiday_month: Integer
+holiday_date: Integer
+holiday_img: String
+holiday_blurb: String
+holiday_email: String
 """
 
 crud.create_holiday("Polar Bear Plunge Day", 

@@ -2,16 +2,12 @@ import controller
 import crud
 from jinja2 import Template
 import os, requests, time
-from celery import Celery
-from celery.schedules import crontab
-import schedule # this might work alternatively to celery?
+import schedule
+from model import connect_to_db
 
 DOMAIN = os.environ['DOMAIN']
 API_KEY = os.environ['API_KEY']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
-
-app = Celery('myapp', broker='pyamqp://guest:guest@localhost//') # figure out what broker(?) to go with
-app.conf.timezone = 'UTC'
 
 class ApiClient:
 	apiUri = 'https://api.elasticemail.com/v2'
@@ -39,50 +35,46 @@ class ApiClient:
 
 
 def start_daily_email_job():
+    """ Starts the daily holiday email job """
 
-    # schedule.every().day.at('20:00').do(daily_email_job())
-
-    # app.conf.beat_schedule = {
-    # # Executes every Monday morning at 7:30 a.m.
-    #     'send-every-morning': {
-    #         'task': 'tasks.add',
-    #         'schedule': crontab(hour=7, minute=0),
-    #         'args': (16, 16),
-    #     },
-    # }
+    schedule.every().day.at('19:11:00').do(daily_email_job)
 	
-    return 'email job executed successfully: 200'
-
-
-def start_opt_out_removal_job():
-
-    # schedule.every().day.at('20:00').do(remove_opted_out_emails_from_db())
-
-    # app.conf.beat_schedule = {
-    # # Executes 2x a day at noon and midnight
-    #     'send-every-morning': {
-    #         'task': 'tasks.add',
-    #         'schedule': crontab(hour='0, 12', minute=0),
-    #         'args': (16, 16),
-    #     },
-    # }
-	
-    return 'opted-out email job executed successfully: 200'
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
 
 
 def daily_email_job():
-    """ Retrieves opted-in emails and triggers function to send holiday emails once a day """
+    """ Job to send a holiday email once a day to emails that are opted in """
 
     emails = crud.get_opted_in_emails()
-	
+
     for email in emails:
         send_daily_holiday_email(email)
 
-    return 'email sent successfully: 200'
+    return schedule.CancelJob
+
+
+def start_opt_out_removal_job():
+    """ Starts the opt-out removal job """
+
+    schedule.every(12).hours.do(opt_out_removal_job)
+
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
+
+def opt_out_removal_job():
+      """ Job for removing opted-out emails from the database """
+      
+      crud.remove_opted_out_emails()
+
+      return schedule.CancelJob
 
 
 def send_welcome_email(email):
-    """ Sends a daily holiday email """
+    """ Sends a welcome email after sign-up """
 	
     file_name = "templates/email-templates/welcome-email.html"
     html_file = open(file_name, 'r', encoding='utf-8')
@@ -118,7 +110,7 @@ def send_welcome_email(email):
 
 
 def send_daily_holiday_email(email):
-    """ Sends a holiday email once a day to emails that are opted in """
+    """ Creates and sends the holiday email """
 	
     file_name = "templates/email-templates/daily-holiday-email.html"
     html_file = open(file_name, 'r', encoding='utf-8')
@@ -166,9 +158,6 @@ def send_daily_holiday_email(email):
     }) 
 
 
-def remove_opted_out_emails_from_db():
-    """ Checks for opted out emails and removes them from the database """
-	
-    crud.remove_opted_out_emails()
-	
-    return 'emails deleted from db: 200'
+if __name__ == '__main__':
+    from server import app
+    connect_to_db(app)

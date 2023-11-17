@@ -213,13 +213,4 @@ def unsubscribe_email(email):
 
 if __name__ == '__main__':
     connect_to_db(app)
-    # import email_jobs
-
-    # threading.Thread(target=email_jobs.start_daily_email_job).start()
-    # threading.Thread(target=email_jobs.start_opt_out_removal_job).start()
-
     app.run(host='0.0.0.0', debug=True, port=8000)
-
-    # with app.app_context():
-    #     email_jobs.start_daily_email_job()
-    #     email_jobs.start_opt_out_removal_job()

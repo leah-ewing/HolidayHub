@@ -1,11 +1,14 @@
 """ Job for removing opted-out emails from the database """
 
 if __name__ == '__main__':
+	import sys, os
+
+	ROOT_FOLDER = os.environ['ROOT_FOLDER']
+	sys.path.append(ROOT_FOLDER)
+
 	from server import app
 	import crud
 	import logging, os
-
-	ROOT_FOLDER = os.environ['ROOT_FOLDER']
 
 	logging.basicConfig(filename=f'{ROOT_FOLDER}/jobs_log.log', level=logging.INFO, format='%(asctime)s %(message)s')
 

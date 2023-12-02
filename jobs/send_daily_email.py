@@ -1,17 +1,16 @@
-""" Job to send a holiday email once a day to emails that are opted in """
+""" Sends a holiday email to emails that are opted in """
 import sys, os
+from jinja2 import Template
 
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
 sys.path.append(ROOT_FOLDER)
 
 import controller, crud
-from jinja2 import Template
-import os, requests, logging
+import requests, logging
 
 DOMAIN = os.environ['DOMAIN']
 API_KEY = os.environ['API_KEY']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
-# ROOT_FOLDER = os.environ['ROOT_FOLDER']
 API_URI = os.environ['API_URI']
 
 logging.basicConfig(filename=f'{ROOT_FOLDER}/jobs/jobs_log.log', level=logging.INFO, format='%(asctime)s %(message)s')
@@ -100,6 +99,5 @@ if __name__ == '__main__':
 		
         for email in emails:
             send_daily_holiday_email(email.email_address)
-            logging.info(f'email sent to {email.email_address}')
 			
     logging.info("\n***************\n\nEMAILS SENT SUCCESSFULLY: 200\n\n***************\n")

@@ -3,17 +3,19 @@ from crontab import CronTab
 
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
 
+
 def schedule_daily_email_job():
     """ Sends emails to opted-in users 1x daily at 7:00 AM """
 
     cron = CronTab(user=True)
 
-    logging.basicConfig(filename=f'{ROOT_FOLDER}/jobs_log.log', level=logging.INFO, format='%(asctime)s %(message)s')
+    logging.basicConfig(filename=f'{ROOT_FOLDER}/jobs/jobs_log.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
-    command_with_secrets = f'source {ROOT_FOLDER}/secrets.sh && {ROOT_FOLDER}/env/bin/python3 /{ROOT_FOLDER}/send_daily_email.py'
+    command_with_secrets = f'source {ROOT_FOLDER}/secrets.sh && {ROOT_FOLDER}/env/bin/python3 {ROOT_FOLDER}/jobs/send_daily_email.py'
 
     jobs_with_secrets = cron.new(command=command_with_secrets)
-    jobs_with_secrets.setall('0 7 * * *')
+    # jobs_with_secrets.setall('0 7 * * *')
+    jobs_with_secrets.setall('22 15 * * *')
     cron.write() 
 
     print('***************\n')
@@ -27,12 +29,13 @@ def schedule_opt_out_removal_job():
 
     cron = CronTab(user=True)
 
-    logging.basicConfig(filename=f'{ROOT_FOLDER}/jobs_log.log', level=logging.INFO, format='%(asctime)s %(message)s')
+    logging.basicConfig(filename=f'{ROOT_FOLDER}/jobs/jobs_log.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
-    command_with_secrets = f'source {ROOT_FOLDER}/secrets.sh && {ROOT_FOLDER}/env/bin/python3 {ROOT_FOLDER}/opt_out_removal.py'
+    command_with_secrets = f'source {ROOT_FOLDER}/secrets.sh && {ROOT_FOLDER}/env/bin/python3 {ROOT_FOLDER}/jobs/opt_out_removal.py'
 
     jobs_with_secrets = cron.new(command=command_with_secrets)
-    jobs_with_secrets.setall('0 */12 * * *')
+    # jobs_with_secrets.setall('0 */12 * * *')
+    jobs_with_secrets.setall('22 15 * * *')
     cron.write() 
 
     print('OPT-OUT REMOVAL JOB STARTED')

@@ -4,3 +4,4 @@ secrets.sh
 token.json
 __pycache__
 .DS_Store
+jobs_log.log

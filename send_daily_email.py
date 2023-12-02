@@ -3,14 +3,18 @@
 import controller
 import crud
 from jinja2 import Template
-import os, requests
+import os, requests, logging
 
 DOMAIN = os.environ['DOMAIN']
 API_KEY = os.environ['API_KEY']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
+ROOT_FOLDER = os.environ['ROOT_FOLDER']
+API_URI = os.environ['API_URI']
+
+logging.basicConfig(filename=f'{ROOT_FOLDER}/jobs_log.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
 class ApiClient:
-	apiUri = 'https://api.elasticemail.com/v2'
+	apiUri = API_URI
 	apiKey = API_KEY
 
 	def Request(method, url, data):
@@ -38,7 +42,7 @@ def send_daily_holiday_email(email):
     """ Creates and sends the holiday email """
 	
     with app.app_context():
-        file_name = "templates/email-templates/daily-holiday-email.html"
+        file_name = f"{ROOT_FOLDER}/templates/email-templates/daily-holiday-email.html"
         html_file = open(file_name, 'r', encoding='utf-8')
         source_code = html_file.read()
         template = Template(source_code)
@@ -93,4 +97,5 @@ if __name__ == '__main__':
 		
         for email in emails:
             send_daily_holiday_email(email.email_address)
-            print(f'email sent to {email.email_address} successfully: 200')
+			
+    logging.info("\n***************\n\nEMAILS SENT SUCCESSFULLY: 200\n\n***************\n")

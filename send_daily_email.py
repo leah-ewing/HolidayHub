@@ -1,7 +1,6 @@
 """ Job to send a holiday email once a day to emails that are opted in """
 
-import controller
-import crud
+import controller, crud
 from jinja2 import Template
 import os, requests, logging
 

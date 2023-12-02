@@ -3,8 +3,7 @@
 if __name__ == '__main__':
 	from server import app
 	import crud
-	import logging
-	import os
+	import logging, os
 
 	ROOT_FOLDER = os.environ['ROOT_FOLDER']
 

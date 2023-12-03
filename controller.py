@@ -211,6 +211,16 @@ def get_random_welcome_email_subject():
                 "HolidayApp is happy to meet you!"]
     
     return random.choice(subjects)
+
+
+def get_random_email_sign_off():
+    """ Returns a random email sign off for a daily holiday email """
+    sign_offs = ["Have a great day!",
+                 "See you tomorrow!",
+                 "Cheers!",
+                 "Ciao!"]
+
+    return random.choice(sign_offs)
     
 
 def get_formatted_github_holiday_name(holiday_name):

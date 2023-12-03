@@ -59,6 +59,7 @@ def send_daily_holiday_email(email):
         holiday = crud.get_first_holiday_by_date(month_num, current_date["day"])
         holiday_img = controller.get_formatted_github_image_url(holiday.holiday_name)
         random_subject = controller.get_random_holiday_email_subject()
+        random_sign_off = controller.get_random_email_sign_off()
 
         template_variables = {
             'random_salutation': random_salutation,
@@ -68,6 +69,7 @@ def send_daily_holiday_email(email):
             'month': current_date["month"].capitalize(),
             'day': str(current_date["day"]),
             'suffix': suffix,
+			'random_sign_off': random_sign_off,
             'holiday': {
                 'holiday_name': holiday.holiday_name,
                 'holiday_img': holiday_img,

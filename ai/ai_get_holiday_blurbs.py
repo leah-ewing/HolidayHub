@@ -1,8 +1,6 @@
 import requests, os, json
-# import asyncio
 import openai
 from openai import OpenAI
-client = OpenAI()
 import time
 
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
@@ -37,11 +35,10 @@ def ask_question(question):
     
     
 def create_blurb_json():
-    """ Creates a json of holiday names and their blurbs populated from AI responses """
+    """ Creates a json of holiday names and their blurbs populated from OpenAI responses """
 
     new_holiday_blurbs_json = open(f'{ROOT_FOLDER}/ai/json/new_holiday_blurbs.json')
     new_json = json.load(new_holiday_blurbs_json)
-    # new_json = []
 
     directory = f'{ROOT_FOLDER}/json/holidays'
     for file in os.listdir(directory):

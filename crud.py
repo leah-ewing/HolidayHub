@@ -2,10 +2,12 @@
 
 from model import db, connect_to_db, Month, Holiday, Email, MonthlyHoliday
 from datetime import datetime
-import random
-import HolidayApp.jobs.send_welcome_email as send_welcome_email
-import sqlalchemy
+import random, sys, os, sqlalchemy
 
+ROOT_FOLDER = os.environ['ROOT_FOLDER']
+sys.path.append(f'{ROOT_FOLDER}/jobs')
+
+import send_welcome_email
 
 def create_month(month_name):
     """ Create and return all 12 months """

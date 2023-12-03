@@ -34,11 +34,11 @@ def ask_question(question):
         return f"Error: {response.status_code}"
     
     
-def create_blurb_json():
-    """ Creates a json of holiday names and their blurbs populated from OpenAI responses """
+def create_email_json():
+    """ Creates a json of holiday names and their email blurbs populated from OpenAI responses """
 
-    new_holiday_blurbs_json = open(f'{ROOT_FOLDER}/ai/json/new_holiday_blurbs.json')
-    new_json = json.load(new_holiday_blurbs_json)
+    new_holiday_emails_json = open(f'{ROOT_FOLDER}/ai/json/new_holiday_emails.json')
+    new_json = json.load(new_holiday_emails_json)
 
     directory = f'{ROOT_FOLDER}/json/holidays'
     for file in os.listdir(directory):
@@ -48,9 +48,9 @@ def create_blurb_json():
 
         for holiday in holidays:
             if holiday['holiday_name'] not in str(new_json):
-                question = f"Will you write me a blurb describing {holiday['holiday_name']} and include any history involving it? Keep it under 500 characters."
-                answer = ask_question(question)
-                # answer = "*** test answer ***" # testing
+                question = f"Will you write me a short blurb describing {holiday['holiday_name']} and include any history involving it? Keep it around 250-300 characters."
+                # answer = ask_question(question)
+                answer = "*** test answer ***" # testing
 
                 if answer[:9] ==  'Error 429':
                     return print('Error 429: Rate limit hit... ABORTING...')
@@ -58,18 +58,18 @@ def create_blurb_json():
 
                 new_json.append({
                     "holiday_name": holiday["holiday_name"],
-                    "holiday_blurb": answer
+                    "holiday_email": answer
                 })
 
                 json_object = json.dumps(new_json, indent=4)
-                with open("json/new_holiday_blurbs.json", "w") as outfile:
+                with open("json/new_holiday_emails.json", "w") as outfile:
                     outfile.write(json_object)
 
                 if len(new_json) == 366:
-                    return print('Success 200: All blurbs created!')
+                    return print('Success 200: All email blurbs created!')
 
                 print(f'{len(new_json)} / 366')
-                time.sleep(45)
+                time.sleep(30)
 
 
-create_blurb_json()
+create_email_json()

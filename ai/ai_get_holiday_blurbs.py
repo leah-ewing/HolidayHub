@@ -53,7 +53,7 @@ def create_blurb_json():
                 answer = "*** test answer ***" # testing
 
                 if answer[:9] ==  'Error 429':
-                    return print('Error 429: Rate limit hit: ABORTING...')
+                    return print('Error 429: Rate limit hit... ABORTING...')
                 elif answer[0] == '\n':
                     answer = answer[2:]
 

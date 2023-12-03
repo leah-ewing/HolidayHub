@@ -3,8 +3,9 @@
 from model import db, connect_to_db, Month, Holiday, Email, MonthlyHoliday
 from datetime import datetime
 import random
-import send_welcome_email
+import HolidayApp.jobs.send_welcome_email as send_welcome_email
 import sqlalchemy
+
 
 def create_month(month_name):
     """ Create and return all 12 months """

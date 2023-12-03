@@ -29,7 +29,7 @@ def ask_question(question):
     if response.status_code == 200:
         return response.json()['choices'][0]['text']
     elif response.status_code == 429:
-        return f"Error {response.status_code}: rate limit hit, please wait"
+        return f"Error {response.status_code}: Rate limit hit... ABORTING..."
     else:
         return f"Error: {response.status_code}"
     
@@ -52,8 +52,8 @@ def create_email_json():
                 # answer = ask_question(question)
                 answer = "*** test answer ***" # testing
 
-                if answer[:9] ==  'Error 429':
-                    return print('Error 429: Rate limit hit... ABORTING...')
+                if answer[:5] ==  'Error':
+                    return print(answer)
                 answer = answer.strip()
 
                 new_json.append({

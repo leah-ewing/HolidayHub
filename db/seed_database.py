@@ -1,11 +1,12 @@
 """Script to seed database."""
 
-import os
+import os, sys
 from datetime import datetime
 
-import crud
-import model
-import server
+ROOT_FOLDER = os.environ['ROOT_FOLDER']
+sys.path.append(ROOT_FOLDER)
+
+import crud, model, server
 
 os.system('dropdb holidaydb')
 os.system('createdb holidaydb')

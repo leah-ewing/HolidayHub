@@ -69,7 +69,6 @@ def create_email_json():
                     return print('Success 200: All email blurbs created!')
 
                 print(f'{len(new_json)} / 366')
-                time.sleep(30)
-
+                time.sleep(45)
 
 create_email_json()

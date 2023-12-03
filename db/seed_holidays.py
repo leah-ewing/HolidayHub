@@ -2,10 +2,12 @@
 
 """ IMPORTANT!! Run `seed_database.py` script FIRST before running this one. """
 
-import json
-import crud
-import model
-import server
+import json, sys, os
+
+ROOT_FOLDER = os.environ['ROOT_FOLDER']
+sys.path.append(ROOT_FOLDER)
+
+import crud, model, server
 
 model.connect_to_db(server.app)
 model.db.create_all()

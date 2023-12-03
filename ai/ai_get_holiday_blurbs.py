@@ -1,13 +1,21 @@
-import requests, os
+import requests, os, json
+# import asyncio
+import openai
+from openai import OpenAI
+client = OpenAI()
+import time
 
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
-AI_API_KEY = os.environ['AI_API_KEY']
-AI_API_URI = os.environ['AI_API_URI']
+OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
+OPENAI_API_URI = os.environ['OPENAI_API_URI']
 
-api_key = AI_API_KEY
-endpoint = AI_API_URI
+api_key = OPENAI_API_KEY
+endpoint = OPENAI_API_URI
+
 
 def ask_question(question):
+    """ Asks a question to OpenAI's `/completion` endpoint """
+
     headers = {
         'Authorization': f'Bearer {api_key}',
         'Content-Type': 'application/json'
@@ -22,9 +30,49 @@ def ask_question(question):
     response = requests.post(endpoint, headers=headers, json=data)
     if response.status_code == 200:
         return response.json()['choices'][0]['text']
+    elif response.status_code == 429:
+        return f"Error {response.status_code}: rate limit hit, please wait"
+    else:
+        return f"Error: {response.status_code}"
+    
+    
+def create_blurb_json():
+    """ Creates a json of holiday names and their blurbs populated from AI responses """
 
+    new_holiday_blurbs_json = open(f'{ROOT_FOLDER}/ai/json/new_holiday_blurbs.json')
+    new_json = json.load(new_holiday_blurbs_json)
+    # new_json = []
 
+    directory = f'{ROOT_FOLDER}/json/holidays'
+    for file in os.listdir(directory):
+        file_name = os.path.join(directory, file)
+        f  = open(file_name)
+        holidays = json.load(f)
 
-question = "Will you say 'hello world'?"
-answer = ask_question(question)
-print(answer)
+        for holiday in holidays:
+            if holiday['holiday_name'] not in str(new_json):
+                question = f"Will you write me a blurb describing {holiday['holiday_name']} and include any history involving it? Keep it under 500 characters."
+                # answer = ask_question(question)
+                answer = "*** test answer ***" # testing
+
+                if answer[:9] ==  'Error 429':
+                    return print('Error 429: Rate limit hit: ABORTING...')
+                elif answer[0] == '\n':
+                    answer = answer[2:]
+
+                new_json.append({
+                    "holiday_name": holiday["holiday_name"],
+                    "holiday_blurb": answer
+                })
+
+                json_object = json.dumps(new_json, indent=4)
+                with open("json/new_holiday_blurbs.json", "w") as outfile:
+                    outfile.write(json_object)
+
+                if len(new_json) == 366:
+                    return print('Success 200: All blurbs updated!')
+
+                print(len(new_json))
+                time.sleep(45)
+
+create_blurb_json()

@@ -15,3 +15,4 @@ Werkzeug
 flask-bootstrap
 requests
 python-crontab
+openai

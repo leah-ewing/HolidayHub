@@ -71,5 +71,6 @@ def create_blurb_json():
 
                 print(len(new_json))
                 time.sleep(45)
+                
 
 create_blurb_json()

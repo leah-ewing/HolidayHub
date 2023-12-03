@@ -194,23 +194,6 @@ def unsubscribe_email(email):
     return render_template('unsubscribe.html')
 
 
-# @app.route('/send-welcome-email/<email>/', methods = ["GET"])
-# def send_welcome_email(email):
-#     """ Sends a welcome email to an email when they first sign up """
-
-#     email_jobs.send_welcome_email(email)
-
-#     return 'welcome email sent successfully: 200'
-
-
-# @app.route('/send-holiday-email/<email>/', methods = ["GET"])
-# def send_holiday_email(email):
-     
-#     email_jobs.send_daily_holiday_email(email)
-
-#     return 'daily holiday email sent successfully: 200'
-
-
 if __name__ == '__main__':
     connect_to_db(app)
     app.run(host='0.0.0.0', debug=True, port=8000)

@@ -29,7 +29,7 @@ def ask_question(question):
     if response.status_code == 200:
         return response.json()['choices'][0]['text']
     elif response.status_code == 429:
-        return f"Error {response.status_code}: Rate limit hit... ABORTING..."
+        return f"Error {response.status_code}: Rate limit hit... Retrying..."
     else:
         return f"Error: {response.status_code}"
     

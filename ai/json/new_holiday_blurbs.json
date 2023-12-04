@@ -842,5 +842,9 @@
     {
         "holiday_name": "Electronic Greetings Day",
         "holiday_blurb": "Electronic Greetings Day is a special day celebrated on July 28th each year. It's a day to show your appreciation for friends and family by sending them something special. The day was created to bring a sense of fun to the internet, with e-cards, emails, and more. The date was chosen to honour a historic event: the first electronic greeting sent in 1994, by an ATP employee. Celebrate today - show your friends and family some love!"
+    },
+    {
+        "holiday_name": "Computer Security Day",
+        "holiday_blurb": "Computer Security Day, held annually on November 30th, is an occasion to celebrate the advances in digital safety. It began in 1988 to raise awareness of the need to secure the use of computer technology and to promote security education. Celebrate and protect yourself by learning about the latest security methods."
     }
 ]

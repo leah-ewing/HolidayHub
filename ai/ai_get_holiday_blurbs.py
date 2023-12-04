@@ -69,7 +69,7 @@ def create_blurb_json():
                     return print('Success 200: All blurbs created!')
 
                 print(f'{len(new_json)} / 366')
-                time.sleep(240)
+                time.sleep(60)
 
 
 create_blurb_json()

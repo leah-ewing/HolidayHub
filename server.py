@@ -28,6 +28,14 @@ def homepage():
                            year = today["year"])
 
 
+@app.route('/about')
+def aboutPage():
+    """ Routes to the 'About' page """
+
+    return render_template('about.html')
+
+
+
 @app.route('/calendar-view')
 def calendarView():
     """ Routes to Calendar page """

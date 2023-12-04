@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+<title>
+  {% block title %}About{% endblock %}
+</title>
+
+{% block body %}
+
+<body>
+
+  <!-- CSS -->
+  <link
+    rel="stylesheet"
+    href="../static/css/static.css">
+
+  <div class="about-page">
+
+    <h2>
+        <font color=#f364a2>
+            <b>About HolidayApp</b>
+        </font>
+    </h2>
+
+    <br>
+
+    <div id="about-blurb">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.
+    </div>
+
+    <br><br>
+
+    <div>
+      <button id="calendar-view-from-about" onclick="location.href='/calendar-view'">
+        View Calendar
+      </button>
+
+      <button id="back-to-home-from-about" onclick="location.href='/'">
+        Back Home
+      </button>
+    </div>
+  </div>
+</body>
+
+{% endblock %}

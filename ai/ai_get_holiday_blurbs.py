@@ -53,7 +53,10 @@ def create_blurb_json():
                 # answer = "*** test answer ***" # testing
 
                 if answer[:5] ==  'Error':
-                    return print(answer)
+                    print(answer)
+                    time.sleep(300)
+                    return create_blurb_json()
+                
                 answer = answer.strip()
 
                 new_json.append({

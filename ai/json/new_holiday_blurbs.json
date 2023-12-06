@@ -846,5 +846,621 @@
     {
         "holiday_name": "Computer Security Day",
         "holiday_blurb": "Computer Security Day, held annually on November 30th, is an occasion to celebrate the advances in digital safety. It began in 1988 to raise awareness of the need to secure the use of computer technology and to promote security education. Celebrate and protect yourself by learning about the latest security methods."
+    },
+    {
+        "holiday_name": "National Eat a Red Apple Day",
+        "holiday_blurb": "Celebrate the deliciousness of apples and the bounty of the autumn harvest on National Eat a Red Apple Day! Apples have been a popular food in many cultures and religions since antiquity. Enjoy some tart and juicy red apples on October 21st each year and appreciate the contribution of this healthy fruit to your diet and wellbeing!"
+    },
+    {
+        "holiday_name": "Business of Popping Corn Day",
+        "holiday_blurb": "Business of Popping Corn Day is an annual celebration that celebrates the production of popcorn. This holiday is celebrated on July 28th each year and began in 1938 in recognition of the importance of popcorn in the U.S. economy. It's a day to recognize the farmers, entrepreneurs, and all those who have worked hard to make this tasty and nutritious snack a popular treat."
+    },
+    {
+        "holiday_name": "Make a Gift Day",
+        "holiday_blurb": "Make a Gift Day is a special day to share with those in need. It encourages individuals, organizations and groups to make homemade gifts or donate money or items to those who don't have the means to provide for themselves. The tradition started over 20 years ago and has since been embraced by people throughout the world. Show someone you care by participating in Make a Gift Day!"
+    },
+    {
+        "holiday_name": "National Sock Day",
+        "holiday_blurb": "National Sock Day is a day to celebrate the fun and comfort of everyone's favorite foot accessory! It's celebrated every year on December 4th. It is believed to have started in the USA back in 2016 as a way to encourage people to donate new socks to those in need. Celebrate the versatile power of the humble sock - wear your wildest, craziest pair!"
+    },
+    {
+        "holiday_name": "National Blue Jeans Day",
+        "holiday_blurb": "National Blue Jeans Day is an annual celebration of denim and its role in American culture. Every year since 2003, people around the world have gathered to recognize the benefits of jeans, from its comfort to its practicality. Jeans originated in the 19th century as bib overalls, becoming popular among American blue-collar workers. Today, it is one of the most universally beloved sartorial choices, making appearances in both everyday wardrobes and on the runways!"
+    },
+    {
+        "holiday_name": "National Microwave Oven Day",
+        "holiday_blurb": "National Microwave Oven Day celebrates the invention of the microwave oven. Released in 1967, this revolutionary kitchen appliance changed the way we cook. Celebrate this day with a meal cooked in the the microwave\u2014 just be sure to heat it up for no longer than a minute or two!"
+    },
+    {
+        "holiday_name": "Letter Writing Day",
+        "holiday_blurb": "Letter Writing Day celebrates the timeless art of sending letters. From heartfelt thank-yous to well-wishes, this day encourages us to express ourselves through writing, one stitch at a time. With a history dating back to the 16th century, letter writing is a classic pursuit shared by people of all ages and backgrounds. Step away from the screen and put pen to paper today!"
+    },
+    {
+        "holiday_name": "National Brownie Day",
+        "holiday_blurb": "National Brownie Day is celebrated each year on December 8th in honour of the unique chocolate treat. Thought to have first appeared in recipes in America in the late 19th century, brownies are a beloved dessert. Celebrate National Brownie Day by indulging in your favourite variety!"
+    },
+    {
+        "holiday_name": "National Llama Day",
+        "holiday_blurb": "National Llama Day (March 20th) is an unofficial holiday celebrating the majesty of the llama. It was founded in 2011 by llama lovers around the world as a day to appreciate and learn about the animals. Since then, National Llama Day has become an international phenomenon, with events and activities held globally to honor the beloved species."
+    },
+    {
+        "holiday_name": "International Animal Rights Day",
+        "holiday_blurb": "International Animal Rights Day is a global event held annually on December 10th to celebrate, recognize, and protect the rights of animals around the world. It has been celebrated since 2002, with the aim of raising awareness of the often-unmentioned mistreatment of animals, and the need for their rights to be respected."
+    },
+    {
+        "holiday_name": "National Have a Bagel Day",
+        "holiday_blurb": "National Have a Bagel Day is celebrated annually on January 15th. Enjoy a bagel with your favorite topping and honor the time-honored tradition of bagel baking. Bagels have been a part of New York culture since the late 1800's when Eastern European Jews settled in the area. Celebrated for their delicious flavor and convenience, bagels are an integral part of life in the United States. Today, it's a great way to recognize this unique food item and enjoy a delicious"
+    },
+    {
+        "holiday_name": "Gingerbread House Day",
+        "holiday_blurb": "Gingerbread House Day celebrates the whimsical and beloved tradition of creating and decorating edible houses. Dating back to 16th century Germany, when gingerbread houses became popular with folk tales of Hansel and Gretel, this sweet holiday encourages creativity and delight. Bake, decorate, and share the love!"
+    },
+    {
+        "holiday_name": "National Violin Day",
+        "holiday_blurb": "National Violin Day is a day to celebrate the beloved instrument and recognize its storied history. Celebrated annually on April 30th, the day first became popular in 2015 as a way to highlight the violin's unique sound and diverse range of musical styles. Celebrate by picking up your violin and playing a tune!"
+    },
+    {
+        "holiday_name": "Monkey Day",
+        "holiday_blurb": "Monkey Day is celebrated annually on December 14th and it\u2019s a day to celebrate primates of all kinds! It\u2019s also a great day to recognize the important role monkeys play in our world, from wildlife conservation to medical research. The day was created in 2000 by artists Casey Sorrow and Eric Millikin as a fun way to recognize and celebrate primates."
+    },
+    {
+        "holiday_name": "National Cat Herders Day",
+        "holiday_blurb": "Celebrated on the first Sunday of every April, National Cat Herders Day recognizes the hard work of all those (human or feline) in the creative and challenging profession of feline herding. With roots tracing back to a series of humorous advertisements in the 1970s, the day is an opportunity to recognize the unique skills and dedication required of \"cat herders\" all over the world."
+    },
+    {
+        "holiday_name": "Stupid Toy Day",
+        "holiday_blurb": "Stupid Toy Day is an annual, worldwide celebration of silly and whimsical toys. It was created in 1999 and brings joy by encouraging people to get playful and share toys with friends. It's a day to tap into your inner child and have fun!"
+    },
+    {
+        "holiday_name": "National Maple Syrup Day",
+        "holiday_blurb": "Celebrate National Maple Syrup Day! The sweet holiday started in Canada in 1991 to recognize the history of maple syrup production, from the first Native American tribes to the modern syrup industry today. Enjoy some delicious syrup on this special day."
+    },
+    {
+        "holiday_name": "National Roast Suckling Pig Day",
+        "holiday_blurb": "National Roast Suckling Pig Day celebrates the joy of roasting a whole pig, a traditional feast found all around the world. The popularity of roasting suckling pigs dates back to the ancient Greeks and Romans, who reveled in the delicacy of slow roasted pork. Celebrate by inviting friends for dinner, and be sure to give thanks for such a delicious pig!"
+    },
+    {
+        "holiday_name": "National Emo Day",
+        "holiday_blurb": "National Emo Day is a worldwide celebration of emo music and culture. Founded in 2015, the holiday commemorates the emo subculture which consists of fashion, music, and attitude and celebrates its impact around the world. From capturing the emotional struggles of the youth to helping spread the power of acceptance and resilience, National Emo Day is an opportunity to recognize and honor its influence. #emo4life"
+    },
+    {
+        "holiday_name": "Games Day",
+        "holiday_blurb": "Games Day is an annual event that brings together thousands of enthusiastic gamers from around the world. It gives them the chance to play and compete in a variety of different games and to meet like-minded gamers from different countries. From tabletop games to esports, digital games to retro gaming, and more, Games Day has something for everyone. The event first began in the late-1970s and has grown to become one of the biggest gaming gatherings in the world."
+    },
+    {
+        "holiday_name": "Crossword Puzzle Day",
+        "holiday_blurb": "Celebrate Crossword Puzzle Day on December 21! This holiday commemorates Arthur Wynne's first published crossword in the New York World in 1913. Challenge yourself and others to test their wits and have fun in the process!"
+    },
+    {
+        "holiday_name": "National Cookie Exchange Day",
+        "holiday_blurb": "Celebrated annually on December 4th, National Cookie Exchange Day is the perfect excuse to get together with friends, family, and colleagues to share and swap your favorite recipes! It's a time-honored tradition that is said to date back to the 1800s, when neighbors would come together to swap their unique recipes and stories in an effort to bring a little joy to the holiday season."
+    },
+    {
+        "holiday_name": "National Pfeffernusse Day",
+        "holiday_blurb": "Celebrate National Pfeffernusse Day each December 22nd by enjoying this traditional German cookie! The cakey spiced cookie is believed to have originated in Germany in medieval times, but it is a holiday staple in many cultures today!"
+    },
+    {
+        "holiday_name": "National Eggnog Day",
+        "holiday_blurb": "National Eggnog Day is observed on December 24th and celebrates one of the most beloved holiday beverages: eggnog. Originating in medieval Britain, it eventually made its way to the United States and is now enjoyed around the world. From spiced to baileys-infused, celebrate this holiday classic with friends and family."
+    },
+    {
+        "holiday_name": "National Pumpkin Day",
+        "holiday_blurb": "National Pumpkin Day is an annual event celebrated on October 26th, around the time of Halloween. It's a day for cooking, baking, carving, decorating, or simply enjoying pumpkins. The tradition of eating pumpkins for Halloween dates back to early immigrants who brought the practice of carving turnips to the U.S. and replaced them with pumpkins."
+    },
+    {
+        "holiday_name": "National Candy Cane Day",
+        "holiday_blurb": "National Candy Cane Day is celebrated every year on December 26th. Celebrated since the early 20th century, Candy Cane Day remembers the classic Christmas treat and is a reminder that the holiday season isn\u2019t over yet! Legend has it that in 1670, a German choirmaster handed out white candies in the shape of a shepherd's crook as a token of appreciation to the kids in his choir."
+    },
+    {
+        "holiday_name": "Make Cut Out Snowflakes Day",
+        "holiday_blurb": "Make Cut Out Snowflakes Day, celebrated each year on December 27th, is a fun-filled day dedicated to crafting and creating unique paper snowflakes. This popular holiday tradition dates back to the 19th century, when it was first introduced by Fran Zach of The Ladies' Home Journal. Now, everyone can join in the fun and make these special decorations to keep or to give away."
+    },
+    {
+        "holiday_name": "Call a Friend Day",
+        "holiday_blurb": "Call a Friend Day is a day dedicated to reconnecting with old friends and socializing. It encourages people to reach out and have meaningful conversations. It was started in 2008 and is celebrated annually on the first Monday in April. On this day, people reach out to old friends and loved ones to remind them how much they care."
+    },
+    {
+        "holiday_name": "National Pepper Pot Day",
+        "holiday_blurb": "National Pepper Pot Day is held annually on October 15th to celebrate the beloved Philadelphia staple. The traditional pepper pot soup has been a staple of the city's cuisine since the Revolutionary War. Celebrate National Pepper Pot Day with a bowl of Philadelphia's iconic soup!"
+    },
+    {
+        "holiday_name": "National Bicarbonate of Soda Day",
+        "holiday_blurb": "National Bicarbonate of Soda Day celebrates one of America's oldest and most versatile products. Used in baking, cleaning, scratch removers, and many other applications, bicarbonate of soda is a natural, non-toxic staple found in many households. A05 the world celebrates this useful, time-honored product."
+    },
+    {
+        "holiday_name": "Make Up Your Mind Day",
+        "holiday_blurb": "Celebrate Make Up Your Mind Day! On this day, everyone is invited to make up their own minds, outsourced beliefs aside. It\u2019s a reminder to trust our own thoughts and ideas. Its origins go back to the 1971 Women's Movement. As part of their empowering message, women proposed that making up our own minds is essential for deciding how to live."
+    },
+    {
+        "holiday_name": "Balloons Around the World Day",
+        "holiday_blurb": "Balloons Around the World Day is an annual event celebrated on October 12. Created in 2011, it reminds us to take the time to appreciate the joy, whimsical beauty, and possibilities that balloons bring to our lives. This holiday is a chance to send a balloon into the sky with a wish, draw a special wish in the sky, or honor someone important in our life."
+    },
+    {
+        "holiday_name": "National Name Your Car Day",
+        "holiday_blurb": "National Name Your Car Day is an exciting, annual celebration on July 17th that gives car owners the chance to express their creativity! It's thought to have started in the 1960s as a way for car owners to show off their individuality. Celebrate National Name Your Car Day by picking the perfect name for your ride!"
+    },
+    {
+        "holiday_name": "National Boyfriend Day",
+        "holiday_blurb": "National Boyfriend Day celebrates the supportive and loving relationships in our lives. It falls on October 3rd each year and was created to be a fun way to show the special men in our lives they're loved and appreciated. So don't forget to make your special guy feel loved on National Boyfriend Day!"
+    },
+    {
+        "holiday_name": "National Taco Day",
+        "holiday_blurb": "Celebrate National Taco Day on October 4th and enjoy the tasty combination of meat, veggies, cheese, and spices wrapped in a warm tortilla. Started by National Taco Day founder, Juan Coulson, this holiday has been celebrated since 2009 to appreciate the tasty Mexican delicacy. Enjoy tacos that day without any guilt!"
+    },
+    {
+        "holiday_name": "Get Funky Day",
+        "holiday_blurb": "Celebrate being unique and dancing to the beat of your own drum on Get Funky Day! This annual celebration encourages everyone to explore their passions and proudly express themselves. First established in 2018, Get Funky Day was started to promote acceptance and diversity. Let's all embark on an adventure of self-discovery and make each day a bit funkier."
+    },
+    {
+        "holiday_name": "National Noodle Day",
+        "holiday_blurb": "National Noodle Day on October 6th celebrates all things noodle! Originating in Japan in 1995, this foodie holiday has expanded into a worldwide celebration of the versatile noodle! From ramen to mac & cheese to pho, enjoy your favorite noodle dish to join in the celebration."
+    },
+    {
+        "holiday_name": "National Inner Beauty Day",
+        "holiday_blurb": "National Inner Beauty Day is an annual celebration of one's inner beauty. It encourages people to recognize and affirm the unique qualities that make up their individual selves. First founded in 2019, it is now celebrated on the first Sunday of March around the world. It is a special day for self-love and self-appreciation. #NationalInnerBeautyDay!"
+    },
+    {
+        "holiday_name": "National Pierogi Day",
+        "holiday_blurb": "National Pierogi Day (November 8) celebrates the traditional Eastern European dish! Pierogis (dumplings filled with various ingredients) have a long history during holidays throughout the year. Though the exact origin is unknown, the pierogi has become a staple in many countries and is celebrated every November 8!"
+    },
+    {
+        "holiday_name": "National Sneakers Day",
+        "holiday_blurb": "National Sneakers Day is an annual celebration on the first Saturday of April. It\u2019s a day to honor and recognize the classic fashion statement of sneakers everywhere. From Keds, to Converse and Nikes, sneakers are an iconic part of fashion history. Talk about classic, National Sneakers Day has been around since the 1940s, when the term sneakers first appeared. Let\u2019s lace up and celebrate!"
+    },
+    {
+        "holiday_name": "National Hug a Drummer Day",
+        "holiday_blurb": "National Hug a Drummer Day is an informal holiday celebrated on the first Saturday of October. The day acknowledges the hard work of drummers and their unique contributions to all types of music. It was first celebrated in 2001 to honor the influence of drummers and their art form. Celebrate the day by giving a drummer in your life a big hug!"
+    },
+    {
+        "holiday_name": "National Sausage Pizza Day",
+        "holiday_blurb": "National Sausage Pizza Day celebrates this delicious Italian-American dish. Sausage pizza is thought to have originated in the 1920s in America after Italian immigrants brought the tasty topping to the US. Celebrate National Sausage Pizza Day with your favorite version of this delicacy!"
+    },
+    {
+        "holiday_name": "Pulled Pork Day",
+        "holiday_blurb": "Pulled Pork Day celebrates the slow-roasted, tender pork shoulder, pulled apart and soaked in delicious barbecue sauce. The tradition dates back to colonial America and is now a beloved favorite throughout the South and beyond. Enjoy it with sides like coleslaw and fries."
+    },
+    {
+        "holiday_name": "National No Bra Day",
+        "holiday_blurb": "National No Bra Day is an annual event celebrated every July 9 to encourage women to go braless in an effort to raise awareness about breast cancer and its causes. Women are encouraged to join in this event to show solidarity and spread the message that the body should be celebrated, despite the risks of breast cancer. The exact origin of the holiday is unknown, but modern celebrations have been held since the early 2000s."
+    },
+    {
+        "holiday_name": "Be Bald and Be Free Day",
+        "holiday_blurb": "Be Bald and Be Free Day is an international holiday celebrated every year on May 25th as a way to demonstrate solidarity and support for those who have lost their hair due to chemotherapy or other medical conditions. The holiday has been celebrated since 2000 and is aimed at creating a sense of community, build self-esteem, and raise awareness about the realities of hair loss due to medical treatments."
+    },
+    {
+        "holiday_name": "National Grouch Day",
+        "holiday_blurb": "National Grouch Day is a day to celebrate grouches, grumps, and all other forms of grumpiness! Founded in 2010 by Theodor Geisel (aka Dr. Seuss), this day encourages everyone to embrace their inner grumpy side for a day. Whether it's being cranky about the weather or grouching up the office, there's no better day to get your grouch on!"
+    },
+    {
+        "holiday_name": "Dictionary Day",
+        "holiday_blurb": "Dictionary Day is celebrated on October 16th to recognize the birthday of Noah Webster, the father of the American dictionary. On this day, it's not only a celebration of writing and language, but also a chance to recognize the work of lexicographers who build and refine dictionaries. It's a day to learn new words, brush up on existing ones, and appreciate the power of language."
+    },
+    {
+        "holiday_name": "National Clean Your Virtual Desktop Day",
+        "holiday_blurb": "National Clean Your Virtual Desktop Day is an annual event encouraging individuals, businesses, and educational institutions to take time to tidy up their digital workspaces. It's held on the third Monday in October to promote healthier working habits & increase productivity. This awareness day was founded in 2017 by IT professionals who understand the importance of decluttering."
+    },
+    {
+        "holiday_name": "Hagfish Day",
+        "holiday_blurb": "Celebrated on July 15th, Hagfish Day is a day for all to appreciate the unique and ancient hagfish. They inhabit our oceans, living in the muddy or sandy bottoms and secrete slime for self-defense. The hagfish has been around for 500 million years and is sometimes referred to as the \u201cliving fossil\u201d. Whether as an educational tool for children or appreciation of the remarkable creature, Hagfish Day celebrates both!"
+    },
+    {
+        "holiday_name": "National Make New Friends Day",
+        "holiday_blurb": "National Make New Friends Day is celebrated on February 11th annually. It is a day to welcome new people into your life, connect with those you haven't seen in a while, or just learn about individuals from different backgrounds. The day has been celebrated as a part of the National Friendship Day events since 2011."
+    },
+    {
+        "holiday_name": "International Chef's Day",
+        "holiday_blurb": "International Chef's Day is celebrated yearly on October 20th to celebrate the impact chefs have worldwide. It was created to pay homage to Auguste Escoffier, the French chef who pioneered modern culinary techniques and professional standards. Enjoy a special dish in honour of all chefs on this special day!"
+    },
+    {
+        "holiday_name": "International Sloth Day",
+        "holiday_blurb": "International Sloth Day was created to recognize and protect sloths, the beloved shy but endearing animals. On October 20th of every year, people around the world focus on educating and inspiring the public to appreciate these gentle creatures and take action against their decline. The holiday was started by The Plant and Animal Welfare Society (PAWS) in 2010. #GoSloth!"
+    },
+    {
+        "holiday_name": "Smart is Cool Day",
+        "holiday_blurb": "Smart is Cool Day celebrates the joy of learning! It was founded in 2013 by a group of educators and parents who wanted to encourage students to have fun while learning. Every year on May 16th, students and families around the world join together in celebrating the power of knowledge. They share stories of success, mark their accomplishments, and recognize the importance of education."
+    },
+    {
+        "holiday_name": "TV Talk Show Host Day",
+        "holiday_blurb": "TV Talk Show Host Day celebrates the incredible work of TV talk show hosts - the faces of entertainment and news that have captivated audiences for decades. It was first established over 30 years ago to honour the very first talk show hosts and to reflect on the impact they've had on entertainment. From Late Night to The View, celebrate the brilliance of TV talk show hosts on this special day!"
+    },
+    {
+        "holiday_name": "National Bologna Day",
+        "holiday_blurb": "National Bologna Day, celebrated on the 3rd of August, is a day to appreciate the humble yet tasty bologna sausage. It was created when two bologna-loving congressmen from Pennsylvania organized a state-wide Bologna competition in 1954. Ever since, it's been an annual celebration of this hearty and savory delicacy."
+    },
+    {
+        "holiday_name": "International Artists Day",
+        "holiday_blurb": "International Artists Day celebrates the creative energy and accomplishments of people working in all forms of media - visual arts, literature, music, and performance. It was established in 2012 as an opportunity for artists around the world to share their inspiring stories and to foster connections between other artists. Join us in recognizing and honouring the amazing artists who bring joy and happiness to all of us. #InternationalArtistsDay"
+    },
+    {
+        "holiday_name": "National Chicken Fried Steak Day",
+        "holiday_blurb": "National Chicken Fried Steak Day is an annual event celebrated on April 28th each year. It celebrates the flavorful, traditional Southern dish which consists of a cube steak that has been coated with seasoned flour and pan-fried. It is typically served smothered in gravy. The dish is believed to have originated in the early 1870s in Texas. Celebrate this tasty and iconic dish by enjoying some delicious chicken fried steak!"
+    },
+    {
+        "holiday_name": "Bandana Day",
+        "holiday_blurb": "Celebrate your individualism with Bandana Day! This worldwide holiday is a great opportunity to show off your style! The story of Bandana Day goes back to the 19th century, when bandanas were used as a symbol of unity by oppressed workers in their fight for justice and recognition. Today, we commemorate this important part of history by wearing the iconic symbol of freedom as a sign of solidarity."
+    },
+    {
+        "holiday_name": "National Chocolate Day",
+        "holiday_blurb": "Celebrate National Chocolate Day on July 7th! In its honor, revel in the sweet luxury of indulging in a delicious piece of chocolate. This early-American tradition dates back to 1764, when the first chocolate factory began production of chocolate in Massachusetts. Enjoy this special holiday with friends and family!"
+    },
+    {
+        "holiday_name": "National Oatmeal Day",
+        "holiday_blurb": "National Oatmeal Day is celebrated on October 29th and is a day in honor of the beloved breakfast staple. It's a day to acknowledge the health benefits of oats and a great excuse to enjoy this versatile, delicious, and nourishing meal. The idea can be traced back to the Quaker Oats Company in the 1800s, but it's now celebrated worldwide. Enjoy your oatmeal and celebrate this tasty (and healthy) holiday! #NationalOatmealDay"
+    },
+    {
+        "holiday_name": "National Checklist Day",
+        "holiday_blurb": "National Checklist Day celebrates the power of organization. On this day, we take time to remind ourselves to prioritize the task at hand. Established in 2019, National Checklist Day encourages individuals to use lists to stay efficient and productive throughout their daily tasks. Everyone can benefit from organization!"
+    },
+    {
+        "holiday_name": "National Caramel Apple Day",
+        "holiday_blurb": "National Caramel Apple Day is celebrated every October 30th. It is a day to pay homage to the popular sugary snack made of apples covered in caramel. This holiday can be traced back to the 1950's when confectioners began dipping apples in caramel to make them even sweeter. Celebrate by making a homemade caramel apple or buying one of your favorite varieties!"
+    },
+    {
+        "holiday_name": "National Cold Cuts Day",
+        "holiday_blurb": "National Cold Cuts Day celebrates the delicious bounty of cold cut sandwiches. Started in the US in 2018, it's become an international event dedicated to honoring the many varieties of cold cuts. From ham and salami to bologna and pastrami, National Cold Cuts Day is a day to enjoy a classic sandwich."
+    },
+    {
+        "holiday_name": "International Rescue a Cat Day",
+        "holiday_blurb": "International Rescue a Cat Day is a day dedicated to saving the lives of cats in need. Founded in 2014, it encourages people around the world to adopt, spay/neuter, donate, and speak out about issues facing homeless cats. Every year, this special day helps give cats a chance for a better life. Let\u2019s celebrate International Rescue a Cat Day and save more cats!"
+    },
+    {
+        "holiday_name": "If Pets Had Thumbs Day",
+        "holiday_blurb": "If Pets Had Thumbs Day celebrates the bonds between humans and animals. Celebrated on August 3rd, this international holiday celebrates the joys of pet ownership and encourages people to recognize the ways in which animals can improve our lives and even help us in everyday tasks. People share humorous stories of how their pets might benefit from having thumbs on this special day."
+    },
+    {
+        "holiday_name": "National Snack Day",
+        "holiday_blurb": "National Snack Day is an annual celebration of everyday indulgence. Celebrated on July 21st, Food Lion became the official sponsor of the event in 2015. National Snack Day celebrates the small and satisfying snacks we reach for in between meals."
+    },
+    {
+        "holiday_name": "National Cheese Doodle Day",
+        "holiday_blurb": "National Cheese Doodle Day on April 17 is a day to celebrate the cheesy goodness of cheese doodles! Cheese doodles, a savory snack, were first invented by a quirky Brooklyn entrepreneur named Yellow Buccelato in 1948. Celebrate by indulging in the cheesy goodness!"
+    },
+    {
+        "holiday_name": "National Frozen Food Day",
+        "holiday_blurb": "Celebrated on March 6, National Frozen Food Day honors the invention of the frozen food industry. The first commercially produced frozen meals arrived in 1930, making meals much easier to store and prepare. Today, frozen foods can be found in many grocery stores, allowing for quick and tasty meals. Celebrate with a frozen meal of your choice!"
+    },
+    {
+        "holiday_name": "National Cereal Day",
+        "holiday_blurb": "Celebrate National Cereal Day on March 7th! It's an annual recognition of this popular breakfast food and its colorful history. Enjoy a steaming bowl of your favorite cereal with all the fixings - warm milk, brown sugar, even fresh fruit - and indulge in a true breakfast classic."
+    },
+    {
+        "holiday_name": "National Proofreading Day",
+        "holiday_blurb": "Celebrate National Proofreading Day! First celebrated in 2011, it encourages people to value the importance of proofreading special documents and to appreciate the craft of writing. It's a day to hone your editing skills so that your work can be read with clarity and precision!"
+    },
+    {
+        "holiday_name": "National Crabmeat Day",
+        "holiday_blurb": "Celebrate National Crabmeat Day on April 25th! Enjoy a variety of dishes featuring crabmeat from delicious bisques to crabcakes. This special day has been celebrated since the 1940s in the Chesapeake Bay area and is recognized as a day to enjoy the incredibly flavorful and nutritious seafood."
+    },
+    {
+        "holiday_name": "International Day of Awesomeness",
+        "holiday_blurb": "Celebrate the International Day of Awesomeness, an annual event of global fun and celebration that began in 2011. On March 19th, take a moment to appreciate something amazing in your life and spread good vibes worldwide. #IDoA #BeAwesome \ud83e\udd29"
+    },
+    {
+        "holiday_name": "World Plumbing Day",
+        "holiday_blurb": "World Plumbing Day is celebrated on 11th March every year to recognize the important role plumbers play in keeping up the health and sanitation of our world. Established in 2010, this day also highlights the vital part plumbing plays in reducing water-related illnesses and promoting safe drinking water. #WorldPlumbingDay"
+    },
+    {
+        "holiday_name": "International Fanny Pack Day",
+        "holiday_blurb": "Every year, people around the world take part in International Fanny Pack Day: a day dedicated to celebrating the popular and iconic accessory. In honor of this beloved bag, fans wear their coolest and most outrageous fanny packs to share their enthusiasm for the fashion staple. International Fanny Pack Day dates back to the 1970s, when the fanny pack first gained mainstream popularity."
+    },
+    {
+        "holiday_name": "Earmuff Day",
+        "holiday_blurb": "Earmuff Day is a fun and unique holiday to celebrate the invention of the modern-day earmuff! This holiday was first observed in 1873, when American physician Chester Greenwood patented the earmuff and millions of people around the world adopted them for wintertime warmth. Celebrate by donning your favorite set of earmuffs and enjoying the warmth they provide!"
+    },
+    {
+        "holiday_name": "National Potato Chip Day",
+        "holiday_blurb": "National Potato Chip Day is celebrated on March 14th every year! It honors the delicious snack food and its long, flavorful history. Potato chips were invented in 1853 by the chef George Crum, and have since become a beloved and popular snack in many countries around the world. Celebrate by indulging in some spicy or sour chips, or whatever your favorite flavor may be!"
+    },
+    {
+        "holiday_name": "Buzzards Day",
+        "holiday_blurb": "Buzzards Day is an annual celebration held in Hinckley, Ohio, USA. It commemorates the miraculous return of the buzzards to Hinckley after they were believed to be destroyed in a fire in 1856. The event includes a parade and buzzard calling competitions, as well as other activities such as concerts, crafts, and food."
+    },
+    {
+        "holiday_name": "National Panda Day",
+        "holiday_blurb": "National Panda Day is an annual event celebrated on March 16th to honor the beloved Giant Panda! Since its humble start in 2000, it has grown to be recognized by zoos and organizations all over the world. Celebrate by learning more about this iconic species and pledging to help protect and conserve wildlife!"
+    },
+    {
+        "holiday_name": "Campfire Girls Day",
+        "holiday_blurb": "Campfire Girls Day is a day to celebrate the legacy of the Girl Scouts. Since its founding in 1912, the organization has provided leadership, education and outdoors programs to millions of girls. The annual day commemorates the courage and spirit of the Campfire Girls, who have gone on to lead in all areas of society. Join the celebration and learn more about the legacy of the Campfire Girls."
+    },
+    {
+        "holiday_name": "Awkward Moments Day",
+        "holiday_blurb": "Awkward Moments Day is an international day of celebration - and embracing - those embarrassingly awkward situations of life! Established in 2002 by self-proclaimed \"professional klutz,\" Aaron Ackerman, this annual event encourages everyone to share their most awkward moments!"
+    },
+    {
+        "holiday_name": "Certified Nurses Day",
+        "holiday_blurb": "Certified Nurses Day (CND) was established in 1972 to recognize the hard work of certified nurses. Every March 19th, certified nurses are recognized and celebrated for their dedication to excellence, ethics, and continuing education. CND is the perfect time to celebrate the vital role certified nurses have in healthcare."
+    },
+    {
+        "holiday_name": "International Day of Happiness",
+        "holiday_blurb": "International Day of Happiness is a day held on March 20th every year to recognize the importance of happiness in the lives of people around the world. The initiative began in 2013 as part of the UN Sustainable Development Solutions Network, with the purpose of encouraging citizens of all nations to foster well-being and create a more tolerant world."
+    },
+    {
+        "holiday_name": "National Fragrance Day",
+        "holiday_blurb": "Celebrate National Fragrance Day on March 21st! First introduced in 2006, this special day is an opportunity to appreciate the diverse and complex world of perfumes & colognes. With a single spritz, a beautiful scent can instantly transport you to a special memory or place."
+    },
+    {
+        "holiday_name": "International Day of the Seal",
+        "holiday_blurb": "International Day of the Seal is celebrated annually on February 20th with the aim of raising awareness of the importance of the conservation of seals and their habitats. It has its origins in the 1983 International Seal Conference which was held in Denmark and resulted in the CITES Seal Agreement, a legal agreement to protect the seals from hunting and exploitation."
+    },
+    {
+        "holiday_name": "National Puppy Day",
+        "holiday_blurb": "National Puppy Day celebrates the unconditional love of puppies! Founded in 2006, the annual event encourages adoption from shelters and recognizes responsible breeders. Show your pup some love - every day! #NationalPuppyDay"
+    },
+    {
+        "holiday_name": "National Cheesesteak Day",
+        "holiday_blurb": "National Cheesesteak Day (March 24th) celebrates the Philly classic! This beloved regional dish was first served in 1930s South Philadelphia by Pat and Harry Olivieri. This delicious sandwich has been enjoyed for decades and is now celebrated worldwide. Enjoy your cheesesteak!"
+    },
+    {
+        "holiday_name": "International Waffle Day",
+        "holiday_blurb": "International Waffle Day is an annual celebration of the beloved breakfast treat, waffles, on the 25th of March. The tradition has been around since the 18th century, when Swedish people began serving waffles as part of a meal during Easter celebrations. Nowadays, people from all over the world still enjoy this delicious food and celebrate this special day."
+    },
+    {
+        "holiday_name": "Purple Day",
+        "holiday_blurb": "Purple Day is an international grassroots effort to raise awareness and support for epilepsy. Founded in 2008 by a Canadian girl named Cassidy Megan, it occurs every year on the 26th of March to celebrated the strides made in epilepsy research and advocacy. It's a day for everyone to unite and celebrate the fight against epilepsy! #PurpleDay"
+    },
+    {
+        "holiday_name": "National Joe Day",
+        "holiday_blurb": "National Joe Day is an unofficial holiday celebrated on March 27 to honor the popular nickname \"Joe\". This holiday began in the early 2000s as a fun day to acknowledge the average Joe. Celebrate by using the nickname, having a cup of \"Joe\" coffee, or simply telling a friend that you appreciate them."
+    },
+    {
+        "holiday_name": "National Black Forest Cake Day",
+        "holiday_blurb": "Celebrate National Black Forest Cake Day with a delicious slice of Germany's best! Black Forest Cake has been a popular German dessert since the 16th century, combining layers of chocolate cake, whipped cream, cherries, and kirschwasser (a cherry liqueur). Enjoy the classic balance of tart & sweet flavors for an indulgent treat!"
+    },
+    {
+        "holiday_name": "Manatee Appreciation Day",
+        "holiday_blurb": "Manatee Appreciation Day takes place annually on November 4th to recognize the gentle giants of the sea. It was first established in 1995 and includes research campaigns, conservation initiatives and community events. Manatees play a crucial role in the ocean's delicate ecosystem, so let's honor them by participating in activities that help raise awareness."
+    },
+    {
+        "holiday_name": "Grass is Always Browner on the Other Side of the Fence Day",
+        "holiday_blurb": "Grass is Always Browner on the Other Side of the Fence Day is a day to look past appearances and take a smile and a breath of fresh air. It encourages us to appreciate and find joy in the relationships and experiences we have and to not get caught up in comparison. The day was created in 2017 as a lighthearted way to break-up the somber month of November."
+    },
+    {
+        "holiday_name": "Dance Marathon Day",
+        "holiday_blurb": "Dance Marathon Day is an annual celebration of community spirit, friendship, and charity. It began in the early 2000s as a way for students to come together and enjoy music, dance, and raise money for local charities. Over the years, Dance Marathon Day has grown to include more cities and events throughout the world, making it a day of fun, joy, and generosity."
+    },
+    {
+        "holiday_name": "National Girlfriend Day",
+        "holiday_blurb": "National Girlfriend Day is a day for celebrating the special ladies in our lives. It's an opportunity to show appreciation for how much they add to our lives, and to tell them how much we care. It was first recognized in 2006 when the Girlfriends Network launched NationalGirlfriendsDay.com. Celebrate your girlfriends every August 1st!"
+    },
+    {
+        "holiday_name": "National Coloring Book Day",
+        "holiday_blurb": "National Coloring Book Day is celebrated every year on August 2nd. It's a day dedicated to celebrating the joy and creativity derived from coloring! The holiday originated in Canada in the early 2000s, and has since been embraced by countries around the world. Grab some crayons and join in the fun!"
+    },
+    {
+        "holiday_name": "National Grab Some Nuts Day",
+        "holiday_blurb": "National Grab Some Nuts Day is a day dedicated to celebrating and indulging in everyone's favorite snack. On this day, it's encouraged to make a special trip to the store, and stock up on your favorite type of nuts: walnuts, pecans, almonds, cashews, etc! This holiday has been celebrated for many years, and is a great way to show appreciation for our nutty friends."
+    },
+    {
+        "holiday_name": "National Chocolate Chip Cookie Day",
+        "holiday_blurb": "National Chocolate Chip Cookie Day is celebrated on May 15th each year, and is a holiday for chocolate chip cookie aficionados everywhere. It was introduced in 1987 to commemorate Ruth Graves Wakefield, the inventor of the famous chocolate chip cookie. Her invention of the cookie is believed to have occurred the same year. Celebrate by baking some cookies or visiting your favorite store!"
+    },
+    {
+        "holiday_name": "Work Like a Dog Day",
+        "holiday_blurb": "Work Like a Dog Day, celebrated each July 10th, is a day to recognize the hard work of man's best friend. This day was founded in 2013 to honor hardworking canines all over the world and to appreciate how their skills help us every day. Take some time on this special day to lavish your pup with treats and affection."
+    },
+    {
+        "holiday_name": "National Root Beer Float Day",
+        "holiday_blurb": "National Root Beer Float Day takes place annually on August 6th and celebrates the classic summertime treat. It honors the invention of the root beer float by Frank J. Wisner in 1893. Wisner, an Ohio drug store owner, combined root beer with vanilla ice cream served in a mug, giving birth to this beloved summertime drink!"
+    },
+    {
+        "holiday_name": "Beach Party Day",
+        "holiday_blurb": "Celebrate the joy of the beach and the summertime with Beach Party Day! This fun-filled day usually falls on the first day of summer and includes activities like swimming, beach games, BBQs, music and more. It's the perfect time for everyone from children to adults to come together and soak up the summer sun."
+    },
+    {
+        "holiday_name": "International Cat Day",
+        "holiday_blurb": "International Cat Day is celebrated worldwide on 8 August each year to raise awareness of cats, their world and help in their protection. It was established in 2002 by the International Fund for Animal Welfare (IFAW) to honor and appreciate cats of all breeds. Celebrate cats with purrs and cuddles!"
+    },
+    {
+        "holiday_name": "National Book Lovers Day",
+        "holiday_blurb": "National Book Lovers Day is a holiday to celebrate the joy of reading. It is celebrated on August 9th each year and was first created in the US in 2006. It's the perfect day to curl up with a good book and share the love of reading with friends and family."
+    },
+    {
+        "holiday_name": "National Bowling Day",
+        "holiday_blurb": "Celebrate National Bowling Day on August 8th by rolling strikes on the lanes! This annual celebration began in 2006 to bring attention to the sport of bowling as a pastime, leisure activity, and competitive profession. Join friends and family for a friendly game of pins and have some fun!"
+    },
+    {
+        "holiday_name": "National Play in the Sand Day",
+        "holiday_blurb": "National Play in the Sand Day on June 14th is a day to leave the worries behind, don a sunhat, and head to the shore! It celebrates the relaxation and creativity of playing in the sand, a beloved summer tradition for kids of all ages. This 1988-established holiday recognizes humanity's long-standing fascination with sand and is an occasion for friends and family to come together and have a day of sun and fun."
+    },
+    {
+        "holiday_name": "World Elephant Day",
+        "holiday_blurb": "World Elephant Day is an annual event held on August 12th to bring attention to and celebrate the majestic creatures. Originally started in 2012, World Elephant Day works to raise awareness about the urgent threats they face from poaching, habitat destruction, and other human-related causes. We must come together to protect elephants so that future generations can experience their beauty and wonder!"
+    },
+    {
+        "holiday_name": "International Lefthanders Day",
+        "holiday_blurb": "International Lefthanders Day is celebrated on August 13th to honor the 10-15% of the population who are lefties! It was first observed in 1976 to raise awareness and celebrate the uniqueness and challenges of being a left-handed person. Let's put our hands together to recognize lefties everywhere!"
+    },
+    {
+        "holiday_name": "National Financial Awareness Day",
+        "holiday_blurb": "National Financial Awareness Day is a day dedicated to raising awareness about the importance of financial literacy, security and responsibility. It encourages people to take charge of their finances, learn about budgeting and investing, and develop tools to make sound financial decisions. First celebrated in 2020, the day has been embraced by businesses, organizations, and individuals as a way to celebrate finance and personal wealth."
+    },
+    {
+        "holiday_name": "National Relaxation Day",
+        "holiday_blurb": "Celebrate National Relaxation Day each year on July 30th! It's celebrated as a day to encourage people to take a break from their daily stress and to promote balance and healthy living. It was created in 1995 by director of the California Association of Marriage and Family Counselors, Ivan Lapointe. Take time to deserve yourself!"
+    },
+    {
+        "holiday_name": "Hawaiian Shirt Day",
+        "holiday_blurb": "Hawaiian Shirt Day is a festive holiday celebrated annually on the third Friday of December or \"Aloha Friday\". This unique holiday commemorates Hawaiian culture and is recognized as an unofficial way to end the year. People celebrate by wearing brightly colored Hawaiian shirts along with beach-inspired accessories and music! It's a day of celebration and relaxation, perfect for winding down after a long year. So, join in on the fun and celebrate Hawaiian Shirt Day!"
+    },
+    {
+        "holiday_name": "National Black Cat Appreciation Day",
+        "holiday_blurb": "Celebrate your feline friends on National Black Cat Appreciation Day - a day devoted to recognizing and admiring the beauty and independence of black cats. This day was created in the United States in the 1990s to help reverse the superstitious stigma associated with these cats. Take some time to cuddle with your ebony furry friend or volunteer at your local animal shelter to help a lonely black kitty find its forever home."
+    },
+    {
+        "holiday_name": "Never Give Up Day",
+        "holiday_blurb": "Never Give Up Day is an annual celebration observed on October 5th to remind us all to keep pushing for our goals and live by the motto \"never give up\". It was first started in 2010 by the Never Give Up Foundation in honor of its founder, dining mogul Andrea Bocelli."
+    },
+    {
+        "holiday_name": "National Potato Day",
+        "holiday_blurb": "National Potato Day celebrates the nutritional and economical importance of the potato. It is celebrated annually on August 19th and was first observed in 2008 in the United Kingdom. The day serves to raise awareness of the importance of potatoes in promoting sustainable food security in developing countries. It\u2019s also a great time to enjoy the delicious variety of potato dishes."
+    },
+    {
+        "holiday_name": "National Bacon Lover's Day",
+        "holiday_blurb": "Celebrate your undying love for bacon every September 3rd! National Bacon Lover's Day celebrates a crispy, salty, flavor-filled favorite food. Dating back to the 18th century, the piggy treat has been a food mainstay and has continued to dominate modern palates. Celebrate this beloved national holiday by cooking up a favorite bacon dish."
+    },
+    {
+        "holiday_name": "Internet Self-Care Day",
+        "holiday_blurb": "Internet Self-Care Day is an annual day of awareness held on June 28 to remind people to take care of their online safety and wellbeing. It began in 2017 and is meant to empower people to prioritize their own online security and stay informed about online safety issues. #InternetSelfCareDay"
+    },
+    {
+        "holiday_name": "Eat a Peach Day",
+        "holiday_blurb": "Eat a Peach Day celebrates the summer fruit on August 22nd. Established in the 1990s, it's a day for enjoying the sweet taste of a juicy peach grown ripe on the tree. The day is often celebrated with a picnic, peach pies or just chilled slices of the juicy fruit."
+    },
+    {
+        "holiday_name": "National Ride the Wind Day",
+        "holiday_blurb": "National Ride the Wind Day is observed on July 5 every year. It honors two of the world's greatest innovators, the Wright brothers - Orville and Wilbur - and celebrates the birth of human flight. On this day in 1903, the brothers flew their machine, the \"Wright Flyer,\" for the first powered, controlled, sustained, and human-piloted flight of an airplane."
+    },
+    {
+        "holiday_name": "International Strange Music Day",
+        "holiday_blurb": "International Strange Music Day (ISMDay) celebrates the power of imaginative and unique sounds in music. From the ancient to the avant-garde, musicians explore the boundaries of what sound can be and how we express ourselves with music. Established in 2015, ISMDay encourages people to explore different sounds, challenge conventions and to experience music in new ways."
+    },
+    {
+        "holiday_name": "National Banana Split Day",
+        "holiday_blurb": "Celebrate National Banana Split Day on August 25th! Since its invention in 1904, the banana split has been an iconic summer dessert. Enjoy the classic combination of banana, ice cream, syrup, and whipped cream to honor this time-honored tradition."
+    },
+    {
+        "holiday_name": "Make Your Own Luck Day",
+        "holiday_blurb": "Make Your Own Luck Day encourages you to take control of your destiny. Celebrated on April 10th, the day inspires you to be bold and proactive to shape your own fate. Based on the ancient Chinese proverb that states \"the best way to make your own luck is to be active and wise,\" the day honors success achieved through hard work and a positive attitude."
+    },
+    {
+        "holiday_name": "National Just Because Day",
+        "holiday_blurb": "National Just Because Day is celebrated on March 20th and gives us an opportunity to let our loved ones know we're thinking about them, with no special reason. It originated from a greeting card company in the late 2000s, but has since become a fun, unofficial holiday for people of all ages."
+    },
+    {
+        "holiday_name": "National Bow Tie Day",
+        "holiday_blurb": "National Bow Tie Day is a day of celebration in honor of the fanciful neckwear. On August 28, the nation don their most outrageous bow ties and celebrate the quirky fashion statement. This special day first marked by the Bow Tie Challenge in 2015, as part of the Bow Tie Cause supporting youth education."
+    },
+    {
+        "holiday_name": "National Lemon Juice Day",
+        "holiday_blurb": "National Lemon Juice Day is a day to celebrate the sunny and refreshing flavour of this bright yellow citrus fruit! Historically, lemon juice has been popular for centuries for its general health benefits, culinary uses, and as a way to add a tart and zesty zing to drinks and dishes."
+    },
+    {
+        "holiday_name": "National Toasted Marshmallow Day",
+        "holiday_blurb": "National Toasted Marshmallow Day is celebrated each year on August 30th. The day honors the traditional snack of a lightly toasted marshmallow over a campfire. It has been around since the early 1900s, bringing camping trips and evening bonfires to life with the delectable treat. Celebrate summer\u2019s last glorious days by toasting marshmallows with your family and friends!"
+    },
+    {
+        "holiday_name": "Eat Outside Day",
+        "holiday_blurb": "Eat Outside Day is a day to enjoy the fresh air and sun while you savor your food. Originating in 2014, it encourages everyone to take the opportunity to appreciate the beauty of nature while enjoying a meal. Whether you\u2019re at the park, the beach, or on your own private balcony, this day celebrates the social and environmental aspects of outdoor eating."
+    },
+    {
+        "holiday_name": "National Go Barefoot Day",
+        "holiday_blurb": "Celebrate the freedom of going barefoot! National Go Barefoot Day is celebrated annually on June 1st to remind us that feeling the grass beneath your toes is one of life\u2019s simplest joys. Historians note that going barefoot has a variety of health benefits, and it was formerly a sign of poverty, but is now considered more of a fashion statement."
+    },
+    {
+        "holiday_name": "National Donut Day",
+        "holiday_blurb": "National Donut Day is celebrated on the first Friday of June every year! National Donut Day has its roots in WWI, when Salvation Army \"donut lassies\" served donuts to troops. Now, it's a celebration of the delicious, sugary treat we all know and love. Celebrate National Donut Day by treating yourself to the donut you've been craving!"
+    },
+    {
+        "holiday_name": "National Egg Day",
+        "holiday_blurb": "Today, on National Egg Day, we celebrate the nature\u2019s perfect food! Dating back to the Ancient Egyptians and Romans, eggs have been celebrated for centuries as a symbol of new life. Perfect for breakfast, lunch, dinner or a midnight snack, eggs are a nutrient-dense food packed with vitamins, minerals, and healthy fats that help you thrive. Celebrate National Egg Day and give thanks for this amazing food!"
+    },
+    {
+        "holiday_name": "National Cheese Day",
+        "holiday_blurb": "Celebrate cheesy deliciousness on National Cheese Day! It's an annual event held on June 4th to honor the dairy product and commemorate the invention of American cheese in 1916. Enjoy it with your favorite crackers or melted on top of your favorite dishes!"
+    },
+    {
+        "holiday_name": "Hot Air Balloon Day",
+        "holiday_blurb": "Hot Air Balloon Day celebrates the invention of hot air ballooning. On June 4, 1783, the first hot air balloon flight was made by two French brothers, J.M. and J.A. Montgolfier, in Versailles, France. Each year on this day, people around the world commemorate the Montgolfiers' invention and the joy of hot air ballooning."
+    },
+    {
+        "holiday_name": "National Yo-Yo Day",
+        "holiday_blurb": "National Yo-Yo Day is celebrated every June 6th in honour of Donald F. Duncan's birthday. Duncan was a yo-yo champion who popularized them through his company, the Duncan Yo-Yo Company. Celebrate the day by organizing a yo-yo competition or joining a yo-yo sale, or just by showing your love for yo-yos by giving the iconic toy a spin!"
+    },
+    {
+        "holiday_name": "National Running Day",
+        "holiday_blurb": "National Running Day is an annual event held on the first Wednesday of June, celebrating the joys of running. It is a day to spread awareness of the sport, reflect on how running makes a difference in the lives of those who participate, and encourage others to get out and take part. The holiday was first celebrated in 2009, promoted by the non-profit Run.org and publicised by the Road Runners Club of America."
+    },
+    {
+        "holiday_name": "National Best Friends Day",
+        "holiday_blurb": "National Best Friends Day is a day celebrated on June 8 to honour and appreciate the friends and bonds we share with them. It was founded in 1935 by Friends Day Association, meant to encourage people to reach out to their friends and celebrate their relationships. Make sure you reach out to your closest friend and show them how much they mean to you!"
+    },
+    {
+        "holiday_name": "International Dark 'n Stormy Day",
+        "holiday_blurb": "International Dark 'n Stormy Day is an annual celebration of one of the world's most popular rum cocktails. Held on the second Saturday of August every year, participants across the globe drink Dark'n Stormy cocktails in honor of the traditional recipe. Originating in Bermuda, the official drink of their government is rum, ginger beer, and lime. Join the celebration and raise a glass!"
+    },
+    {
+        "holiday_name": "National Iced Tea Day",
+        "holiday_blurb": "National Iced Tea Day is celebrated on June 10th every year. This day celebrates both the delicious drink and its rich history. Iced tea was first introduced to the US in 1904 at the World's Fair in St. Louis, and it quickly became one of the most popular drinks in the country. Raise a glass and celebrate National Iced Tea Day!"
+    },
+    {
+        "holiday_name": "National Corn on the Cob Day",
+        "holiday_blurb": "National Corn on the Cob Day is a day to celebrate the traditional summertime treat! It is celebrated annually on July 11th and can be enjoyed boiled, grilled, or barbecued. The origin of National Corn on the Cob Day is unknown; however, it has been a part of summer celebrations since colonial times. Enjoy some corn on the cob and celebrate this special day!"
+    },
+    {
+        "holiday_name": "National Peanut Butter Cookie Day",
+        "holiday_blurb": "National Peanut Butter Cookie Day is an annual celebration of one of the most beloved treats. First made in the US in the 1910s, these deliciously crunchy and sweet cookies are easy to make, utilizing only a few ingredients. From classic homemade recipes to store-bought varieties, peanut butter cookies can be enjoyed by all! Celebrate on June 12th!"
+    },
+    {
+        "holiday_name": "National Sewing Machine Day",
+        "holiday_blurb": "Celebrate National Sewing Machine Day on June 13th! It's a day to honor the invention of the first usable sewing machine by Elias Howe in 1846 which revolutionized the world of fashion and revolutionized the industry. Enjoy spending time with friends and family celebrating the amazing world of sewing and quilting!"
+    },
+    {
+        "holiday_name": "International Bath Day",
+        "holiday_blurb": "International Bath Day is a celebration of the act of bathing held annually around the world. The purpose is to bring awareness to the importance of hygiene and its role in keeping us healthy. Though the exact origins of the holiday are unknown, its roots can be traced back to the time of Ancient Greeks who took part in daily bathing rituals. Celebrate this International Bath Day by taking a well-deserved soak!"
+    },
+    {
+        "holiday_name": "International Surfing Day",
+        "holiday_blurb": "International Surfing Day is celebrated on June 20th to honor the sport and lifestyle of surfing. This day recognizes the conservation aspects of surfing and provides opportunities for everyone to give back to the community. The event started in 2005 as a grassroots movement to bring people together to celebrate the sport, and the holiday has been a success ever since. Join the celebration today to surf, give back, and help keep our oceans healthy and safe!"
+    },
+    {
+        "holiday_name": "Fresh Veggies Day",
+        "holiday_blurb": "Fresh Veggies Day is celebrated on the second Saturday of every August. It originated as an easy way for communities to come together and celebrate healthy produce with farmers markets, cooking demos, and creative recipes. It is an opportunity to make preparing meals with fresh, locally grown veggies both fun and accessible."
+    },
+    {
+        "holiday_name": "Global Garbage Man Day",
+        "holiday_blurb": "Global Garbage Man Day is a day to recognize and celebrate the hard work of our dedicated garbage and waste collectors around the world! Established in 2014, Global Garbage Man Day is held each year on June 17th to honor the unsung heroes who work tirelessly to keep our environment clean and safe. Take the time to thank your local garbage men and woman and recognize the tremendous achievement of their work!"
+    },
+    {
+        "holiday_name": "International Picnic Day",
+        "holiday_blurb": "International Picnic Day is the global celebration of eating outdoors! Celebrated annually on June 18th, it's been around since 18th century Europe, spreading the message to take time to enjoy your meal in the beautiful outdoors with great company. Enjoy some special treats, a blanket, and a good spot to soak up the sun!"
+    },
+    {
+        "holiday_name": "National Martini Day",
+        "holiday_blurb": "National Martini Day is celebrated on June 19th every year! Celebrate by making a delicious martini, the traditional way. This iconic drink was popularized in the late 19th century, becoming nationally recognized in the 20s and 30s thanks to James Bond and his now famous phrase, 'shaken, not stirred'. Cheers!"
+    },
+    {
+        "holiday_name": "Ugliest Dog Day",
+        "holiday_blurb": "Ugliest Dog Day celebrates the unique beauty of all dogs, from purebreds to mix breeds alike. On this day, dog owners around the world can show off their pooches in all their \"ugly\" glory. The holiday started in 2004 when the Sonoma-Marin Fair in Petaluma, California hosted an ugly dog contest, and the participation and enthusiasm it generated has made it a beloved annual tradition ever since."
+    },
+    {
+        "holiday_name": "National Selfie Day",
+        "holiday_blurb": "National Selfie Day is celebrated on June 21 each year. It's a day to take a picture of yourself and share it to celebrate your uniqueness! The unofficial holiday began in 2014, when Jesse randomly tweeted \"National Selfie Day.\" Within minutes his tweet went viral and National Selfie Day was born! Put your best face forward and celebrate! #NationalSelfieDay"
+    },
+    {
+        "holiday_name": "National Onion Ring Day",
+        "holiday_blurb": "National Onion Ring Day is an annual celebration of the crispy, delicious snack. Though there is no known origin of the holiday, it is mulled over each year with enthusiasm. On June 22nd, let's all gather around and munch on onion rings in honor of their deliciousness! #NationalOnionRingDay"
+    },
+    {
+        "holiday_name": "National Eat at a Food Truck Day",
+        "holiday_blurb": "Celebrate a day full of flavor! On the last Friday of May, grab a bite to eat from the nation's favorite food trucks! National Eat at a Food Truck Day honors the classic, American eatery, from the invention of the hamburger and hotdog carts in the late 1800s to the growth of the modern food truck trend."
+    },
+    {
+        "holiday_name": "Swim a Lap Day",
+        "holiday_blurb": "Swim a Lap Day is a yearly event dedicated to honoring swimmers worldwide. Held each summer, it celebrates the various competitions and achievements of competitive swimmers, uniting the global swimming community. It also encourages commitment and discipline, to pursue personal goals and aspirations."
+    },
+    {
+        "holiday_name": "Color TV Day",
+        "holiday_blurb": "Celebrate Color TV Day on August 24th! This holiday marks the first successful transmission of a color television program in 1951, airing on CBS. Commemorate this remarkable advancement in technology with friends and family by watching your favorite shows in vibrant, living color! #ColorTVDay"
+    },
+    {
+        "holiday_name": "Forgiveness Day",
+        "holiday_blurb": "Forgiveness Day is an international holiday which celebrates the power of forgiveness. It encourages all people to seek reconciliation with those they may have wronged or been wronged by. It is celebrated on the first Sunday in August and has been celebrated since 2012."
+    },
+    {
+        "holiday_name": "National Bingo Day",
+        "holiday_blurb": "Celebrate National Bingo Day on June 14th! This holiday has been observed annually since the 1970s in honor of the popular game. Share the camaraderie of this tradition with family, friends, and even strangers to enjoy some luck and laughter."
+    },
+    {
+        "holiday_name": "National Tapioca Day",
+        "holiday_blurb": "Celebrate National Tapioca Day! This day honors a starchy, flavorless, versatile ingredient used in puddings, breads, pancakes, and drinks around the world. It can trace its roots back to the Aztecs who used a root from the cassava plant to make flour. Bring out the tapioca to celebrate! #NationalTapiocaDay"
+    },
+    {
+        "holiday_name": "National Handshake Day",
+        "holiday_blurb": "Celebrate National Handshake Day on the 6th of April! This special day honors one of the oldest forms of greeting and encourages people to show respect and appreciation for each other. It was first established in the US in 1986 and has since been adopted by organizations and governments around the world. Show your appreciation and respect to your family, friends, and the community with a simple handshake!"
+    },
+    {
+        "holiday_name": "International Asteriod Day",
+        "holiday_blurb": "International Asteroid Day is an annual global observance that promotes awareness about asteroids and the potential hazards asteroids can bring to Earth. It is celebrated every year on June 30 and was first instituted in 2016 by space experts and organizations such as the B612 Foundation, Association of Space Explorers and McGill University. The day calls for greater awareness and understanding of asteroids and how they can affect planetary bodies."
     }
 ]

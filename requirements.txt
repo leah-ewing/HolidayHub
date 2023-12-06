@@ -16,3 +16,4 @@ flask-bootstrap
 requests
 python-crontab
 openai
+cryptography

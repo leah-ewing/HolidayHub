@@ -1,6 +1,4 @@
 import requests, os, json
-import openai
-from openai import OpenAI
 import time
 
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
@@ -48,13 +46,12 @@ def create_email_json():
 
         for holiday in holidays:
             if holiday['holiday_name'] not in str(new_json):
-                question = f"Will you write me a short blurb describing {holiday['holiday_name']} and include any history involving it? Keep it around 250-300 characters."
-                # answer = ask_question(question)
-                answer = "*** test answer ***" # testing
+                question = f"Will you write me a short blurb describing {holiday['holiday_name']}? Keep it around 250-300 characters."
+                answer = ask_question(question)
 
                 if answer[:5] ==  'Error':
                     print(answer)
-                    time.sleep(300)
+                    time.sleep(120)
                     return create_email_json()
                 
                 answer = answer.strip()
@@ -72,6 +69,6 @@ def create_email_json():
                     return print('Success 200: All email blurbs created!')
 
                 print(f'{len(new_json)} / 366')
-                time.sleep(45)
+                time.sleep(60)
 
 create_email_json()

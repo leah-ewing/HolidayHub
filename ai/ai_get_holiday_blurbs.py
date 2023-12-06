@@ -1,6 +1,4 @@
 import requests, os, json
-import openai
-from openai import OpenAI
 import time
 
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
@@ -50,7 +48,6 @@ def create_blurb_json():
             if holiday['holiday_name'] not in str(new_json):
                 question = f"Will you write me a blurb describing {holiday['holiday_name']} and include any history involving it? Keep it under 500 characters."
                 answer = ask_question(question)
-                # answer = "*** test answer ***" # testing
 
                 if answer[:5] ==  'Error':
                     print(answer)

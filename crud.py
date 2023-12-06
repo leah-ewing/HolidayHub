@@ -3,11 +3,15 @@
 from model import db, connect_to_db, Month, Holiday, Email, MonthlyHoliday
 from datetime import datetime
 import random, sys, os, sqlalchemy
+# from cryptography.fernet import Fernet
 
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
 sys.path.append(f'{ROOT_FOLDER}/jobs')
 
 import send_welcome_email
+
+# key = Fernet.generate_key()
+# fernet = Fernet(key)
 
 def create_month(month_name):
     """ Create and return all 12 months """

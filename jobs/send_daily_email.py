@@ -73,7 +73,7 @@ def send_daily_holiday_email(email):
             'holiday': {
                 'holiday_name': holiday.holiday_name,
                 'holiday_img': holiday_img,
-                'holiday_email': "TEST BLURB" # will eventually be holiday.holiday_email
+                'holiday_email': holiday.holiday_email # will eventually be holiday.holiday_email
             },
             'email': email,
             'domain': DOMAIN

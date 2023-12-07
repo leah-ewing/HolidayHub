@@ -103,6 +103,5 @@ if __name__ == '__main__':
 		
         for email in emails:
             send_daily_holiday_email(email.email_address)
-        print(f'\n\n******\n******\n******\n\nemail sent to: {email.email_address}\n\n******\n******\n******\n\n')
 			
     logging.info("\n***************\n\nEMAILS SENT SUCCESSFULLY: 200\n\n***************\n")

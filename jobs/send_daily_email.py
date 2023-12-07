@@ -5,13 +5,14 @@ from jinja2 import Template
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
 sys.path.append(ROOT_FOLDER)
 
-import controller, crud
+import controller, crud, encryption
 import requests, logging
 
 DOMAIN = os.environ['DOMAIN']
 API_KEY = os.environ['API_KEY']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
 API_URI = os.environ['API_URI']
+ENCRYPTION_KEY = os.environ['ENCRYPTION_KEY']
 
 logging.basicConfig(filename=f'{ROOT_FOLDER}/jobs/jobs_log.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
@@ -42,6 +43,7 @@ class ApiClient:
 
 def send_daily_holiday_email(email):
     """ Creates and sends the holiday email """
+    email = encryption.decrypt_email(email, ENCRYPTION_KEY)
 	
     with app.app_context():
         file_name = f"{ROOT_FOLDER}/templates/email-templates/daily-holiday-email.html"
@@ -101,5 +103,6 @@ if __name__ == '__main__':
 		
         for email in emails:
             send_daily_holiday_email(email.email_address)
+        print(f'\n\n******\n******\n******\n\nemail sent to: {email.email_address}\n\n******\n******\n******\n\n')
 			
     logging.info("\n***************\n\nEMAILS SENT SUCCESSFULLY: 200\n\n***************\n")

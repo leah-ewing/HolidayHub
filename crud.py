@@ -3,15 +3,15 @@
 from model import db, connect_to_db, Month, Holiday, Email, MonthlyHoliday
 from datetime import datetime
 import random, sys, os, sqlalchemy
-# from cryptography.fernet import Fernet
+import encryption
 
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
 sys.path.append(f'{ROOT_FOLDER}/jobs')
 
 import send_welcome_email
 
-# key = Fernet.generate_key()
-# fernet = Fernet(key)
+ENCRYPTION_KEY = os.environ['ENCRYPTION_KEY']
+
 
 def create_month(month_name):
     """ Create and return all 12 months """
@@ -45,10 +45,13 @@ def create_holiday(holiday_name, holiday_month,
 def create_email_address(email_firstname, email_address):
     """ Create and return a new email entry """
 
+    encrypted_email = encryption.encrypt_data(email_address.lower())
+    encrypted_firstname = encryption.encrypt_data(email_firstname.lower())
+
     current_date = datetime.now()
 
-    new_email = Email(email_firstname = email_firstname, 
-                email_address = email_address.lower(), 
+    new_email = Email(email_firstname = encrypted_firstname, 
+                email_address = encrypted_email, 
                 email_opt_in = True,
                 email_added_on = current_date.strftime("%m-%d-%Y %I:%M %p"))
     
@@ -57,7 +60,7 @@ def create_email_address(email_firstname, email_address):
 
     send_welcome_email.send_welcome_email(email_address)
 
-    return new_email
+    return print('Encrypted email created and welcome email sent successfully: 200')
 
 
 def create_monthly_holiday(monthly_holiday_name, monthly_holiday_month):
@@ -206,26 +209,28 @@ def check_for_email(email):
     """ Checks if an email is already in the database """
 
     db_email_data = Email.query.all()
-    db_emails = []
 
     for data in db_email_data:
-        db_emails.append(data.email_address)
+        email_address = encryption.decrypt_email(data.email_address, ENCRYPTION_KEY)
+        if email_address == email.lower():
+            return True
+        
+    return False
 
-    if email.lower() in db_emails:
-         return True
-    else:
-        return False
-    
 
 def get_fname_by_email(email):
     """ Returns the first name attached to a given email """
 
     db_emails = Email.query.all()
 
-    for db_email in db_emails:
-        if db_email.email_address == email:
-            return db_email.email_firstname
-        
+    for data in db_emails:
+        email_address = encryption.decrypt_email(data.email_address, ENCRYPTION_KEY)
+
+        if email_address == email.lower():
+            decrypted_first_name = encryption.decrypt_first_name(data.email_firstname, ENCRYPTION_KEY)
+
+            return decrypted_first_name
+      
 
 def update_opt_in_status(email):
     """ Updates the opt in status for an email """
@@ -233,10 +238,14 @@ def update_opt_in_status(email):
     db_emails = Email.query.all()
 
     for db_email in db_emails:
-        if db_email.email_address == email:
+        email_address = encryption.decrypt_email(db_email.email_address, ENCRYPTION_KEY)
+        
+        if email_address == email.lower():
             db_email.email_opt_in = False
     
     db.session.commit()
+
+    return print('Opt-in status updated successfully: 200')
 
 
 def remove_opted_out_emails():

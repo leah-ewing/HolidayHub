@@ -62,11 +62,11 @@ def addNewEmail():
         email_exists = crud.check_for_email(email)
         if email_exists == True:
             return jsonify({"memo": "Email already exists",
-                    "status": 409})
+                        "status": 409})
         else:
             crud.create_email_address(first_name, email)
             return jsonify({"memo": "Email added successfully", 
-                    "status": 200})
+                        "status": 200})
     else:
         return jsonify({"memo": "Email not valid",
                         "status": 400})

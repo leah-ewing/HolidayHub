@@ -12,7 +12,8 @@ DOMAIN = os.environ['DOMAIN']
 API_KEY = os.environ['API_KEY']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
 API_URI = os.environ['API_URI']
-ENCRYPTION_KEY = os.environ['ENCRYPTION_KEY']
+ENCRYPTION_DEV_KEY = os.environ['ENCRYPTION_DEV_KEY']
+ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']
 
 logging.basicConfig(filename=f'{ROOT_FOLDER}/jobs/jobs_log.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
@@ -43,7 +44,7 @@ class ApiClient:
 
 def send_daily_holiday_email(email):
     """ Creates and sends the holiday email """
-    email = encryption.decrypt_email(email, ENCRYPTION_KEY)
+    email = encryption.decrypt_email(email, ENCRYPTION_DEV_KEY, ENCRYPTION_CIPHER_KEY)
 	
     with app.app_context():
         file_name = f"{ROOT_FOLDER}/templates/email-templates/daily-holiday-email.html"
@@ -75,7 +76,7 @@ def send_daily_holiday_email(email):
             'holiday': {
                 'holiday_name': holiday.holiday_name,
                 'holiday_img': holiday_img,
-                'holiday_email': holiday.holiday_email # will eventually be holiday.holiday_email
+                'holiday_email': holiday.holiday_email
             },
             'email': email,
             'domain': DOMAIN

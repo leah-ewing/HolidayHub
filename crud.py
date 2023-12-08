@@ -10,8 +10,8 @@ sys.path.append(f'{ROOT_FOLDER}/jobs')
 
 import send_welcome_email
 
-ENCRYPTION_KEY = os.environ['ENCRYPTION_KEY']
-
+ENCRYPTION_DEV_KEY = os.environ['ENCRYPTION_DEV_KEY']
+ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']
 
 def create_month(month_name):
     """ Create and return all 12 months """
@@ -211,7 +211,7 @@ def check_for_email(email):
     db_email_data = Email.query.all()
 
     for data in db_email_data:
-        email_address = encryption.decrypt_email(data.email_address, ENCRYPTION_KEY)
+        email_address = encryption.decrypt_email(data.email_address, ENCRYPTION_DEV_KEY, ENCRYPTION_CIPHER_KEY)
         if email_address == email.lower():
             return True
         
@@ -224,10 +224,10 @@ def get_fname_by_email(email):
     db_emails = Email.query.all()
 
     for data in db_emails:
-        email_address = encryption.decrypt_email(data.email_address, ENCRYPTION_KEY)
+        email_address = encryption.decrypt_email(data.email_address, ENCRYPTION_DEV_KEY, ENCRYPTION_CIPHER_KEY)
 
         if email_address == email.lower():
-            decrypted_first_name = encryption.decrypt_first_name(data.email_firstname, ENCRYPTION_KEY)
+            decrypted_first_name = encryption.decrypt_first_name(data.email_firstname, ENCRYPTION_DEV_KEY, ENCRYPTION_CIPHER_KEY)
 
             return decrypted_first_name
       
@@ -238,14 +238,12 @@ def update_opt_in_status(email):
     db_emails = Email.query.all()
 
     for db_email in db_emails:
-        email_address = encryption.decrypt_email(db_email.email_address, ENCRYPTION_KEY)
+        email_address = encryption.decrypt_email(db_email.email_address, ENCRYPTION_DEV_KEY, ENCRYPTION_CIPHER_KEY)
 
         if email_address == email.lower():
             db_email.email_opt_in = False
     
     db.session.commit()
-
-    return print('Opt-in status updated successfully: 200')
 
 
 def remove_opted_out_emails():

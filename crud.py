@@ -202,7 +202,7 @@ def get_holidays_in_month(month):
         if holiday.monthly_holiday_month == month:
             holiday_list.append(holiday)
     
-    return holiday_list
+    return holiday_list 
 
 
 def check_for_email(email):
@@ -239,7 +239,7 @@ def update_opt_in_status(email):
 
     for db_email in db_emails:
         email_address = encryption.decrypt_email(db_email.email_address, ENCRYPTION_KEY)
-        
+
         if email_address == email.lower():
             db_email.email_opt_in = False
     

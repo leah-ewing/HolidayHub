@@ -36,7 +36,6 @@ def aboutPage():
     return render_template('about.html')
 
 
-
 @app.route('/calendar-view')
 def calendarView():
     """ Routes to Calendar page """

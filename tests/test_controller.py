@@ -9,8 +9,8 @@ import controller
 class Controller(unittest.TestCase):
 
     def test_get_date_suffix_true(self, number):
-        # assert
-        self.assertEqual()
+        assert controller.get_date_suffix(12) == 'th'
+        # self.assertEqual()
     
     def test_get_date_suffix_false(self, number):
         # assert

@@ -14,7 +14,7 @@ ENCRYPTION_DEV_KEY = os.environ['ENCRYPTION_DEV_KEY']
 ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']
 
 def create_month(month_name):
-    """ Create and return all 12 months """
+    """ Create and return a month """
 
     new_month = Month(month_name = month_name)
 

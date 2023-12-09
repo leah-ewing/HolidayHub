@@ -97,6 +97,10 @@ def send_daily_holiday_email(email):
 
 if __name__ == '__main__':
     from server import app
+    from datetime import datetime
+	
+    current_date_time = datetime.now()
+	
     with app.app_context():
         from model import connect_to_db
         connect_to_db(app)
@@ -105,4 +109,4 @@ if __name__ == '__main__':
         for email in emails:
             send_daily_holiday_email(email.email_address)
 			
-    logging.info("\n***************\n\nEMAILS SENT SUCCESSFULLY: 200\n\n***************\n")
+    logging.info(f"\n***************\n\n{current_date_time.strftime('%m-%d-%Y %I:%M %p')}\nEMAILS SENT SUCCESSFULLY: 200\n\n***************\n***************\n")

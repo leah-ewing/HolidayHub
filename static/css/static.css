@@ -8,3 +8,9 @@
     display: grid;
     place-items: center;
 }
+
+.error-page {
+    width: 60%;
+    display: grid;
+    place-items: center;
+}

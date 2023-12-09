@@ -1,4 +1,4 @@
-import unittest
+import pytest, unittest
 import sys, os
 
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
@@ -8,8 +8,17 @@ import controller
 
 class Controller(unittest.TestCase):
 
-    def test_get_date_suffix(self, number):
+    def test_get_date_suffix_true(self, number):
+        # assert
         self.assertEqual()
+    
+    def test_get_date_suffix_false(self, number):
+        # assert
+        self.assertEqual()
+    
+    def test_get_date_suffix_invalid_date(self, number):
+        # assert
+        self.assertEqual() # navigate to error page
 
     def test_is_leap_year(self, year):
         self.assertEqual()
@@ -48,7 +57,7 @@ class Controller(unittest.TestCase):
         self.assertEqual()
 
     # def test_sum_tuple(self):
-    #     self.assertEqual(sum([1, 2, 2]), 6, "Should be 6")
+    #     self.assertEqual(sum([1, 2, 3]), 6, "Should be 6")
 
 if __name__ == "__main__":
     unittest.main()

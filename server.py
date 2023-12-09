@@ -201,6 +201,12 @@ def unsubscribe_email(email):
 
     return render_template('unsubscribe.html')
 
+@app.route('/error')
+def errorPage():
+    """ Directs the user to the error page when an error is encountered """
+
+    return render_template('error-page.html')
+
 
 if __name__ == '__main__':
     connect_to_db(app)

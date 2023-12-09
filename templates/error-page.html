@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+<title>
+    {% block title %}Error{% endblock %}
+</title>
+
+{% block body %}
+
+<body id="error_page">
+
+    <text>
+        <h1>Oh no!</h1>
+        <h3>It looks as though you've reached this page in error...</h3>
+    </text>
+
+    <button id ="back-to-homepage-error" onclick="location.href='/'">
+        Back to Homepage
+    </button>
+
+</body>
+
+{% endblock %}

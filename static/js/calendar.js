@@ -57,9 +57,6 @@ const generateCalendar = (month, year) => {
                         window.location.href = url
                     }
                 })
-                .catch(error => {
-                    console.error('Error:', error)
-                })
         })
     }
 }

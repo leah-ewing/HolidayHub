@@ -1,4 +1,4 @@
-import pytest, unittest
+import unittest
 import sys, os
 
 ROOT_FOLDER = os.environ['ROOT_FOLDER']

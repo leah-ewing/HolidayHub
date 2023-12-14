@@ -8,7 +8,7 @@ from model import connect_to_db
 
 API_KEY = os.environ['API_KEY']
 DEVELOPER = os.environ['DEVELOPER']
-ROOT_FOLER = os.environ['ROOT_FOLDER']
+ROOT_FOLDER = os.environ['ROOT_FOLDER']
 DOMAIN = os.environ['DOMAIN']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
 
@@ -38,7 +38,7 @@ class ApiClient:
 	
 
 def send_welcome_email(email):
-    file_name = "templates/email-templates/welcome-email.html"
+    file_name = f"{ROOT_FOLDER}/templates/email-templates/welcome-email.html"
     html_file = open(file_name, 'r', encoding='utf-8')
     source_code = html_file.read()
     template = Template(source_code)

@@ -6,7 +6,8 @@ from datetime import datetime
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
 sys.path.append(ROOT_FOLDER)
 
-import crud, model, server
+import model, server
+from crud import create_month, create_email_address
 
 os.system('dropdb holidaydb')
 os.system('createdb holidaydb')
@@ -29,7 +30,7 @@ months = ["january",
           "december"]
 
 for month in months:
-        crud.create_month(month)
+        create_month(month)
 
 
 """ Seed 10 test emails """
@@ -39,4 +40,4 @@ for n in range(1, 11):
         email_firstname = f'User{n}'
         email_address = f'testuser{n}@test.com'
 
-        new_email = crud.create_email_address(email_firstname, email_address)
+        new_email = create_email_address(email_firstname, email_address)

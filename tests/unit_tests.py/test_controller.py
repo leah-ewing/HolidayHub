@@ -1,11 +1,15 @@
 import unittest
 import sys, os
+from test_seeds import holiday, months
 
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
 sys.path.append(ROOT_FOLDER)
 DEVELOPER = os.environ['DEVELOPER']
+TEST_DB_URI = os.environ['TEST_DB_URI']
 
 import controller
+from model import connect_to_db, db, Holiday, Month
+from server import app
 
 class TestGetDateSuffix(unittest.TestCase):
 
@@ -267,13 +271,41 @@ class GetFormattedGithubUrl(unittest.TestCase):
     def test_get_formatted_github_holiday_name(self):
         """ Should return the formatted holiday name for a Github URL """
 
-        assert controller.get_formatted_github_holiday_name('National Llama Day') == "national_llama_day"
+        assert controller.get_formatted_github_holiday_name('National Violin Day') == "national_violin_day"
 
 
-    def test_get_formatted_github_image_url(self): # FAILING
+    def test_get_formatted_github_image_url(self):
         """ Should return the formatted Github URL for a given holiday """
 
-        assert controller.get_formatted_github_image_url('National Llama Day') == f"https://github.com/{DEVELOPER}/HolidayApp/blob/main/static/media/holiday_images/12-december/12-9-national_llama_day.jpg"
+        os.system('dropdb test_holidaydb')
+        os.system('createdb test_holidaydb')
+
+        connect_to_db(app, TEST_DB_URI)
+        db.create_all()
+
+        holiday_name = holiday['holiday_name']
+        holiday_month = holiday['holiday_month']
+        holiday_date = holiday['holiday_date']
+        holiday_img = holiday['holiday_img']
+        holiday_blurb = holiday['holiday_blurb']
+        holiday_email = holiday['holiday_email']
+
+        for month in months:
+            test_month = Month(month_name = month['month_name'])
+            db.session.add(test_month)
+            db.session.commit()
+
+        test_holiday = Holiday(holiday_name = holiday_name, 
+                             holiday_month = holiday_month, 
+                             holiday_date = holiday_date, 
+                             holiday_img = holiday_img, 
+                             holiday_blurb = holiday_blurb, 
+                             holiday_email = holiday_email)
+        
+        db.session.add(test_holiday)
+        db.session.commit()
+
+        assert controller.get_formatted_github_image_url(holiday_name) == f"https://github.com/{DEVELOPER}/HolidayApp/blob/main/static/media/holiday_images/12-december/12-13-national_violin_day.jpg?raw=true"
 
 
 if __name__ == "__main__":

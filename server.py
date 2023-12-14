@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, session, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify
 from model import connect_to_db
 from jinja2 import StrictUndefined
 import crud, controller

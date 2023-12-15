@@ -52,7 +52,6 @@ def create_email_address(email_firstname, email_address, testing=False):
 
     new_email = Email(email_firstname = encrypted_firstname, 
                 email_address = encrypted_email,
-                # email_opt_in = email_opt_in,
                 email_opt_in = True,
                 email_added_on = current_date.strftime("%m-%d-%Y %I:%M %p"))
     

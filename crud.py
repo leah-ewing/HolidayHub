@@ -42,7 +42,7 @@ def create_holiday(holiday_name, holiday_month,
     return new_holiday
 
 
-def create_email_address(email_firstname, email_address):
+def create_email_address(email_firstname, email_address, testing=False):
     """ Create and return a new email entry """
 
     encrypted_email = encryption.encrypt_data(email_address.lower())
@@ -51,14 +51,16 @@ def create_email_address(email_firstname, email_address):
     current_date = datetime.now()
 
     new_email = Email(email_firstname = encrypted_firstname, 
-                email_address = encrypted_email, 
+                email_address = encrypted_email,
+                # email_opt_in = email_opt_in,
                 email_opt_in = True,
                 email_added_on = current_date.strftime("%m-%d-%Y %I:%M %p"))
     
     db.session.add(new_email)
     db.session.commit()
 
-    send_welcome_email.send_welcome_email(email_address)
+    if testing == False:
+        send_welcome_email.send_welcome_email(email_address)
 
     return print('Encrypted email created and welcome email sent successfully: 200')
 
@@ -193,7 +195,7 @@ def get_month_by_number(num):
         
         
 def get_holidays_in_month(month):
-    """ Returns all the holidays from a given month """
+    """ Returns all the monthly holidays from a given month """
 
     monthly_holidays = MonthlyHoliday.query.all()
 

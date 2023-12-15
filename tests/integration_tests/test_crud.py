@@ -242,13 +242,13 @@ class Crud(unittest.TestCase):
         seed_monthly_holidays()
 
         holidays = crud.get_holidays_in_month(3)
-        holiday_names = []
+        monthly_holiday_names = []
 
         for holiday in holidays:
-            holiday_names.append(holiday.monthly_holiday_name)
+            monthly_holiday_names.append(holiday.monthly_holiday_name)
 
-        assert 'National Celery Month' in holiday_names
-        assert 'Endometriosis Awareness Month' in holiday_names
+        assert 'National Celery Month' in monthly_holiday_names
+        assert 'Endometriosis Awareness Month' in monthly_holiday_names
 
 
     def test_check_for_email(self):
@@ -280,6 +280,9 @@ class Crud(unittest.TestCase):
 
     def test_update_opt_in_status(self):
         """ Should update the opt-in status for a given email to False """
+
+        reset_test_db()
+        seed_test_emails()
 
         first_name = email['email_firstname']
         email_address = email['email_address']

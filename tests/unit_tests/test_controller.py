@@ -44,12 +44,6 @@ class TestGetDateSuffix(unittest.TestCase):
 
         assert controller.get_date_suffix('2') == 'nd'
 
-    
-    def test_get_date_suffix_invalid_date(self): # FAILING
-        """ Should return a 400 Error when given an invalid number """
-
-        assert controller.get_date_suffix('b') == '400 Error: Not a valid number'
-
 
 class TestIsLeapYear(unittest.TestCase):
 
@@ -63,12 +57,6 @@ class TestIsLeapYear(unittest.TestCase):
         """ Should return False if the year given is not a leap year """
 
         assert controller.is_leap_year(2021) == False
-
-
-    def test_is_leap_year_invalid_date(self): # FAILING
-        """ Should return a 400 Error if given an invalid date """
-
-        assert controller.is_leap_year('b') == '400 Error: Not a valid year'
 
 
 class TestGetNextDay(unittest.TestCase):

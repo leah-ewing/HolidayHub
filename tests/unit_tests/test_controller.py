@@ -276,7 +276,7 @@ class GetFormattedGithubUrl(unittest.TestCase):
         assert controller.get_formatted_github_holiday_name('National Violin Day') == "national_violin_day"
 
 
-    def test_get_formatted_github_image_url(self):
+    def test_get_formatted_github_image_url(self): ### move to integration tests
         """ Should return the formatted Github URL for a given holiday """
 
         reset_test_db()

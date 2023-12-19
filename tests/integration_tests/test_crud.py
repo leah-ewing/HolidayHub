@@ -282,7 +282,6 @@ class Crud(unittest.TestCase):
         """ Should update the opt-in status for a given email to False """
 
         reset_test_db()
-        seed_test_emails()
 
         first_name = email['email_firstname']
         email_address = email['email_address']

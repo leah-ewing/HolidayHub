@@ -6,7 +6,7 @@ ROOT_FOLDER = os.environ['ROOT_FOLDER']
 sys.path.append(ROOT_FOLDER)
 
 import crud
-from model import connect_to_db, db, Month, Holiday, MonthlyHoliday, Email
+from model import connect_to_db, db, Month, Holiday, MonthlyHoliday
 from server import app
 
 TEST_DB_URI = os.environ['TEST_DB_URI']
@@ -126,7 +126,6 @@ def seed_test_emails():
         crud.create_email_address(email['email_firstname'], email['email_address'], True)
 
     
-
 
 if __name__ == "__main__":
     connect_to_db(app, TEST_DB_URI)

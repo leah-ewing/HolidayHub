@@ -29,8 +29,8 @@ def homepage():
                             month_name = today["month"].capitalize(),
                             year = today["year"])
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
-        
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+
         return render_template('error-page.html')
 
 
@@ -41,7 +41,7 @@ def aboutPage():
     try:
         return render_template('about.html')
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
         return render_template('error-page.html')
 
@@ -59,7 +59,7 @@ def calendarView():
                             month = current_date["month"].capitalize(),
                             monthly_holidays = monthly_holidays)
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
         return render_template('error-page.html')
 
@@ -121,7 +121,7 @@ def getClickedDate(month, day, year):
                                 previous_date_month = previous_date_month_string.capitalize(),
                                 from_homepage = False)
 
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
         return render_template('error-page.html')
 
@@ -151,7 +151,7 @@ def random_holiday_on_date(month, day):
                             generate_scroll = False,
                             from_homepage = False)
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
         return render_template('error-page.html')
 
@@ -179,7 +179,7 @@ def learn_more_about_holiday(holiday):
                             from_homepage = True,
                             multiple_holidays_on_date = multiple_holidays_on_date)
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
         return render_template('error-page.html')
 
@@ -193,7 +193,7 @@ def get_random_holiday():
 
         return redirect(f"/random-holiday/{holiday.holiday_name}")
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
         return render_template('error-page.html')
 
@@ -215,7 +215,7 @@ def random_holiday(name):
                             image = holiday.holiday_img,
                             suffix = suffix)
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
         return render_template('error-page.html')
 
@@ -243,7 +243,7 @@ def unsubscribe_email(email):
 
         return render_template('unsubscribe.html')
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
         return render_template('error-page.html')
 

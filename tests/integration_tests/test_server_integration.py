@@ -14,7 +14,7 @@ from server import app
 from model import connect_to_db, db, Holiday
 
 
-class Server(unittest.TestCase):
+class TestHomepage(unittest.TestCase):
 
     @freeze_time("2023-12-13")
     
@@ -33,6 +33,8 @@ class Server(unittest.TestCase):
         assert b'National Violin Day' in response.data
 
 
+class TestAboutPage(unittest.TestCase):
+
     def test_about_page(self):
         """ Tests that the 'About Page' template is rendered via the '/about' route """
 
@@ -42,18 +44,23 @@ class Server(unittest.TestCase):
         assert b'About' in response.data
 
 
+class TestCalendarView(unittest.TestCase):
+
     def test_calendar_view(self):
         """ Tests that the '/calendar-view' route renders the 'calendar-view' template correctly """
 
         reset_test_db()
         seed_test_months()
         seed_test_holiday()
+        seed_monthly_holidays()
 
         client = app.test_client()
         response = client.get('/calendar-view')
 
         assert b'Calendar View' in response.data
 
+
+class TestGetClickedDate(unittest.TestCase):
 
     def test_get_clicked_date(self):
         """ Tests that the '/day-picker/<month>/<day>/<year>' route renders the 'holiday' template correctly """
@@ -71,6 +78,8 @@ class Server(unittest.TestCase):
         assert b'th' in response.data
         assert b'test' in response.data
 
+
+class TestRandomHolidayOnDate(unittest.TestCase):
 
     def test_random_holiday_on_date(self):
         """ Tests that the '/random-holiday/<month>/<day>' route renders the 'holiday' template correctly """
@@ -98,6 +107,8 @@ class Server(unittest.TestCase):
         assert b'test' in response.data
 
 
+class TestHoliday(unittest.TestCase):
+
     def test_holiday(self):
         """ Tests that the '/<holiday>' route renders the 'holiday' template correctly """
 
@@ -115,6 +126,8 @@ class Server(unittest.TestCase):
         assert b'test' in response.data
 
 
+class TestGetRandomHoliday(unittest.TestCase):
+
     def test_get_random_holiday(self):
         """ Tests that the '/random-holiday' route returns a redirect """
 
@@ -129,6 +142,8 @@ class Server(unittest.TestCase):
 
         assert response.status == redirect_status
 
+
+class TestRandomHoliday(unittest.TestCase):
 
     def test_random_holiday(self):
         """ Tests that the '/random-holiday/<name>' route renders the 'random-holiday' template correctly """
@@ -147,6 +162,8 @@ class Server(unittest.TestCase):
         assert b'test' in response.data
 
 
+class TestGetMonthlyHoliday(unittest.TestCase):
+
     def test_get_monthly_holidays(self):
         """ Tests that the '/get-monthly-holidays/<month>' route returns a list of monthly holidays """
 
@@ -159,6 +176,8 @@ class Server(unittest.TestCase):
 
         assert b'["Endometriosis Awareness Month','National Celery Month"]' in response.data
 
+
+class TestUnsubscribeEmail(unittest.TestCase):
 
     def test_unsubscribe_email(self):
         """ Tests that the '/unsubscribe/<email>' route renders the 'unsubscribe' template correctly """

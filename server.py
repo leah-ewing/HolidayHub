@@ -30,6 +30,7 @@ def homepage():
                             year = today["year"])
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+        
         return render_template('error-page.html')
 
 
@@ -41,6 +42,7 @@ def aboutPage():
         return render_template('about.html')
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+
         return render_template('error-page.html')
 
 
@@ -58,6 +60,7 @@ def calendarView():
                             monthly_holidays = monthly_holidays)
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+
         return render_template('error-page.html')
 
 
@@ -119,6 +122,7 @@ def getClickedDate(month, day, year):
                                 from_homepage = False)
 
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+
         return render_template('error-page.html')
 
 
@@ -148,6 +152,7 @@ def random_holiday_on_date(month, day):
                             from_homepage = False)
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+
         return render_template('error-page.html')
 
 
@@ -175,6 +180,7 @@ def learn_more_about_holiday(holiday):
                             multiple_holidays_on_date = multiple_holidays_on_date)
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+
         return render_template('error-page.html')
 
 

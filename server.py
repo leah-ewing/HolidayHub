@@ -17,36 +17,48 @@ app.jinja_env.undefined = StrictUndefined
 def homepage():
     """ Routes to app homepage """
 
-    today = controller.get_current_date()
-    month_num = crud.get_month_by_name(today["month"])
-    holiday = crud.get_first_holiday_by_date(month_num, today["day"])
+    try:
+        today = controller.get_current_date()
+        month_num = crud.get_month_by_name(today["month"])
+        holiday = crud.get_first_holiday_by_date(month_num, today["day"])
 
-    return render_template('homepage.html',
-                           holiday = holiday.holiday_name,
-                           image = holiday.holiday_img,
-                           day = holiday.holiday_date,
-                           month_name = today["month"].capitalize(),
-                           year = today["year"])
+        return render_template('homepage.html',
+                            holiday = holiday.holiday_name,
+                            image = holiday.holiday_img,
+                            day = holiday.holiday_date,
+                            month_name = today["month"].capitalize(),
+                            year = today["year"])
+    
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+        return render_template('error-page.html')
 
 
 @app.route('/about')
 def aboutPage():
     """ Routes to the 'About' page """
 
-    return render_template('about.html')
+    try:
+        return render_template('about.html')
+    
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+        return render_template('error-page.html')
 
 
 @app.route('/calendar-view')
 def calendarView():
     """ Routes to Calendar page """
 
-    current_date = controller.get_current_date()
-    month_num = crud.get_month_by_name(current_date["month"])
-    monthly_holidays = crud.get_holidays_in_month(month_num)
+    try:
+        current_date = controller.get_current_date()
+        month_num = crud.get_month_by_name(current_date["month"])
+        monthly_holidays = crud.get_holidays_in_month(month_num)
 
-    return render_template('calendar-view.html',
-                           month = current_date["month"].capitalize(),
-                           monthly_holidays = monthly_holidays)
+        return render_template('calendar-view.html',
+                            month = current_date["month"].capitalize(),
+                            monthly_holidays = monthly_holidays)
+    
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+        return render_template('error-page.html')
 
 
 @app.route('/add-email', methods = ["POST"])
@@ -75,108 +87,131 @@ def addNewEmail():
 def getClickedDate(month, day, year):
     """ When a calendar day is clicked, directs user to that day's holiday page """
 
-    month_num = crud.get_month_by_name(month.lower())
-    day_num = int(day)
-    year_num = int(year)
+    try:
+        month_num = crud.get_month_by_name(month.lower())
+        day_num = int(day)
+        year_num = int(year)
 
-    holiday = crud.get_first_holiday_by_date(month_num, day_num)
-    multiple_holidays_on_date = crud.check_for_multiple_holidays(month_num, day_num)
-    suffix = controller.get_date_suffix(day)
+        holiday = crud.get_first_holiday_by_date(month_num, day_num)
+        multiple_holidays_on_date = crud.check_for_multiple_holidays(month_num, day_num)
+        suffix = controller.get_date_suffix(day)
 
-    next_date = controller.get_next_day(month_num, day_num, year_num)
-    previous_date = controller.get_previous_day(month_num, day_num, year_num)
-    next_date_month_string = crud.get_month_by_number(next_date["month"])
-    previous_date_month_string = crud.get_month_by_number(previous_date["month"])
+        next_date = controller.get_next_day(month_num, day_num, year_num)
+        previous_date = controller.get_previous_day(month_num, day_num, year_num)
 
-    return render_template('holiday.html',
-                            month = month_num,
-                            month_name = month.capitalize(),
-                            day = day_num,
-                            holiday = holiday.holiday_name,
-                            blurb = holiday.holiday_blurb,
-                            image = holiday.holiday_img,
-                            multiple_holidays_on_date = multiple_holidays_on_date,
-                            suffix = suffix,
-                            generate_scroll = True,
-                            next_date = next_date,
-                            next_date_month = next_date_month_string.capitalize(),
-                            previous_date = previous_date,
-                            previous_date_month = previous_date_month_string.capitalize(),
-                            from_homepage = False)
+        next_date_month_string = crud.get_month_by_number(next_date["month"])
+        previous_date_month_string = crud.get_month_by_number(previous_date["month"])
+
+        return render_template('holiday.html',
+                                month = month_num,
+                                month_name = month.capitalize(),
+                                day = day_num,
+                                holiday = holiday.holiday_name,
+                                blurb = holiday.holiday_blurb,
+                                image = holiday.holiday_img,
+                                multiple_holidays_on_date = multiple_holidays_on_date,
+                                suffix = suffix,
+                                generate_scroll = True,
+                                next_date = next_date,
+                                next_date_month = next_date_month_string.capitalize(),
+                                previous_date = previous_date,
+                                previous_date_month = previous_date_month_string.capitalize(),
+                                from_homepage = False)
+
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+        return render_template('error-page.html')
 
 
 @app.route('/random-holiday/<month>/<day>', methods = ["GET"])
 def random_holiday_on_date(month, day):
     """ Takes a user to another random holiday on a given date """
 
-    month_num = int(month)
-    day_num = int(day)
+    try:
+        month_num = int(month)
+        day_num = int(day)
 
-    holiday = crud.get_random_holiday_on_date(month_num, day_num)
-    month_name = crud.get_month_by_number(month_num)
-    multiple_holidays_on_date = crud.check_for_multiple_holidays(month_num, day_num)
-    suffix = controller.get_date_suffix(day)
+        holiday = crud.get_random_holiday_on_date(month_num, day_num)
+        month_name = crud.get_month_by_number(month_num)
+        multiple_holidays_on_date = crud.check_for_multiple_holidays(month_num, day_num)
+        suffix = controller.get_date_suffix(day)
 
-    return render_template('holiday.html',
-                           month = month_num,
-                           month_name = month_name.capitalize(),
-                           day = day,
-                           holiday = holiday.holiday_name,
-                           blurb = holiday.holiday_blurb,
-                           image = holiday.holiday_img,
-                           multiple_holidays_on_date = multiple_holidays_on_date,
-                           suffix = suffix,
-                           generate_scroll = False,
-                           from_homepage = False)
+        return render_template('holiday.html',
+                            month = month_num,
+                            month_name = month_name.capitalize(),
+                            day = day,
+                            holiday = holiday.holiday_name,
+                            blurb = holiday.holiday_blurb,
+                            image = holiday.holiday_img,
+                            multiple_holidays_on_date = multiple_holidays_on_date,
+                            suffix = suffix,
+                            generate_scroll = False,
+                            from_homepage = False)
+    
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+        return render_template('error-page.html')
 
 
 @app.route('/<holiday>', methods = ["GET"])
 def learn_more_about_holiday(holiday):
     """ Navigates to a holiday's page after clicking 'Learn More' on the homepage or email """
 
-    holiday_data = crud.get_holiday_by_name(holiday)
-    month_name = crud.get_month_by_number(holiday_data.holiday_month)
-    day = holiday_data.holiday_date
-    suffix = controller.get_date_suffix(str(day))
-    image = holiday_data.holiday_img
-    multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday_data.holiday_month, day)
+    try:
+        holiday_data = crud.get_holiday_by_name(holiday)
+        month_name = crud.get_month_by_number(holiday_data.holiday_month)
+        day = holiday_data.holiday_date
+        suffix = controller.get_date_suffix(str(day))
+        image = holiday_data.holiday_img
+        multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday_data.holiday_month, day)
 
-    return render_template('holiday.html',
-                           holiday = holiday,
-                           month_name = month_name.capitalize(),
-                           day = day,
-                           suffix = suffix,
-                           image = image,
-                           generate_scroll = False,
-                           blurb = holiday_data.holiday_blurb,
-                           from_homepage = True,
-                           multiple_holidays_on_date = multiple_holidays_on_date)
+        return render_template('holiday.html',
+                            holiday = holiday,
+                            month_name = month_name.capitalize(),
+                            day = day,
+                            suffix = suffix,
+                            image = image,
+                            generate_scroll = False,
+                            blurb = holiday_data.holiday_blurb,
+                            from_homepage = True,
+                            multiple_holidays_on_date = multiple_holidays_on_date)
+    
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+        return render_template('error-page.html')
 
 
 @app.route('/random-holiday')
 def get_random_holiday():
     """ Gets a random holiday """
 
-    holiday = crud.get_random_holiday()
+    try:
+        holiday = crud.get_random_holiday()
 
-    return redirect(f"/random-holiday/{holiday.holiday_name}")
+        return redirect(f"/random-holiday/{holiday.holiday_name}")
+    
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+
+        return render_template('error-page.html')
 
 
 @app.route('/random-holiday/<name>', methods = ["GET"])
 def random_holiday(name):
     """ Directs a user to a random holiday's page """
 
-    holiday = crud.get_holiday_by_name(name)
-    month = crud.get_month_by_number(holiday.holiday_month)
-    suffix = controller.get_date_suffix(str(holiday.holiday_date))
+    try:
+        holiday = crud.get_holiday_by_name(name)
+        month = crud.get_month_by_number(holiday.holiday_month)
+        suffix = controller.get_date_suffix(str(holiday.holiday_date))
 
-    return render_template('random-holiday.html',
-                           month_name = month.capitalize(),
-                           day = holiday.holiday_date,
-                           holiday = holiday.holiday_name,
-                           blurb = holiday.holiday_blurb,
-                           image = holiday.holiday_img,
-                           suffix = suffix)
+        return render_template('random-holiday.html',
+                            month_name = month.capitalize(),
+                            day = holiday.holiday_date,
+                            holiday = holiday.holiday_name,
+                            blurb = holiday.holiday_blurb,
+                            image = holiday.holiday_img,
+                            suffix = suffix)
+    
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+
+        return render_template('error-page.html')
 
 
 @app.route('/get-monthly-holidays/<month>', methods = ["GET"])
@@ -197,15 +232,20 @@ def get_monthly_holidays(month):
 def unsubscribe_email(email):
     """ Changes an email's opt-in status for receiving daily emails """
 
-    crud.update_opt_in_status(email)
+    try:
+        crud.update_opt_in_status(email)
 
-    return render_template('unsubscribe.html')
+        return render_template('unsubscribe.html')
+    
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError):
+
+        return render_template('error-page.html')
 
 
 @app.route('/error')
 def errorPage():
     """ Directs the user to the error page when an error is encountered """
-
+    
     return render_template('error-page.html')
 
 

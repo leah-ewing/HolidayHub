@@ -11,13 +11,12 @@ ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']
 sys.path.append(ROOT_FOLDER)
 
 from server import app
-from model import connect_to_db, db, Holiday
+from model import connect_to_db, db, Holiday, MonthlyHoliday
 
 
 class TestHomepage(unittest.TestCase):
 
     @freeze_time("2023-12-13")
-    
     # @pytest.mark.slow ### pytest -m slow
     def test_homepage(self):
         """ Tests that the 'Homepage' template is rendered via the '/' route """
@@ -33,6 +32,20 @@ class TestHomepage(unittest.TestCase):
         assert b'National Violin Day' in response.data
 
 
+    @freeze_time("2023-12-14")
+    def test_homepage_error(self):
+        """ Tests that 'homepage' error triggers a redirect to the 'error' page """
+
+        reset_test_db()
+        seed_test_months()
+        seed_test_holiday()
+
+        client = app.test_client()
+        response = client.get('/')
+
+        assert response.status_code == 302
+
+
 class TestAboutPage(unittest.TestCase):
 
     def test_about_page(self):
@@ -46,18 +59,24 @@ class TestAboutPage(unittest.TestCase):
 
 class TestCalendarView(unittest.TestCase):
 
+    @freeze_time("2023-12-13")
     def test_calendar_view(self):
         """ Tests that the '/calendar-view' route renders the 'calendar-view' template correctly """
 
         reset_test_db()
         seed_test_months()
-        seed_test_holiday()
-        seed_monthly_holidays()
+
+        test_monthly_holiday = MonthlyHoliday(monthly_holiday_name = 'Test Monthly Holiday',
+                                monthly_holiday_month = 12)
+        db.session.add(test_monthly_holiday)
+        db.session.commit()
 
         client = app.test_client()
         response = client.get('/calendar-view')
 
         assert b'Calendar View' in response.data
+        assert b'December' in response.data
+        assert b'Test Monthly Holiday' in response.data
 
 
 class TestGetClickedDate(unittest.TestCase):
@@ -77,6 +96,19 @@ class TestGetClickedDate(unittest.TestCase):
         assert b'13' in response.data
         assert b'th' in response.data
         assert b'test' in response.data
+
+
+    def test_get_clicked_date_error(self):
+        """ Tests that 'homepage' error triggers a redirect to the 'error' page """
+
+        reset_test_db()
+        seed_test_months()
+        seed_test_holiday()
+
+        client = app.test_client()
+        response = client.get('/day-picker/Dec/13/2023')
+
+        assert response.status_code == 302
 
 
 class TestRandomHolidayOnDate(unittest.TestCase):
@@ -107,6 +139,18 @@ class TestRandomHolidayOnDate(unittest.TestCase):
         assert b'test' in response.data
 
 
+    def test_random_holiday_on_date_error(self):
+        """ Tests that 'random-holiday/<month>/<day>' error triggers a redirect to the 'error' page """
+
+    reset_test_db()
+    seed_test_months()
+
+    client = app.test_client()
+    response = client.get('/random-holiday/12/14')
+
+    assert response.status_code == 302
+
+
 class TestHoliday(unittest.TestCase):
 
     def test_holiday(self):
@@ -124,16 +168,29 @@ class TestHoliday(unittest.TestCase):
         assert b'13' in response.data
         assert b'th' in response.data
         assert b'test' in response.data
+    
 
-
-class TestGetRandomHoliday(unittest.TestCase):
-
-    def test_get_random_holiday(self):
-        """ Tests that the '/random-holiday' route returns a redirect """
+    def test_holiday_error(self):
+        """ Tests that '/<holiday>' error triggers a redirect to the 'error' page """
 
         reset_test_db()
         seed_test_months()
         seed_test_holiday()
+
+        client = app.test_client()
+        response = client.get('/Violin%20Day')
+
+        assert response.status_code == 302
+
+
+class TestGetRandomHoliday(unittest.TestCase):
+
+    reset_test_db()
+    seed_test_months()
+    seed_test_holiday()
+
+    def test_get_random_holiday(self):
+        """ Tests that the '/random-holiday' route returns a redirect """
 
         client = app.test_client()
         response = client.get('/random-holiday')
@@ -143,12 +200,12 @@ class TestGetRandomHoliday(unittest.TestCase):
 
 class TestRandomHoliday(unittest.TestCase):
 
+    reset_test_db()
+    seed_test_months()
+    seed_test_holiday()
+
     def test_random_holiday(self):
         """ Tests that the '/random-holiday/<name>' route renders the 'random-holiday' template correctly """
-
-        reset_test_db()
-        seed_test_months()
-        seed_test_holiday()
 
         client = app.test_client()
         response = client.get('/random-holiday/National%20Violin%20Day')
@@ -162,12 +219,12 @@ class TestRandomHoliday(unittest.TestCase):
 
 class TestGetMonthlyHoliday(unittest.TestCase):
 
+    reset_test_db()
+    seed_test_months()
+    seed_monthly_holidays()
+
     def test_get_monthly_holidays(self):
         """ Tests that the '/get-monthly-holidays/<month>' route returns a list of monthly holidays """
-
-        reset_test_db()
-        seed_test_months()
-        seed_monthly_holidays()
 
         client = app.test_client()
         response = client.get('/get-monthly-holidays/March')
@@ -177,11 +234,11 @@ class TestGetMonthlyHoliday(unittest.TestCase):
 
 class TestUnsubscribeEmail(unittest.TestCase):
 
+    reset_test_db()
+    seed_test_emails()
+
     def test_unsubscribe_email(self):
         """ Tests that the '/unsubscribe/<email>' route renders the 'unsubscribe' template correctly """
-
-        reset_test_db()
-        seed_test_emails()
 
         client = app.test_client()
         response = client.get('/unsubscribe/test1@test.test')

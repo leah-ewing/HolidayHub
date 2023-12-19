@@ -3,6 +3,7 @@ from model import connect_to_db
 from jinja2 import StrictUndefined
 import crud, controller
 import os
+
 DEV_KEY = os.environ['DEV_KEY']
 
 app = Flask(__name__)
@@ -31,19 +32,14 @@ def homepage():
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
-        return render_template('error-page.html')
+        return redirect('/error')
 
 
 @app.route('/about')
 def aboutPage():
     """ Routes to the 'About' page """
 
-    try:
-        return render_template('about.html')
-    
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
-
-        return render_template('error-page.html')
+    return render_template('about.html')
 
 
 @app.route('/calendar-view')
@@ -61,7 +57,7 @@ def calendarView():
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
-        return render_template('error-page.html')
+        return redirect('/error')
 
 
 @app.route('/add-email', methods = ["POST"])
@@ -123,7 +119,7 @@ def getClickedDate(month, day, year):
 
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
-        return render_template('error-page.html')
+        return redirect('/error')
 
 
 @app.route('/random-holiday/<month>/<day>', methods = ["GET"])
@@ -153,7 +149,7 @@ def random_holiday_on_date(month, day):
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
-        return render_template('error-page.html')
+        return redirect('/error')
 
 
 @app.route('/<holiday>', methods = ["GET"])
@@ -181,7 +177,7 @@ def learn_more_about_holiday(holiday):
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
-        return render_template('error-page.html')
+        return redirect('/error')
 
 
 @app.route('/random-holiday')
@@ -195,7 +191,7 @@ def get_random_holiday():
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
-        return render_template('error-page.html')
+        return redirect('/error')
 
 
 @app.route('/random-holiday/<name>', methods = ["GET"])
@@ -217,7 +213,7 @@ def random_holiday(name):
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
-        return render_template('error-page.html')
+        return redirect('/error')
 
 
 @app.route('/get-monthly-holidays/<month>', methods = ["GET"])
@@ -245,14 +241,21 @@ def unsubscribe_email(email):
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
 
-        return render_template('error-page.html')
+        return redirect('/error')
 
 
 @app.route('/error')
 def errorPage():
-    """ Directs the user to the error page when an error is encountered """
+    """ Directs the user to the error page """
     
     return render_template('error-page.html')
+
+
+@app.errorhandler(404)
+def not_found(e):
+    """ Directs the user to the error page when an 404 error is encountered """
+
+    return redirect('/error')
 
 
 if __name__ == '__main__':

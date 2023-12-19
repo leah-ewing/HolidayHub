@@ -138,9 +138,7 @@ class TestGetRandomHoliday(unittest.TestCase):
         client = app.test_client()
         response = client.get('/random-holiday')
 
-        redirect_status = '302 FOUND'
-
-        assert response.status == redirect_status
+        assert response.status_code == 302
 
 
 class TestRandomHoliday(unittest.TestCase):

@@ -188,7 +188,7 @@ class Crud(unittest.TestCase):
 
 
     def test_check_for_multiple_holidays(self):
-        """ Should return Bool representing whether there are multiple holidays on a given date """
+        """ Should return a Bool representing whether there are multiple holidays on a given date """
 
         reset_test_db()
         seed_test_months()

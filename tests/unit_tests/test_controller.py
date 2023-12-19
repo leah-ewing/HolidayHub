@@ -3,7 +3,6 @@ import sys, os
 
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
 sys.path.append(ROOT_FOLDER)
-DEVELOPER = os.environ['DEVELOPER']
 
 import controller
 

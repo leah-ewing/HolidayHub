@@ -159,7 +159,7 @@ class TestGetPreviousDay(unittest.TestCase):
                                                         'year': 2020}
 
 
-class CheckForValidEmail(unittest.TestCase):
+class TestCheckForValidEmail(unittest.TestCase):
 
     def test_check_for_valid_email_true(self):
         """ Should return True when given a valid email """
@@ -179,7 +179,7 @@ class CheckForValidEmail(unittest.TestCase):
         assert controller.check_for_valid_email('testtest.test') == False
 
 
-class GetRandom(unittest.TestCase):
+class TestGetRandom(unittest.TestCase):
 
     def test_get_random_salutation(self):
         """ Should pass if the return is a valid salutation """
@@ -256,39 +256,12 @@ class GetRandom(unittest.TestCase):
         assert controller.get_random_email_sign_off() in valid_sign_offs
 
 
-class GetFormattedGithubUrl(unittest.TestCase):
+class TestGetFormattedGithubUrl(unittest.TestCase):
 
     def test_get_formatted_github_holiday_name(self):
         """ Should return the formatted holiday name for a Github URL """
 
         assert controller.get_formatted_github_holiday_name('National Violin Day') == "national_violin_day"
-
-
-    def test_get_formatted_github_image_url(self): ### move to integration tests
-        """ Should return the formatted Github URL for a given holiday """
-
-        reset_test_db()
-        seed_test_months()
-
-        holiday_name = holiday['holiday_name']
-        holiday_month = holiday['holiday_month']
-        holiday_date = holiday['holiday_date']
-        holiday_img = holiday['holiday_img']
-        holiday_blurb = holiday['holiday_blurb']
-        holiday_email = holiday['holiday_email']
-
-        test_holiday = Holiday(holiday_name = holiday_name, 
-                             holiday_month = holiday_month, 
-                             holiday_date = holiday_date, 
-                             holiday_img = holiday_img, 
-                             holiday_blurb = holiday_blurb, 
-                             holiday_email = holiday_email)
-        
-        db.session.add(test_holiday)
-        db.session.commit()
-
-        assert controller.get_formatted_github_image_url(holiday_name) == f"https://github.com/{DEVELOPER}/HolidayApp/blob/main/static/media/holiday_images/12-december/12-13-national_violin_day.jpg?raw=true"
-
 
 
 if __name__ == "__main__":

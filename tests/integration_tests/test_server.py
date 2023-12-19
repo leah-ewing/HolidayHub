@@ -56,7 +56,7 @@ class Server(unittest.TestCase):
 
 
     def testGetClickedDate(self):
-        """ Tests that the '/day-picker/December/13/2023' route renders the 'holiday' template correctly """
+        """ Tests that the '/day-picker/<month>/<day>/<year>' route renders the 'holiday' template correctly """
 
         reset_test_db()
         seed_test_months()

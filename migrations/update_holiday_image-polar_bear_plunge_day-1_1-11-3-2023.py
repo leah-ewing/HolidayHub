@@ -19,4 +19,3 @@ holiday_img = String
 
 crud.update_holiday_image("Polar Bear Plunge Day",
                           "/static/media/holiday_images/1-january/1-1-polar_bear_plunge_day.jpg")
-

@@ -229,14 +229,9 @@ def get_monthly_holidays(month):
 def unsubscribe_email(email):
     """ Changes an email's opt-in status for receiving daily emails """
 
-    try:
-        crud.update_opt_in_status(email)
+    crud.update_opt_in_status(email)
 
-        return render_template('unsubscribe.html')
-    
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
-
-        return redirect('/error')
+    return render_template('unsubscribe.html')
 
 
 @app.route('/error')

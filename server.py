@@ -36,7 +36,7 @@ def homepage():
 
 
 @app.route('/about')
-def aboutPage():
+def about_page():
     """ Routes to the 'About' page """
 
     return render_template('about.html')
@@ -56,7 +56,7 @@ def calendarView():
 
 
 @app.route('/add-email', methods = ["POST"])
-def addNewEmail():
+def ad_new_email():
     """ Adds new email from input form """
 
     first_name = request.json.get("fname")
@@ -78,7 +78,7 @@ def addNewEmail():
     
 
 @app.route('/day-picker/<month>/<day>/<year>', methods = ["GET"])
-def getClickedDate(month, day, year):
+def get_clicked_date(month, day, year):
     """ When a calendar day is clicked, directs user to that day's holiday page """
 
     try:

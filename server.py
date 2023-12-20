@@ -243,7 +243,7 @@ def errorPage():
 
 @app.errorhandler(404)
 def not_found(e):
-    """ Redirects the user to the error page when an 404 error is encountered """
+    """ Redirects the user to the error page when a 404 error is encountered """
 
     return redirect('/error')
 

@@ -1,16 +1,29 @@
+body {
+    font-family: 'Inter Tight';
+}
+
+#base-head {
+    display: grid;
+    place-items: center;font-size: 22px;
+    /* font-family: 'Inter Tight'; */
+}
+
 .homepage {
     display: grid;
-    place-items: center;
+    place-items: center;font-size: 22px;
+    /* font-family: 'Inter Tight'; */
 }
 
 .about-page {
     width: 60%;
     display: grid;
     place-items: center;
+    /* font-family: 'Inter Tight'; */
 }
 
 .error-page {
     width: 60%;
     display: grid;
     place-items: center;
+    /* font-family: 'Inter Tight'; */
 }

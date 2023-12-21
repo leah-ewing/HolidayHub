@@ -1,15 +1,42 @@
+
+#navbar {
+    background-color: bisque;
+}
+
+#share-button,
+#popup-button {
+    cursor: pointer;
+}
+
 body {
     font-family: 'Inter Tight';
 }
 
-#base-head {
-    display: grid;
-    place-items: center;font-size: 22px;
+#logo-button {
+    font-family: 'Righteous';
+}
+
+button {
+    font-family: 'Righteous';
+    font-size: 15px;
+    padding: 5px;
 }
 
 .homepage {
     display: grid;
-    place-items: center;font-size: 22px;
+    place-items: center;
+    font-size: 22px;
+}
+
+#homepage-logo {
+    font-family: 'Righteous';
+    font-size: 50px;
+}
+
+.holiday-name {
+    font-family: 'Righteous';
+    font-size: 45px;
+    color: #f364a2
 }
 
 .about-page {

@@ -44,25 +44,37 @@
         {% endblock %}
       </title>
 
-      <div>
-        <button id="homepage-button" onclick="location.href='/'">
-          HolidayApp
-        </button>
-
-        <button id="share-button">
-          Share
-        </button>
-
-        <button id="popup-button">
-          Sign Up for Daily Emails!
-        </button>
+      <div class="container-fluid" id="navbar">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="navbar-brand" aria-current="page" href="/">HolidayApp</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="share-button">Share</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="popup-button">Sign Up for Daily Emails!</a>
+                </li>
+              </ul>
+              <span class="navbar-text">
+                HolidayApp Tagline Here... 
+              </span>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Holiday Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Go</button>
+              </form>
+          </div>
+        </nav>
       </div>
 
+      <!-- POP-UPS -->
       <div class="share-popup-window" id="share-popup-window" style="line-height:1.75;">
-        <div id="share-popup-window-text">
-          <h1><b><font color=#f364a2><br>
+        <div id="share-popup-window-text"><br>
+          <h1><b><font color=#f364a2>
             Share:
-          </font></h1></b><br>
+          </font></h1></b>
           <button id="twitter-share-button">Twitter</button>
           <button id="facebook-share-button">Facebook</button><br>
           <button id="pinterest-share-button">Pinterest</button>
@@ -89,32 +101,33 @@
 
         <form action="/add-email" method = "POST">
           <div class="add-email" style="line-height:1.75;">
-              <label for="fname">First Name:</label><br>
-                <input id="fname" name="fname" required /></textarea><br>
-              <label for="email">Email:</label><br>
-                <input id="email" name="email" type="email" required /></textarea><br>
-              <div class="submit">
-                <button id="submit-button" class="submit-button" type="submit">Submit!</button><br>
-                <div id="disclaimer-text">By clicking submit you are giving HolidayApp permission to send you daily emails, you may opt out at any time.</small>
-            </div></form>
-          </div>
+            <label for="fname">First Name:</label><br>
+              <input id="fname" name="fname" required /></textarea><br>
+            <label for="email">Email:</label><br>
+              <input id="email" name="email" type="email" required /></textarea><br>
+            <div class="submit">
+              <button id="submit-button" class="submit-button" type="submit">Submit!</button><br>
+              <div id="disclaimer-text">By clicking submit you are giving HolidayApp permission to send you daily emails, you may opt out at any time.
+            </div>
+        </form>
+      </div>
         <button id="close-button">Close</button>
       </div>
 
       <div class="thank-you-window" id="thank-you-window" style="line-height:1.75;">
         <div id="thank-you-text">
-          <h1><b><font color=#f364a2><br><br><br>
+          <h1><b><br><br>
             Thank you!
-          </font></h1></b><br>
+          </h1></b>
           <button id="close-button-thank-you">Close</button>
         </div>
       </div>
 
       <div class="duplicate-email-window" id="duplicate-email-window" style="line-height:1.75;">
-        <div id="duplicate-email-text">
-          <h1><b><font color=#f364a2><br><br><br>
+        <div id="duplicate-email-text"><br>
+          <h1><b>
             Email already exists, please try again!
-          </font></h1></b><br>
+          </h1></b><br>
           <button id="try-again-button">Try again</button>
           <button id="close-button-duplicate-email">Close</button>
         </div>
@@ -122,9 +135,9 @@
 
       <div class="invalid-email-window" id="invalid-email-window" style="line-height:1.75;">
         <div id="invalid-email-text">
-          <h1><b><font color=#f364a2><br><br><br>
+          <h1><b><br>
             Invalid email, please try again!
-          </font></h1></b><br>
+          </h1></b><br>
           <button id="try-again-button-invalid-email">Try again</button>
           <button id="close-button-invalid-email">Close</button>
         </div>
@@ -157,5 +170,5 @@
   
 {% endblock %}
 
-<!-- BOOTSTRAP -->
+<!-- BOOTSTRAP SCRIPT -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>

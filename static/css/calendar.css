@@ -1,3 +1,12 @@
+#navbar {
+    background-color: bisque;
+}
+
+#share-button,
+#popup-button {
+    cursor: pointer;
+}
+
 :root 
 {
     /* --dark-body: #4d4c5a; */
@@ -29,17 +38,25 @@
     box-sizing: border-box;
 }
 
-html,
+/* html, */
 body {
-    height: 100vh;
+    /* height: 100vh; */
     display: grid;
     place-items: center;
-    background-color: var(--bg-body);
+    /* background-color: var(--bg-body); */
+    font-family: 'Inter Tight';
 }
+
+button {
+    font-family: 'Righteous';
+    font-size: 15px;
+    padding: 5px;
+}
+
 .calendar {
     height: max-content;
     width: max-content;
-    background-color: var(--bg-main);
+    /* background-color: var(--bg-main); */
     border-radius: 30px;
     padding: 20px;
     position: relative;
@@ -56,7 +73,7 @@ body {
     align-items: center;
     font-size: 25px;
     font-weight: 600;
-    color: var(--color-txt);
+    color: var(--color-txt); 
     padding: 10px;
 }
 
@@ -82,6 +99,7 @@ body {
     grid-template-columns: repeat(7, 1fr);
     gap: 2px;
     color: var(--color-txt);
+    font-family: 'Righteous';
 }
 
 .calendar-days div {
@@ -177,6 +195,7 @@ body {
     cursor: pointer;
     font-size: 40px;
     padding-bottom: 10px;
+    font-family: 'Righteous';
 }
 
 .month-picker:hover {
@@ -186,6 +205,8 @@ body {
 .year-picker {
     display: flex;
     align-items: center;
+    font-family: 'Righteous';
+    font-size: 30px;
 }
 
 .year-change {

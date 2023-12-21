@@ -31,7 +31,6 @@ def homepage():
                             year = today["year"])
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
-
         return redirect('/error')
 
 
@@ -46,13 +45,17 @@ def about_page():
 def calendarView():
     """ Routes to Calendar page """
 
-    current_date = controller.get_current_date()
-    month_num = crud.get_month_by_name(current_date["month"])
-    monthly_holidays = crud.get_holidays_in_month(month_num)
+    try:
+        current_date = controller.get_current_date()
+        month_num = crud.get_month_by_name(current_date["month"])
+        monthly_holidays = crud.get_holidays_in_month(month_num)
 
-    return render_template('calendar-view.html',
-                            month = current_date["month"].capitalize(),
-                            monthly_holidays = monthly_holidays)
+        return render_template('calendar-view.html',
+                                month = current_date["month"].capitalize(),
+                                monthly_holidays = monthly_holidays)
+    
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+        return redirect('/error')
 
 
 @app.route('/add-email', methods = ["POST"])
@@ -113,7 +116,6 @@ def get_clicked_date(month, day, year):
                                 from_homepage = False)
 
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
-
         return redirect('/error')
 
 
@@ -143,7 +145,6 @@ def random_holiday_on_date(month, day):
                             from_homepage = False)
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError, IndexError):
-
         return redirect('/error')
 
 
@@ -171,7 +172,6 @@ def learn_more_about_holiday(holiday):
                             multiple_holidays_on_date = multiple_holidays_on_date)
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
-
         return redirect('/error')
 
 
@@ -185,7 +185,6 @@ def get_random_holiday():
         return redirect(f"/random-holiday/{holiday.holiday_name}")
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
-
         return redirect('/error')
 
 
@@ -207,7 +206,6 @@ def random_holiday(name):
                             suffix = suffix)
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
-
         return redirect('/error')
 
 

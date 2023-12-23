@@ -2,9 +2,33 @@
     background-color: bisque;
 }
 
+#navbar-tagline {
+    font-family: 'Righteous';
+    font-size: 20px;
+    padding-right: 20px;
+}
+
+#navbar-logo {
+    font-family: 'Righteous';
+    font-size: 25px;
+}
+
 #share-button,
 #popup-button {
     cursor: pointer;
+}
+
+#footer {
+    background-color: bisque;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#footer-text {
+    font-size: 12px;
+    float: left;
+    margin-left: 40%;
+    font-family: 'Righteous';
 }
 
 :root 

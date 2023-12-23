@@ -44,12 +44,12 @@
         {% endblock %}
       </title>
 
-      <div class="container-fluid" id="navbar">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid fixed-top" id="navbar">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
             <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="navbar-brand" aria-current="page" href="/">HolidayApp</a>
+                  <a class="navbar-brand" aria-current="page" id="navbar-logo" href="/">HolidayApp</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" id="share-button">Share</a>
@@ -58,8 +58,8 @@
                   <a class="nav-link" id="popup-button">Sign Up for Daily Emails!</a>
                 </li>
               </ul>
-              <span class="navbar-text">
-                HolidayApp Tagline Here... 
+              <span class="navbar-text" id="navbar-tagline">
+                Celebrate every day! 
               </span>
               <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Holiday Search" aria-label="Search">
@@ -68,6 +68,14 @@
           </div>
         </nav>
       </div>
+
+      <!-- <nav class="navbar fixed-top bg-body-tertiary" id="navbar">
+        <div class="container-fluid">
+          <span class="navbar-text" id="footer-text">
+            Test
+          </span>
+        </div>
+      </nav> -->
 
       <!-- POP-UPS -->
       <div class="share-popup-window" id="share-popup-window" style="line-height:1.75;">
@@ -159,14 +167,16 @@
 </body>
 
 {% block after_body %}
-  
-  <div class="created-by">
-    <font style="color:#046865">
-      <small>
-        Created by: <a href="https://github.com/leah-ewing">Leah Ewing</a>, 2023
-      </small>
-    </font>
-  <!-- </div> -->
+
+  <nav class="navbar fixed-bottom bg-body-tertiary" id="footer">
+    <div class="container-fluid">
+      <span class="navbar-text" id="footer-text">
+        <!-- <small> -->
+          Created by: <a href="https://github.com/leah-ewing">Leah Ewing</a>, 2023
+        <!-- </small> -->
+      </span>
+    </div>
+  </nav>
   
 {% endblock %}
 

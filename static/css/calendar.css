@@ -81,7 +81,7 @@ button {
 .calendar {
     height: max-content;
     width: max-content;
-    /* background-color: var(--bg-main); */
+    background-color: var(--bg-main);
     border-radius: 30px;
     padding: 20px;
     position: relative;

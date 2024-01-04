@@ -6,16 +6,20 @@
 
 {% block body %}
 
-<body id="error-page">
+<body>
 
-    <text>
-        <h1>Oh no!</h1>
-        <h3>It looks as though you've reached this page in error...</h3>
-    </text>
+    <!-- <div class="error-page"> -->
 
-    <button id ="back-to-homepage-error" onclick="location.href='/'">
-        Back to Homepage
-    </button>
+        <text id="error-text">
+            <h1 id="oh-no-text">Oh no!</h1>
+            <h3>It looks as though you've reached this page in error...</h3>
+        </text>
+
+        <button id ="back-to-homepage-error" class="btn btn-outline-success" onclick="location.href='/'">
+            Back to Homepage
+        </button>
+
+    <!-- </div> -->
 
 </body>
 

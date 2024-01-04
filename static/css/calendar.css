@@ -1,5 +1,5 @@
 #navbar {
-    background-color: bisque;
+    background-color: #EE6C4D;
 }
 
 #navbar-tagline {
@@ -19,15 +19,15 @@
 }
 
 #footer {
-    background-color: bisque;
+    background-color: #EE6C4D;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 #footer-text {
     font-size: 12px;
-    float: left;
-    margin-left: 40%;
+    /* float: left; */
+    margin-left: 85%;
     font-family: 'Righteous';
 }
 
@@ -69,6 +69,7 @@ body {
     place-items: center;
     /* background-color: var(--bg-body); */
     font-family: 'Inter Tight';
+    background-color: #F5F9E9;
 }
 
 button {
@@ -306,4 +307,44 @@ button {
 
 #year {
     padding-bottom: 15px;
+}
+
+#error-text {
+    padding-top: 250px;
+    padding-bottom: 100px;
+    font-family: 'Righteous';
+}
+
+#oh-no-text {
+    text-align: center;
+    font-size: 60px;
+}
+
+.unsubscribe-page {
+    padding-top: 250px;
+    padding-bottom: 100px;
+}
+
+#unsubscribe-text1 {
+    font-family: 'Righteous';
+    font-size: 60px;
+}
+
+#unsubscribe-text2 {
+    font-family: 'Righteous';
+    font-size: 30px;
+}
+
+#holiday-body {
+    padding-top: 75px;
+    padding-bottom: 75px;
+    display: grid;
+    place-items: center;
+}
+
+#calendar-body {
+    padding-top: 75px;
+    padding-bottom: 75px;
+    display: grid;
+    place-items: center;
 }

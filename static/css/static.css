@@ -1,6 +1,6 @@
 
 #navbar {
-    background-color: bisque;
+    background-color: #EE6C4D;
 }
 
 #share-button,
@@ -21,19 +21,7 @@
 
 body {
     font-family: 'Inter Tight';
-}
-
-#footer {
-    background-color: bisque;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-#footer-text {
-    font-size: 12px;
-    float: left;
-    margin-left: 40%;
-    font-family: 'Righteous';
+    background-color: #F5F9E9;
 }
 
 #logo-button {
@@ -50,6 +38,13 @@ button {
     display: grid;
     place-items: center;
     font-size: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    padding-top: 150px;
+    padding-bottom: 150px;
 }
 
 #homepage-logo {
@@ -67,9 +62,11 @@ button {
     width: 60%;
     display: grid;
     place-items: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
-.error-page {
+#error-page {
     width: 60%;
     display: grid;
     place-items: center;

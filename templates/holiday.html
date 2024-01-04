@@ -16,7 +16,7 @@
     rel="stylesheet"
     href="../static/css/static.css">
 
-    <div>
+    <div id="holiday-body">
         <br>
         <h3>
             {{month_name}} {{day}}{{suffix}} is...
@@ -38,7 +38,6 @@
         <style> 
             h3 {text-align: center;}
         </style> <!-- this too -->
-    </div>
     <div id = "holiday-image">
         <img class = "holiday-image"
             src = "{{image}}"
@@ -49,11 +48,11 @@
     <div>
     {% if generate_scroll == True %}
 
-        <button id = "previous-date-button" onclick="location.href='/day-picker/{{previous_date_month}}/{{previous_date.day}}/{{previous_date.year}}'">
+        <button id = "previous-date-button" class="btn btn-outline-success" onclick="location.href='/day-picker/{{previous_date_month}}/{{previous_date.day}}/{{previous_date.year}}'">
             Previous
         </button>
 
-        <button id = "next-date-button" onclick="location.href='/day-picker/{{next_date_month}}/{{next_date.day}}/{{next_date.year}}'">
+        <button id = "next-date-button" class="btn btn-outline-success" onclick="location.href='/day-picker/{{next_date_month}}/{{next_date.day}}/{{next_date.year}}'">
             Next
         </button>
 
@@ -70,17 +69,17 @@
     <div>
         {% if from_homepage == False %}
 
-        <button id = "back-to-calendar-button" onclick="location.href='/calendar-view'">
+        <button id="back-to-calendar-button" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
             Back to Calendar
         </button>
 
         {% else %}
 
-        <button id ="back-to-homepage" onclick="location.href='/'">
+        <button id="back-to-homepage" class="btn btn-outline-success" onclick="location.href='/'">
             Back to Homepage
         </button>
 
-        <button id="calendar-view-button-holiday" onclick="location.href='/calendar-view'">
+        <button id="calendar-view-button-holiday" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
             View Calendar
           </button>
 
@@ -88,12 +87,13 @@
 
         {% if multiple_holidays_on_date == True %}
         
-            <button id="random_holiday_on_date" onclick="location.href='/random-holiday/{{month}}/{{day}}'">
+            <button id="random_holiday_on_date" class="btn btn-outline-success" onclick="location.href='/random-holiday/{{month}}/{{day}}'">
                 But wait! It's also...
             </button>
     
         {% endif %}
     </div>
+</div>
 </body>
 
 {% endblock %}

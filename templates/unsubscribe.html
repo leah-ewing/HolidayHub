@@ -6,26 +6,31 @@
 
 {% block body %}
 
-    <body>
-        <div>
-            <font color=#f364a2><h1>
-                Sorry to see you go!
-            </font></h1>
-        </div>
-        <div>
-            <h5>
-                You have been unsubscribed.
-            </h5>
-        </div>
-        <div>
-            <small>
-                Please allow up 24 hours for changes to take effect
-            </small>
-        </div>
+<body class="unsubscribe-page">
+    <div>
+        <font color=#f364a2><h1 id="unsubscribe-text1">
+            Sorry to see you go!
+        </font></h1>
+    </div>
+    <div>
+        <h5 id="unsubscribe-text2">
+            You have been unsubscribed.
+        </h5>
+    </div>
 
-        <a href="/">
-            <button id="homepage-button">Back to Home</button>
-        </a>
-    </body>
+    <br><br>
+
+    <div>
+        <small>
+            Please allow up 24 hours for changes to take effect
+        </small>
+    </div>
+
+    <br><br><br><br>
+
+    <a href="/">
+        <button id="homepage-button" class="btn btn-outline-success">Back to Home</button>
+    </a>
+</body>
 
 {% endblock %}

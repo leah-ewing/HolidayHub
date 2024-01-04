@@ -15,7 +15,7 @@
     rel="stylesheet"
     href="../static/css/static.css">
 
-    <div>
+    <div id="holiday-body">
         <br>
         <h3>
             {{month_name}} {{day}}{{suffix}} is...
@@ -30,7 +30,6 @@
         <style> 
             h3 {text-align: center;}
         </style> <!-- this too -->
-    </div>
     <div id = "holiday-image">
         <img class = "holiday-image"
             src = "{{image}}"
@@ -45,14 +44,15 @@
     </div><br>
 
     <div>
-        <button id="back-to-home" onclick="location.href='/'">
+        <button id="back-to-home" class="btn btn-outline-success" onclick="location.href='/'">
             Back Home
         </button>
         
-        <button id="random_holiday_on_date_from_homepage" onclick="location.href='/random-holiday'">
+        <button id="random-holiday-on-date-from-homepage" class="btn btn-outline-success" onclick="location.href='/random-holiday'">
             Show me another random holiday!
         </button>
     </div><br>
+</div>
 </body>
 
 {% endblock %}

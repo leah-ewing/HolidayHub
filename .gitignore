@@ -8,3 +8,4 @@ jobs_log.log
 encryption.py
 encryption_dictionary.json
 .pytest_cache
+videos

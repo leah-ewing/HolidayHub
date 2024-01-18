@@ -11,6 +11,8 @@
 #navbar-logo {
     font-family: 'Righteous';
     font-size: 25px;
+    color: #2274A5;
+    text-shadow: #AFE0CE 0px 0 15px;
 }
 
 #navbar-tagline {

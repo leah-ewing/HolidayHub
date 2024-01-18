@@ -11,6 +11,9 @@
 #navbar-logo {
     font-family: 'Righteous';
     font-size: 25px;
+    color: #2274A5;
+    text-shadow: #AFE0CE 0px 0 15px;
+    /* text-shadow: 1px 1px 2px #AFE0CE, 0 0; */
 }
 
 #share-button,

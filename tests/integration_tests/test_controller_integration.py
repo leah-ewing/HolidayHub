@@ -14,7 +14,7 @@ from server import app
 
 
 class TestGetFormattedGithubUrl(unittest.TestCase):
-    def test_get_formatted_github_image_url(self): ### move to integration tests
+    def test_get_formatted_github_image_url(self):
         """ Should return the formatted Github URL for a given holiday """
 
         reset_test_db()

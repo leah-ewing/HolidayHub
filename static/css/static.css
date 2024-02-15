@@ -1,6 +1,6 @@
 
 #navbar {
-    background-color: #EE6C4D;
+    background-color: #ABE374;
 }
 
 #share-button,
@@ -11,7 +11,7 @@
 #navbar-logo {
     font-family: 'Righteous';
     font-size: 25px;
-    color: #2274A5;
+    color: black;
     text-shadow: #AFE0CE 0px 0 15px;
 }
 
@@ -23,7 +23,7 @@
 
 body {
     font-family: 'Inter Tight';
-    background-color: #F5F9E9;
+    background-color: #fdfdfd;
 }
 
 #logo-button {

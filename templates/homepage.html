@@ -13,30 +13,40 @@
     rel="stylesheet"
     href="../static/css/static.css">
 
-  <div class="homepage">
-    <!-- <h3>
-      <text id="homepage-logo">HolidayApp</text>
+  <div class="homepage container">
+    <div class="row">
+      <br><br>
+
+      Celebrate Today!
+
       <br><br><br>
-    </h3> -->
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2>
+          <b>
+            Today is...
+          </b>
+        </h2>
 
-    <h2>
-      <b>
-        Today is...
-      </b>
-    </h2>
+        <h1>
+          <text class="holiday-name">
+            <b>
+              {{holiday}}!
+            </b>
+          </text>
+        </h1>
+        <br>
 
-    <h1>
-      <text class="holiday-name">
-        <b>
-          {{holiday}}!
-        </b>
-      </text>
-    </h1>
-    <br>
+        <button id="learn-more-button" class="btn btn-outline-success" onclick="location.href='/{{holiday}}'">
+          Learn more about {{holiday}}!
+        </button><br><br><br>
+      </div>
 
-    <button id="learn-more-button" class="btn btn-outline-success" onclick="location.href='/{{holiday}}'">
-      Learn more about {{holiday}}!
-    </button><br><br><br>
+      <div class="col">
+        <small>- image here -</small>
+      </div>
+    </div>
 
     <div>
       <button id="calendar-view-button" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
@@ -47,9 +57,17 @@
         Show me a random holiday!
       </button>
 
-      <button id="about-page-button" class="btn btn-outline-success" onclick="location.href='/about'">
-        About
-      </button>
+      <br><br>
+    </div>
+
+    <div class="row">
+      Explore More Holidays!
+      
+      <br><br><br>
+    </div>
+
+    <div class="row">
+      <small> - slideshow here - </small>
     </div>
   </div>
 </body>

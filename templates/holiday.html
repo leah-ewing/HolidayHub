@@ -17,6 +17,7 @@
     href="../static/css/static.css">
 
     <div id="holiday-body">
+
         <br>
         <h3>
             {{month_name}} {{day}}{{suffix}} is...
@@ -25,6 +26,7 @@
             <text class="holiday-name" id="holiday-page-name">
                 {{holiday}}!
             </text>
+            <br><br>
             <style>
                 #holiday-page-name {
                     font-family: 'Righteous';
@@ -34,65 +36,93 @@
             </style>
         </h1>
         <br>
+
         <style> 
             h3 {text-align: center;}
         </style> 
-    <div id = "holiday-image" class = "image-container">
-        <img class = "holiday-image"
-            src = "{{image}}"
-            width = 300>
-        </img>
-    </div>
 
-    <div>
-    {% if generate_scroll == True %}
+        <div class="row">
+            {% if generate_scroll == True %}
+                <div class="col">
+                    <button id = "previous-date-button" class="btn btn-outline-success" onclick="location.href='/day-picker/{{previous_date_month}}/{{previous_date.day}}/{{previous_date.year}}'">
+                        Previous
+                    </button>
+                </div>
+            {% endif %}
 
-        <button id = "previous-date-button" class="btn btn-outline-success" onclick="location.href='/day-picker/{{previous_date_month}}/{{previous_date.day}}/{{previous_date.year}}'">
-            Previous
-        </button>
+            <div class="col">
+                <div id = "holiday-image" class = "image-container">
+                    <img class = "holiday-image"
+                        src = "{{image}}"
+                        width = 300>
+                    </img>
+                </div>
+            </div>
 
-        <button id = "next-date-button" class="btn btn-outline-success" onclick="location.href='/day-picker/{{next_date_month}}/{{next_date.day}}/{{next_date.year}}'">
-            Next
-        </button>
+            <div class="col">
+                <style>
+                    #blurb {width: 500px; margin: auto;}
+                </style>
 
-    {% endif %}
-    </div>
+                <div id="blurb">
+                    {{blurb}}
+                </div>
+            </div>
 
-    <style>
-        #blurb {width: 500px; margin: auto;}
-    </style>
-    <div id="blurb">
-        {{blurb}}
-    </div>
+            {% if generate_scroll == True %}
+                <div class="col">
+                    <button id = "next-date-button" 
+                        class="btn btn-outline-success" 
+                        onclick="location.href='/day-picker/{{next_date_month}}/{{next_date.day}}/{{next_date.year}}'">
+                        Next
+                    </button>
+                </div>
+            {% endif %}
 
-    <div>
-        {% if from_homepage == False %}
+        </div>
 
-        <button id="back-to-calendar-button" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
-            Back to Calendar
-        </button>
+        <div>
+            {% if from_homepage == False %}
 
-        {% else %}
+                <br><br>
+                <button id="back-to-calendar-button" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
+                    Back to Calendar
+                </button>
 
-        <button id="back-to-homepage" class="btn btn-outline-success" onclick="location.href='/'">
-            Back to Homepage
-        </button>
+                {% else %}
 
-        <button id="calendar-view-button-holiday" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
-            View Calendar
-          </button>
+                <button id="back-to-homepage" class="btn btn-outline-success" onclick="location.href='/'">
+                    Back to Homepage
+                </button>
 
-        {% endif %}
+                <button id="calendar-view-button-holiday" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
+                    View Calendar
+                </button>
 
-        {% if multiple_holidays_on_date == True %}
+            {% endif %}
+
+            {% if multiple_holidays_on_date == True %}
+            
+                <button id="random_holiday_on_date" class="btn btn-outline-success" onclick="location.href='/random-holiday/{{month}}/{{day}}'">
+                    But wait! It's also...
+                </button>
         
-            <button id="random_holiday_on_date" class="btn btn-outline-success" onclick="location.href='/random-holiday/{{month}}/{{day}}'">
-                But wait! It's also...
-            </button>
-    
-        {% endif %}
+            {% endif %}
+        </div>
+
+        <br>
+
+        <div class="row">
+            <h2>
+                Explore More Holidays!
+            </h2>
+            <br><br><br>
+        </div>
+      
+        <div class="row">
+            <small> - slideshow here - </small>
+        </div>
     </div>
-</div>
 </body>
 
 {% endblock %}

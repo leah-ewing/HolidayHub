@@ -16,42 +16,70 @@
     href="../static/css/static.css">
 
     <div id="holiday-body">
-        <br>
-        <h3>
-            {{month_name}} {{day}}{{suffix}} is...
-        </h3>
-        <h1>
-            <text class="holiday-name">
-                {{holiday}}!
-            </text>
-        </h1>
-        <br>
+
+        <!-- <div class="row"> -->
+            <br>
+            <h3>
+                {{month_name}} {{day}}{{suffix}} is...
+            </h3>
+            <h1>
+                <text class="holiday-name">
+                    {{holiday}}!
+                </text>
+            </h1>
+            <br>
+        <!-- </div> -->
+
         <style> 
             h3 {text-align: center;}
-        </style> <!-- this too -->
-    <div id = "holiday-image">
-        <img class = "holiday-image"
-            src = "{{image}}"
-            width = 300>
-        </img>
-    </div>
-    <br>
-    <style>
-        #blurb {width: 500px; margin: auto;}
-    </style>
-    <div id="blurb">
-        {{blurb}}
-    </div><br>
+        </style>
 
-    <div>
-        <button id="back-to-home" class="btn btn-outline-success" onclick="location.href='/'">
-            Back Home
-        </button>
-        
-        <button id="random-holiday-on-date-from-homepage" class="btn btn-outline-success" onclick="location.href='/random-holiday'">
-            Show me another random holiday!
-        </button>
-    </div><br>
+    
+    <div class="row">
+        <div class="col">
+            <div id = "holiday-image">
+                <img class = "holiday-image"
+                    src = "{{image}}"
+                    width = 300>
+                </img>
+            </div>
+        </div>
+
+        <br>
+        <style>
+            #blurb {width: 500px; margin: auto;}
+        </style>
+
+        <div class="col">
+            <div id="blurb">
+                {{blurb}}
+            </div><br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+            <br><br>
+            <button id="back-to-home" class="btn btn-outline-success" onclick="location.href='/'">
+                Back Home
+            </button>
+            
+            <button id="random-holiday-on-date-from-homepage" class="btn btn-outline-success" onclick="location.href='/random-holiday'">
+                Show me another random holiday!
+            </button>
+            <br><br><br>
+        </div><br>
+    </div>
+
+    <div class="row">
+        <h2>Explore More Holidays!</h2>
+        <br><br><br>
+    </div>
+
+    <div class="row">
+        <small> - slideshow here - </small>
+    </div>
+
 </div>
 </body>
 

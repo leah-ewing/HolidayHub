@@ -133,24 +133,29 @@
       </div>
 
       <div id="popup-window" class="popup-window">
-        <h5><b><font color=#f364a2>
-          Please enter first name and email:
-        </b></font></h5>
+        <div class="row">
+          <h5><b><font color=#f364a2>
+            Please enter first name and email:
+          </b></font></h5>
+        </div>
 
-        <form action="/add-email" method = "POST">
-          <div class="add-email" style="line-height:1.75;">
+        <div class="row add-email" style="line-height:1.75;">
+          <form action="/add-email" method = "POST">
             <label for="fname">First Name:</label><br>
               <input id="fname" name="fname" required /></textarea><br>
             <label for="email">Email:</label><br>
               <input id="email" name="email" type="email" required /></textarea><br>
-            <div class="submit">
-              <button id="submit-button" class="btn btn-outline-success submit-button" type="submit">Submit!</button><br>
-              <div id="disclaimer-text">By clicking submit you are giving HolidayApp permission to send you daily emails, you may opt out at any time.
+          </form>
+        </div>
+        <div class="row submit">
+          <div class="col">
+            <br>
+            <button id="submit-button" class="btn btn-outline-success submit-button" type="submit">Submit!</button>
+            <button id="close-button" class="btn btn-outline-success">Close</button><br><br>
+            <div id="disclaimer-text">By clicking submit you are giving HolidayApp permission to send you daily emails, you may opt out at any time.
             </div>
-        </form>
-      </div>
-        <button id="close-button" class="btn btn-outline-success">Close</button>
-      </div>
+          </div>
+        </div>
 
       <div class="thank-you-window" id="thank-you-window" style="line-height:1.75;">
         <div id="thank-you-text">

@@ -18,11 +18,13 @@
   {% block body %}
 
   <div id="calendar-body">
-    <h1><font color=#f364a2>
-      Click on a day to view its holiday!
-    </font></h1>
-
     <div class="container">
+
+      <div class="row">
+        <h2>Calendar View!</h2>
+        <br><br><br><br>
+      </div>
+
       <div class="row">
         <div class="col">
           <body class="light">
@@ -55,10 +57,22 @@
           </div>
           <script src="../static/js/calendar.js"></script>
         </div>
+
         <div class="col">
-          <h2><br>
-            <b>Did you know...?</b>
-          </h2>
+          <h1><font color=#f364a2>
+            Click on a day to view its holiday!
+          </font></h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <h2><br>
+          <b>Did you know...?</b>
+        </h2>
+      </div>
+
+      <div class="row">
+        <div class="col">
           <div id="monthly-holiday">
             <h4>
               <br><b><font color=#f364a2>
@@ -66,6 +80,9 @@
               </font>
             </h4>
           </div>
+        </div>
+        
+        <div class="col">
           <ol id="monthly-holiday-list">
             {% for holiday in monthly_holidays %}
               • {{holiday.monthly_holiday_name}}<br>
@@ -77,9 +94,17 @@
 
     <br>
 
-    <a href="/">
-      <button id="homepage-button" class="btn btn-outline-success">Back to Home</button>
-    </a>
+    <div>
+      <button id="calendar-view-button" class="btn btn-outline-success" onclick="location.href='/'">
+        Back Home
+      </button>
+
+      <button id="random-holiday-from-homepage" class="btn btn-outline-success" onclick="location.href='/random-holiday'">
+        Show me a random holiday!
+      </button>
+
+      <br><br>
+    </div>
   </div>
 </body>
 

@@ -32,6 +32,29 @@ def homepage():
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
         return redirect('/error')
+    
+
+@app.route('/get-search-result', methods = ["GET"])
+def get_search_results():
+    """ Gets the given search term from the search bar """
+
+    try:
+        search_term = request.args.get("search-term")
+
+        return redirect(f'/search-results/{search_term}')
+    
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+        return redirect('/error')
+
+
+@app.route('/search-results/<search_term>')
+def show_search_results(search_term):
+
+    try:
+        return render_template('search-results.html',
+                            search_term = search_term)
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+        return redirect('/error')
 
 
 @app.route('/about')
@@ -59,7 +82,7 @@ def calendarView():
 
 
 @app.route('/add-email', methods = ["POST"])
-def ad_new_email():
+def add_new_email():
     """ Adds new email from input form """
 
     first_name = request.json.get("fname")

@@ -2,6 +2,7 @@
 
 from model import db, connect_to_db, Month, Holiday, Email, MonthlyHoliday
 from datetime import datetime
+from sqlalchemy import select
 import random, sys, os, sqlalchemy
 import encryption
 
@@ -273,7 +274,18 @@ def get_opted_in_emails():
 def get_search_results(search_term):
     """ Returns search results for a given search term """
 
-    return search_term ## ************
+    holidays = Holiday.query.all()
+    search_results = []
+
+    for holiday in holidays:
+        if search_term in holiday.holiday_name.lower():
+            search_results.append(holiday.holiday_name)
+    
+    if len(search_results) == 0:
+        search_results = None
+
+    return search_results
+
     
 
 if __name__ == '__main__':

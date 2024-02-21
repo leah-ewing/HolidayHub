@@ -51,7 +51,10 @@ def get_search_result():
 def show_search_results(search_term):
 
     try:
-        search_results = crud.get_search_results(search_term)
+        search_results = crud.get_search_results(search_term.lower())
+
+        if search_results == None:
+            search_results = 'No Results Found'
 
         return render_template('search-results.html',
                             search_term = search_term,

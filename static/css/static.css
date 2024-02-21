@@ -57,11 +57,27 @@ button {
 .holiday-name {
     font-family: 'Righteous';
     font-size: 45px;
-    color: #f364a2
+    color: #f364a2;
 }
 
 #holiday-image {
     filter: brightness(105%);
+}
+
+#celebration-dynamic {
+    font-family: 'Righteous';
+    font-size: 47px;
+    color: #f364a2;
+}
+
+#celebration-today-text {
+    font-size: 45px;
+}
+
+.explore-more {
+    font-family: 'Righteous';
+    font-size: 47px;
+    color: #f364a2;
 }
 
 .image-container {

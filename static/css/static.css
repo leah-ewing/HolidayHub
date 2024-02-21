@@ -118,3 +118,23 @@ button {
     display: grid;
     place-items: center;
 }
+
+#no-results-text {
+    font-family: 'Righteous';
+    font-size: 47px;
+    color: #f364a2;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+#no-results-text b {
+    font-family: 'Inter Tight';
+    color: black;
+}

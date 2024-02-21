@@ -35,7 +35,7 @@ def homepage():
     
 
 @app.route('/get-search-result', methods = ["GET"])
-def get_search_results():
+def get_search_result():
     """ Gets the given search term from the search bar """
 
     try:
@@ -51,8 +51,12 @@ def get_search_results():
 def show_search_results(search_term):
 
     try:
+        search_results = crud.get_search_results(search_term)
+
         return render_template('search-results.html',
-                            search_term = search_term)
+                            search_term = search_term,
+                            search_results = search_results)
+    
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
         return redirect('/error')
 

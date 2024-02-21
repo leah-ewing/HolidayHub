@@ -268,6 +268,12 @@ def get_opted_in_emails():
             opted_in_emails.append(email)
 
     return opted_in_emails
+
+
+def get_search_results(search_term):
+    """ Returns search results for a given search term """
+
+    return search_term ## ************
     
 
 if __name__ == '__main__':

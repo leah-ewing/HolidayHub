@@ -4,7 +4,7 @@ In-progress calendar web application for viewing unique and sometimes silly dail
 
 Holiday blurbs and daily emails are written using OpenAI's API, (hitting the '/completion' endpoint). My program asks OpenAI for blurbs matching a given holiday and creates a JSON file of holidays and their blurbs, which then populates my PostgresQL/SQLAlchemy database that reflects on the site.
 
-Emails are sent to users in the database every morning to opted-in users using a Cron job and the ElasticEmail API. Another Cron jobs runs twice daily to remove users from the database that have opted-out of receiving emails.
+Emails are sent to users in the database every morning to opted-in users using a Cron job and the ElasticEmail API. Another Cron job runs twice daily to remove users from the database that have opted-out of receiving emails.
 
 ## Stack: 
 * Python/Flask

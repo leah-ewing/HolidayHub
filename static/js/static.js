@@ -3,12 +3,12 @@
 // Animated title script
 
 async function init () {
-    const node = document.querySelector("#type-text")
+    const node = document.querySelector("#celebrate-dynamic")
     
-    await sleep(1000)
-    node.innerText = ""
+    await sleep(2000)
+    await node.delete('Celebrate')
 
-    const title_words = ['Celebrate', 'Gather', 'Party', 'Dance', 'Laugh', 'Chat', 'Love']
+    const title_words = ['Gather', 'Party', 'Dance', 'Laugh', 'Chat', 'Love']
 
     while (true) {
         for (let word of title_words) {

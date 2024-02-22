@@ -49,6 +49,11 @@ button {
     padding-bottom: 150px;
 }
 
+.homepage h1 {
+    display: grid;
+    place-items: center;
+}
+
 #homepage-logo {
     font-family: 'Righteous';
     font-size: 50px;

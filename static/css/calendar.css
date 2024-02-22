@@ -129,6 +129,11 @@ button {
     place-items: center;
 }
 
+#click-on-a-day-text span {
+    color: black;
+    width: 100%;
+}
+
 #this-month {
     font-family: 'Righteous';
     color: #f364a2;
@@ -149,6 +154,8 @@ button {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     font-weight: 600;
+    font-family: 'Righteous';
+    color: #f364a2;
 }
 
 .calendar-week-day div {

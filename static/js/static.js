@@ -6,7 +6,7 @@ async function init () {
     const node = document.querySelector("#celebrate-dynamic")
     
     await sleep(2000)
-    await node.delete('Celebrate')
+    await node.delete(node.innerHTML)
 
     const title_words = ['Gather', 'Party', 'Dance', 'Laugh', 'Chat', 'Love']
 

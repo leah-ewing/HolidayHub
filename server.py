@@ -39,7 +39,7 @@ def get_search_result():
     """ Gets the given search term from the search bar """
 
     try:
-        search_term = request.args.get("search-term")
+        search_term = request.args.get("search-term").strip()
 
         return redirect(f'/search-results/{search_term}')
     

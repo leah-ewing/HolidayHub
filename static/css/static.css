@@ -134,7 +134,37 @@ button {
     padding-bottom: 150px;
 }
 
-#no-results-text b {
+#no-results-text b,
+#search-results-text b {
     font-family: 'Inter Tight';
     color: black;
+}
+
+#search-results-text {
+    font-family: 'Righteous';
+    font-size: 47px;
+    color: #f364a2;
+}
+
+#search-results-list {
+    width: 75%;
+    height: 100%;
+}
+
+
+#search-result a {
+    font-family: 'Righteous';
+    color: #f364a2;
+}
+
+#search-result-image {
+    max-width: 30%;
+    text-align: right;
+
+}
+
+#search-result-blurb {
+    max-width: 550px;
+    display: grid;
+    place-items: center;
 }

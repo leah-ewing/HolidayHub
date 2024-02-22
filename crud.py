@@ -279,7 +279,7 @@ def get_search_results(search_term):
 
     for holiday in holidays:
         if search_term in holiday.holiday_name.lower():
-            search_results.append(holiday.holiday_name)
+            search_results.append(holiday)
     
     if len(search_results) == 0:
         search_results = None

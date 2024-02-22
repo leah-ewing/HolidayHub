@@ -17,20 +17,43 @@
             <div>
                 <h1>
                     <span id="no-results-text">
-                        <text>No Results Found for: <b>"{{search_term}}"</b></text>
+                        <text>No Results Found For: <b>"{{search_term}}"</b></text>
                     </span>
                 </h1>
             </div>
         {% else %}
-        <ol id="monthly-holiday-list">
-            {% for search_result in search_results %}
-                <div id="search-result">
-                    {{search_result}}
-                </div>
-            {% endfor %}
-          </ol>
-          <br><br><br><br>
+            <text id="search-results-text">
+                Results For: <b>"{{search_term}}"</b>
+            </text>
+            <div id="search-results-list">
+                <ol>
+                    <br><br>
+                    {% for search_result in search_results %}
+                        <div class="container" id="search-result">
+                            <h3>
+                                <a href="/{{search_result.holiday_name}}">{{search_result.holiday_name}}</a>
+                            </h3>
+                            <div class="row">
+                                <div class="col" id="search-result-image">
+                                    <img
+                                        src = "{{search_result.holiday_img}}"
+                                        width = 200>
+                                    </img>
+                                </div>
+                                <div class="col" id="search-result-blurb">
+                                    <text>
+                                        {{search_result.holiday_blurb[0:200]}} <b>...</b>
+                                    </text>
+                                </div>
+                            </div>
+                            <br><br>
+                        </div>
+                    {% endfor %}
+                </ol>
+            </div>
+            <br><br><br><br>
         {% endif %}
+
     </body>
     
 {% endblock %}

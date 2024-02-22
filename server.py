@@ -50,15 +50,16 @@ def get_search_result():
 @app.route('/search-results/<search_term>')
 def show_search_results(search_term):
 
-    try:
-        search_results = crud.get_search_results(search_term.lower())
+    # try:
+    search_results = crud.get_search_results(search_term.lower())
+        # print(f'***********\n\n{search_results[0]}\n\n***********')
 
-        return render_template('search-results.html',
-                            search_term = search_term,
-                            search_results = search_results)
+    return render_template('search-results.html',
+                        search_term = search_term,
+                        search_results = search_results)
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
-        return redirect('/error')
+    # except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+    #     return redirect('/error')
 
 
 @app.route('/about')

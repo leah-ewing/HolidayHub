@@ -4,7 +4,7 @@ from model import db, connect_to_db, Month, Holiday, Email, MonthlyHoliday
 from datetime import datetime
 from sqlalchemy import select
 import random, sys, os, sqlalchemy
-import encryption
+import encryption, controller
 
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
 sys.path.append(f'{ROOT_FOLDER}/jobs')
@@ -279,7 +279,14 @@ def get_search_results(search_term):
 
     for holiday in holidays:
         if search_term in holiday.holiday_name.lower():
-            search_results.append(holiday)
+            holiday_month = get_month_by_number(holiday.holiday_month)
+            date_suffix = controller.get_date_suffix(str(holiday.holiday_date))
+            search_results.append({'holiday_name': holiday.holiday_name, 
+                                   'holiday_month': holiday_month.capitalize(), 
+                                   'holiday_date': holiday.holiday_date, 
+                                   'holiday_img': holiday.holiday_img, 
+                                   'holiday_blurb': holiday.holiday_blurb, 
+                                   'date_suffix': date_suffix})
     
     if len(search_results) == 0:
         search_results = None

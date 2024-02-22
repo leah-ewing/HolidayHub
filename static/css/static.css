@@ -36,6 +36,14 @@ button {
     padding: 5px;
 }
 
+#today-is-text {
+    margin-left: 25px;
+}
+
+#learn-more-button {
+    max-width: 225px;
+}
+
 .homepage {
     display: grid;
     place-items: center;
@@ -172,4 +180,8 @@ button {
     max-width: 550px;
     display: grid;
     place-items: center;
+}
+
+#search-result-blurb span {
+    font-family: 'Righteous';
 }

@@ -82,11 +82,13 @@
           <div id="monthly-holiday">
             <h2>
               <br>
-                <span id="this-month">{{month}}</span>
-                <br>
-                <text>
-                  <b>is also...</b>
-                </text>
+              <span id="this-month">
+                {{month}}
+              </span>
+              <br>
+              <text>
+                <b>is also...</b>
+              </text>
             </h2>
           </div>
         </div>
@@ -94,8 +96,8 @@
         <div class="col">
           <div id="monthly-holiday-list">
             {% for holiday in monthly_holidays %}
-                ⭐️ {{holiday.monthly_holiday_name}}
-                <br>
+              ⭐️ {{holiday.monthly_holiday_name}}
+              <br>
             {% endfor %}
             </div>
         </div>

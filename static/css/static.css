@@ -83,7 +83,7 @@ button {
     filter: brightness(105%);
 }
 
-#celebration-dynamic {
+.celebration-dynamic {
     font-family: 'Righteous';
     font-size: 47px;
     color: #f364a2;
@@ -91,6 +91,17 @@ button {
 
 #celebration-today-text {
     font-size: 45px;
+}
+
+.blinking-cursor {
+    user-select: none;
+    animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+    to {
+    visibility: hidden;
+    }
 }
 
 .explore-more {

@@ -145,6 +145,10 @@ button {
     margin-right: 100px;
 }
 
+#monthly-holiday-list {
+    font-size: 22px;
+}
+
 #calendar-view-nav-buttons {
     text-align: center;
 }

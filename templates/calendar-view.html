@@ -92,13 +92,14 @@
         </div>
         
         <div class="col">
-          <ol id="monthly-holiday-list">
+          <div id="monthly-holiday-list">
             {% for holiday in monthly_holidays %}
-              <h5>
+              <!-- <h5> -->
                 ⭐️ {{holiday.monthly_holiday_name}}
-              </h5>
+                <br>
+              <!-- </h5> -->
             {% endfor %}
-          </ol>
+            </div>
         </div>
       </div>
     </div>

@@ -67,6 +67,12 @@ button {
     font-size: 50px;
 }
 
+#homepage-image {
+    display: grid;
+    place-items: center;
+    margin-bottom: 150px;
+}
+
 .holiday-name {
     font-family: 'Righteous';
     font-size: 45px;

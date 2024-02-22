@@ -115,6 +115,39 @@ button {
     padding: 10px;
 }
 
+#calendar-view-body h1 {
+    font-family: 'Righteous';
+    color: #f364a2;
+    display: grid;
+    place-items: center;
+}
+
+#click-on-a-day-text {
+    font-family: 'Righteous';
+    color: #f364a2;
+    display: grid;
+    place-items: center;
+}
+
+#arrow {
+    color: black;
+}
+
+#this-month {
+    font-family: 'Righteous';
+    color: #f364a2;
+    font-size: 45px;
+}
+
+#monthly-holiday {
+    text-align: right;
+    margin-right: 100px;
+}
+
+#calendar-view-nav-buttons {
+    text-align: center;
+}
+
 .calendar-week-day {
     height: 50px;
     display: grid;
@@ -230,6 +263,7 @@ button {
     font-size: 40px;
     padding-bottom: 10px;
     font-family: 'Righteous';
+    text-decoration: underline;
 }
 
 .month-picker:hover {

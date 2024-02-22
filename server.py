@@ -53,8 +53,6 @@ def show_search_results(search_term):
     try:
         search_results = crud.get_search_results(search_term.lower())
 
-        
-
         return render_template('search-results.html',
                             search_term = search_term,
                             search_results = search_results)

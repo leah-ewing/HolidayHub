@@ -17,12 +17,15 @@
 <body>
   {% block body %}
 
-  <div id="calendar-body">
+  <div id="calendar-view-body">
     <div class="container">
 
       <div class="row">
-        <h2>Calendar View!</h2>
-        <br><br><br><br>
+        <h1>
+          <br><br>
+          Calendar View
+          <br><br>
+        </h1>
       </div>
 
       <div class="row">
@@ -58,52 +61,60 @@
           <script src="../static/js/calendar.js"></script>
         </div>
 
-        <div class="col">
-          <h1><font color=#f364a2>
+        <div class="col" id="click-on-a-day-text">
+          <h1>
             Click on a day to view its holiday!
-          </font></h1>
+            <br><br>
+            ⬅ ⬅ ⬅
+          </h1>
         </div>
       </div>
 
       <div class="row">
-        <h2><br>
+        <h1><br>
           <b>Did you know...?</b>
-        </h2>
+          <br>
+        </h1>
       </div>
 
       <div class="row">
         <div class="col">
           <div id="monthly-holiday">
-            <h4>
-              <br><b><font color=#f364a2>
-                <span id="this-month">{{month}}</span> is also...</b>
-              </font>
-            </h4>
+            <h2>
+              <br>
+                <span id="this-month">{{month}}</span>
+                <br>
+                <text>
+                  <b>is also...</b>
+                </text>
+            </h2>
           </div>
         </div>
         
         <div class="col">
           <ol id="monthly-holiday-list">
             {% for holiday in monthly_holidays %}
-              • {{holiday.monthly_holiday_name}}<br>
+              <h5>
+                ⭐️ {{holiday.monthly_holiday_name}}
+              </h5>
             {% endfor %}
           </ol>
         </div>
       </div>
     </div>
 
-    <br>
+    <br><br>
 
-    <div>
-      <button id="calendar-view-button" class="btn btn-outline-success" onclick="location.href='/'">
+    <div id="calendar-view-nav-buttons">
+      <button class="btn btn-outline-success" onclick="location.href='/'">
         Back Home
       </button>
 
-      <button id="random-holiday-from-homepage" class="btn btn-outline-success" onclick="location.href='/random-holiday'">
+      <button class="btn btn-outline-success" onclick="location.href='/random-holiday'">
         Show me a random holiday!
       </button>
 
-      <br><br>
+      <br><br><br><br><br><br>
     </div>
   </div>
 </body>

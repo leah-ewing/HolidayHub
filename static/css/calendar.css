@@ -355,15 +355,26 @@ button {
     padding-bottom: 15px;
 }
 
-#error-text {
-    padding-top: 250px;
-    padding-bottom: 100px;
+#error-text,
+#error-image {
+    display: grid;
+    place-items: center;
     font-family: 'Righteous';
+    margin-top: 250px;
 }
+
+#error-image {
+    margin-left: -100px;
+}
+
 
 #oh-no-text {
     text-align: center;
+}
+
+#oh-no-text h1 {
     font-size: 60px;
+    color: #f364a2;
 }
 
 .unsubscribe-page {

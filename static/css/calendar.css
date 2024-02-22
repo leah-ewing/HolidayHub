@@ -129,10 +129,6 @@ button {
     place-items: center;
 }
 
-#arrow {
-    color: black;
-}
-
 #this-month {
     font-family: 'Righteous';
     color: #f364a2;

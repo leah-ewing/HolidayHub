@@ -16,7 +16,9 @@
   <div class="homepage container">
     <div class="row" id="homepage-title">
       <h1>
-        <br><br><br><br><br>
+        <br><br><br><br>
+        <br><br><br><br>
+        <br>
         <span is="type-async" id="celebrate-dynamic">Celebrate</span>
         <script src="../static/js/static.js"></script>
           <b>Today!</b>
@@ -67,13 +69,44 @@
         Explore More Holidays!
       </span>
       
-      <br><br><br>
+      <br><br><br><br>
     </div>
-
-    <div class="row">
-      <small> - slideshow here - </small>
+  
+    <div class="container-fluid">
+      <div class="row" id="slideshow">
+        <div class="col" id="left-slideshow-arrow">
+          <a href="">◀︎</a>
+        </div>
+        {% for holiday in slideshow_holidays[0:3] %}
+          <div class="col" id="slideshow-holiday">
+            <div class="row">
+              <div class="col" id="slideshow-holiday-image">
+                <div class="image-container">
+                  <img
+                      src = "{{holiday.holiday_img}}"
+                      width = 200
+                      id = "slideshow-image">
+                  </img>
+                </div>
+              </div>
+              <div class="col" id="slideshow-holiday-blurb">
+                  <p id="slideshow-holiday-name">
+                    {{holiday.holiday_name}}
+                  </p>
+                  <p id="slideshow-holiday-date">
+                    January 11th
+                  </p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        <div class="col" id="left-slideshow-arrow">
+          <a href="">▶</a>
+        </div>
+      </div>
     </div>
   </div>
+  
 </body>
 
 {% endblock %}

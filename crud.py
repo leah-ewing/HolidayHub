@@ -293,8 +293,23 @@ def get_search_results(search_term):
 
     return search_results
 
-    
 
+def get_slideshow_holidays():
+    """ Returns a list of holidays to be displayed in the 'Explore More...' slideshow """
+
+    holidays = Holiday.query.all()
+    slideshow_holidays = []
+
+    while len(slideshow_holidays) < 3:
+        num = random.randrange(len(holidays))
+        for holiday in holidays:
+            if holiday.holiday_id == num:
+                slideshow_holidays.append(holiday)
+    
+    return slideshow_holidays
+
+    
+    
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

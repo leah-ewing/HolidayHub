@@ -1,6 +1,6 @@
 'use strict';
 
-// Animated title script
+// Animated Homepage Title Script
 
 async function init () {
     const node = document.querySelector("#celebrate-dynamic")

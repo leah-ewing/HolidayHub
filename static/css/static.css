@@ -79,8 +79,32 @@ button {
     color: #f364a2;
 }
 
-#holiday-image {
+#holiday-image
+#slideshow-image,
+#search-result-img {
     filter: brightness(105%);
+}
+
+#slideshow-image {
+    max-height: 250px;
+}
+
+#slideshow-holiday-blurb {
+    height: 150px;
+}
+
+#slideshow-holiday-date {
+    font-family: 'Righteous';
+    color: #f364a2;
+    font-size: 15px;
+    margin-top: -10px;
+}
+
+#slideshow-holiday-name {
+    margin-top: 10px;
+    font-family: 'Righteous';
+    font-size: 18px;
+    line-height: 20px;
 }
 
 #celebrate-dynamic {
@@ -90,15 +114,26 @@ button {
     height: 55px;
 }
 
-.blinking-cursor {
-    user-select: none;
-    animation: blink 1s steps(2, start) infinite;
+#slideshow-image {
+    max-height: 250px;
 }
 
-@keyframes blink {
-    to {
-    visibility: hidden;
-    }
+#left-slideshow-arrow,
+#right-slideshow-arrow {
+    display: grid;
+    place-items: center;
+    max-width: 35px;
+}
+
+#left-slideshow-arrow {
+    margin-right: 20px;
+}
+
+#left-slideshow-arrow a,
+#right-slideshow-arrow a {
+    text-decoration: none;
+    color: #f364a2;
+    font-size: 30px;
 }
 
 .explore-more {

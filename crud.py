@@ -304,12 +304,19 @@ def get_slideshow_holidays():
         num = random.randrange(len(holidays))
         for holiday in holidays:
             if holiday.holiday_id == num:
-                slideshow_holidays.append(holiday)
+                holiday_month = get_month_by_number(holiday.holiday_month)
+                date_suffix = controller.get_date_suffix(str(holiday.holiday_date))
+                slideshow_holidays.append({'holiday_name': holiday.holiday_name, 
+                                   'holiday_month': holiday_month.capitalize(), 
+                                   'holiday_date': holiday.holiday_date, 
+                                   'holiday_img': holiday.holiday_img, 
+                                   'holiday_blurb': holiday.holiday_blurb, 
+                                   'date_suffix': date_suffix})
     
     return slideshow_holidays
 
     
-    
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

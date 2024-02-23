@@ -107,6 +107,10 @@ button {
     line-height: 20px;
 }
 
+#slideshow-holiday-name a {
+    color: black;
+}
+
 #celebrate-dynamic {
     font-family: 'Righteous';
     font-size: 47px;

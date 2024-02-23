@@ -80,7 +80,7 @@
         {% for holiday in slideshow_holidays[0:3] %}
           <div class="col" id="slideshow-holiday">
             <div class="row">
-              <div class="col" id="slideshow-holiday-image">
+              <a class="col" id="slideshow-holiday-image" href="/{{holiday.holiday_name}}">
                 <div class="image-container">
                   <img
                       src = "{{holiday.holiday_img}}"
@@ -88,10 +88,12 @@
                       id = "slideshow-image">
                   </img>
                 </div>
-              </div>
+              </a>
               <div class="col" id="slideshow-holiday-blurb">
                   <p id="slideshow-holiday-name">
-                    {{holiday.holiday_name}}
+                    <a href="/{{holiday.holiday_name}}">
+                      {{holiday.holiday_name}}
+                    </a>
                   </p>
                   <p id="slideshow-holiday-date">
                     {{holiday.holiday_month}} {{holiday.holiday_date}}{{holiday.date_suffix}}

@@ -18,14 +18,14 @@ app.jinja_env.undefined = StrictUndefined
 def homepage():
     """ Routes to app homepage """
 
-    # try:
-    today = controller.get_current_date()
-    month_num = crud.get_month_by_name(today["month"])
-    holiday = crud.get_first_holiday_by_date(month_num, today["day"])
+    try:
+        today = controller.get_current_date()
+        month_num = crud.get_month_by_name(today["month"])
+        holiday = crud.get_first_holiday_by_date(month_num, today["day"])
 
-    slideshow_holidays = get_slideshow_holidays()
+        slideshow_holidays = get_slideshow_holidays()
 
-    return render_template('homepage.html',
+        return render_template('homepage.html',
                             holiday = holiday.holiday_name,
                             image = holiday.holiday_img,
                             day = holiday.holiday_date,
@@ -33,8 +33,8 @@ def homepage():
                             year = today["year"],
                             slideshow_holidays = slideshow_holidays)
     
-    # except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
-    #     return redirect('/error')
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+        return redirect('/error')
 
 
 @app.route('/get-slideshow-holidays')

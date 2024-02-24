@@ -75,38 +75,17 @@
     <div class="container-fluid">
       <div class="row" id="slideshow">
         <div class="col" id="left-slideshow-arrow">
-          <a href="">◀︎</a>
+          <a href id="left-arrow">◀︎</a>
         </div>
-        {% for holiday in slideshow_holidays[0:3] %}
-          <div class="col" id="slideshow-holiday">
-            <div class="row">
-              <a class="col" id="slideshow-holiday-image" href="/{{holiday.holiday_name}}">
-                <div class="image-container">
-                  <img
-                      src = "{{holiday.holiday_img}}"
-                      width = 200
-                      id = "slideshow-image">
-                  </img>
-                </div>
-              </a>
-              <div class="col" id="slideshow-holiday-blurb">
-                  <p id="slideshow-holiday-name">
-                    <a href="/{{holiday.holiday_name}}">
-                      {{holiday.holiday_name}}
-                    </a>
-                  </p>
-                  <p id="slideshow-holiday-date">
-                    {{holiday.holiday_month}} {{holiday.holiday_date}}{{holiday.date_suffix}}
-                  </p>
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-        <div class="col" id="left-slideshow-arrow">
-          <a href="">▶</a>
+        <div class="col" id="slideshow-holiday">
+          <div class="row" id="holidays"></div>
+        </div>
+        <div class="col" id="right-slideshow-arrow">
+          <a href id="right-arrow">▶</a>
         </div>
       </div>
     </div>
+    <script src="../static/js/slideshow.js"></script>
   </div>
   
 </body>

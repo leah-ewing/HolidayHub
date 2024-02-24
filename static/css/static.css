@@ -127,10 +127,7 @@ button {
     display: grid;
     place-items: center;
     max-width: 35px;
-}
-
-#left-slideshow-arrow {
-    margin-right: 20px;
+    font-size: 30px;
 }
 
 #left-slideshow-arrow a,
@@ -138,6 +135,10 @@ button {
     text-decoration: none;
     color: #f364a2;
     font-size: 30px;
+}
+
+#left-slideshow-arrow {
+    margin-right: 20px;
 }
 
 .explore-more {

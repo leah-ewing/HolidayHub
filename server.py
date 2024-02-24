@@ -23,23 +23,20 @@ def homepage():
         month_num = crud.get_month_by_name(today["month"])
         holiday = crud.get_first_holiday_by_date(month_num, today["day"])
 
-        slideshow_holidays = get_slideshow_holidays()
-
         return render_template('homepage.html',
-                            holiday = holiday.holiday_name,
-                            image = holiday.holiday_img,
-                            day = holiday.holiday_date,
-                            month_name = today["month"].capitalize(),
-                            year = today["year"],
-                            slideshow_holidays = slideshow_holidays)
+                                holiday = holiday.holiday_name,
+                                image = holiday.holiday_img,
+                                day = holiday.holiday_date,
+                                month_name = today["month"].capitalize(),
+                                year = today["year"])
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
         return redirect('/error')
 
 
-@app.route('/get-slideshow-holidays')
+@app.route('/get-slideshow-holidays', methods = ["GET"])
 def get_slideshow_holidays():
-    slideshow_holidays = crud.get_slideshow_holidays()
+    slideshow_holidays = crud.get_slideshow_holidays_list()
 
     return slideshow_holidays
     

@@ -2,7 +2,7 @@
 
 // Animated Homepage Title Script
 
-async function init () {
+async function animatedTitle () {
     const node = document.querySelector("#celebrate-dynamic")
     
     await sleep(2000)
@@ -44,4 +44,4 @@ async function init () {
   
   customElements.define('type-async', TypeAsync, { extends: 'span' })
   
-  init()
+  animatedTitle()

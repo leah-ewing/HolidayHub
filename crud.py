@@ -2,7 +2,6 @@
 
 from model import db, connect_to_db, Month, Holiday, Email, MonthlyHoliday
 from datetime import datetime
-from sqlalchemy import select
 import random, sys, os, sqlalchemy
 import encryption, controller
 
@@ -13,6 +12,7 @@ import send_welcome_email
 
 ENCRYPTION_DEV_KEY = os.environ['ENCRYPTION_DEV_KEY']
 ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']
+
 
 def create_month(month_name):
     """ Create and return a month """
@@ -294,7 +294,7 @@ def get_search_results(search_term):
     return search_results
 
 
-def get_slideshow_holidays():
+def get_slideshow_holidays_list():
     """ Returns a list of holidays to be displayed in the 'Explore More...' slideshow """
 
     holidays = Holiday.query.all()
@@ -302,6 +302,7 @@ def get_slideshow_holidays():
 
     while len(slideshow_holidays) < 3:
         num = random.randrange(len(holidays))
+
         for holiday in holidays:
             if holiday.holiday_id == num:
                 holiday_month = get_month_by_number(holiday.holiday_month)
@@ -312,10 +313,10 @@ def get_slideshow_holidays():
                                    'holiday_img': holiday.holiday_img, 
                                    'holiday_blurb': holiday.holiday_blurb, 
                                    'date_suffix': date_suffix})
-    
+
+    print(slideshow_holidays)
     return slideshow_holidays
 
-    
 
 if __name__ == '__main__':
     from server import app

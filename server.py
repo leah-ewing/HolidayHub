@@ -34,14 +34,14 @@ def homepage():
         return redirect('/error')
 
 
-@app.route('/get-slideshow-holidays', methods = ["GET"])
-def get_slideshow_holidays():
-    slideshow_holidays = crud.get_slideshow_holidays_list()
+@app.route('/get-slideshow-holidays/<start>/<end>', methods = ["GET"])
+def get_slideshow_holidays(start, end):
+    slideshow_holidays = crud.get_slideshow_holidays_list(start, end)
 
     return slideshow_holidays
     
 
-@app.route('/get-search-result', methods = ["GET"])
+@app.route('/get-search-result')
 def get_search_result():
     """ Gets the given search term from the search bar """
 
@@ -54,7 +54,7 @@ def get_search_result():
         return redirect('/error')
 
 
-@app.route('/search-results/<search_term>')
+@app.route('/search-results/<search_term>', methods = ["GET"])
 def show_search_results(search_term):
 
     try:

@@ -2,6 +2,7 @@
 
 from model import db, connect_to_db, Month, Holiday, Email, MonthlyHoliday
 from datetime import datetime
+from sqlalchemy import select
 import random, sys, os, sqlalchemy
 import encryption, controller
 
@@ -294,27 +295,25 @@ def get_search_results(search_term):
     return search_results
 
 
-def get_slideshow_holidays_list():
+def get_slideshow_holidays_list(start, end):
     """ Returns a list of holidays to be displayed in the 'Explore More...' slideshow """
 
-    holidays = Holiday.query.all()
     slideshow_holidays = []
 
-    while len(slideshow_holidays) < 3:
-        num = random.randrange(len(holidays))
+    for num in range(int(start), int(end)):
+        holiday = Holiday.query.where(Holiday.holiday_id == num).first()
 
-        for holiday in holidays:
-            if holiday.holiday_id == num:
-                holiday_month = get_month_by_number(holiday.holiday_month)
-                date_suffix = controller.get_date_suffix(str(holiday.holiday_date))
-                slideshow_holidays.append({'holiday_name': holiday.holiday_name, 
-                                   'holiday_month': holiday_month.capitalize(), 
-                                   'holiday_date': holiday.holiday_date, 
-                                   'holiday_img': holiday.holiday_img, 
-                                   'holiday_blurb': holiday.holiday_blurb, 
-                                   'date_suffix': date_suffix})
+        holiday_month = get_month_by_number(holiday.holiday_month)
+        date_suffix = controller.get_date_suffix(str(holiday.holiday_date))
 
-    print(slideshow_holidays)
+        slideshow_holidays.append({'holiday_id': holiday.holiday_id,
+                            'holiday_name': holiday.holiday_name, 
+                            'holiday_month': holiday_month.capitalize(), 
+                            'holiday_date': holiday.holiday_date, 
+                            'holiday_img': holiday.holiday_img, 
+                            'holiday_blurb': holiday.holiday_blurb, 
+                            'date_suffix': date_suffix})
+
     return slideshow_holidays
 
 

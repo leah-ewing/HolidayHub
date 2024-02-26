@@ -1,14 +1,17 @@
 'use strict';
 
+let startIndex
+let endIndex
+
 const leftArrowButton = document.getElementById("left-arrow")
 const rightArrowButton = document.getElementById("right-arrow")
 
 
-async function holidaySlideshow() {
+async function holidaySlideshow(start = 1, end = 4) {
 
     const holidaysDiv = document.getElementById("holidays")
 
-    fetch('/get-slideshow-holidays')
+    fetch(`/get-slideshow-holidays/${start}/${end}`) 
     .then((response) => response.json())
     .then((slideshow_holidays) => {
 

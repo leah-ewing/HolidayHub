@@ -15,7 +15,7 @@ rightArrowButton.addEventListener("click", function(evt) {
     const holidaysDiv = document.getElementById("holidays")
     holidaysDiv.innerHTML = ""
 
-    holidaySlideshow(startIndex+1, endIndex+1)
+    holidaySlideshow(startIndex+1, endIndex+1, true)
     // add if first index
 })
 
@@ -26,7 +26,7 @@ leftArrowButton.addEventListener("click", function(evt) {
     const holidaysDiv = document.getElementById("holidays")
     holidaysDiv.innerHTML = ""
 
-    holidaySlideshow(startIndex-1, endIndex-1)
+    holidaySlideshow(startIndex-1, endIndex-1, true)
     // add if last index
 })
 
@@ -40,13 +40,15 @@ async function getSlideshowHolidays() {
 }
 
 
-async function holidaySlideshow(start=0, end=2) {
+async function holidaySlideshow(start=0, end=2, continuing=false) {
     startIndex = start
     endIndex = end
 
-    await getSlideshowHolidays()
-
     const holidaysDiv = document.getElementById("holidays")
+
+    if (continuing == false) {
+        await getSlideshowHolidays()
+    }
 
     for (let i = start; i <= end; i++) {
         holidaysDiv.innerHTML += (`<div class="col" id="slideshow-holiday">

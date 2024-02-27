@@ -34,9 +34,11 @@ def homepage():
         return redirect('/error')
 
 
-@app.route('/get-slideshow-holidays/<start>/<end>', methods = ["GET"])
-def get_slideshow_holidays(start, end):
-    slideshow_holidays = crud.get_slideshow_holidays_list(start, end)
+@app.route('/get-slideshow-holidays', methods = ["GET"])
+def get_slideshow_holidays():
+    """ Grabs a list of holidays to be displayed in the 'Explore More...' slideshow """
+    
+    slideshow_holidays = crud.get_slideshow_holidays_list()
 
     return slideshow_holidays
     
@@ -56,6 +58,7 @@ def get_search_result():
 
 @app.route('/search-results/<search_term>', methods = ["GET"])
 def show_search_results(search_term):
+    """ Grabs search results from the db for a given search term """
 
     try:
         search_results = crud.get_search_results(search_term.lower())

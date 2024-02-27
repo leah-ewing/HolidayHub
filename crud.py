@@ -295,14 +295,13 @@ def get_search_results(search_term):
     return search_results
 
 
-def get_slideshow_holidays_list(start, end):
+def get_slideshow_holidays_list():
     """ Returns a list of holidays to be displayed in the 'Explore More...' slideshow """
 
+    holidays = Holiday.query.all()
     slideshow_holidays = []
 
-    for num in range(int(start), int(end)):
-        holiday = Holiday.query.where(Holiday.holiday_id == num).first()
-
+    for holiday in holidays:
         holiday_month = get_month_by_number(holiday.holiday_month)
         date_suffix = controller.get_date_suffix(str(holiday.holiday_date))
 

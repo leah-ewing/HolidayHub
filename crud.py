@@ -299,6 +299,8 @@ def get_slideshow_holidays_list():
     """ Returns a list of holidays to be displayed in the 'Explore More...' slideshow """
 
     holidays = Holiday.query.all()
+    random.shuffle(holidays)
+    
     slideshow_holidays = []
 
     for holiday in holidays:

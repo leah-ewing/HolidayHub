@@ -1,5 +1,7 @@
 'use strict';
 
+// 'Explore More Holidays...' Slideshow Script
+
 let slideshowHolidayList = []
 
 let firstHolidayIndex

@@ -2,22 +2,12 @@
 
 let slideshowHolidayList = []
 
-let startIndex
-let endIndex
+let firstHolidayIndex
+let secondHolidayIndex
+let thirdHolidayIndex
 
 const leftArrowButton = document.getElementById("left-arrow")
 const rightArrowButton = document.getElementById("right-arrow")
-
-
-rightArrowButton.addEventListener("click", function(evt) {
-    evt.preventDefault()
-
-    const holidaysDiv = document.getElementById("holidays")
-    holidaysDiv.innerHTML = ""
-
-    holidaySlideshow(startIndex+1, endIndex+1, true)
-    // add if first index
-})
 
 
 leftArrowButton.addEventListener("click", function(evt) {
@@ -26,8 +16,17 @@ leftArrowButton.addEventListener("click", function(evt) {
     const holidaysDiv = document.getElementById("holidays")
     holidaysDiv.innerHTML = ""
 
-    holidaySlideshow(startIndex-1, endIndex-1, true)
-    // add if last index
+    holidaySlideshow(firstHolidayIndex-1, secondHolidayIndex-1, thirdHolidayIndex-1, true)
+})
+
+
+rightArrowButton.addEventListener("click", function(evt) {
+    evt.preventDefault()
+
+    const holidaysDiv = document.getElementById("holidays")
+    holidaysDiv.innerHTML = ""
+
+    holidaySlideshow(firstHolidayIndex+1, secondHolidayIndex+1, thirdHolidayIndex+1, true)
 })
 
 
@@ -40,17 +39,36 @@ async function getSlideshowHolidays() {
 }
 
 
-async function holidaySlideshow(start=0, end=2, continuing=false) {
-    startIndex = start
-    endIndex = end
-
+async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
     const holidaysDiv = document.getElementById("holidays")
 
     if (continuing == false) {
         await getSlideshowHolidays()
+    } 
+    
+    else if (third == slideshowHolidayList.length) {
+        third = 0
+    } else if (second == slideshowHolidayList.length) {
+        second = 0
+    } else if (first == slideshowHolidayList.length) {
+        first = 0
     }
 
-    for (let i = start; i <= end; i++) {
+    else if (first == -1) {
+        first = slideshowHolidayList.length - 1
+    } else if (second == -1) {
+        second = slideshowHolidayList.length -1
+    } else if (third == -1) {
+        third = slideshowHolidayList.length - 1
+    }
+
+    firstHolidayIndex = first
+    secondHolidayIndex = second
+    thirdHolidayIndex = third
+
+    let slideshowHolidayIndexes = [firstHolidayIndex, secondHolidayIndex, thirdHolidayIndex]
+
+    for (let i of slideshowHolidayIndexes) {
         holidaysDiv.innerHTML += (`<div class="col" id="slideshow-holiday">
                                         <div class="row">
                                             <div class="col" id="slideshow-holiday-image">

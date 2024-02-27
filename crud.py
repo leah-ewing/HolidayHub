@@ -300,7 +300,7 @@ def get_slideshow_holidays_list():
 
     holidays = Holiday.query.all()
     random.shuffle(holidays)
-    
+
     slideshow_holidays = []
 
     for holiday in holidays:

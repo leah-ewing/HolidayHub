@@ -33,7 +33,7 @@ rightArrowButton.addEventListener("click", function(evt) {
 
 
 async function getSlideshowHolidays() {
-    return fetch(`/get-slideshow-holidays`)
+    return fetch('/get-slideshow-holidays')
         .then((response) => response.json())
         .then((slideshow_holidays) => {
             slideshowHolidayList = slideshow_holidays

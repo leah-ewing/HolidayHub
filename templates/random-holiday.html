@@ -33,55 +33,64 @@
         </style>
 
     
-    <div class="row">
-        <div class="col">
-            <div id = "holiday-image">
-                <img class = "holiday-image"
-                    src = "{{image}}"
-                    width = 300>
-                </img>
+        <div class="row">
+            <div class="col">
+                <div id = "holiday-image">
+                    <img class = "holiday-image"
+                        src = "{{image}}"
+                        width = 300>
+                    </img>
+                </div>
+            </div>
+
+            <br>
+            <style>
+                #blurb {width: 500px; margin: auto;}
+            </style>
+
+            <div class="col">
+                <div id="blurb">
+                    {{blurb}}
+                </div><br>
             </div>
         </div>
 
-        <br>
-        <style>
-            #blurb {width: 500px; margin: auto;}
-        </style>
-
-        <div class="col">
-            <div id="blurb">
-                {{blurb}}
+        <div class="row">
+            <div>
+                <br><br>
+                <button id="back-to-home" class="btn btn-outline-success" onclick="location.href='/'">
+                    Back Home
+                </button>
+                
+                <button id="random-holiday-on-date-from-homepage" class="btn btn-outline-success" onclick="location.href='/random-holiday'">
+                    Show me another random holiday!
+                </button>
+                <br><br>
             </div><br>
         </div>
-    </div>
 
-    <div class="row">
-        <div>
-            <br><br>
-            <button id="back-to-home" class="btn btn-outline-success" onclick="location.href='/'">
-                Back Home
-            </button>
-            
-            <button id="random-holiday-on-date-from-homepage" class="btn btn-outline-success" onclick="location.href='/random-holiday'">
-                Show me another random holiday!
-            </button>
-            <br><br>
-        </div><br>
-    </div>
+        <div class="row">
+            <span class="explore-more">
+                Explore More Holidays!
+            </span>
+        </div>
 
-    <div class="row">
-        <span class="explore-more">
-            Explore More Holidays!
-        </span>
-    </div>
+        <div class="container-fluid">
+            <div class="row" id="slideshow">
+              <div class="col" id="left-slideshow-arrow">
+                <a href id="left-arrow">◀︎</a>
+              </div>
+              <div class="col" id="slideshow-holiday">
+                <div class="row" id="holidays"></div>
+              </div>
+              <div class="col" id="right-slideshow-arrow">
+                <a href id="right-arrow">▶</a>
+              </div>
+            </div>
+        </div>
+        <script src="../static/js/slideshow.js"></script>
 
-    <div class="row">
-        <small>
-            <br>
-             - slideshow here - </small>
     </div>
-
-</div>
 </body>
 
 {% endblock %}

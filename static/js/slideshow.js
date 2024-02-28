@@ -99,4 +99,3 @@ async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
 }
 
 getSlideshowHolidays().then(() => holidaySlideshow())
-// await getSlideshowHolidays()

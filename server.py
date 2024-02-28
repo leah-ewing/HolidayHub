@@ -178,7 +178,6 @@ def random_holiday_on_date(month, day):
                             generate_scroll = False,
                             from_homepage = False)
     
-        
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError, IndexError):
         return redirect('/error')
 

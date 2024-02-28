@@ -122,7 +122,7 @@ def get_month_by_name(name):
     months = Month.query.all()
 
     for month in months:
-        if month.month_name == name:
+        if month.month_name == name.lower():
             return month.month_id
         
 
@@ -132,7 +132,7 @@ def get_first_holiday_by_date(month, day):
     holidays = Holiday.query.all()
 
     for holiday in holidays:
-        if holiday.holiday_month == month and holiday.holiday_date == day:
+        if holiday.holiday_month == int(month) and holiday.holiday_date == int(day):
             return holiday
         
 

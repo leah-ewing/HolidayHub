@@ -1,3 +1,57 @@
+#slideshow-image {
+    filter: brightness(105%);
+    max-height: 250px;
+}
+
+#slideshow-holiday-blurb {
+    height: 150px;
+}
+
+#slideshow-holiday-date {
+    font-family: 'Righteous';
+    color: #f364a2;
+    font-size: 15px;
+    margin-top: -10px;
+}
+
+#slideshow-holiday-name {
+    margin-top: 10px;
+    font-family: 'Righteous';
+    font-size: 18px;
+    line-height: 20px;
+}
+
+#slideshow-holiday-name a {
+    color: black;
+}
+
+#slideshow-image {
+    max-height: 250px;
+}
+
+#left-slideshow-arrow,
+#right-slideshow-arrow {
+    display: grid;
+    place-items: center;
+    max-width: 35px;
+    font-size: 30px;
+}
+
+#left-slideshow-arrow a,
+#right-slideshow-arrow a {
+    text-decoration: none;
+    color: #f364a2;
+    font-size: 30px;
+}
+
+#left-slideshow-arrow {
+    margin-right: 20px;
+}
+
+
+
+
+
 .explore-more {
     font-family: 'Righteous';
     font-size: 47px;

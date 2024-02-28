@@ -115,45 +115,38 @@ def add_new_email():
     else:
         return jsonify({"memo": "Email not valid",
                         "status": 400})
-    
+
 
 @app.route('/day-picker/<month>/<day>/<year>', methods = ["GET"])
 def get_clicked_date(month, day, year):
     """ When a calendar day is clicked, directs user to that day's holiday page """
 
-    try:
-        month_num = crud.get_month_by_name(month.lower())
-        day_num = int(day)
-        year_num = int(year)
+    month_num = crud.get_month_by_name(month)
+    holiday_data = crud.get_first_holiday_by_date(month_num, day)
+    suffix = controller.get_date_suffix(str(day))
+    multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday_data.holiday_month, day)
 
-        holiday = crud.get_first_holiday_by_date(month_num, day_num)
-        multiple_holidays_on_date = crud.check_for_multiple_holidays(month_num, day_num)
-        suffix = controller.get_date_suffix(day)
+    next_date = controller.get_next_day(int(month_num), int(day), int(year))
+    previous_date = controller.get_previous_day(month_num, int(day), int(year))
 
-        next_date = controller.get_next_day(month_num, day_num, year_num)
-        previous_date = controller.get_previous_day(month_num, day_num, year_num)
+    next_date_month_string = crud.get_month_by_number(next_date["month"])
+    previous_date_month_string = crud.get_month_by_number(previous_date["month"])
 
-        next_date_month_string = crud.get_month_by_number(next_date["month"])
-        previous_date_month_string = crud.get_month_by_number(previous_date["month"])
-
-        return render_template('holiday.html',
-                                month = month_num,
-                                month_name = month.capitalize(),
-                                day = day_num,
-                                holiday = holiday.holiday_name,
-                                blurb = holiday.holiday_blurb,
-                                image = holiday.holiday_img,
-                                multiple_holidays_on_date = multiple_holidays_on_date,
-                                suffix = suffix,
-                                generate_scroll = True,
-                                next_date = next_date,
-                                next_date_month = next_date_month_string.capitalize(),
-                                previous_date = previous_date,
-                                previous_date_month = previous_date_month_string.capitalize(),
-                                from_homepage = False)
-
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
-        return redirect('/error')
+    return render_template('holiday.html',
+                        month = month,
+                        holiday = holiday_data.holiday_name,
+                        month_name = month,
+                        day = day,
+                        suffix = suffix,
+                        image = holiday_data.holiday_img,
+                        generate_scroll = False,
+                        blurb = holiday_data.holiday_blurb,
+                        from_homepage = True,
+                        multiple_holidays_on_date = multiple_holidays_on_date,
+                        next_date = next_date,
+                        next_date_month = next_date_month_string.capitalize(),
+                        previous_date = previous_date,
+                        previous_date_month = previous_date_month_string.capitalize())
 
 
 @app.route('/random-holiday/<month>/<day>', methods = ["GET"])
@@ -181,6 +174,7 @@ def random_holiday_on_date(month, day):
                             generate_scroll = False,
                             from_homepage = False)
     
+        
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError, IndexError):
         return redirect('/error')
 

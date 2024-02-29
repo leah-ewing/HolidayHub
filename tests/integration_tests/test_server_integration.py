@@ -246,6 +246,35 @@ class TestUnsubscribeEmail(unittest.TestCase):
         assert b'Unsubscribed' in response.data
 
 
+class TestSearchResults(unittest.TestCase):
+
+    reset_test_db()
+    seed_test_months()
+    seed_test_holiday()
+
+    def test_search_results_valid_results(self):
+        """ Tests that the '/search-results/<search_term>' route renders the 'search-results' template correctly when there are valid results """
+
+        search_term = "io"
+
+        client = app.test_client()
+        response = client.get(f'/search-results/{search_term}')
+
+        assert b'National Violin Day' in response.data
+
+
+    def test_search_results_no_valid_results(self):
+        """ Tests that the '/search-results/<search_term>' route renders the 'search-results' template correctly when there are no valid results """
+
+        search_term = "sdfaf"
+
+        client = app.test_client()
+        response = client.get(f'/search-results/{search_term}')
+
+        assert b'No Results Found For:' in response.data
+        assert b'sdfaf' in response.data
+
+
 
 if __name__ == "__main__":
     unittest.main()

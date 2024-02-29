@@ -364,6 +364,40 @@ class Crud(unittest.TestCase):
         assert search_results == None
 
 
+    def test_get_slideshow_holidays_list(self):
+        """ Should return a randomized list of holidays from the db """
+
+        reset_test_db()
+        seed_test_months()
+        seed_test_holiday()
+
+        test_holiday_2 = Holiday(holiday_name = 'Test Holiday', 
+                    holiday_month = 3, 
+                    holiday_date = 23, 
+                    holiday_img = 'test', 
+                    holiday_blurb = 'test', 
+                    holiday_email = 'test')
+        db.session.add(test_holiday_2)
+        db.session.commit()
+
+        slideshow_holidays = crud.get_slideshow_holidays_list()
+
+        assert {'holiday_id': 1,
+                'holiday_name': 'National Violin Day', 
+                'holiday_month': 'December', 
+                'holiday_date': 13, 
+                'holiday_img': 'test', 
+                'holiday_blurb': 'test', 
+                'date_suffix': 'th'} in slideshow_holidays
+        
+        assert {'holiday_id': 2,
+                'holiday_name': 'Test Holiday', 
+                'holiday_month': 'March', 
+                'holiday_date': 23, 
+                'holiday_img': 'test', 
+                'holiday_blurb': 'test', 
+                'date_suffix': 'rd'} in slideshow_holidays
+
 
 if __name__ == "__main__":
     unittest.main()

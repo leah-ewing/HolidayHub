@@ -1,5 +1,4 @@
 import sqlalchemy, os, sys
-from test_seeds import months
 
 TEST_DB_URI = os.environ['TEST_DB_URI']
 ROOT_FOLDER = os.environ['ROOT_FOLDER']

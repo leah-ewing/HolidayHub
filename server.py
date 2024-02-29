@@ -125,7 +125,7 @@ def get_clicked_date(month, day, year):
         month_num = crud.get_month_by_name(month)
         holiday_data = crud.get_first_holiday_by_date(month_num, day)
         suffix = controller.get_date_suffix(str(day))
-        multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday_data.holiday_month, day)
+        multiple_holidays_on_date = crud.check_for_multiple_holidays(int(holiday_data.holiday_month), int(day))
 
         next_date = controller.get_next_day(int(month_num), int(day), int(year))
         previous_date = controller.get_previous_day(month_num, int(day), int(year))
@@ -134,7 +134,7 @@ def get_clicked_date(month, day, year):
         previous_date_month_string = crud.get_month_by_number(previous_date["month"])
 
         return render_template('holiday.html',
-                            month = month,
+                            month = month_num,
                             holiday = holiday_data.holiday_name,
                             month_name = month,
                             day = day,
@@ -142,7 +142,7 @@ def get_clicked_date(month, day, year):
                             image = holiday_data.holiday_img,
                             generate_scroll = False,
                             blurb = holiday_data.holiday_blurb,
-                            from_homepage = True,
+                            from_homepage = False,
                             multiple_holidays_on_date = multiple_holidays_on_date,
                             next_date = next_date,
                             next_date_month = next_date_month_string.capitalize(),

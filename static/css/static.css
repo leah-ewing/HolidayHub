@@ -85,6 +85,15 @@ button {
     filter: brightness(105%);
 }
 
+#slideshow {
+    max-width: 1200px;
+    place-items: center;
+}
+
+#left-slideshow-arrow {
+    margin-right: 20px;
+}
+
 #slideshow-image {
     max-height: 250px;
 }
@@ -135,10 +144,6 @@ button {
     text-decoration: none;
     color: #f364a2;
     font-size: 30px;
-}
-
-#left-slideshow-arrow {
-    margin-right: 20px;
 }
 
 .explore-more {

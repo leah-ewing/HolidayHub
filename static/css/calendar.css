@@ -29,6 +29,15 @@
     max-height: 250px;
 }
 
+#slideshow {
+    max-width: 1200px;
+    place-items: center;
+}
+
+#left-slideshow-arrow {
+    margin-right: 20px;
+}
+
 #left-slideshow-arrow,
 #right-slideshow-arrow {
     display: grid;
@@ -42,10 +51,6 @@
     text-decoration: none;
     color: #f364a2;
     font-size: 30px;
-}
-
-#left-slideshow-arrow {
-    margin-right: 20px;
 }
 
 .explore-more {

@@ -333,6 +333,37 @@ class Crud(unittest.TestCase):
         assert 'test2@test.test' in email_list
 
 
+    def test_get_search_results_valid_results(self):
+        """ Should return a list of results for a valid search term """
+
+        reset_test_db()
+        seed_test_months()
+        seed_test_holiday()
+
+        search_term = "io"
+        search_results = crud.get_search_results(search_term)
+
+        assert search_results[0] == {'holiday_name': 'National Violin Day', 
+                                   'holiday_month': 'December', 
+                                   'holiday_date': 13, 
+                                   'holiday_img': 'test', 
+                                   'holiday_blurb': 'test', 
+                                   'date_suffix': 'th'}
+        
+
+    def test_get_search_results_no_valid_results(self):
+        """ Should return None if no valid results are found for a given search term """
+
+        reset_test_db()
+        seed_test_months()
+        seed_test_holiday()
+
+        search_term = "sdfaf"
+        search_results = crud.get_search_results(search_term)
+
+        assert search_results == None
+
+
 
 if __name__ == "__main__":
     unittest.main()

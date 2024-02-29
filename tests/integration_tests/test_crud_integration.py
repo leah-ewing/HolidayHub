@@ -340,7 +340,7 @@ class Crud(unittest.TestCase):
         seed_test_months()
         seed_test_holiday()
 
-        search_term = "io"
+        search_term = 'io'
         search_results = crud.get_search_results(search_term)
 
         assert search_results[0] == {'holiday_name': 'National Violin Day', 
@@ -358,7 +358,7 @@ class Crud(unittest.TestCase):
         seed_test_months()
         seed_test_holiday()
 
-        search_term = "sdfaf"
+        search_term = 'sdfaf'
         search_results = crud.get_search_results(search_term)
 
         assert search_results == None

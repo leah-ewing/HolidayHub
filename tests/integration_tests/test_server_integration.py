@@ -275,6 +275,29 @@ class TestSearchResults(unittest.TestCase):
         assert b'sdfaf' in response.data
 
 
+class TestSlideshowHolidays(unittest.TestCase):
+
+    reset_test_db()
+    seed_test_months()
+    seed_test_holiday()
+
+    test_holiday_2 = Holiday(holiday_name = 'Test Holiday', 
+            holiday_month = 3, 
+            holiday_date = 23, 
+            holiday_img = 'test', 
+            holiday_blurb = 'test', 
+            holiday_email = 'test')
+    db.session.add(test_holiday_2)
+    db.session.commit()
+
+    def test_get_slideshow_holidays(self):
+        """ Tests that the '/get_slideshow_holidays' route redirects after sending the slideshow list back to the client """
+
+        client = app.test_client()
+        response = client.get('/get_slideshow_holidays')
+        
+        assert response.status_code == 302
+
 
 if __name__ == "__main__":
     unittest.main()

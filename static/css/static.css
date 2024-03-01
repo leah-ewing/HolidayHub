@@ -198,7 +198,7 @@ button {
     display: grid;
     place-items: center;
     padding-top: 10px;
-    padding-bottom: 90px;
+    padding-bottom: 65px;
 }
 
 #no-results-text b,

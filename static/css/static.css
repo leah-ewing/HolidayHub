@@ -91,7 +91,8 @@ button {
 }
 
 #slideshow-image {
-    max-height: 250px;
+    max-height: 150px;
+    max-width: auto;
 }
 
 #slideshow-holiday-blurb {
@@ -123,10 +124,6 @@ button {
     height: 55px;
     margin-top: 300px;
     position: relative;
-}
-
-#slideshow-image {
-    max-height: 250px;
 }
 
 #left-slideshow-arrow,

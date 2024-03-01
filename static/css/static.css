@@ -207,6 +207,10 @@ button {
     color: black;
 }
 
+#no-results-buttons {
+    display: inline-block;
+}
+
 #search-results-text {
     font-family: 'Righteous';
     font-size: 47px;

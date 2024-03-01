@@ -15,11 +15,23 @@
         <br><br><br><br><br>
         {% if search_results == None %}
             <div>
-                <h1>
-                    <span id="no-results-text">
+                <div id="no-results-text">
+                    <h1>
                         <text>No Results Found For: <b>"{{search_term}}"</b></text>
-                    </span>
-                </h1>
+                        <br>
+                    </h1>
+
+                    <h6 id="no-results-buttons">
+                        <br><br>
+                        <button class="btn btn-outline-success" onclick="location.href='/'">
+                            Back Home
+                        </button> 
+                        
+                        <button id="calendar-view-button" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
+                            View Calendar
+                        </button>  
+                    </h6>
+                </div>
             </div>
         {% else %}
             <text id="search-results-text">

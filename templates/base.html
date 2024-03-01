@@ -74,44 +74,41 @@
 
       <!-- POP-UPS -->
       <div class="share-popup-window" id="share-popup-window" style="line-height:1.75;">
-        <div id="share-popup-window-text"><br>
 
-          <div class="row">
-            <h1><b><font color=#f364a2>
-              Share:
-            </font></h1></b>
+          <div class="row" id="share-popup-window-text">
+            <h1>
+              <b>
+                Share:
+              </b>
+            </h1>
+            
           </div>
 
           <div class="row">
-            <div class="col">
+            <div class="col" id="share-popup-window-row-1">
               <button id="twitter-share-button" class="btn btn-outline-success">Twitter</button>
-            </div>
-            <div class="col">
-              <button id="facebook-share-button" class="btn btn-outline-success">Facebook</button><br>
+              <button id="facebook-share-button" class="btn btn-outline-success">Facebook</button>
             </div>
           </div>
 
           <div class="row">
-            <div class="col">
+            <div class="col" id="share-popup-window-row-2">
               <button id="pinterest-share-button" class="btn btn-outline-success">Pinterest</button>
-            </div>
-            <div class="col">
               <button id="email-share-button" class="btn btn-outline-success">Email</button><br>
             </div>
           </div>
 
           <div class="row">
-            <div class="col">
+            <div class="col" id="share-popup-window-row-3">
               <button id="copy-link-button" class="btn btn-outline-success">Copy Link</button><br>
               <small>
                 <span id="link-copied-label"></span><br>
               </small>
             </div>
-          </div>
         </div>
 
         <div class="row">
-          <div class="col">
+          <div class="col" id="share-popup-window-row-4">
             <button id="share-close-button" class="btn btn-outline-success">Close</button>
           </div>
         </div>
@@ -120,9 +117,10 @@
       <div class="thank-you-for-sharing-window" id="thank-you-for-sharing-window" style="line-height:1.75;">
         <div class="row">
           <div id="thank-you-for-sharing-text">
-            <h1><b><font color=#f364a2><br><br>
+            <h1><b>
+              <br><br>
               Thank you for sharing!
-            </font></h1></b><br>
+            </h1></b><br>
           </div>
         </div>
 
@@ -135,9 +133,11 @@
 
       <div id="popup-window" class="popup-window">
         <div class="row">
-          <h5><b><font color=#f364a2>
-            Please enter first name and email:
-          </b></font></h5>
+          <h5 id="enter-credentials-text">
+            <b>
+              Please enter first name and email:
+            </b>
+          </h5>
         </div>
 
         <div class="row add-email" style="line-height:1.75;">
@@ -178,10 +178,11 @@
           <div class="row">
             <h1><b>
               Email already exists, please try again!
-            </h1></b><br>
+            </h1></b>
           </div>
           <div class="row">
             <div class="col">
+              <br>
               <button id="try-again-button" class="btn btn-outline-success">Try again</button>
               <button id="close-button-duplicate-email" class="btn btn-outline-success">Close</button>
             </div>
@@ -194,10 +195,11 @@
           <div class="row">
             <h1><b><br>
               Invalid email, please try again!
-            </h1></b><br>
+            </h1></b>
           </div>
           <div class="row">
             <div class="col">
+              <br>
               <button id="try-again-button-invalid-email" class="btn btn-outline-success">Try again</button>
               <button id="close-button-invalid-email" class="btn btn-outline-success">Close</button>
             </div>

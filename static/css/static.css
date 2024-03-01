@@ -3,16 +3,10 @@
     background-color: #ABE374;
 }
 
-#share-button,
-#popup-button {
-    cursor: pointer;
-}
-
 #navbar-logo {
     font-family: 'Righteous';
     font-size: 25px;
     color: black;
-    /* text-shadow: #AFE0CE 0px 0 15px; */
 }
 
 #navbar-tagline {
@@ -58,6 +52,32 @@ button {
     place-items: center;
 }
 
+#share-popup-window-text {
+    display: grid;
+    place-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#share-popup-window-row-1,
+#share-popup-window-row-2,
+#share-popup-window-row-3,
+#share-popup-window-row-4 {
+    display: inline-block;
+    text-align: center;
+}
+
+#thank-you-for-sharing-text {
+    color: #f364a2;
+    font-family: 'Righteous';
+}
+
+#enter-credentials-text {
+    color: #f364a2;
+    font-family: 'Righteous';
+    font-size: 20px;
+}
+
 #homepage-logo {
     font-family: 'Righteous';
     font-size: 50px;
@@ -67,6 +87,14 @@ button {
     display: grid;
     place-items: center;
     margin-bottom: 150px;
+}
+
+.add-email {
+    font-family: 'Righteous';
+}
+
+.add-email input {
+    font-family: 'Inter Tight';
 }
 
 .holiday-name {

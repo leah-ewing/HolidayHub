@@ -81,6 +81,10 @@ button {
     filter: brightness(105%);
 }
 
+#holiday-body h3 {
+    text-align: center;
+}
+
 #slideshow {
     max-width: 1200px;
     place-items: center;
@@ -222,7 +226,6 @@ button {
     height: 100%;
 }
 
-
 #search-result a {
     font-family: 'Righteous';
     color: #f364a2;
@@ -246,4 +249,15 @@ button {
 
 #search-result-img {
     max-height: 150px;
+}
+
+#blurb {
+    display: grid;
+    place-items: center;
+    width: 400px; 
+    margin-right: 75px;
+}
+
+#holiday-image {
+    margin-left: 150px;
 }

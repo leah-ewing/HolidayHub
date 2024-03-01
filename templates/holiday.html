@@ -17,8 +17,6 @@
         href="../static/css/static.css">
 
     <div id="holiday-body">
-
-
         <br>
         <h3>
             {{month_name}} {{day}}{{suffix}} is...
@@ -38,10 +36,6 @@
         </h1>
         <br>
 
-        <style> 
-            h3 {text-align: center;}
-        </style> 
-
         <div class="row">
             {% if generate_scroll == True %}
                 <div class="col">
@@ -60,14 +54,8 @@
                 </div>
             </div>
 
-            <div class="col">
-                <style>
-                    #blurb {width: 500px; margin: auto;}
-                </style>
-
-                <div id="blurb">
-                    {{blurb}}
-                </div>
+            <div class="col" id="blurb">
+                {{blurb}}
             </div>
 
             {% if generate_scroll == True %}

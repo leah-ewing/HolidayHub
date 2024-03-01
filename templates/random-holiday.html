@@ -27,15 +27,10 @@
             </text>
         </h1>
         <br>
-
-        <style> 
-            h3 {text-align: center;}
-        </style>
-
     
         <div class="row">
             <div class="col">
-                <div id = "holiday-image">
+                <div id = "holiday-image" class = "image-container">
                     <img class = "holiday-image"
                         src = "{{image}}"
                         width = 300>
@@ -44,14 +39,9 @@
             </div>
 
             <br>
-            <style>
-                #blurb {width: 500px; margin: auto;}
-            </style>
 
-            <div class="col">
-                <div id="blurb">
-                    {{blurb}}
-                </div><br>
+            <div class="col" id="blurb">
+                {{blurb}}
             </div>
         </div>
 

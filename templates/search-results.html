@@ -37,13 +37,15 @@
                                 </h3>
                                 <div class="row">
                                     <div class="col" id="search-result-image">
-                                        <div class="image-container">
-                                            <img
-                                                src = "{{search_result.holiday_img}}"
-                                                width = 200,
-                                                id = "search-result-img">
-                                            </img>
-                                        </div>
+                                        <a href="/{{search_result.holiday_name}}">
+                                            <div class="image-container">
+                                                    <img
+                                                        src = "{{search_result.holiday_img}}"
+                                                        width = 200,
+                                                        id = "search-result-img">
+                                                    </img>
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="col" id="search-result-blurb">
                                         <text>

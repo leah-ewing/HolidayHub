@@ -75,13 +75,13 @@ async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
                                         <div class="row">
                                             <div class="col" id="slideshow-holiday-image">
                                                 <a href = "/${slideshowHolidayList[i].holiday_name}">
-                                                <div class="image-container">
-                                                    <img
-                                                        src = "${slideshowHolidayList[i].holiday_img}"
-                                                        width = 200
-                                                        id = "slideshow-image">
-                                                    </img>
-                                                </div>
+                                                    <div class="image-container">
+                                                        <img
+                                                            src = "${slideshowHolidayList[i].holiday_img}"
+                                                            width = 200
+                                                            id = "slideshow-image">
+                                                        </img>
+                                                    </div>
                                                 </a>
                                             </div>
                                         <div class="col" id="slideshow-holiday-blurb">

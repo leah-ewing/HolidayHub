@@ -240,6 +240,12 @@ button {
     place-items: center;
 }
 
-#search-result-blurb span {
+/* #search-result-blurb span {
+    font-family: 'Righteous';
+} */
+
+
+#search-result-date {
+    padding-bottom: 8px;
     font-family: 'Righteous';
 }

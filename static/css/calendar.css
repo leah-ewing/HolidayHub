@@ -26,7 +26,8 @@
 }
 
 #slideshow-image {
-    max-height: 250px;
+    max-height: 150px;
+    max-width: auto;
 }
 
 #slideshow {

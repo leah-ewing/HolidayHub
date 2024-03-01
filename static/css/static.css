@@ -231,7 +231,6 @@ button {
 #search-result-image {
     max-width: 30%;
     text-align: right;
-
 }
 
 #search-result-blurb {
@@ -243,4 +242,8 @@ button {
 #search-result-date {
     padding-bottom: 8px;
     font-family: 'Righteous';
+}
+
+#search-result-img {
+    max-height: 150px;
 }

@@ -140,7 +140,7 @@ def get_clicked_date(month, day, year):
                             day = day,
                             suffix = suffix,
                             image = holiday_data.holiday_img,
-                            generate_scroll = False,
+                            generate_scroll = True,
                             blurb = holiday_data.holiday_blurb,
                             from_homepage = False,
                             multiple_holidays_on_date = multiple_holidays_on_date,

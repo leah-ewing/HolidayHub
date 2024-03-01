@@ -85,6 +85,12 @@ button {
     text-align: center;
 }
 
+#holiday-page-name {
+    font-family: 'Righteous';
+    font-size: 45px;
+    color: #f364a2
+}
+
 #slideshow {
     max-width: 1200px;
     place-items: center;
@@ -260,4 +266,22 @@ button {
 
 #holiday-image {
     margin-left: 150px;
+}
+
+#next-date-button,
+#previous-date-button {
+    position: absolute;
+    text-decoration: none;
+    color: #f364a2;
+    font-size: 30px;
+}
+
+#previous-date-button {
+    right: 1100px;
+    top: 300px;
+}
+
+#next-date-button {
+    top: 300px;
+    left: 1160px;
 }

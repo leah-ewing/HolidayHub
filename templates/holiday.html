@@ -26,24 +26,19 @@
                 {{holiday}}!
             </text>
             <br>
-            <style>
-                #holiday-page-name {
-                    font-family: 'Righteous';
-                    font-size: 45px;
-                    color: #f364a2
-                }
-            </style>
         </h1>
         <br>
 
+        {% if generate_scroll == True %}
+            <div class="col" id="previous-date">
+                <a id = "previous-date-button" href="/day-picker/{{previous_date_month}}/{{previous_date.day}}/{{previous_date.year}}">◀︎</a>
+            </div>
+            <div class="col">
+                <a id = "next-date-button" href="/day-picker/{{previous_date_month}}/{{previous_date.day}}/{{previous_date.year}}">▶︎</a>
+            </div>
+        {% endif %}
+
         <div class="row">
-            {% if generate_scroll == True %}
-                <div class="col">
-                    <button id = "previous-date-button" class="btn btn-outline-success" onclick="location.href='/day-picker/{{previous_date_month}}/{{previous_date.day}}/{{previous_date.year}}'">
-                        Previous
-                    </button>
-                </div>
-            {% endif %}
 
             <div class="col">
                 <div id = "holiday-image" class = "image-container">
@@ -57,17 +52,6 @@
             <div class="col" id="blurb">
                 {{blurb}}
             </div>
-
-            {% if generate_scroll == True %}
-                <div class="col">
-                    <button id = "next-date-button" 
-                        class="btn btn-outline-success" 
-                        onclick="location.href='/day-picker/{{next_date_month}}/{{next_date.day}}/{{next_date.year}}'">
-                        Next
-                    </button>
-                </div>
-            {% endif %}
-
         </div>
 
         <div>

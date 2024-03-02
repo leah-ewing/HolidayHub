@@ -223,6 +223,16 @@ button {
     place-items: center;
 }
 
+#unsubscribe-text {
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+#unsubscribe-text h1 {
+    color: #f364a2;
+}
+
 #error-page {
     width: 60%;
     display: grid;

@@ -2,8 +2,10 @@
 
 // Pop-up window script
 
-const popupButton = document.getElementById("popup-button")
 const popupWindow = document.getElementById("popup-window")
+const shareWindow = document.getElementById("share-popup-window")
+
+const popupButton = document.getElementById("popup-button")
 const closeButton = document.getElementById("close-button")
 const submitButton = document.getElementById("submit-button")
 
@@ -26,13 +28,17 @@ popupButton.addEventListener("click", function(evt) {
 
 closeButton.addEventListener("click", function() {
     popupWindow.style.display = "none"
+    shareWindow.style.display = "none"
+
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
 
 closeButtonDuplicateEmail.addEventListener("click", function() {
+    shareWindow.style.display = "none"
     duplicateEmailWindow.style.display = "none"
     popupWindow.style.display = "none"
+
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
@@ -40,6 +46,8 @@ closeButtonDuplicateEmail.addEventListener("click", function() {
 closeButtonInvalidEmail.addEventListener("click", function() {
     popupWindow.style.display = "none"
     invalidEmailWindow.style.display = "none"
+    shareWindow.style.display = "none"
+
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
@@ -47,6 +55,7 @@ closeButtonInvalidEmail.addEventListener("click", function() {
 closeButtonThankYou.addEventListener("click", function() {
     thankYouWindow.style.display = "none"
     popupWindow.style.display = "none"
+
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })

@@ -15,6 +15,7 @@ const pinterestShareButton = document.getElementById("pinterest-share-button")
 const emailShareButton = document.getElementById("email-share-button")
 const copyLinkButton = document.getElementById("copy-link-button")
 
+
 shareButton.addEventListener("click", async () => {
     if (navigator.share) {
         try {
@@ -24,6 +25,7 @@ shareButton.addEventListener("click", async () => {
             console.error("Share failed:", err.message)
         }
     } else {
+        popupWindow.style.display = "none"
         sharePopUpWindow.style.display = "block"
     }
 })

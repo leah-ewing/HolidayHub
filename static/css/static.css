@@ -231,6 +231,8 @@ button {
 
 #unsubscribe-text h1 {
     color: #f364a2;
+    font-family: 'Righteous';
+    font-size: 50px;
 }
 
 #error-page {

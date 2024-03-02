@@ -1,162 +1,162 @@
 <!DOCTYPE html>
 
 <head>
-    {% block head %}
+  {% block head %}
 
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width">
-      <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
-      <!-- BOOTSTRAP -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-      <!-- CSS -->
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}">
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/share.css') }}">
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/static.css') }}">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/share.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/static.css') }}">
 
-      <!-- FONTS -->
-      <!-- text font: -->
-      <link rel="preconnect" href="https://fonts.googleapis.com"> 
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-      <link href="https://fonts.googleapis.com/css2?family=Inter+Tight&family=Righteous&display=swap" rel="stylesheet">
+    <!-- FONTS -->
+    <!-- text font: -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight&family=Righteous&display=swap" rel="stylesheet">
 
-      <!-- display font: -->
-      <link rel="preconnect" href="https://fonts.googleapis.com"> 
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-      <link href="https://fonts.googleapis.com/css2?family=Inter+Tight&family=Righteous&display=swap" rel="stylesheet">
+    <!-- display font: -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight&family=Righteous&display=swap" rel="stylesheet">
 
-      <!-- JQUERY -->
-      <!-- <script
-        src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-        crossorigin="anonymous">
-      </script> -->
+    <!-- JQUERY -->
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous">
+    </script> -->
 
-      <!-- REACT
-      <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-      <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-      <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script> -->
-        
-      <title>
-        {% block title %}
-        {% endblock %}
-      </title>
+    <!-- REACT
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script> -->
+      
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
 
-      <div class="container-fluid fixed-top" id="navbar">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
-            <div class="collapse navbar-collapse" id="navbarText">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="navbar-brand" aria-current="page" id="navbar-logo" href="/">HolidayApp</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="share-button">Share</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/about" id="about-button">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="popup-button">Sign Up for Daily Emails!</a>
-                </li>
-              </ul>
-              <span class="navbar-text" id="navbar-tagline">
-                Holiday Search 
-              </span>
-                <form class="d-flex" role="search" action="/get-search-result" method="GET">
-                  <input class="form-control me-2" name="search-term" type="search" placeholder="Enter holiday name" aria-label="Search" required/>
-                  <button class="btn btn-outline-success" type="submit">Go</button>
-              </form>
-          </div>
-        </nav>
-      </div>
-
-      <!-- POP-UPS -->
-      <div class="share-popup-window" id="share-popup-window" style="line-height:1.75;">
-
-          <div class="row" id="share-popup-window-text">
-            <h1>
-              <b>
-                Share:
-              </b>
-            </h1>
-            
-          </div>
-
-          <div class="row">
-            <div class="col" id="share-popup-window-row-1">
-              <button id="twitter-share-button" class="btn btn-outline-success">Twitter</button>
-              <button id="facebook-share-button" class="btn btn-outline-success">Facebook</button>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col" id="share-popup-window-row-2">
-              <button id="pinterest-share-button" class="btn btn-outline-success">Pinterest</button>
-              <button id="email-share-button" class="btn btn-outline-success">Email</button><br>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col" id="share-popup-window-row-3">
-              <button id="copy-link-button" class="btn btn-outline-success">Copy Link</button><br>
-              <small>
-                <span id="link-copied-label"></span><br>
-              </small>
-            </div>
-        </div>
-
-        <div class="row">
-          <div class="col" id="share-popup-window-row-4">
-            <button id="share-close-button" class="btn btn-outline-success">Close</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="thank-you-for-sharing-window" id="thank-you-for-sharing-window" style="line-height:1.75;">
-        <div class="row">
-          <div id="thank-you-for-sharing-text">
-            <h1><b>
-              <br><br>
-              Thank you for sharing!
-            </h1></b><br>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <button id="close-button-thank-you-for-sharing" class="btn btn-outline-success">Close</button>
-          </div>
-        </div>
-      </div>
-
-      <div id="popup-window" class="popup-window">
-        <div class="row">
-          <h5 id="enter-credentials-text">
-            <b>
-              Please enter first name and email:
-            </b>
-          </h5>
-        </div>
-
-        <div class="row add-email" style="line-height:1.75;">
-          <form action="/add-email" method = "POST">
-            <label for="fname">First Name:</label><br>
-              <input id="fname" name="fname" required /></textarea><br>
-            <label for="email">Email:</label><br>
-              <input id="email" name="email" type="email" required /></textarea><br>
+    <div class="container-fluid fixed-top" id="navbar">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="navbar-brand" aria-current="page" id="navbar-logo" href="/">HolidayApp</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="share-button">Share</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about" id="about-button">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="popup-button">Sign Up for Daily Emails!</a>
+            </li>
+          </ul>
+          <span class="navbar-text" id="navbar-tagline">
+            Holiday Search 
+          </span>
+          <form class="d-flex" role="search" action="/get-search-result" method="GET">
+            <input class="form-control me-2" name="search-term" type="search" placeholder="Enter holiday name" aria-label="Search" required/>
+            <button class="btn btn-outline-success" type="submit">Go</button>
           </form>
         </div>
-        <div class="row submit">
-          <div class="col">
-            <br>
-            <button id="submit-button" class="btn btn-outline-success submit-button" type="submit">Submit!</button>
-            <button id="close-button" class="btn btn-outline-success">Close</button><br><br>
-            <div id="disclaimer-text">By clicking submit you are giving HolidayApp permission to send you daily emails, you may opt out at any time.
-            </div>
+      </nav>
+    </div>
+
+    <!-- POP-UPS -->
+    <div class="share-popup-window" id="share-popup-window" style="line-height:1.75;">
+
+      <div class="row" id="share-popup-window-text">
+        <h1>
+          <b>
+            Share:
+          </b>
+        </h1>
+      </div>
+
+      <div class="row">
+        <div class="col" id="share-popup-window-row-1">
+          <button id="twitter-share-button" class="btn btn-outline-success">Twitter</button>
+          <button id="facebook-share-button" class="btn btn-outline-success">Facebook</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" id="share-popup-window-row-2">
+          <button id="pinterest-share-button" class="btn btn-outline-success">Pinterest</button>
+          <button id="email-share-button" class="btn btn-outline-success">Email</button><br>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" id="share-popup-window-row-3">
+          <button id="copy-link-button" class="btn btn-outline-success">Copy Link</button><br>
+          <small>
+            <span id="link-copied-label"></span><br>
+          </small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" id="share-popup-window-row-4">
+          <button id="share-close-button" class="btn btn-outline-success">Close</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="thank-you-for-sharing-window" id="thank-you-for-sharing-window" style="line-height:1.75;">
+      <div class="row">
+        <div id="thank-you-for-sharing-text">
+          <h1><b>
+            <br><br>
+            Thank you for sharing!
+          </h1></b><br>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button id="close-button-thank-you-for-sharing" class="btn btn-outline-success">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup-window" class="popup-window">
+      <div class="row">
+        <h5 id="enter-credentials-text">
+          <b>
+            Please enter first name and email:
+          </b>
+        </h5>
+      </div>
+
+      <div class="row add-email" style="line-height:1.75;">
+        <form action="/add-email" method = "POST">
+          <label for="fname">First Name:</label><br>
+            <input id="fname" name="fname" required /></textarea><br>
+          <label for="email">Email:</label><br>
+            <input id="email" name="email" type="email" required /></textarea><br>
+        </form>
+      </div>
+      <div class="row submit">
+        <div class="col">
+          <br>
+          <button id="submit-button" class="btn btn-outline-success submit-button" type="submit">Submit!</button>
+          <button id="close-button" class="btn btn-outline-success">Close</button><br><br>
+          <div id="disclaimer-text">By clicking submit you are giving HolidayApp permission to send you daily emails, you may opt out at any time.
           </div>
         </div>
+      </div>
 
       <div class="thank-you-window" id="thank-you-window" style="line-height:1.75;">
         <div id="thank-you-text">
@@ -193,9 +193,12 @@
       <div class="invalid-email-window" id="invalid-email-window" style="line-height:1.75;">
         <div id="invalid-email-text">
           <div class="row">
-            <h1><b><br>
-              Invalid email, please try again!
-            </h1></b>
+            <h1>
+              <br>
+              <b>
+                Invalid email, please try again!
+              </b>
+            </h1>
           </div>
           <div class="row">
             <div class="col">
@@ -211,8 +214,8 @@
       <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
       <script src="{{ url_for('static', filename='js/share.js') }}"></script>
 
-    {% endblock %}
     </div>
+  {% endblock %}
 </head>
 
 <body>

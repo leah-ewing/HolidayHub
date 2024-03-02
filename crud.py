@@ -276,23 +276,31 @@ def get_search_results(search_term):
     """ Returns search results for a given search term """
 
     holidays = Holiday.query.all()
-    search_results = []
+    name_list = []
+    alphabetized_search_results = []
 
     for holiday in holidays:
         if search_term in holiday.holiday_name.lower():
-            holiday_month = get_month_by_number(holiday.holiday_month)
-            date_suffix = controller.get_date_suffix(str(holiday.holiday_date))
-            search_results.append({'holiday_name': holiday.holiday_name, 
-                                   'holiday_month': holiday_month.capitalize(), 
-                                   'holiday_date': holiday.holiday_date, 
-                                   'holiday_img': holiday.holiday_img, 
-                                   'holiday_blurb': holiday.holiday_blurb, 
-                                   'date_suffix': date_suffix})
-    
-    if len(search_results) == 0:
-        search_results = None
+            name_list.append(holiday.holiday_name)
 
-    return search_results
+    name_list = sorted(name_list)
+
+    for name in name_list:
+        for holiday in holidays:
+            if name == holiday.holiday_name:
+                holiday_month = get_month_by_number(holiday.holiday_month)
+                date_suffix = controller.get_date_suffix(str(holiday.holiday_date))
+                alphabetized_search_results.append({'holiday_name': holiday.holiday_name, 
+                                    'holiday_month': holiday_month.capitalize(), 
+                                    'holiday_date': holiday.holiday_date, 
+                                    'holiday_img': holiday.holiday_img, 
+                                    'holiday_blurb': holiday.holiday_blurb, 
+                                    'date_suffix': date_suffix})
+    
+    if len(alphabetized_search_results) == 0:
+        alphabetized_search_results = None
+
+    return alphabetized_search_results
 
 
 def get_slideshow_holidays_list():

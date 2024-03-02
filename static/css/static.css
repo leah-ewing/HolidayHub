@@ -325,3 +325,31 @@ button {
     top: 300px;
     left: 1160px;
 }
+
+#about-title {
+    text-align: center;
+}
+
+#about-title h1 {
+    font-family: 'Righteous';
+    font-size: 45px;
+}
+
+#holidayapp-about-title {
+    color: #f364a2;
+}
+
+.about-section-title {
+    font-family: 'Righteous';
+    color: #f364a2;
+    font-size: 35px;
+}
+
+.about-section-text {
+    font-size: 18px;
+}
+
+.about-thank-you {
+    font-family: 'Righteous';
+    font-size: 15px;
+}

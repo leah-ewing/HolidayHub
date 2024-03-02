@@ -142,7 +142,6 @@ def get_clicked_date(month, day, year):
                             image = holiday_data.holiday_img,
                             generate_scroll = True,
                             blurb = holiday_data.holiday_blurb,
-                            from_homepage = False,
                             multiple_holidays_on_date = multiple_holidays_on_date,
                             next_date = next_date,
                             next_date_month = next_date_month_string.capitalize(),
@@ -175,8 +174,7 @@ def random_holiday_on_date(month, day):
                             image = holiday.holiday_img,
                             multiple_holidays_on_date = multiple_holidays_on_date,
                             suffix = suffix,
-                            generate_scroll = False,
-                            from_homepage = False)
+                            generate_scroll = False)
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError, IndexError):
         return redirect('/error')
@@ -202,7 +200,6 @@ def learn_more_about_holiday(holiday):
                             image = image,
                             generate_scroll = False,
                             blurb = holiday_data.holiday_blurb,
-                            from_homepage = True,
                             multiple_holidays_on_date = multiple_holidays_on_date,
                             month = holiday_data.holiday_month)
     

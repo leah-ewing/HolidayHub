@@ -55,33 +55,27 @@
 
         <br>
 
-        {% if multiple_holidays_on_date == True %}
+        <!-- <div id="test-div"> -->
+        <div class="row">
+            <div class="col" id="test-div">
+
+                {% if multiple_holidays_on_date == True %}
             
-            <button id="random_holiday_on_date" class="btn btn-outline-success" onclick="location.href='/random-holiday/{{month}}/{{day}}'">
-                But wait! It's also...
-            </button>
+                    <button id="random_holiday_on_date" class="btn btn-outline-success" onclick="location.href='/random-holiday/{{month}}/{{day}}'">
+                        But wait! It's also...
+                    </button>
+                    <br><br>
+    
+                {% endif %}
 
-        {% endif %}
+                    <button id="back-to-homepage" class="btn btn-outline-success" onclick="location.href='/'">
+                        Back Home
+                    </button>
 
-        <div>
-            {% if from_homepage == False %}
-
-                <button id="back-to-calendar-button" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
-                    Back to Calendar
-                </button>
-
-            {% else %}
-
-                <br><br>
-                <button id="back-to-homepage" class="btn btn-outline-success" onclick="location.href='/'">
-                    Back to Homepage
-                </button>
-
-                <button id="calendar-view-button-holiday" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
-                    View Calendar
-                </button>
-
-            {% endif %}
+                    <button id="calendar-view-button-holiday" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
+                        View Calendar
+                    </button>
+            </div>
         </div>
 
         <br>

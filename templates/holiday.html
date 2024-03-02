@@ -39,7 +39,6 @@
         {% endif %}
 
         <div class="row">
-
             <div class="col">
                 <div id = "holiday-image" class = "image-container">
                     <img class = "holiday-image"
@@ -54,10 +53,19 @@
             </div>
         </div>
 
+        <br>
+
+        {% if multiple_holidays_on_date == True %}
+            
+            <button id="random_holiday_on_date" class="btn btn-outline-success" onclick="location.href='/random-holiday/{{month}}/{{day}}'">
+                But wait! It's also...
+            </button>
+
+        {% endif %}
+
         <div>
             {% if from_homepage == False %}
 
-                <br><br>
                 <button id="back-to-calendar-button" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
                     Back to Calendar
                 </button>
@@ -73,14 +81,6 @@
                     View Calendar
                 </button>
 
-            {% endif %}
-
-            {% if multiple_holidays_on_date == True %}
-            
-                <button id="random_holiday_on_date" class="btn btn-outline-success" onclick="location.href='/random-holiday/{{month}}/{{day}}'">
-                    But wait! It's also...
-                </button>
-        
             {% endif %}
         </div>
 

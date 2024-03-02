@@ -203,7 +203,8 @@ def learn_more_about_holiday(holiday):
                             generate_scroll = False,
                             blurb = holiday_data.holiday_blurb,
                             from_homepage = True,
-                            multiple_holidays_on_date = multiple_holidays_on_date)
+                            multiple_holidays_on_date = multiple_holidays_on_date,
+                            month = holiday_data.holiday_month)
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
         return redirect('/error')

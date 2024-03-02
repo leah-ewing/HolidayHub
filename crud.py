@@ -162,8 +162,8 @@ def check_for_multiple_holidays(month, day):
         return False
     
     
-def get_random_holiday_on_date(month, day):
-    """ Returns a random holiday from a given date """
+def get_random_holiday_on_date(month, day, current_holiday):
+    """ Returns a random holiday from a given date, discluding a given holiday """
 
     holidays = Holiday.query.all()
     holidays_on_date = []
@@ -172,7 +172,9 @@ def get_random_holiday_on_date(month, day):
             if holiday.holiday_month == month and holiday.holiday_date == day:
                 holidays_on_date.append(holiday)
     
-    holidays_on_date.pop(0)
+    for holiday in holidays_on_date:
+        if holiday.holiday_name == current_holiday:
+            holidays_on_date.remove(holiday)
 
     return random.choice(holidays_on_date)
 

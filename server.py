@@ -152,32 +152,40 @@ def get_clicked_date(month, day, year):
             return redirect('/error')
     
 
-@app.route('/random-holiday/<month>/<day>', methods = ["GET"])
-def random_holiday_on_date(month, day):
-    """ Takes a user to another random holiday on a given date """
-
-    try:
-        month_num = int(month)
-        day_num = int(day)
-
-        holiday = crud.get_random_holiday_on_date(month_num, day_num)
-        month_name = crud.get_month_by_number(month_num)
-        multiple_holidays_on_date = crud.check_for_multiple_holidays(month_num, day_num)
-        suffix = controller.get_date_suffix(day)
-
-        return render_template('holiday.html',
-                            month = month_num,
-                            month_name = month_name.capitalize(),
-                            day = day,
-                            holiday = holiday.holiday_name,
-                            blurb = holiday.holiday_blurb,
-                            image = holiday.holiday_img,
-                            multiple_holidays_on_date = multiple_holidays_on_date,
-                            suffix = suffix,
-                            generate_scroll = False)
+@app.route('/random-holiday/<month>/<day>/<holiday>', methods = ["GET"])
+def random_holiday_on_date(month, day, holiday):
+    """ Takes a user to another random holiday on a given date discluding the current holiday being viewed """
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError, IndexError):
-        return redirect('/error')
+    month_num = int(month)
+    day_num = int(day)
+
+    holiday = crud.get_random_holiday_on_date(month_num, day_num, holiday)
+
+    return redirect(f"/{holiday.holiday_name}")
+
+    
+    # try:
+    #     month_num = int(month)
+    #     day_num = int(day)
+
+    #     holiday = crud.get_random_holiday_on_date(month_num, day_num)
+    #     month_name = crud.get_month_by_number(month_num)
+    #     multiple_holidays_on_date = crud.check_for_multiple_holidays(month_num, day_num)
+    #     suffix = controller.get_date_suffix(day)
+
+    #     return render_template('holiday.html',
+    #                         month = month_num,
+    #                         month_name = month_name.capitalize(),
+    #                         day = day,
+    #                         holiday = holiday.holiday_name,
+    #                         blurb = holiday.holiday_blurb,
+    #                         image = holiday.holiday_img,
+    #                         multiple_holidays_on_date = multiple_holidays_on_date,
+    #                         suffix = suffix,
+    #                         generate_scroll = False)
+    
+    # except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError, IndexError):
+    #     return redirect('/error')
 
 
 @app.route('/<holiday>', methods = ["GET"])

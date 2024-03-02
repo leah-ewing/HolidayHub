@@ -55,13 +55,12 @@
 
         <br>
 
-        <!-- <div id="test-div"> -->
         <div class="row">
-            <div class="col" id="test-div">
+            <div class="col" id="holiday-buttons-div">
 
                 {% if multiple_holidays_on_date == True %}
             
-                    <button id="random_holiday_on_date" class="btn btn-outline-success" onclick="location.href='/random-holiday/{{month}}/{{day}}'">
+                    <button id="random_holiday_on_date" class="btn btn-outline-success" onclick="location.href='/random-holiday/{{month}}/{{day}}/{{holiday}}'">
                         But wait! It's also...
                     </button>
                     <br><br>

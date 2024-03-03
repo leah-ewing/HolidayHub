@@ -103,11 +103,9 @@ def update_holiday_blurb(name, blurb):
 def update_holiday_email(name, email):
     """ Updates the email for a given holiday """
 
-    holidays = Holiday.query.all()
+    holiday = Holiday.query.where(Holiday.holiday_name == name).first()
 
-    for holiday in holidays:
-        if holiday.holiday_name == name:
-            holiday.holiday_email = email
+    holiday.holiday_email = email
     
     db.session.commit()
 

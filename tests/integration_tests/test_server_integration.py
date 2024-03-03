@@ -82,7 +82,7 @@ class TestCalendarView(unittest.TestCase):
 class TestGetClickedDate(unittest.TestCase):
 
     def test_get_clicked_date(self):
-        """ Tests that the '/day-picker/<month>/<day>/<year>' route renders the 'holiday' template correctly """
+        """ Tests that the '/day-picker/<month>/<day>/<year>' route redirects correctly """
 
         reset_test_db()
         seed_test_months()
@@ -91,11 +91,7 @@ class TestGetClickedDate(unittest.TestCase):
         client = app.test_client()
         response = client.get('/day-picker/December/13/2023')
 
-        assert b'National Violin Day' in response.data
-        assert b'December' in response.data
-        assert b'13' in response.data
-        assert b'th' in response.data
-        assert b'test' in response.data
+        assert response.status_code == 302
 
 
     def test_get_clicked_date_error(self):
@@ -114,7 +110,7 @@ class TestGetClickedDate(unittest.TestCase):
 class TestRandomHolidayOnDate(unittest.TestCase):
 
     def test_random_holiday_on_date(self):
-        """ Tests that the '/random-holiday/<month>/<day>' route renders the 'holiday' template correctly """
+        """ Tests that the '/random-holiday/<month>/<day>/holiday-name>' route redirects correctly """
 
         reset_test_db()
         seed_test_months()
@@ -130,13 +126,9 @@ class TestRandomHolidayOnDate(unittest.TestCase):
         db.session.commit()
 
         client = app.test_client()
-        response = client.get('/random-holiday/12/13')
+        response = client.get(f'/random-holiday/12/13/{test_holiday_2.holiday_name}')
 
-        assert b'Test Holiday' in response.data
-        assert b'December' in response.data
-        assert b'13' in response.data
-        assert b'th' in response.data
-        assert b'test' in response.data
+        assert response.status_code == 302
 
 
     def test_random_holiday_on_date_error(self):

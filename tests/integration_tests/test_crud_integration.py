@@ -205,7 +205,7 @@ class Crud(unittest.TestCase):
 
         assert crud.check_for_multiple_holidays(12, 13) == True
 
-    
+
     def test_get_random_holiday_on_date(self):
         """ Should return a random holiday on a given date """
 
@@ -222,7 +222,7 @@ class Crud(unittest.TestCase):
         db.session.add(test_holiday_2)
         db.session.commit()
 
-        assert crud.get_random_holiday_on_date(12, 13) == 'Test Holiday' or 'National Violin Day'
+        assert crud.get_random_holiday_on_date(12, 13, 'Test Holiday').holiday_name == 'National Violin Day'
 
 
     def test_get_month_by_number(self):

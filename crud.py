@@ -171,12 +171,7 @@ def get_month_by_number(num):
 def get_holidays_in_month(month):
     """ Returns all the monthly holidays from a given month """
 
-    monthly_holidays = MonthlyHoliday.query.all()
-
-    holiday_list = []
-    for holiday in monthly_holidays:
-        if holiday.monthly_holiday_month == month:
-            holiday_list.append(holiday)
+    holiday_list = MonthlyHoliday.query.where(MonthlyHoliday.monthly_holiday_month == month).all()
     
     return holiday_list 
 
@@ -235,12 +230,7 @@ def remove_opted_out_emails():
 def get_opted_in_emails():
     """ Returns all emails that have opted in to receive daily emails """
 
-    emails = Email.query.all()
-    opted_in_emails = []
-
-    for email in emails:
-        if email.email_opt_in == True:
-            opted_in_emails.append(email)
+    opted_in_emails = Email.query.where(Email.email_opt_in == True).all()
 
     return opted_in_emails
 

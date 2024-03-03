@@ -42,11 +42,18 @@
 
         <button id="learn-more-button" class="btn btn-outline-success" onclick="location.href='/{{holiday}}'">
           Learn more about {{holiday}}!
-        </button><br><br><br>
+        </button>
       </div>
 
       <div class="col" id="homepage-image">
-        <small>- image here -</small>
+        <a href="/{{holiday}}">
+          <div class="image-container">
+            <img
+                src = "{{image}}"
+                width = 400>
+            </img>
+          </div>
+        </a>
       </div>
     </div>
 

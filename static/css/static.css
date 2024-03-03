@@ -91,7 +91,7 @@ button {
 #homepage-image {
     display: grid;
     place-items: center;
-    margin-bottom: 150px;
+    margin-bottom: 50px;
 }
 
 .add-email {
@@ -165,7 +165,7 @@ button {
     font-size: 47px;
     color: #f364a2;
     height: 55px;
-    margin-top: 300px;
+    margin-top: 290px;
     position: relative;
 }
 

@@ -93,11 +93,9 @@ def update_holiday_image(name, img):
 def update_holiday_blurb(name, blurb):
     """ Updates the blurb for a given holiday """
 
-    holidays = Holiday.query.all()
+    holiday = Holiday.query.where(Holiday.holiday_name == name).first()
 
-    for holiday in holidays:
-        if holiday.holiday_name == name:
-            holiday.holiday_blurb = blurb
+    holiday.holiday_blurb = blurb
 
     db.session.commit()
 

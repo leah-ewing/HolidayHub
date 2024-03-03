@@ -82,17 +82,17 @@ def about_page():
 def calendarView():
     """ Routes to Calendar page """
 
-    try:
-        current_date = controller.get_current_date()
-        month_num = crud.get_month_by_name(current_date["month"])
-        monthly_holidays = crud.get_holidays_in_month(month_num)
+    # try:
+    current_date = controller.get_current_date()
+    month_num = crud.get_month_by_name(current_date["month"])
+    monthly_holidays = crud.get_holidays_in_month(month_num)
 
-        return render_template('calendar-view.html',
+    return render_template('calendar-view.html',
                                 month = current_date["month"].capitalize(),
                                 monthly_holidays = monthly_holidays)
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
-        return redirect('/error')
+    # except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+    #     return redirect('/error')
 
 
 @app.route('/add-email', methods = ["POST"])
@@ -117,102 +117,73 @@ def add_new_email():
                         "status": 400})
 
 
-@app.route('/day-picker/<month>/<day>/<year>', methods = ["GET"])
-def get_clicked_date(month, day, year):
+@app.route('/day-picker/<month>/<day>', methods = ["GET"])
+def get_clicked_date(month, day):
     """ When a calendar day is clicked, directs user to that day's holiday page """
 
-    try:
-        month_num = crud.get_month_by_name(month)
-        holiday_data = crud.get_first_holiday_by_date(month_num, day)
-        suffix = controller.get_date_suffix(str(day))
-        multiple_holidays_on_date = crud.check_for_multiple_holidays(int(holiday_data.holiday_month), int(day))
+    # try:
+    month_num = crud.get_month_by_name(month)
+    holiday_data = crud.get_first_holiday_by_date(month_num, day)
 
-        next_date = controller.get_next_day(int(month_num), int(day), int(year))
-        previous_date = controller.get_previous_day(month_num, int(day), int(year))
-
-        next_date_month_string = crud.get_month_by_number(next_date["month"])
-        previous_date_month_string = crud.get_month_by_number(previous_date["month"])
-
-        return render_template('holiday.html',
-                            month = month_num,
-                            holiday = holiday_data.holiday_name,
-                            month_name = month,
-                            day = day,
-                            suffix = suffix,
-                            image = holiday_data.holiday_img,
-                            generate_scroll = True,
-                            blurb = holiday_data.holiday_blurb,
-                            multiple_holidays_on_date = multiple_holidays_on_date,
-                            next_date = next_date,
-                            next_date_month = next_date_month_string.capitalize(),
-                            previous_date = previous_date,
-                            previous_date_month = previous_date_month_string.capitalize())
+    return redirect(f'/{holiday_data.holiday_name}')
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError, IndexError):
-            return redirect('/error')
+    # except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError, IndexError):
+    #         return redirect('/error')
     
 
 @app.route('/random-holiday/<month>/<day>/<holiday>', methods = ["GET"])
 def random_holiday_on_date(month, day, holiday):
     """ Takes a user to another random holiday on a given date discluding the current holiday being viewed """
     
-    month_num = int(month)
-    day_num = int(day)
+    try:
+        month_num = int(month)
+        day_num = int(day)
 
-    holiday = crud.get_random_holiday_on_date(month_num, day_num, holiday)
+        holiday = crud.get_random_holiday_on_date(month_num, day_num, holiday)
 
-    return redirect(f"/{holiday.holiday_name}")
-
+        return redirect(f"/{holiday.holiday_name}")
     
-    # try:
-    #     month_num = int(month)
-    #     day_num = int(day)
-
-    #     holiday = crud.get_random_holiday_on_date(month_num, day_num)
-    #     month_name = crud.get_month_by_number(month_num)
-    #     multiple_holidays_on_date = crud.check_for_multiple_holidays(month_num, day_num)
-    #     suffix = controller.get_date_suffix(day)
-
-    #     return render_template('holiday.html',
-    #                         month = month_num,
-    #                         month_name = month_name.capitalize(),
-    #                         day = day,
-    #                         holiday = holiday.holiday_name,
-    #                         blurb = holiday.holiday_blurb,
-    #                         image = holiday.holiday_img,
-    #                         multiple_holidays_on_date = multiple_holidays_on_date,
-    #                         suffix = suffix,
-    #                         generate_scroll = False)
-    
-    # except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError, IndexError):
-    #     return redirect('/error')
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError, IndexError):
+        return redirect('/error')
 
 
 @app.route('/<holiday>', methods = ["GET"])
 def learn_more_about_holiday(holiday):
     """ Navigates to a holiday's page after clicking 'Learn More' on the homepage or email """
 
-    try:
-        holiday_data = crud.get_holiday_by_name(holiday)
-        month_name = crud.get_month_by_number(holiday_data.holiday_month)
-        day = holiday_data.holiday_date
-        suffix = controller.get_date_suffix(str(day))
-        image = holiday_data.holiday_img
-        multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday_data.holiday_month, day)
+    # try:
+    holiday_data = crud.get_holiday_by_name(holiday)
+    month_name = crud.get_month_by_number(holiday_data.holiday_month)
+    day = holiday_data.holiday_date
+    suffix = controller.get_date_suffix(str(day))
+    image = holiday_data.holiday_img
+    multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday_data.holiday_month, day)
 
-        return render_template('holiday.html',
+    current_date = controller.get_current_date()
+
+    next_date = controller.get_next_day(int(holiday_data.holiday_month), int(day), int(current_date['year']))
+    previous_date = controller.get_previous_day(int(holiday_data.holiday_month), int(day), int(current_date['year']))
+
+    next_date_month_string = crud.get_month_by_number(next_date["month"])
+    previous_date_month_string = crud.get_month_by_number(previous_date["month"])
+
+    return render_template('holiday.html',
                             holiday = holiday,
                             month_name = month_name.capitalize(),
                             day = day,
                             suffix = suffix,
                             image = image,
-                            generate_scroll = False,
+                            # generate_scroll = True,
                             blurb = holiday_data.holiday_blurb,
                             multiple_holidays_on_date = multiple_holidays_on_date,
-                            month = holiday_data.holiday_month)
+                            month = holiday_data.holiday_month,
+                            next_date = next_date,
+                            next_date_month = next_date_month_string.capitalize(),
+                            previous_date = previous_date,
+                            previous_date_month = previous_date_month_string.capitalize())
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
-        return redirect('/error')
+    # except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+    #     return redirect('/error')
 
 
 @app.route('/random-holiday')
@@ -279,11 +250,11 @@ def errorPage():
     return render_template('error-page.html')
 
 
-@app.errorhandler(404)
-def not_found(e):
-    """ Redirects the user to the error page when a 404 error is encountered """
+# @app.errorhandler(404)
+# def not_found(e):
+#     """ Redirects the user to the error page when a 404 error is encountered """
 
-    return redirect('/error')
+#     return redirect('/error')
 
 
 if __name__ == '__main__':

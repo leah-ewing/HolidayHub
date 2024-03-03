@@ -49,7 +49,7 @@ const generateCalendar = (month, year) => {
             const date_picked = String(day)
             const month_picked = month_names[month]
             const year_picked = calendar_header_year.innerHTML
-            const url = `day-picker/${month_picked}/${date_picked}/${year_picked}`
+            const url = `day-picker/${month_picked}/${date_picked}`
 
             fetch(url)
                 .then(response => {

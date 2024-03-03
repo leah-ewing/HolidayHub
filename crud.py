@@ -112,12 +112,9 @@ def update_holiday_email(name, email):
 
 def get_month_by_name(name):
     """ Returns a month's corresponding number """
+    month = Month.query.where(Month.month_name == name.lower()).first()
 
-    months = Month.query.all()
-
-    for month in months:
-        if month.month_name == name.lower():
-            return month.month_id
+    return month.month_id
         
 
 def get_first_holiday_by_date(month, day):

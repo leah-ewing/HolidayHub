@@ -128,11 +128,9 @@ def get_first_holiday_by_date(month, day):
 def get_holiday_by_name(name):
     """ Given a name, returns a matching holiday """
 
-    holidays = Holiday.query.all()
+    holiday = Holiday.query.where(Holiday.holiday_name == name).first()
 
-    for holiday in holidays:
-        if holiday.holiday_name == name:
-            return holiday
+    return holiday
         
         
 def check_for_multiple_holidays(month, day):

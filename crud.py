@@ -120,11 +120,9 @@ def get_month_by_name(name):
 def get_first_holiday_by_date(month, day):
     """ Return the first holiday matching a given date """
 
-    holidays = Holiday.query.all()
+    holiday = Holiday.query.filter(Holiday.holiday_month == int(month), Holiday.holiday_date == int(day)).first()
 
-    for holiday in holidays:
-        if holiday.holiday_month == int(month) and holiday.holiday_date == int(day):
-            return holiday
+    return holiday
         
 
 def get_holiday_by_name(name):

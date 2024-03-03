@@ -81,11 +81,9 @@ def create_monthly_holiday(monthly_holiday_name, monthly_holiday_month):
 def update_holiday_image(name, img):
     """ Updates the image for a given holiday """
 
-    holidays = Holiday.query.all()
+    holiday = Holiday.query.where(Holiday.holiday_name == name).first()
 
-    for holiday in holidays:
-        if holiday.holiday_name == name:
-            holiday.holiday_img = img
+    holiday.holiday_img = img
 
     db.session.commit()
 

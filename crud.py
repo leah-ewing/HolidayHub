@@ -136,12 +136,7 @@ def get_holiday_by_name(name):
 def check_for_multiple_holidays(month, day):
     """ Returns true if a date has multiple holidays """
 
-    holidays = Holiday.query.all()
-
-    holidays_on_date = []
-    for holiday in holidays:
-        if holiday.holiday_month == month and holiday.holiday_date == day:
-            holidays_on_date.append(holiday)
+    holidays_on_date = Holiday.query.filter(Holiday.holiday_month == month, Holiday.holiday_date == day).all()
     
     if len(holidays_on_date) > 1:
         return True

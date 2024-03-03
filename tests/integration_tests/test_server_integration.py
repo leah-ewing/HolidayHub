@@ -82,14 +82,14 @@ class TestCalendarView(unittest.TestCase):
 class TestGetClickedDate(unittest.TestCase):
 
     def test_get_clicked_date(self):
-        """ Tests that the '/day-picker/<month>/<day>/<year>' route redirects correctly """
+        """ Tests that the '/day-picker/<month>/<day>' route triggers a redirect """
 
         reset_test_db()
         seed_test_months()
         seed_test_holiday()
 
         client = app.test_client()
-        response = client.get('/day-picker/December/13/2023')
+        response = client.get('/day-picker/December/13')
 
         assert response.status_code == 302
 
@@ -102,7 +102,7 @@ class TestGetClickedDate(unittest.TestCase):
         seed_test_holiday()
 
         client = app.test_client()
-        response = client.get('/day-picker/Dec/13/2023')
+        response = client.get('/day-picker/Dec/13')
 
         assert response.status_code == 302
 
@@ -110,7 +110,7 @@ class TestGetClickedDate(unittest.TestCase):
 class TestRandomHolidayOnDate(unittest.TestCase):
 
     def test_random_holiday_on_date(self):
-        """ Tests that the '/random-holiday/<month>/<day>/holiday-name>' route redirects correctly """
+        """ Tests that the '/random-holiday/<month>/<day>/holiday-name>' route triggers a redirect """
 
         reset_test_db()
         seed_test_months()

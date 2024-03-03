@@ -206,13 +206,10 @@ def random_holiday(name):
         holiday = crud.get_holiday_by_name(name)
         month = crud.get_month_by_number(holiday.holiday_month)
         suffix = controller.get_date_suffix(str(holiday.holiday_date))
-
-
+        
         current_date = controller.get_current_date()
-
         next_date = controller.get_next_day(int(holiday.holiday_month), int(holiday.holiday_date), int(current_date['year']))
         previous_date = controller.get_previous_day(int(holiday.holiday_month), int(holiday.holiday_date), int(current_date['year']))
-
         next_date_month_string = crud.get_month_by_number(next_date["month"])
         previous_date_month_string = crud.get_month_by_number(previous_date["month"])
 

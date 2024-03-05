@@ -60,10 +60,6 @@
     color: #f364a2;
 }
 
-#navbar {
-    background-color: #ABE374;
-}
-
 #navbar-tagline {
     font-family: 'Righteous';
     font-size: 20px;
@@ -84,7 +80,7 @@
 }
 
 #footer {
-    background-color: #ABE374;
+    background-color: #9B7A9A;
     padding: 14px 16px;
     text-decoration: none;
 }

@@ -72,7 +72,7 @@ async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
 
     for (let i of slideshowHolidayIndexes) {
         holidaysDiv.innerHTML += (`<div class="col" id="slideshow-holiday">
-                                        <div class="row">
+                                        <div class="row slideshow-row">
                                             <div class="col" id="slideshow-holiday-image">
                                                 <a href = "/${slideshowHolidayList[i].holiday_name}">
                                                     <div class="image-container">

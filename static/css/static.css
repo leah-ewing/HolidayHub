@@ -1,6 +1,5 @@
-
 #navbar {
-    background-color: #ABE374;
+    background-color: #9B7A9A;
 }
 
 #navbar-logo {
@@ -17,7 +16,10 @@
 
 body {
     font-family: 'Inter Tight';
-    background-color: #fdfdfd;
+    /* border: solid red; */
+    background-image: url("../media/other_images/background-image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #logo-button {
@@ -38,24 +40,30 @@ button {
     max-width: 225px;
 }
 
-.homepage {
+.homepage-container {
     display: grid;
     place-items: center;
     font-size: 22px;
-    position: absolute;
-    padding-bottom: 100px;
-    padding-top: 800px;
+    padding-bottom: 60px;
+    width: 100%;
 }
 
-.homepage h1 {
+.homepage-container h1 {
     display: grid;
     place-items: center;
 }
 
-.home-slideshow {
-    margin-left: 35px;
+.slideshow {
+    /* border-top: solid 10px #A8DCD9; */
+    /* background-color: #60435F; */
+    border: solid purple;
+    background: rgba(168, 220, 217, .4);
+    width: 100%;
+    display: grid;
+    /* display: inline-block; */
+    place-items: center;
+    /* border: solid red; */
 }
-
 
 #share-popup-window-text {
     display: grid;
@@ -89,9 +97,32 @@ button {
 }
 
 #homepage-image {
-    display: grid;
-    place-items: center;
+    /* place-items: center; */
     margin-bottom: 50px;
+    margin-top: 50px;
+    /* position: relative; */
+    margin-right: 350px;
+    /* border: solid white; */
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: rgba(255, 255, 255, .6);
+    /* max-height: auto; */
+}
+
+/* #homepage-img {
+    max-height: 400px;
+} */
+
+#today-is-text-col {
+    text-align: left;
+    max-width: 400px;
+    /* border: solid red; */
+    margin-left: 400px;
+    background: rgba(255, 255, 255, .6);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* margin-left: 20px; */
+
 }
 
 .add-email {
@@ -125,21 +156,42 @@ button {
 }
 
 #slideshow {
-    width: 1400px;
-    place-items: center;
-}
-
-#left-slideshow-arrow {
-    margin-right: 30px;
+    border: solid green;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    /* display: inline-block; */
+    /* width: 1100px; */
+    min-width: 100%;
 }
 
 #slideshow-image {
     max-height: 150px;
     max-width: auto;
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
+}
+
+#slideshow-holiday-image {
+    display: grid;
+    place-items: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+#slideshow-holiday {
+    /* border: solid red; */
+    margin: 10px;
+    background: rgba(255, 255, 255, .4);
+    /* width: 200px; */
+    width: 100%;
+    display: inline;
 }
 
 #slideshow-holiday-blurb {
     height: 150px;
+    /* width: auto; */
+    /* margin-right: 40px; */
+    /* padding-right: 50px; */
 }
 
 #slideshow-holiday-date {
@@ -160,13 +212,45 @@ button {
     color: black;
 }
 
+#homepage-title{
+    /* border: solid 10px #A8DCD9; */
+    width: 100%;
+    height: 250px;
+    /* background-color: #A8DCD9; */
+    /* background: rgba(168, 220, 217, .4) */
+}
+
 #celebrate-dynamic {
     font-family: 'Righteous';
-    font-size: 47px;
+    font-size: 75px;
+    /* color: #D67AB1; */
     color: #f364a2;
     height: 55px;
-    margin-top: 290px;
+    margin-top: 85px;
+    margin-bottom: -20px;
     position: relative;
+    /* text-shadow: white 0px 0 15px; */
+    /* -webkit-text-stroke: 2px #60435F; */
+    /* text-shadow: 1px 0 24px #FDFD96, 0 -1px 24px #FDFD96; */
+    /* text-shadow:  0px 0px 2px white,0px 0px 2px white,0px 0px 2px white; */
+    text-shadow: 3px 2px 20px #FDF7FA;
+}
+
+#homepage-buttons {
+    /* border: solid 10px #A8DCD9; */
+    /* background-color: #FDF7FA; */
+    width: 100%;
+    text-align: center;
+}
+
+#today-is-row {
+    /* border: solid green; */
+    /* border: solid 10px #A8DCD9; */
+    place-items: center;
+    text-align: center;
+    width: 100%;
+    background: rgba(168, 220, 217, .4);
+    /* background-color: #60435F; */
 }
 
 #left-slideshow-arrow,
@@ -184,6 +268,10 @@ button {
     font-size: 30px;
 }
 
+#right-slideshow-arrow {
+    margin-right: 20px;
+}
+
 #holiday-buttons-div {
     text-align: center;
 }
@@ -192,6 +280,8 @@ button {
     font-family: 'Righteous';
     font-size: 47px;
     color: #f364a2;
+    text-shadow: 5px 5px 20px #FDF7FA;
+    margin-top: -50px;
 }
 
 .image-container {

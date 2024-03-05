@@ -17,12 +17,11 @@
         href="../static/css/static.css">
 
     <div id="holiday-body">
-        <br>
         <h3>
             {{month_name}} {{day}}{{suffix}} is...
         </h3>
         <h1>
-            <text class="holiday-name" id="holiday-page-name">
+            <text class="holiday-name">
                 {{holiday}}!
             </text>
             <br>
@@ -62,7 +61,7 @@
                         But wait! It's also...
                     </button>
                     <br><br>
-    
+
                 {% endif %}
 
                 <button id="back-to-homepage" class="btn btn-outline-success" onclick="location.href='/'">
@@ -74,32 +73,30 @@
                 </button>
             </div>
         </div>
+    </div>
 
-        <br>
+    <span class="explore-more">
+        Explore More Holidays!
+    </span>
 
-        <div class="row">
-            <span class="explore-more">
-                Explore More Holidays!
-            </span>
-
-            <br><br><br><br><br>
-        </div>
-
-        <div class="container-fluid">
-            <div class="row" id="slideshow">
+    <div class="container-fluid slideshow">
+        <div class="row" id="slideshow">
             <div class="col" id="left-slideshow-arrow">
-                <a href id="left-arrow">◀︎</a>
+            <a href id="left-arrow">◀︎</a>
             </div>
-            <div class="col" id="slideshow-holiday">
-                <div class="row" id="holidays"></div>
+            <div class="col" id="test">
+                <div class="row" id="holidays">
+                </div>
             </div>
             <div class="col" id="right-slideshow-arrow">
-                <a href id="right-arrow">▶</a>
-            </div>
+            <a href id="right-arrow">▶</a>
             </div>
         </div>
+        </div>
+        <script src="../static/js/slideshow.js"></script>
     </div>
-    <script src="../static/js/slideshow.js" defer></script>
+    <br><br><br>
+
 </body>
 
 {% endblock %}

@@ -13,18 +13,20 @@
     rel="stylesheet"
     href="../static/css/static.css">
 
-  <div class="homepage container">
+  <div class="homepage-container">
+
     <div class="row" id="homepage-title">
       <h1>
         <span is="type-async" id="celebrate-dynamic">Celebrate</span>
         <script src="../static/js/static.js"></script>
+          <br>
           <b>Today!</b>
           <br>
       </h1>
     </div>
 
-    <div class="row">
-      <div class="col">
+    <div class="row" id="today-is-row">
+      <div class="col" id="today-is-text-col">
         <h2 id="today-is-text">
           <b>
             Today is...
@@ -57,7 +59,8 @@
       </div>
     </div>
 
-    <div>
+    <div id="homepage-buttons">
+      <br>
       <button id="calendar-view-button" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
         View Calendar
       </button>
@@ -68,32 +71,30 @@
 
       <br><br>
     </div>
+  </div>
 
-    <div class="row">
-      <span class="explore-more">
-        Explore More Holidays!
-      </span>
-      
-      <br><br><br>
-    </div>
-  
-    <div class="container-fluid">
-      <div class="row home-slideshow" id="slideshow">
-        <div class="col" id="left-slideshow-arrow">
-          <a href id="left-arrow">◀︎</a>
-        </div>
-        <div class="col" id="slideshow-holiday">
+  <div class="row" id="explore-more-row">
+    <span class="explore-more">
+      Explore More Holidays!
+    </span>
+  </div>
+
+  <div class="container-fluid slideshow">
+    <div class="row home-slideshow" id="slideshow">
+      <div class="col" id="left-slideshow-arrow">
+        <a href id="left-arrow">◀︎</a>
+      </div>
+        <div class="col" id="test">
           <div class="row" id="holidays">
           </div>
         </div>
-        <div class="col" id="right-slideshow-arrow">
-          <a href id="right-arrow">▶</a>
-        </div>
+      <div class="col" id="right-slideshow-arrow">
+        <a href id="right-arrow">▶</a>
       </div>
     </div>
-    <script src="../static/js/slideshow.js"></script>
   </div>
-  
+  <script src="../static/js/slideshow.js"></script>
+  <br><br><br>
 </body>
 
 {% endblock %}

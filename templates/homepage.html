@@ -25,42 +25,55 @@
       </h1>
     </div>
 
-    <div class="row" id="today-is-row">
-      <div class="col" id="today-is-text-col">
-        <h2 id="today-is-text">
-          <b>
-            Today is...
-          </b>
-        </h2>
-
-        <h1>
-          <text class="holiday-name">
-            <b>
-              {{holiday}}!
-            </b>
-          </text>
-        </h1>
-        <br>
-
-        <button id="learn-more-button" class="btn btn-outline-success" onclick="location.href='/{{holiday}}'">
-          Learn more about {{holiday}}!
-        </button>
-      </div>
-
-      <div class="col" id="homepage-image">
-        <a href="/{{holiday}}">
-          <div class="image-container">
-            <img
-                src = "{{image}}"
-                width = 400>
-            </img>
+    <!-- <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            today is...
           </div>
-        </a>
+          <div class="col">
+            image
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="row" id="today-is-row">
+      <div class="col" id="today-is-col">
+        <div class="row" id="today-is-inner-row">
+          <div class="col" id="today-is-text-col">
+            <h2 id="today-is-text">
+              <b>
+                Today is...
+              </b>
+            </h2>
+
+            <text class="holiday-name">
+              <b>
+                {{holiday}}!
+              </b>
+            </text>
+
+            <button id="learn-more-button" class="btn btn-outline-success" onclick="location.href='/{{holiday}}'">
+              Learn more about {{holiday}}!
+            </button>
+          </div>
+
+          <div class="col" id="homepage-image">
+            <a href="/{{holiday}}">
+              <div class="image-container">
+                <img
+                    src = "{{image}}"
+                    width = 400>
+                </img>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
     <div id="homepage-buttons">
-      <br>
       <button id="calendar-view-button" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
         View Calendar
       </button>
@@ -68,8 +81,6 @@
       <button id="random-holiday-from-homepage" class="btn btn-outline-success" onclick="location.href='/random-holiday'">
         Show me a random holiday!
       </button>
-
-      <br><br>
     </div>
   </div>
 

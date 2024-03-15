@@ -4,6 +4,8 @@ from jinja2 import StrictUndefined
 import crud, controller
 import os
 
+# from freezegun import freeze_time  ### test
+
 DEV_KEY = os.environ['DEV_KEY']
 
 app = Flask(__name__)
@@ -15,6 +17,7 @@ app.jinja_env.undefined = StrictUndefined
 
 
 @app.route('/')
+# @freeze_time("2024-4-18") ### test
 def homepage():
     """ Routes to app homepage """
 

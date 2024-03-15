@@ -17,7 +17,7 @@ app.jinja_env.undefined = StrictUndefined
 
 
 @app.route('/')
-# @freeze_time("2024-4-18") ### test
+# @freeze_time("2024-11-3") ### test
 def homepage():
     """ Routes to app homepage """
 

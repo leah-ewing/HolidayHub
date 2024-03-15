@@ -32,14 +32,7 @@ button {
 }
 
 #today-is-text {
-    /* margin-left: -100px; */
-    /* margin-left: -25%; */
-    /* padding-right: 155px; */
-    /* text-align: left; */
-    /* object-position: left; */
-    /* border: solid red; */
     padding-left: 8%;
-    /* margin-bottom: 20px; */
     margin: 0px;
 }
 
@@ -47,7 +40,6 @@ button {
     max-width: 225px;
     margin-top: 20px;
     margin-bottom: 5px;
-    /* border: solid yellow; */
 }
 
 .homepage-container {
@@ -145,7 +137,6 @@ button {
     font-family: 'Righteous';
     font-size: 45px;
     color: #f364a2;
-    /* border: solid pink; */
 }
 
 #holiday-image

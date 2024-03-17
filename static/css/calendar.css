@@ -66,13 +66,13 @@
     padding-right: 20px;
 }
 
-#navbar-logo {
-    font-family: 'Righteous';
-    font-size: 25px;
-    color: black;
-    text-shadow: #AFE0CE 0px 0 15px;
+/* #navbar-logo { */
+    /* font-family: 'Righteous'; */
+    /* font-size: 25px; */
+    /* color: black; */
+    /* text-shadow: #AFE0CE 0px 0 15px; */
     /* text-shadow: 1px 1px 2px #AFE0CE, 0 0; */
-}
+/* } */
 
 #share-button,
 #popup-button {
@@ -80,7 +80,9 @@
 }
 
 #footer {
-    background-color: #9B7A9A;
+    /* background-color: #fffffc; */
+    /* background-color: rgba(130, 110, 135, .9); */
+    background-color: rgba(255, 255, 255 .9);
     padding: 14px 16px;
     text-decoration: none;
 }

@@ -793,6 +793,7 @@ button {
     font-family: 'Alumni Sans';
     font-size: 45px;
     /* margin-bottom: -20px; */
+    margin-bottom: 25px;
     letter-spacing: 1px;
     /* font-size: 70px; */
     color: rgb(78, 47, 78);

@@ -125,15 +125,24 @@ button {
     /* letter-spacing: 2px; */
     font-size: 60px;
     text-shadow: 0 0 12px white, 0 0 15px white;
-    color: rgb(78, 47, 78);
+    /* color: rgb(78, 47, 78); */
+    color: #f364a2;
+    font-style: italic;
+    /* font-weight: 600; */
 }
 
 #learn-more-button {
     max-width: 225px;
     margin-top: 20px;
     margin-bottom: 5px;
-    background-color: rgb(78, 47, 78, .7);
+
+    /* background-color: rgb(78, 47, 78, .7);
+    text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78); */
+
+    background-color: rgb(243, 100, 162, .9);
+    color: white;
     text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);
+
     /* background-color: white; */
     /* font-family: 'Spicy Rice';
     letter-spacing: .5px;
@@ -147,16 +156,23 @@ button {
 #calendar-view-button,
 #random-holiday-from-homepage {
     font-family: 'Spicy Rice';
-    background-color: rgb(243, 100, 162, .9);
+    /* background-color: rgb(243, 100, 162, .9); */
+    background-color: rgba(78, 47, 78, 0.603, .9);
     /* text-shadow: 0 0 2px rgb(78, 47, 78), 0 0 2px rgb(78, 47, 78); */
     /* color: rgb(78, 47, 78); */
+
     color: white;
     text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);
+
+
+    /* background-color: rgb(78, 47, 78, .8);
+    text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78); */
 }
 
 #calendar-view-button:hover,
 #random-holiday-from-homepage:hover {
-    background-color: rgb(243, 100, 162, .7);
+    /* background-color: rgb(243, 100, 162, .7); */
+    background-color: rgba(78, 47, 78, 0.603);
 }
 
 /* #random-holiday-from-homepage { */
@@ -238,6 +254,7 @@ button {
 #learn-more-button-span {
     /* border: solid purple; */
     text-align: center;
+    /* text-align: right; */
     margin-bottom: 10px;
 }
 
@@ -252,6 +269,7 @@ button {
     /* border: solid green; */
     display: grid;
     place-items: left;
+    /* place-items: center; */
     padding-top: 10px;
     /* margin-bottom: 110px; */
     background-color: rgba(255, 255, 255, .6);
@@ -273,8 +291,11 @@ button {
     /* letter-spacing: 3px; */
     /* line-height: 75px; */
     font-size: 80px;
-    color: #f364a2;
-    text-shadow: 0 0 12px white, 0 0 15px white;
+    /* color: #f364a2; */
+    color: rgb(78, 47, 78);
+    text-shadow: 0 0 2px white, 0 0 5px white;
+    /* font-weight: 500; */
+    text-align: center;
 }
 
 #holiday-image
@@ -353,6 +374,7 @@ button {
     /* font-style: italic; */
     font-size: 70px;
     color: rgb(78, 47, 78);
+    /* margin-bottom: -100px; */
 }
 
 #celebrate-dynamic {
@@ -364,7 +386,7 @@ button {
     /* color: #D67AB1; */
     color: #f364a2;
     height: 55px;
-    margin-top: 55px;
+    margin-top: 60px;
     margin-bottom: -30px;
     position: relative;
     /* text-shadow: white 0px 0 15px; */
@@ -389,6 +411,7 @@ button {
 
 #today-is-row {
     /* border: solid green; */
+    margin-top: -20px;
     width: 100%;
     /* background: rgba(239, 149, 157, .7); */
     /* background: rgba(255, 230, 109, .5); */
@@ -424,10 +447,11 @@ button {
 .explore-more {
     font-family: 'Spicy Rice';
     font-size: 55px;
-    /* color: #f364a2; */
-    color: rgb(78, 47, 78);
+    color: #f364a2;
+    /* color: rgb(78, 47, 78); */
     /* text-shadow: 5px 5px 20px #FDF7FA; */
-    text-shadow: 0 0 12px white, 0 0 15px white;
+    /* text-shadow: 0 0 2px rgb(78, 47, 78), 0 0 2px rgb(78, 47, 78); */
+    text-shadow: 0 0 10px white, 0 0 10px white;
     margin-top: -50px;
 }
 

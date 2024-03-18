@@ -269,7 +269,14 @@ button {
     place-items: center;
     max-width: fit-content;
     /* border-radius: 7px; */
+    /* width: 100px;
+    height: 100px; */
 }
+
+/* .homepage-image {
+    width: 100px;
+    height: 100px;
+} */
 
 #learn-more-button-span {
     /* border: solid purple; */
@@ -343,7 +350,8 @@ button {
     max-width: fit-content;
 }
 
-.holiday-image {
+.holiday-image,
+.homepage-image {
     /* border: solid 4px red; */
     height: 255px;
     width: 375px;

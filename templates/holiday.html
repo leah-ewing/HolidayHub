@@ -16,41 +16,38 @@
         rel="stylesheet"
         href="../static/css/static.css">
 
-    <div id="holiday-body">
-        <h3>
-            {{month_name}} {{day}}{{suffix}} is...
-        </h3>
-        <h1>
-            <text class="holiday-name">
-                {{holiday}}!
-            </text>
-            <br>
-        </h1>
-        <br>
-
-        <div class="col" id="previous-date">
-            <a id = "previous-date-button" href="/day-picker/{{previous_date_month}}/{{previous_date.day}}">◀︎</a>
-        </div>
-        <div class="col">
-            <a id = "next-date-button" href="/day-picker/{{next_date_month}}/{{next_date.day}}">▶︎</a>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <div id = "holiday-image" class = "image-container">
-                    <img class = "holiday-image"
-                        src = "{{image}}"
-                        width = 300>
-                    </img>
+    <div class="holiday-container" id="holiday-body">
+        <div class="row" id="holiday-outer-row">
+            <div class="col" id="holiday-outer-col">
+                <div class="row" id="holiday-title">
+                    <text id="date-is">
+                        {{month_name}} {{day}}{{suffix}} is...
+                    </text>
+                    <text class="holiday-page-name">
+                        {{holiday}}!
+                    </text>
+                </div>
+                <div class="row" id="holiday-description">
+                    <div class="col" id="previous-date">
+                        <a id = "previous-date-button" href="/day-picker/{{previous_date_month}}/{{previous_date.day}}">◀︎</a>
+                    </div>
+                    <div class="col">
+                        <div id="holiday-image" class="image-container">
+                            <img class = "holiday-image"
+                                src = "{{image}}"
+                                width = 300>
+                            </img>
+                        </div>
+                    </div>
+                    <div class="col" id="blurb">
+                        {{blurb}}
+                    </div>
+                    <div class="col" id="next-date">
+                        <a id = "next-date-button" href="/day-picker/{{next_date_month}}/{{next_date.day}}">▶︎</a>
+                    </div>
                 </div>
             </div>
-
-            <div class="col" id="blurb">
-                {{blurb}}
-            </div>
         </div>
-
-        <br>
 
         <div class="row">
             <div class="col" id="holiday-buttons-div">
@@ -86,7 +83,7 @@
             <div class="col" id="left-slideshow-arrow">
             <a href id="left-arrow">◀︎</a>
             </div>
-            <div class="col" id="test">
+            <div class="col">
                 <div class="row" id="holidays">
                 </div>
             </div>
@@ -97,8 +94,6 @@
         </div>
         <script src="../static/js/slideshow.js"></script>
     </div>
-    <br><br><br>
-
 </body>
 
 {% endblock %}

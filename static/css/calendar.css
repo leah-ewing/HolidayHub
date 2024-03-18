@@ -84,16 +84,20 @@
     /* background-color: rgba(130, 110, 135, .9); */
     background-color: rgba(255, 255, 255 .9);
     padding: 14px 16px;
+    /* border: solid red; */
     /* text-decoration: none; */
     /* position: fixed; */
 }
 
 #footer-text {
-    font-size: 13px;
+    font-size: 15px;
     /* float: left; */
-    margin-left: 90%;
+    /* margin-left: 92%; */
     font-family: 'Alumni Sans';
+    text-align: right;
     color: rgb(78, 47, 78);
+    /* margin-top: 50px; */
+    /* border: solid red; */
     /* position: absolute; */
 }
 

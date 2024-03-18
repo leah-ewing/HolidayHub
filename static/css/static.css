@@ -3,6 +3,7 @@
     /* background-color: rgba(255, 255, 255 .9); */
     /* background: linear-gradient(to bottom, rgba(255, 230, 109), pink, transparent); */
     /* background: linear-gradient(to bottom, pink, transparent, transparent); */
+    /* position: sticky; */
 /* } */
 
 #navbar-logo {
@@ -250,7 +251,7 @@ button {
     display: grid;
     place-items: center;
     max-width: fit-content;
-    border-radius: 7px;
+    /* border-radius: 7px; */
 }
 
 #learn-more-button-span {
@@ -276,7 +277,7 @@ button {
     /* margin-bottom: 110px; */
     background-color: rgba(255, 255, 255, .6);
     line-height: 60px;
-    border-radius: 7px;
+    /* border-radius: 7px; */
 }
 
 .add-email {
@@ -377,6 +378,8 @@ button {
     width: 100%;
     /* border: solid red; */
     /* background: rgba(255, 255, 255, .5); */
+    /* margin-top: 50px; */
+    /* position: relative; */
 }
 
 #homepage-title h1 b {
@@ -386,7 +389,7 @@ button {
     /* font-style: italic; */
     font-size: 70px;
     color: rgb(78, 47, 78);
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
     text-shadow: 0 0 10px white, 0 0 10px white;
 
 }
@@ -401,7 +404,7 @@ button {
     color: #f364a2;
     height: 55px;
     /* margin-top: -60px; */
-    margin-top: 50px;
+    /* margin-top: 50px; */
     margin-bottom: -30px;
     position: relative;
     /* text-shadow: white 0px 0 15px; */
@@ -410,6 +413,7 @@ button {
     /* text-shadow:  0px 0px 2px white,0px 0px 2px white,0px 0px 2px white; */
     /* text-shadow: 3px 2px 20px #FDF7FA; */
     text-shadow: 0 0 30px white, 0 0 30px white;
+    /* border: solid red; */
 }
 
 #homepage-buttons {
@@ -420,14 +424,15 @@ button {
 }
 
 #today-is-inner-row {
-    /* border: solid red; */
-    padding-top: 50px;
-    padding-bottom: 50px;
+    /* border: solid white; */
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* border-radius: 30px; */
 }
 
 #today-is-row {
     /* border: solid green; */
-    margin-top: -100px;
+    margin-top: -50px;
     width: 100%;
     /* background: rgba(239, 149, 157, .7); */
     /* background: rgba(255, 230, 109, .5); */
@@ -435,6 +440,7 @@ button {
     /* background: rgba(220, 96, 46, .5); */
     /* border-top: solid 2px rgba(239, 149, 157); */
     /* border-bottom: solid 2px rgba(239, 149, 157); */
+    /* border-radius: 7px; */
 }
 
 #left-slideshow-arrow,

@@ -159,7 +159,9 @@ button {
 #calendar-view-button,
 #random-holiday-from-homepage,
 #calendar-view-button-holiday,
-#back-to-homepage {
+#back-to-homepage,
+#back-to-home-from-about,
+#calendar-view-from-about {
     font-family: 'Spicy Rice';
     /* background-color: rgb(243, 100, 162, .9); */
     background-color: rgba(78, 47, 78, 0.603, .9);
@@ -189,7 +191,9 @@ button {
 #calendar-view-button:hover,
 #random-holiday-from-homepage:hover,
 #calendar-view-button-holiday:hover,
-#back-to-homepage:hover {
+#back-to-homepage:hover,
+#back-to-home-from-about:hover,
+#calendar-view-from-about:hover {
     /* background-color: rgb(243, 100, 162, .7); */
     background-color: rgba(78, 47, 78, 0.603);
 }

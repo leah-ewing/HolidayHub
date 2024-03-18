@@ -54,18 +54,18 @@
 
                 {% if multiple_holidays_on_date == True %}
             
-                    <button id="random_holiday_on_date" class="btn btn-outline-success" onclick="location.href='/random-holiday/{{month}}/{{day}}/{{holiday}}'">
+                    <button id="random-holiday-on-date" class="btn" onclick="location.href='/random-holiday/{{month}}/{{day}}/{{holiday}}'">
                         But wait! It's also...
                     </button>
                     <br><br>
 
                 {% endif %}
 
-                <button id="back-to-homepage" class="btn btn-outline-success" onclick="location.href='/'">
+                <button id="back-to-homepage" class="btn" onclick="location.href='/'">
                     Back Home
                 </button>
 
-                <button id="calendar-view-button-holiday" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
+                <button id="calendar-view-button-holiday" class="btn" onclick="location.href='/calendar-view'">
                     View Calendar
                 </button>
             </div>

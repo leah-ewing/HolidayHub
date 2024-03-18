@@ -157,7 +157,9 @@ button {
 }
 
 #calendar-view-button,
-#random-holiday-from-homepage {
+#random-holiday-from-homepage,
+#calendar-view-button-holiday,
+#back-to-homepage {
     font-family: 'Spicy Rice';
     /* background-color: rgb(243, 100, 162, .9); */
     background-color: rgba(78, 47, 78, 0.603, .9);
@@ -172,8 +174,22 @@ button {
     text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78); */
 }
 
+#random-holiday-on-date {
+    /* border: solid 2px red; */
+    background-color: rgb(243, 100, 162, .9);
+    color: white;
+    text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);
+}
+
+#random-holiday-on-date:hover {
+    background-color: rgb(243, 100, 162, .7);
+    border: solid 2px rgb(78, 47, 78);
+}
+
 #calendar-view-button:hover,
-#random-holiday-from-homepage:hover {
+#random-holiday-from-homepage:hover,
+#calendar-view-button-holiday:hover,
+#back-to-homepage:hover {
     /* background-color: rgb(243, 100, 162, .7); */
     background-color: rgba(78, 47, 78, 0.603);
 }
@@ -355,13 +371,13 @@ button {
 
 #holiday-outer-row {
     width: 100%;
-    /* border: solid red; */
+    border: solid red;
     display: grid;
     place-items: center;
     background: rgba(255, 255, 255, .5);
     margin-bottom: 25px;
     /* text-align: center; */
-    margin-top: -10px;
+    margin-top: -40px;
 }
 
 #holiday-outer-col {
@@ -556,6 +572,8 @@ button {
 }
 
 #holiday-buttons-div {
+    margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
 }
 

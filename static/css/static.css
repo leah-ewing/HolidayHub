@@ -759,30 +759,128 @@ button {
     left: 1160px;
 } */
 
+.about-page-container {
+    /* border: solid 5px purple; */
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
 #about-title {
     text-align: center;
+    /* border: solid red; */
+    width: 100%;
 }
 
 #about-title h1 {
-    font-family: 'Righteous';
-    font-size: 45px;
+    font-family: 'Alumni Sans';
+    font-size: 55px;
+    font-weight: 700;
+    color: rgb(78, 47, 78);
+    text-shadow: 0 0 15px white, 0 0 15px white;
 }
 
 #holidayapp-about-title {
     color: #f364a2;
+    /* border: solid orange; */
+    font-family: 'Spicy Rice';
+    letter-spacing: -1px;
+    text-shadow: 0 0 2px white, 0 0 5px white;
+}
+
+#about-title h2 {
+    margin-top: -15px;
+    font-family: 'Alumni Sans';
+    font-size: 45px;
+    margin-bottom: -20px;
+    letter-spacing: 1px;
+    /* font-size: 70px; */
+    color: rgb(78, 47, 78);
+    text-shadow: 0 0 5px white, 0 0 5px white;
+}
+
+.section-outer-row {
+    background-color: rgba(255, 255, 255, .5);
+    /* border: solid 5px yellow; */
+    width: 100%;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    display: grid;
+    place-items: center;
 }
 
 .about-section-title {
-    font-family: 'Righteous';
+    font-family: 'Alumni Sans';
     color: #f364a2;
-    font-size: 35px;
+    font-size: 45px;
+    /* border: solid pink; */
+    width: 60%;
+    font-weight: 600;
+    font-style: italic;
 }
 
 .about-section-text {
-    font-size: 18px;
+    font-size: 23px;
+    line-height: 28px;
+    /* border: solid blue; */
+    font-family: 'Alumni Sans';
+    width: 100%;
+    width: 60%;
+    background-color: rgba(255, 255, 255, .7);
+    color: rgb(78, 47, 78);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.about-section-text a {
+    /* text-decoration: none; */
+    color: rgba(78, 47, 78, 0.84);
+    font-weight: 700;
+}
+
+.about-buttons {
+    text-align: center;
+    /* border: solid bisque; */
+    width: 100%;
 }
 
 .about-thank-you {
-    font-family: 'Righteous';
-    font-size: 15px;
+    font-family: 'Alumni Sans';
+    /* font-size: 35px; */
+    /* border: solid yellowgreen; */
+    width: 100%;
+    /* text-align: center; */
+    display: grid;
+    place-items: center;
+    color: rgba(78, 47, 78, 0.84);
+    /* color: red; */
+    line-height: 35px;
+    font-weight: 700;
+}
+
+#about-signature {
+    margin-top: 15px;
+    /* color: red; */
+    text-align: center;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 25px;
+    /* font-style: italic; */
+}
+
+#thank-you-statement {
+    text-align: center;
+    font-style: italic;
+    color: #f364a2;
+    text-shadow: 0 0 3px white, 0 0 3px white;
+    font-size: 28px;
+    line-height: 35px;
+}
+
+#emoji {
+    font-style: normal;
+}
+
+.thank-you {
+    margin-top: 25px;
 }

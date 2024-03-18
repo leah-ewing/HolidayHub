@@ -132,10 +132,40 @@ button {
     max-width: 225px;
     margin-top: 20px;
     margin-bottom: 5px;
+    background-color: rgb(78, 47, 78, .7);
+    text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);
+    /* background-color: white; */
     /* font-family: 'Spicy Rice';
     letter-spacing: .5px;
     font-size: 25px; */
 }
+
+#learn-more-button:hover {
+    background-color: rgb(78, 47, 78, .6);
+}
+
+#calendar-view-button,
+#random-holiday-from-homepage {
+    font-family: 'Spicy Rice';
+    background-color: rgb(243, 100, 162, .9);
+    /* text-shadow: 0 0 2px rgb(78, 47, 78), 0 0 2px rgb(78, 47, 78); */
+    /* color: rgb(78, 47, 78); */
+    color: white;
+    text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);
+}
+
+#calendar-view-button:hover,
+#random-holiday-from-homepage:hover {
+    background-color: rgb(243, 100, 162, .7);
+}
+
+/* #random-holiday-from-homepage { */
+    /* font-family: 'Spicy Rice'; */
+    /* background-color: rgb(255, 255, 255, .9); */
+    /* color: rgb(243, 100, 162); */
+    /* border: solid 2px rgb(78, 47, 78); */
+    /* text-shadow: 0 0 2px rgb(78, 47, 78), 0 0 2px rgb(78, 47, 78); */
+/* } */
 
 .homepage-container {
     display: grid;
@@ -154,9 +184,10 @@ button {
     /* border: solid purple; */
     /* background: rgba(168, 220, 217, .4); */
     /* background: rgba(239, 149, 157, .4); */
-    background: rgba(255, 230, 109, .5);
-    border-top: solid 2px rgba(239, 149, 157);
-    border-bottom: solid 2px rgba(239, 149, 157);
+    /* background: rgba(255, 230, 109, .5); */
+    background: rgba(255, 255, 255, .5);
+    /* border-top: solid 2px rgba(239, 149, 157); */
+    /* border-bottom: solid 2px rgba(239, 149, 157); */
     width: 100%;
     display: grid;
     place-items: center;
@@ -194,12 +225,14 @@ button {
 }
 
 #homepage-image {
+    /* border: solid red; */
     padding-bottom: 10px;
     padding-top: 10px;
     background-color: rgba(255, 255, 255, .6);
     display: grid;
     place-items: center;
     max-width: fit-content;
+    border-radius: 7px;
 }
 
 #learn-more-button-span {
@@ -214,6 +247,7 @@ button {
 }
 
 #today-is-text-col {
+    /* border: solid red; */
     max-width: 500px;
     /* border: solid green; */
     display: grid;
@@ -222,6 +256,7 @@ button {
     /* margin-bottom: 110px; */
     background-color: rgba(255, 255, 255, .6);
     line-height: 60px;
+    border-radius: 7px;
 }
 
 .add-email {
@@ -329,7 +364,7 @@ button {
     /* color: #D67AB1; */
     color: #f364a2;
     height: 55px;
-    margin-top: 65px;
+    margin-top: 55px;
     margin-bottom: -30px;
     position: relative;
     /* text-shadow: white 0px 0 15px; */
@@ -356,10 +391,11 @@ button {
     /* border: solid green; */
     width: 100%;
     /* background: rgba(239, 149, 157, .7); */
-    background: rgba(255, 230, 109, .5);
+    /* background: rgba(255, 230, 109, .5); */
+    background: rgba(255, 255, 255, .5);
     /* background: rgba(220, 96, 46, .5); */
-    border-top: solid 2px rgba(239, 149, 157);
-    border-bottom: solid 2px rgba(239, 149, 157);
+    /* border-top: solid 2px rgba(239, 149, 157); */
+    /* border-bottom: solid 2px rgba(239, 149, 157); */
 }
 
 #left-slideshow-arrow,

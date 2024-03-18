@@ -41,7 +41,7 @@
       {% endblock %}
     </title>
 
-    <div class="container-fluid fixed-top" id="navbar">
+    <div class="container-fluid sticky-top" id="navbar">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -58,11 +58,11 @@
               <a class="nav-link" id="popup-button">Sign Up for Daily Emails!</a>
             </li>
           </ul>
-          <span class="navbar-text" id="navbar-tagline">
+          <!-- <span class="navbar-text" id="navbar-tagline">
             Holiday Search 
-          </span>
+          </span> -->
           <form class="d-flex" role="search" action="/get-search-result" method="GET">
-            <input class="form-control me-2" name="search-term" type="search" placeholder="Enter holiday name" aria-label="Search" required/>
+            <input class="form-control me-2" name="search-term" type="search" placeholder="Search holiday name" aria-label="Search" required/>
             <button class="btn submit-search btn-outline-success" type="submit"><text>Go</text></button>
           </form>
         </div>

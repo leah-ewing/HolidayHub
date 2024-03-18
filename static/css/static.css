@@ -817,6 +817,7 @@ button {
     width: 60%;
     font-weight: 600;
     font-style: italic;
+    text-shadow: 0 0 2px white, 0 0 2px white;
 }
 
 .about-section-text {

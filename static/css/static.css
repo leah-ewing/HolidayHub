@@ -310,6 +310,29 @@ button {
     filter: brightness(105%);
 }
 
+#previous-date {
+    /* border: solid red; */
+    max-width: 75px;
+}
+
+#next-date {
+    /* border: solid purple; */
+    /* height: 100%; */
+    max-width: 70px;
+    /* background-color: rgba(255, 255, 255, .6); */
+}
+
+#holiday-image-col {
+    /* border: solid green; */
+    max-width: fit-content;
+}
+
+.holiday-image {
+    /* border: solid 4px red; */
+    height: 255px;
+    width: 375px;
+}
+
 /* #holiday-body h3 {
     text-align: center;
     border: solid red;
@@ -321,6 +344,8 @@ button {
     color: rgb(78, 47, 78);
     font-weight: 700;
     text-shadow: 0 0 2px white, 0 0 5px white;
+    line-height: 65px;
+    margin-bottom: 35px;
     /* padding-top: -50px; */
 }
 
@@ -336,27 +361,32 @@ button {
     background: rgba(255, 255, 255, .5);
     margin-bottom: 25px;
     /* text-align: center; */
-    margin-top: -70px;
+    margin-top: -10px;
 }
 
 #holiday-outer-col {
     /* border: solid green; */
-    background: rgba(255, 255, 255, .7);
+    /* background: rgba(255, 255, 255, .7); */
     max-width: 75%;
-    margin: 25px;
+    margin: 50px;
+    display: grid;
+    place-items: center;
 }
 
 #holiday-description {
     /* border: solid purple; */
     /* width: 100%; */
-    /* background: rgba(255, 255, 255, .5); */
-    margin-bottom: 25px;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, .7);
+    /* margin-bottom: 5px; */
     /* padding-bottom: 30px; */
     /* display: grid;
     place-items: center; */
     /* display: inline; */
     place-items: center;
     text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 #slideshow {
@@ -428,7 +458,7 @@ button {
 #holiday-title {
     width: 100%;
     text-align: center;
-    /* margin-top: -60px; */
+    margin-top: -50px;
     /* border: solid red; */
     /* margin-bottom: -100px; */
     /* background: rgba(255, 255, 255, .5); */
@@ -440,7 +470,7 @@ button {
     color: #f364a2;
     font-style: italic;
     /* border: solid green; */
-    margin-bottom: -50px;
+    margin-bottom: -20px;
     font-weight: 600;
     /* text-shadow: 0 0 5px white, 0 0 5px white; */
 }
@@ -669,8 +699,14 @@ button {
     display: grid;
     place-items: center;
     width: 500px; 
-    margin-right: 75px;
-    /* border: solid red; */
+    /* margin-right: 75px; */
+    /* border: solid orange; */
+    text-align: justify;
+    font-family: 'Alumni Sans';
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 500;
+    color: rgb(78, 47, 78);
 }
 
 /* #holiday-image {
@@ -682,7 +718,8 @@ button {
     /* position: absolute; */
     text-decoration: none;
     color: #f364a2;
-    font-size: 30px;
+    font-size: 40px;
+    /* background: rgba(255, 255, 255, .5); */
 }
 
 /* #previous-date-button {

@@ -400,8 +400,9 @@ button {
     /* color: #D67AB1; */
     color: #f364a2;
     height: 55px;
-    margin-top: -60px;
-    margin-bottom: -70px;
+    /* margin-top: -60px; */
+    margin-top: 50px;
+    margin-bottom: -30px;
     position: relative;
     /* text-shadow: white 0px 0 15px; */
     /* -webkit-text-stroke: 2px #60435F; */

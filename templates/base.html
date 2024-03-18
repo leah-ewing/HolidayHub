@@ -58,9 +58,6 @@
               <a class="nav-link" id="popup-button">Sign Up for Daily Emails!</a>
             </li>
           </ul>
-          <!-- <span class="navbar-text" id="navbar-tagline">
-            Holiday Search 
-          </span> -->
           <form class="d-flex" role="search" action="/get-search-result" method="GET">
             <input class="form-control me-2" name="search-term" type="search" placeholder="Search holiday name" aria-label="Search" required/>
             <button class="btn submit-search btn-outline-success" type="submit"><text>Go</text></button>
@@ -117,7 +114,8 @@
           <h1><b>
             <br><br>
             Thank you for sharing!
-          </h1></b><br>
+          </h1></b>
+          <br>
         </div>
       </div>
 
@@ -225,14 +223,14 @@
 
 {% block after_body %}
 
-  <nav class="navbar fixed-bottom bg-body-tertiary" id="footer">
-    <div class="container-fluid">
+  <div class="container-fluid" id="footer">
+    <nav class="navbar bg-body-tertiary">
       <span class="navbar-text" id="footer-text">
           🎉 Created by: <a href="https://github.com/leah-ewing">Leah Ewing</a>, &#9426; 2024
       </span>
-    </div>
-  </nav>
-  
+    </nav>
+  </div>
+    
 {% endblock %}
 
 <!-- BOOTSTRAP SCRIPT -->

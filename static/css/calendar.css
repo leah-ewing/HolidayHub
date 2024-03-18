@@ -84,14 +84,22 @@
     /* background-color: rgba(130, 110, 135, .9); */
     background-color: rgba(255, 255, 255 .9);
     padding: 14px 16px;
-    text-decoration: none;
+    /* text-decoration: none; */
+    /* position: fixed; */
 }
 
 #footer-text {
-    font-size: 12px;
+    font-size: 13px;
     /* float: left; */
-    margin-left: 85%;
-    font-family: 'Righteous';
+    margin-left: 90%;
+    font-family: 'Alumni Sans';
+    color: rgb(78, 47, 78);
+    /* position: absolute; */
+}
+
+#footer-text a {
+    color: rgb(78, 47, 78);
+    font-weight: 600;
 }
 
 :root 

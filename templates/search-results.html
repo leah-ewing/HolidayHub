@@ -12,15 +12,14 @@
             rel="stylesheet"
             href="../static/css/static.css">
 
-        <div class="search-results-page container">
+        <div class="search-results-page-container">
 
-            <br><br><br><br><br>
             {% if search_results == None %}
-                <div class="row">
-                    <div id="no-results-text">
-                        <h1>
+                <div class="row" id="outer-row-no-results">
+                    <div class="row" id="inner-row-no-results">
+                        <div id="no-results-text">
                             <text>No Results Found For: <b>"{{search_term}}"</b></text>
-                        </h1>
+                        </div>
                     </div>
                 </div>
             {% else %}
@@ -62,19 +61,15 @@
             {% endif %}
 
             <h6 id="no-results-buttons">
-                <button class="btn btn-outline-success" onclick="location.href='/'">
+                <button class="btn" id="back-home-no-results" onclick="location.href='/'">
                     Back Home
                 </button> 
                 
-                <button id="calendar-view-button" class="btn btn-outline-success" onclick="location.href='/calendar-view'">
+                <button id="calendar-view-no-results" class="btn" onclick="location.href='/calendar-view'">
                     View Calendar
                 </button>  
-                <br><br><br>
+                <!-- <br><br><br> -->
             </h6>
-
-            {% if search_results == None %}
-                <br><br>
-            {% endif %}
             
             <br><br>
         </div>

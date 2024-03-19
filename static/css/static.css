@@ -156,7 +156,9 @@ button {
 #home-from-calendar-view,
 #random-holiday-from-calendar-view,
 #back-to-homepage-from-random,
-#another-random-holiday {
+#another-random-holiday,
+#back-home-no-results,
+#calendar-view-no-results {
     font-family: 'Spicy Rice';
     background-color: rgba(78, 47, 78, 0.603, .9);
     color: white;
@@ -182,7 +184,9 @@ button {
 #home-from-calendar-view:hover,
 #random-holiday-from-calendar-view:hover,
 #back-to-homepage-from-random:hover,
-#another-random-holiday:hover {
+#another-random-holiday:hover,
+#back-home-no-results:hover,
+#calendar-view-no-results:hover {
     background-color: rgba(78, 47, 78, 0.603);
 }
 
@@ -628,9 +632,11 @@ button {
     padding-bottom: 100px;
 }
 
-.search-results-page {
+.search-results-page-container {
     display: grid;
     place-items: center;
+    width: 100%;
+    /* border: solid orange; */
 }
 
 #unsubscribe-text {
@@ -651,24 +657,48 @@ button {
     place-items: center;
 }
 
+#outer-row-no-results {
+    /* border: solid red; */
+    width: 100%;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, .5);
+    /* margin-bottom: 25px; */
+    margin-top: 25px;
+}
+
+#inner-row-no-results {
+    /* border: solid blue; */
+    width: 900px;
+    background: rgba(255, 255, 255, .7);
+    margin: 40px;
+}
+
 #no-results-text {
-    font-family: 'Righteous';
-    font-size: 47px;
+    font-family: 'Alumni Sans';
+    font-size: 75px;
+    font-weight: 700;
     color: #f364a2;
     display: grid;
     place-items: center;
     padding-top: 10px;
     padding-bottom: 65px;
+    text-shadow: 0 0 2px white, 0 0 2px white;
+    margin-top: 50px;
 }
 
 #no-results-text b,
 #search-results-text b {
-    font-family: 'Inter Tight';
-    color: black;
+    font-family: 'Alumni Sans';
+    font-weight: 600;
+    font-style: italic;
+    color: rgb(78, 47, 78);
 }
 
 #no-results-buttons {
     display: inline-block;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 #search-results-text {

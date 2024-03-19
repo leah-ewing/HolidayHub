@@ -40,7 +40,7 @@
     margin-top: 5px;
     background-color: rgba(255, 255, 255, .7);
     padding: 25px;
-    max-width: 1100px;
+    max-width: 1150px;
     /* display: inline-block; */
     /* text-align: center; */
     place-content: center;
@@ -59,28 +59,24 @@
     display: grid;
     place-content: center;
     /* max-width: 470px; */
-    max-width: fit-content;
+    /* max-width: fit-content; */
     /* height: 100%; */
-    /* width: fit-content; */
+    /* width: 100%; */
+    max-width: 500px;
     /* text-align: center; */
     margin-left: 5px;
     /* padding-left: 0px; */
 }
 
-/* #monthly-holiday-row { */
-    /* border: solid red; */
-    /* margin-left: 25px;
-    width: 100%; */
-/* } */
-
 #is-also {
+    /* width: 100%; */
     /* font-family: 'Alumni Sans'; */
     font-family: 'Spicy Rice';
     font-size: 45px;
     /* font-weight: 800; */
     /* color: rgb(78, 47, 78); */
     color: #f364a2;
-    margin-top: -40px;
+    /* margin-top: -40px; */
     font-style: italic;
     /* text-align: center; */
     /* border: solid orange; */
@@ -89,13 +85,17 @@
     /* height: 100%; */
     place-content: center;
     /* max-width: 350px; */
-    width: 100%;
     /* text-align: center; */
     /* margin-right: 70px; */
     /* line-height: 10px; */
     margin-bottom: 15px;
     text-shadow: 0 0 2px white, 0 0 2px white;
 }
+
+/* #monthly-holiday-row { */
+    /* border: solid blue; */
+    /* width: 100%; */
+/* } */
 
 #share-button,
 #popup-button {
@@ -137,13 +137,13 @@
     /* --dark-hover: #323048; */
     /* --dark-text: #f8fbff; */
     /* --light-body: #f3f8fe; */
-    --light-main: #fdfdfd;
+    --light-main: rgb(253, 235, 243);
     /* --light-second: #c3c2c8; */
-    /* --light-hover: #edf0f5; */
+    --light-hover: #4e2f4e67;
     /* --light-text: #151426; */
     /* --blue: #007497; */
     /* --white: #fff; */
-    --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    /* --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
 }
 
 .light {
@@ -154,13 +154,6 @@
     --color-txt: var(--light-text);
 }
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-/* html, */
 body {
     /* height: 100vh; */
     display: grid;
@@ -173,7 +166,8 @@ body {
 .calendar {
     height: max-content;
     /* width: max-content; */
-    width: 500px;
+    /* width: 600px; */
+    /* max-width: 500px; */
     background-color: var(--bg-main);
     border-radius: 30px;
     padding: 20px;
@@ -217,24 +211,6 @@ body {
     width: 100%;
 }
 
-#click-on-a-day text {
-    /* text-align: center; */
-    margin-bottom: 50px;
-}
-
-#click-on-a-day-text {
-    font-family: 'Alumni Sans';
-    /* color: #f364a2; */
-    color: rgb(78, 47, 78);
-    /* display: grid;
-    place-items: center; */
-    /* text-align: left; */
-    border: solid green;
-    /* display: grid;
-    place-items: center; */
-    width: 500px;
-}
-
 .arrows {
     /* color: rgb(78, 47, 78); */
     color: #f364a2;
@@ -256,11 +232,12 @@ body {
     display: grid;
     text-align: center;
     height: fit-content;
+    line-height: 55px;
     /* height: 100%; */
     /* margin-top: 10px; */
     /* margin-bottom: -40px; */
     /* max-width: 350; */
-    width: 100%;
+    /* width: 100%; */
 }
 
 #monthly-holiday text {
@@ -321,6 +298,7 @@ body {
     font-weight: 700;
     font-size: 25px;
     color: rgb(78, 47, 78);
+    /* border: solid white; */
 }
 
 .calendar-days div {
@@ -329,10 +307,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
+    /* padding: 5px; */
     position: relative;
     cursor: pointer;
     animation: to-top 1s forwards;
+    /* border: solid white; */
+}
+
+.calendar-day-hover {
+    border: solid white;
+}
+
+.calendar-days div:hover {
+    background-color: rgba(255, 255, 255, .7);
 }
 
 .calendar-days div span {
@@ -369,7 +356,6 @@ body {
 .calendar-days div span:nth-child(4) {
     width: 0;
     height: 2px;
-    background-color: var(--color-txt);
 }
 
 .calendar-days div:hover span:nth-child(2),
@@ -399,11 +385,16 @@ body {
     transition-delay: 0.6s;
 }
 
-.calendar-days div.curr-date,
-.calendar-days div.curr-date:hover {
-    background-color: var(--blue);
+.calendar-days div.curr-date {
+    background-color: #f364a286;
     color: var(--white);
-    border-radius: 50%;
+    /* border-radius: 50%; */
+}
+
+.calendar-days div.curr-date:hover {
+    background-color: #f364a258;
+    /* color: var(--white); */
+    /* border-radius: 50%; */
 }
 
 .calendar-days div.curr-date span {
@@ -411,13 +402,16 @@ body {
 }
 
 .month-picker {
-    /* padding: 5px 10px; */
+    padding: 5px 10px;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 60px;
-    padding-bottom: 10px;
+    font-size: 75px;
+    /* padding-bottom: 10px; */
+    margin-bottom: 15px;
     font-family: 'Alumni Sans';
-    font-weight: 700;
+    /* font-family: 'Spicy Rice'; */
+    text-shadow: 0 0 1px white, 0 0 1px white;
+    /* font-weight: 700; */
     /* text-decoration: underline; */
     /* text-align: center; */
     /* place-content: center; */
@@ -425,7 +419,7 @@ body {
 }
 
 .month-picker:hover {
-    background-color: var(--color-hover);
+    background-color: rgba(255, 255, 255, .5)
 }
 
 .year-picker {
@@ -436,6 +430,7 @@ body {
     font-size: 50px;
     color: rgb(78, 47, 78);
     padding-bottom: 10px;
+    text-shadow: 0 0 1px white, 0 0 1px white;
 }
 
 .year-picker pre {
@@ -444,17 +439,18 @@ body {
 }
 
 .year-change {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
     display: grid;
     place-items: center;
     margin: 0 10px;
     cursor: pointer;
+    /* padding-bottom: 5px; */
 }
 
 .year-change:hover {
-    background-color: var(--color-hover);
+    background-color: rgba(255, 255, 255, .5)
 }
 
 .calendar-footer {
@@ -511,7 +507,7 @@ body {
 }
 
 .month-list > div > div:hover {
-    background-color: var(--color-hover);
+    background-color: rgba(255, 255, 255, .5)
 }
 
 #year {

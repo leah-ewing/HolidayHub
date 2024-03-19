@@ -581,7 +581,8 @@ button {
     font-size: 30px;
 }
 
-#right-slideshow-arrow {
+#right-slideshow-arrow,
+#left-slideshow-arrow {
     margin-right: 20px;
 }
 

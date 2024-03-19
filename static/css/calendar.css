@@ -171,7 +171,7 @@ body {
     /* width: 600px; */
     /* max-width: 500px; */
     background-color: var(--bg-main);
-    border-radius: 30px;
+    /* border-radius: 30px; */
     padding: 20px;
     position: relative;
     overflow: hidden;
@@ -409,7 +409,7 @@ body {
 
 .month-picker {
     padding: 5px 10px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     cursor: pointer;
     font-size: 75px;
     /* padding-bottom: 10px; */
@@ -422,6 +422,7 @@ body {
     /* text-align: center; */
     /* place-content: center; */
     color: rgb(78, 47, 78);
+    /* height: fit-content; */
 }
 
 .month-picker:hover {
@@ -431,11 +432,12 @@ body {
 .year-picker {
     padding-top: 15px;
     display: flex;
-    align-items: center;
+    align-items: center center;
     font-family: 'Alumni Sans';
     font-size: 50px;
     color: rgb(78, 47, 78);
-    padding-bottom: 10px;
+    /* padding-bottom: 100px; */
+    /* border: solid red; */
     text-shadow: 0 0 1px white, 0 0 1px white;
 }
 
@@ -444,15 +446,29 @@ body {
     font-size: 35px;
 }
 
+#left {
+    margin-left: -5px;
+    margin-top: 15px;
+    /* margin-bottom: 10px; */
+}
+
+#right {
+    margin-right: -5px;
+    margin-top: 15px;
+}
+
 .year-change {
-    height: 50px;
+    height: 45px;
     width: 50px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
+    /* border: solid red; */
     display: grid;
     place-items: center;
     margin: 0 10px;
     cursor: pointer;
-    /* padding-bottom: 5px; */
+    margin-top: 15px;
+    /* margin-bottom: 115px; */
+    /* padding-bottom: 15px; */
 }
 
 .year-change:hover {
@@ -481,7 +497,7 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: var(--bg-main);
+    background-color: #FDFAD0;
     padding: 20px;
     grid-template-columns: repeat(3, auto);
     gap: 5px;
@@ -501,19 +517,27 @@ body {
 .month-list > div {
     display: grid;
     place-items: center;
+    border: solid white;
+    margin: 10px;
 }
 
 .month-list > div > div {
     width: 100%;
     padding: 5px 20px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     text-align: center;
     cursor: pointer;
-    color: var(--color-txt);
+    /* color: var(--color-txt); */
+    /* color: red; */
+    color: rgb(78, 47, 78);
+    font-family: 'Alumni Sans';
+    font-size: 35px;
+    font-weight: 600;
+    /* border: solid red; */
 }
 
-.month-list > div > div:hover {
-    background-color: rgba(255, 255, 255, .5)
+.month-list > div:hover {
+    background-color: rgba(255, 255, 255, .7)
 }
 
 #year {

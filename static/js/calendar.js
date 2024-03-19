@@ -72,8 +72,6 @@ month_names.forEach((e, index) => {
         generateCalendar(index, curr_year.value)
 
         let shown_month = month_picker.innerHTML
-        let this_month = document.getElementById("this-month")
-        this_month.innerHTML = shown_month
 
         fetch(`get-monthly-holidays/${shown_month}`)
             .then((response) => response.json())

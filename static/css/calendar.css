@@ -50,17 +50,20 @@
     display: grid;
     place-items: center right;
     margin-right: 10px;
-    max-width: 475px;
+    max-width: fit-content;
 }
 
 #monthly-holiday-col {
     /* border: solid purple; */
     display: grid;
     place-content: center;
-    max-width: 470px;
+    /* max-width: 470px; */
+    max-width: fit-content;
     /* height: 100%; */
     /* width: fit-content; */
     /* text-align: center; */
+    margin-left: 5px;
+    /* padding-left: 0px; */
 }
 
 /* #monthly-holiday-row { */
@@ -70,12 +73,13 @@
 /* } */
 
 #is-also {
-    font-family: 'Alumni Sans';
+    /* font-family: 'Alumni Sans'; */
+    font-family: 'Spicy Rice';
     font-size: 45px;
-    font-weight: 800;
+    /* font-weight: 800; */
     /* color: rgb(78, 47, 78); */
     color: #f364a2;
-    margin-top: -35px;
+    margin-top: -40px;
     font-style: italic;
     /* text-align: center; */
     /* border: solid orange; */
@@ -89,6 +93,7 @@
     /* margin-right: 70px; */
     /* line-height: 10px; */
     margin-bottom: 15px;
+    text-shadow: 0 0 2px white, 0 0 2px white;
 }
 
 #share-button,
@@ -166,16 +171,20 @@ body {
 
 .calendar {
     height: max-content;
-    width: max-content;
+    /* width: max-content; */
+    width: 500px;
     background-color: var(--bg-main);
     border-radius: 30px;
     padding: 20px;
     position: relative;
     overflow: hidden;
+    /* background-color: #00e1fa; */
+    background-color: hsla(334, 86%, 67%, 0.1);
 }
 
 .light .calendar {
     box-shadow: var(--shadow);
+    /* background-color: #00e1fa; */
 }
 
 .calendar-header {
@@ -185,11 +194,12 @@ body {
     font-size: 25px;
     font-weight: 600;
     color: var(--color-txt); 
-    padding: 10px;
+    /* padding: 10px; */
+    padding-left: 10px;
 }
 
 .calendar-body {
-    padding: 10px;
+    margin-top: -20px;
 }
 
 .calendar-view-container {
@@ -230,11 +240,14 @@ body {
     width: 100%;
 }
 
-#this-month {
-    font-family: 'Spicy Rice';
+#but-wait {
+    /* font-family: 'Spicy Rice'; */
+    font-family: 'Alumni Sans';
     color: rgb(78, 47, 78);
+    font-weight: 700;
     /* color: #f364a2; */
-    font-size: 70px;
+    /* font-size: 70px; */
+    font-size: 85px;
     text-shadow: 0 0 2px white, 0 0 2px white;
     /* margin-top: 75px; */
     /* margin-bottom: -10px; */
@@ -401,7 +414,7 @@ body {
     border-radius: 10px;
     cursor: pointer;
     font-size: 60px;
-    /* padding-bottom: 10px; */
+    padding-bottom: 10px;
     font-family: 'Alumni Sans';
     font-weight: 700;
     /* text-decoration: underline; */
@@ -421,6 +434,7 @@ body {
     font-family: 'Alumni Sans';
     font-size: 50px;
     color: rgb(78, 47, 78);
+    padding-bottom: 10px;
 }
 
 .year-picker pre {

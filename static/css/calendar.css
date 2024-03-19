@@ -40,7 +40,7 @@
     margin-top: 5px;
     background-color: rgba(255, 255, 255, .7);
     padding: 25px;
-    max-width: 1100px;
+    max-width: 1150px;
     /* display: inline-block; */
     /* text-align: center; */
     place-content: center;
@@ -52,7 +52,7 @@
     place-items: center right;
     margin-right: 10px;
     max-width: fit-content;
-    margin-right: -30px;
+    /* margin-right: -20px; */
 }
 
 #monthly-holiday-col {
@@ -65,7 +65,7 @@
     /* width: 100%; */
     max-width: 500px;
     /* text-align: center; */
-    margin-left: -30px;
+    /* margin-left: -20px; */
     /* padding-left: 0px; */
 }
 
@@ -176,6 +176,8 @@ body {
     overflow: hidden;
     /* background-color: #00e1fa; */
     background-color: hsla(334, 86%, 67%, 0.1);
+    min-width: 600px;
+    min-height: 525px;
 }
 
 .light .calendar {

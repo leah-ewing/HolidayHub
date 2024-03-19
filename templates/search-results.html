@@ -18,60 +18,63 @@
                 <div class="row" id="outer-row-no-results">
                     <div class="row" id="inner-row-no-results">
                         <div id="no-results-text">
-                            <text>No Results Found For: <b>"{{search_term}}"</b></text>
+                            <text>
+                                No Results Found For: <b>"{{search_term}}"</b>
+                            </text>
                         </div>
                     </div>
                 </div>
             {% else %}
-                <text id="search-results-text">
-                    Results For: <b>"{{search_term}}"</b>
-                </text>
+                <div class="row" id="outer-row-results">
+                    <div class="row" id="inner-row-results">
+                        <div id="search-results-text">
+                            <text>
+                                Results For: <b>"{{search_term}}"</b>
+                            </text>
+                        </div>
+                    </div>
+                </div>
                 <div id="search-results-list">
-                    <ol>
-                        <br><br>
-                        {% for search_result in search_results %}
-                            <div class="container" id="search-result">
-                                <h3>
-                                    <a href="/{{search_result.holiday_name}}">{{search_result.holiday_name}}</a>
-                                </h3>
+                    {% for search_result in search_results %}
+                        <div class="row" id="search-result-outer-row">
+                            <div id="search-result">
+                                <a href="/{{search_result.holiday_name}}">{{search_result.holiday_name}}</a>
                                 <div class="row">
                                     <div class="col" id="search-result-image">
                                         <a href="/{{search_result.holiday_name}}">
                                             <div class="image-container">
-                                                    <img
-                                                        src = "{{search_result.holiday_img}}"
-                                                        width = 200,
-                                                        id = "search-result-img">
-                                                    </img>
+                                                <img
+                                                    src = "{{search_result.holiday_img}}"
+                                                    width = 200,
+                                                    id = "search-result-img">
+                                                </img>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col" id="search-result-blurb">
                                         <text>
-                                            <div id="search-result-date">{{search_result.holiday_month}} {{search_result.holiday_date}}{{search_result.date_suffix}}</div>
+                                            <div id="search-result-date">
+                                                {{search_result.holiday_month}} {{search_result.holiday_date}}{{search_result.date_suffix}}
+                                            </div>
                                             {{search_result.holiday_blurb[0:200]}} <b>...</b>
                                         </text>
                                     </div>
                                 </div>
-                                <br><br>
                             </div>
-                        {% endfor %}
-                    </ol>
+                        </div>
+                    {% endfor %}
                 </div>
             {% endif %}
 
-            <h6 id="no-results-buttons">
+            <div id="search-results-buttons">
                 <button class="btn" id="back-home-no-results" onclick="location.href='/'">
                     Back Home
                 </button> 
                 
                 <button id="calendar-view-no-results" class="btn" onclick="location.href='/calendar-view'">
                     View Calendar
-                </button>  
-                <!-- <br><br><br> -->
-            </h6>
-            
-            <br><br>
+                </button>
+            </div>
         </div>
 
         <div class="row" id="explore-more-row">

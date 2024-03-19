@@ -30,7 +30,8 @@
     /* padding: 25px; */
     padding-left: 25px;
     padding-right: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 50px;
+    /* margin-bottom: 25px; */
     /* padding-top: -25px; */
 }
 
@@ -177,7 +178,7 @@ body {
     /* background-color: #00e1fa; */
     background-color: hsla(334, 86%, 67%, 0.1);
     min-width: 600px;
-    min-height: 525px;
+    min-height: 625px;
 }
 
 .light .calendar {
@@ -319,6 +320,8 @@ body {
 
 .calendar-day-hover {
     border: solid white;
+    margin-left: 12px;
+    margin-bottom: 12px;
 }
 
 .calendar-days div:hover {

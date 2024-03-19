@@ -6,7 +6,8 @@
     color: #f364a2;
     font-family: 'Spicy Rice';
     letter-spacing: -1px;
-    text-shadow: 0 0 2px white, 0 0 5px white;
+    /* text-shadow: 0 0 2px white, 0 0 5px white; */
+    text-shadow: 0 0 10px white, 0 0 10px white;
     font-size: 70px;
     text-align: center;
     line-height: 75px;
@@ -240,7 +241,7 @@ body {
     width: 100%;
 }
 
-#but-wait {
+#this-month {
     /* font-family: 'Spicy Rice'; */
     font-family: 'Alumni Sans';
     color: rgb(78, 47, 78);

@@ -55,13 +55,19 @@
 
 #monthly-holiday-col {
     /* border: solid purple; */
-    /* display: grid; */
-    /* place-content: center; */
+    display: grid;
+    place-content: center;
     max-width: 470px;
     /* height: 100%; */
     /* width: fit-content; */
     /* text-align: center; */
 }
+
+/* #monthly-holiday-row { */
+    /* border: solid red; */
+    /* margin-left: 25px;
+    width: 100%; */
+/* } */
 
 #is-also {
     font-family: 'Alumni Sans';
@@ -69,7 +75,7 @@
     font-weight: 800;
     /* color: rgb(78, 47, 78); */
     color: #f364a2;
-    margin-top: -40px;
+    margin-top: -35px;
     font-style: italic;
     /* text-align: center; */
     /* border: solid orange; */
@@ -82,31 +88,7 @@
     /* text-align: center; */
     /* margin-right: 70px; */
     /* line-height: 10px; */
-    /* margin-bottom: -200px; */
-}
-
-#monthly-holiday-outer-row {
-    /* border: solid red; */
-    background-color: rgba(255, 255, 255, .5);
-    /* padding-top: 25px; */
-    padding-bottom: 25px;
-    /* display: inline-block; */
-    display: grid;
-    place-items: center;
-    margin-bottom: 90px;
-}
-
-#monthly-holiday-inner-row {
-    border: solid orange;
-    /* width: 1000px; */
-    /* background-color: rgba(255, 255, 255, .6); */
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 25px;
-    padding-right: 25px;
-    /* display: inline-block; */
-    /* display: grid; */
-    /* place-items: center; */
+    margin-bottom: 15px;
 }
 
 #share-button,
@@ -254,7 +236,7 @@ body {
     /* color: #f364a2; */
     font-size: 70px;
     text-shadow: 0 0 2px white, 0 0 2px white;
-    margin-top: 75px;
+    /* margin-top: 75px; */
     /* margin-bottom: -10px; */
     /* border: solid red; */
     display: grid;

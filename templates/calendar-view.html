@@ -25,9 +25,6 @@
 
     <div class="row" id="calendar-outer-row">
       <div class="row" id="calendar-inner-row">
-        <!-- <div class="row calendar-title">
-          Holiday Picker
-        </div> -->
         <div class="col" id="calendar-col">
 
           <div class="calendar light">
@@ -67,7 +64,7 @@
           <div class="row" id="is-also">
             is also...
           </div>
-          <div class="row">
+          <div class="row" id="monthly-holiday-row">
               <div id="monthly-holiday-list">
                 {% for holiday in monthly_holidays %}
                   ⭐️ {{holiday.monthly_holiday_name}}

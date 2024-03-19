@@ -4,7 +4,7 @@
     display: grid;
     place-items: center;
     color: #f364a2;
-    font-family: 'Spicy Rice';
+    /* font-family: 'Alumni Sans'; */
     letter-spacing: -1px;
     /* text-shadow: 0 0 2px white, 0 0 5px white; */
     text-shadow: 0 0 10px white, 0 0 10px white;
@@ -71,10 +71,10 @@
 
 #is-also {
     /* width: 100%; */
-    /* font-family: 'Alumni Sans'; */
-    font-family: 'Spicy Rice';
+    font-family: 'Alumni Sans';
+    /* font-family: 'Spicy Rice'; */
     font-size: 45px;
-    /* font-weight: 800; */
+    font-weight: 800;
     /* color: rgb(78, 47, 78); */
     color: #f364a2;
     /* margin-top: -40px; */
@@ -235,7 +235,7 @@ body {
     display: grid;
     text-align: center;
     height: fit-content;
-    line-height: 55px;
+    line-height: 50px;
     /* height: 100%; */
     /* margin-top: 10px; */
     /* margin-bottom: -40px; */

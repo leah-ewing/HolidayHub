@@ -1,78 +1,113 @@
-#slideshow-image {
-    filter: brightness(105%);
-    max-height: 250px;
-}
-
-#slideshow-holiday-blurb {
-    height: 150px;
-}
-
-#slideshow-holiday-date {
-    font-family: 'Righteous';
-    color: #f364a2;
-    font-size: 15px;
-    margin-top: -10px;
-}
-
-#slideshow-holiday-name {
-    margin-top: 10px;
-    font-family: 'Righteous';
-    font-size: 18px;
-    line-height: 20px;
-}
-
-#slideshow-holiday-name a {
-    color: black;
-}
-
-#slideshow-image {
-    max-height: 150px;
-    max-width: auto;
-}
-
-#slideshow {
-    max-width: 1200px;
-    place-items: center;
-}
-
-#left-slideshow-arrow {
-    margin-right: 20px;
-}
-
-#left-slideshow-arrow,
-#right-slideshow-arrow {
+.calendar-title {
+    font-family: 'Spicy Rice';
+    /* border: solid red; */
     display: grid;
     place-items: center;
-    max-width: 35px;
-    font-size: 30px;
-}
-
-#left-slideshow-arrow a,
-#right-slideshow-arrow a {
-    text-decoration: none;
     color: #f364a2;
-    font-size: 30px;
+    font-family: 'Spicy Rice';
+    letter-spacing: -1px;
+    text-shadow: 0 0 2px white, 0 0 5px white;
+    font-size: 70px;
+    text-align: center;
+    line-height: 75px;
+    background-color: rgba(255, 255, 255, .5);
+    width: 100%;
+    margin-top: 25px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    /* padding-bottom: -125px; */
 }
 
-.explore-more {
-    font-family: 'Righteous';
-    font-size: 47px;
+#calendar-outer-row {
+    /* border: solid aqua; */
+    display: grid;
+    place-items: center;
+    justify-content: top;
+    /* align-items: center; */
+    width: 100%;
+    background-color: rgba(255, 255, 255, .5);
+    /* padding: 25px; */
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    /* padding-top: -25px; */
+}
+
+#calendar-inner-row {
+    /* border: solid blue; */
+    /* margin: 25px; */
+    margin-top: 5px;
+    background-color: rgba(255, 255, 255, .7);
+    padding: 25px;
+    max-width: 1100px;
+    /* display: inline-block; */
+    /* text-align: center; */
+    place-content: center;
+}
+
+#calendar-col {
+    /* border: solid orange; */
+    display: grid;
+    place-items: center right;
+    margin-right: 10px;
+    max-width: 475px;
+}
+
+#monthly-holiday-col {
+    /* border: solid purple; */
+    /* display: grid; */
+    /* place-content: center; */
+    max-width: 470px;
+    /* height: 100%; */
+    /* width: fit-content; */
+    /* text-align: center; */
+}
+
+#is-also {
+    font-family: 'Alumni Sans';
+    font-size: 45px;
+    font-weight: 800;
+    /* color: rgb(78, 47, 78); */
     color: #f364a2;
+    margin-top: -40px;
+    font-style: italic;
+    /* text-align: center; */
+    /* border: solid orange; */
+    /* margin-right: 20px; */
+    height: fit-content;
+    /* height: 100%; */
+    place-content: center;
+    /* max-width: 350px; */
+    width: 100%;
+    /* text-align: center; */
+    /* margin-right: 70px; */
+    /* line-height: 10px; */
+    /* margin-bottom: -200px; */
 }
 
-#navbar-tagline {
-    font-family: 'Righteous';
-    font-size: 20px;
-    padding-right: 20px;
+#monthly-holiday-outer-row {
+    /* border: solid red; */
+    background-color: rgba(255, 255, 255, .5);
+    /* padding-top: 25px; */
+    padding-bottom: 25px;
+    /* display: inline-block; */
+    display: grid;
+    place-items: center;
+    margin-bottom: 90px;
 }
 
-/* #navbar-logo { */
-    /* font-family: 'Righteous'; */
-    /* font-size: 25px; */
-    /* color: black; */
-    /* text-shadow: #AFE0CE 0px 0 15px; */
-    /* text-shadow: 1px 1px 2px #AFE0CE, 0 0; */
-/* } */
+#monthly-holiday-inner-row {
+    border: solid orange;
+    /* width: 1000px; */
+    /* background-color: rgba(255, 255, 255, .6); */
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    /* display: inline-block; */
+    /* display: grid; */
+    /* place-items: center; */
+}
 
 #share-button,
 #popup-button {
@@ -147,12 +182,6 @@ body {
     background-color: #fdfdfd;
 }
 
-button {
-    font-family: 'Righteous';
-    font-size: 15px;
-    padding: 5px;
-}
-
 .calendar {
     height: max-content;
     width: max-content;
@@ -181,42 +210,91 @@ button {
     padding: 10px;
 }
 
-#calendar-view-body h1 {
-    font-family: 'Righteous';
+.calendar-view-container {
+    /* border: solid yellowgreen; */
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+#calendar-view-container h1 {
     color: #f364a2;
     display: grid;
     place-items: center;
+    width: 100%;
+}
+
+#click-on-a-day text {
+    /* text-align: center; */
+    margin-bottom: 50px;
 }
 
 #click-on-a-day-text {
-    font-family: 'Righteous';
-    color: #f364a2;
-    display: grid;
-    place-items: center;
+    font-family: 'Alumni Sans';
+    /* color: #f364a2; */
+    color: rgb(78, 47, 78);
+    /* display: grid;
+    place-items: center; */
+    /* text-align: left; */
+    border: solid green;
+    /* display: grid;
+    place-items: center; */
+    width: 500px;
 }
 
-#click-on-a-day-text span {
-    color: black;
+.arrows {
+    /* color: rgb(78, 47, 78); */
+    color: #f364a2;
     width: 100%;
 }
 
 #this-month {
-    font-family: 'Righteous';
-    color: #f364a2;
-    font-size: 45px;
+    font-family: 'Spicy Rice';
+    color: rgb(78, 47, 78);
+    /* color: #f364a2; */
+    font-size: 70px;
+    text-shadow: 0 0 2px white, 0 0 2px white;
+    margin-top: 75px;
+    /* margin-bottom: -10px; */
+    /* border: solid red; */
+    display: grid;
+    text-align: center;
+    height: fit-content;
+    /* height: 100%; */
+    /* margin-top: 10px; */
+    /* margin-bottom: -40px; */
+    /* max-width: 350; */
+    width: 100%;
 }
 
-#monthly-holiday {
+#monthly-holiday text {
+    font-family: 'Alumni Sans';
+    font-size: 45px;
+    font-weight: 800;
+    /* color: rgb(78, 47, 78); */
+    color: #f364a2;
+    margin-top: -70px;
+    font-style: italic;
     text-align: right;
-    margin-right: 100px;
+    /* border: solid orange; */
+    /* margin-right: 70px; */
+    /* line-height: 10px; */
 }
 
 #monthly-holiday-list {
-    font-size: 22px;
+    font-size: 28px;
+    /* border: solid green; */
+    font-family: 'Alumni Sans';
+    font-weight: 600;
+    color: rgb(78, 47, 78);
+    line-height: 40px;
+    /* background: none; */
 }
 
 #calendar-view-nav-buttons {
     text-align: center;
+    margin-top: 25px;
+    margin-bottom: 75px;
 }
 
 .calendar-week-day {
@@ -224,8 +302,11 @@ button {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     font-weight: 600;
-    font-family: 'Righteous';
+    font-family: 'Alumni Sans';
+    font-size: 25px;
     color: #f364a2;
+    font-style: italic;
+    font-weight: 600;
 }
 
 .calendar-week-day div {
@@ -239,7 +320,11 @@ button {
     grid-template-columns: repeat(7, 1fr);
     gap: 2px;
     color: var(--color-txt);
-    font-family: 'Righteous';
+    /* font-family: 'Righteous'; */
+    font-family: 'Alumni Sans';
+    font-weight: 700;
+    font-size: 25px;
+    color: rgb(78, 47, 78);
 }
 
 .calendar-days div {
@@ -330,13 +415,17 @@ button {
 }
 
 .month-picker {
-    padding: 5px 10px;
+    /* padding: 5px 10px; */
     border-radius: 10px;
     cursor: pointer;
-    font-size: 40px;
-    padding-bottom: 10px;
-    font-family: 'Righteous';
-    text-decoration: underline;
+    font-size: 60px;
+    /* padding-bottom: 10px; */
+    font-family: 'Alumni Sans';
+    font-weight: 700;
+    /* text-decoration: underline; */
+    /* text-align: center; */
+    /* place-content: center; */
+    color: rgb(78, 47, 78);
 }
 
 .month-picker:hover {
@@ -344,10 +433,17 @@ button {
 }
 
 .year-picker {
+    padding-top: 15px;
     display: flex;
     align-items: center;
-    font-family: 'Righteous';
-    font-size: 30px;
+    font-family: 'Alumni Sans';
+    font-size: 50px;
+    color: rgb(78, 47, 78);
+}
+
+.year-picker pre {
+    color: #f364a2;
+    font-size: 35px;
 }
 
 .year-change {

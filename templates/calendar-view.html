@@ -17,102 +17,79 @@
 <body>
   {% block body %}
 
-  <div id="calendar-view-body">
-    <div class="container">
+  <div class="calendar-view-container">
 
-      <div class="row">
-        <h1>
-          Calendar View
-        </h1>
-      </div>
+    <div class="row calendar-title">
+      Holiday Picker
+    </div>
 
-      <div class="row">
-        <div class="col">
-          <body class="light">
-            <div class="calendar">
-                <div class="calendar-header">
-                  <span class="month-picker" id="month-picker"></span>
-                  <div class="year-picker">
-                      <span class="year-change" id="prev-year">
-                          <pre>◀︎</pre>
-                      </span>
-                        <span id="year"></span>
-                      <span class="year-change" id="next-year">
-                          <pre>▶︎</pre>
-                      </span>
-                  </div>
+    <div class="row" id="calendar-outer-row">
+      <div class="row" id="calendar-inner-row">
+        <!-- <div class="row calendar-title">
+          Holiday Picker
+        </div> -->
+        <div class="col" id="calendar-col">
+
+          <div class="calendar light">
+            <div class="calendar-header">
+              <span class="month-picker" id="month-picker"></span>
+              <div class="year-picker">
+                  <span class="year-change" id="prev-year">
+                      <pre>◀︎</pre>
+                  </span>
+                    <span id="year"></span>
+                  <span class="year-change" id="next-year">
+                      <pre>▶︎</pre>
+                  </span>
+              </div>
+            </div>
+            <div class="calendar-body">
+                <div class="calendar-week-day">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
                 </div>
-                <div class="calendar-body">
-                    <div class="calendar-week-day">
-                        <div>Sun</div>
-                        <div>Mon</div>
-                        <div>Tue</div>
-                        <div>Wed</div>
-                        <div>Thu</div>
-                        <div>Fri</div>
-                        <div>Sat</div>
-                    </div>
-                      <div class="calendar-days" name="clicked-date" id="clicked-date"></div>
-                </div>
-                <div class="month-list"></div>
+                  <div class="calendar-days" name="clicked-date" id="clicked-date"></div>
+            </div>
+            <div class="month-list"></div>
           </div>
+
         </div>
 
-        <div class="col" id="click-on-a-day-text">
-          <h1>
-            Click on a day to view its holiday!
-            <br><br>
-            <span>⬅ ⬅ ⬅</span>
-          </h1>
-        </div>
-      </div>
-
-      <div class="row">
-        <h1><br>
-          <b>Did you know...?</b>
-          <br>
-        </h1>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <div id="monthly-holiday">
-            <h2>
-              <br>
-              <span id="this-month">
-                {{month}}
-              </span>
-              <br>
-              <text>
-                <b>is also...</b>
-              </text>
-            </h2>
+        <div class="col" id="monthly-holiday-col">
+          <div class="row" id="this-month">
+            {{month}}
           </div>
-        </div>
-        
-        <div class="col">
-          <div id="monthly-holiday-list">
-            {% for holiday in monthly_holidays %}
-              ⭐️ {{holiday.monthly_holiday_name}}
-              <br>
-            {% endfor %}
+          <div class="row" id="is-also">
+            is also...
+          </div>
+          <div class="row">
+              <div id="monthly-holiday-list">
+                {% for holiday in monthly_holidays %}
+                  ⭐️ {{holiday.monthly_holiday_name}}
+                  <br>
+                {% endfor %}
+              </div>
           </div>
         </div>
       </div>
     </div>
 
-    <br><br><br>
 
-    <div id="calendar-view-nav-buttons">
-      <button class="btn" onclick="location.href='/'">
-        Back Home
-      </button>
+    <div class="row" id="calendar-view-nav-buttons">
+      <div class="col">
+        <button class="btn" onclick="location.href='/'">
+          Back Home
+        </button>
 
-      <button class="btn" onclick="location.href='/random-holiday'">
-        Random Holiday
-      </button>
-
-      <br><br><br><br><br><br>
+        <button class="btn" onclick="location.href='/random-holiday'">
+          Random Holiday
+        </button>
+      </div>
     </div>
   </div>
   <script src="../static/js/calendar.js"></script>
@@ -128,7 +105,7 @@
       <div class="col" id="left-slideshow-arrow">
         <a href id="left-arrow">◀︎</a>
       </div>
-        <div class="col" id="test">
+        <div class="col">
           <div class="row" id="holidays">
           </div>
         </div>

@@ -143,8 +143,23 @@ button {
     text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);
 }
 
-#learn-more-button:hover {
+#twitter-share-button,
+#facebook-share-button,
+#copy-link-button {
+    background-color: rgb(243, 100, 162, .9);
+    color: white;
+    text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);
+}
+
+#learn-more-button:hover,
+#twitter-share-button:hover,
+#facebook-share-button:hover,
+#copy-link-button:hover {
     background-color: rgb(243, 100, 162, .7);
+}
+
+#copy-link-button {
+    margin-bottom: -5px;
 }
 
 #calendar-view-button,
@@ -186,7 +201,10 @@ button {
 #back-to-homepage-from-random:hover,
 #another-random-holiday:hover,
 #back-home-no-results:hover,
-#calendar-view-no-results:hover {
+#calendar-view-no-results:hover,
+#pinterest-share-button:hover,
+#email-share-button:hover,
+#share-close-button:hover {
     background-color: rgba(78, 47, 78, 0.603);
 }
 
@@ -217,11 +235,114 @@ button {
     margin-bottom: -15px;
 }
 
+/* .popup-window {
+    line-height:1.75;
+} */
+
+.popup-window {
+    position: fixed;
+    width: 550px;
+    height: 475px;
+    /* background: #FDFAD0; */
+    background: rgb(255, 212, 211, .92);
+    border: 2px solid white;
+    /* padding: 10px; */
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+    line-height: 1.75;
+}  
+
 #share-popup-window-text {
+    text-align: center;
+    /* font-family: 'Righteous'; */
+    /* color: #f364a2; */
+    color:rgb(78, 47, 78);
+    /* border: solid red; */
+    /* display: grid;
+    place-items: center; */
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
+    font-family: 'Alumni Sans';
+    font-size: 65px;
+    font-weight: 700;
+    width: 100%;
+    /* margin-left: .2px; */
+    /* margin: -10px; */
+    margin-top: -15px;
+    text-shadow: 0 0 5px white, 0 0 5px white;
+}
+
+.outer-button-row {
+    /* border: solid aquamarine; */
+    /* width: 97%; */
     display: grid;
     place-items: center;
+    padding-top: 40px;
+    background: rgba(255, 255, 255, .6);
+    margin-top: -20px;
+    max-height: 220px;
+}
+
+#invalid-email-text {
+    text-align: center;
+    font-family: 'Righteous';
+    color: #f364a2
+}
+
+#disclaimer-text {
+    font-size: 12px;
+}
+
+#thank-you-text {
+    text-align: center;
+    font-family: 'Righteous';
+    color: #f364a2
+}
+
+#duplicate-email-text {
+    text-align: center;
+    font-family: 'Righteous';
+    color: #f364a2
+}
+
+.share-buttons {
+    /* border: solid 3px blue; */
+    /* height: 320px; */
+    display: grid;
+    place-items: center;
+    /* margin-top: -175px; */
+    /* padding-top: -75px; */
+    margin-top: 40px;
+    background: rgba(255, 255, 255, .4);
+    /* width: 99.99%; */
+    margin-left: .2px;
+    margin-right: -.2px;
+}
+
+#share-popup-window-row-4 {
+    /* border: solid orange; */
+    /* margin-top: -10px; */
+    width: 100%;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 25px;
+    /* margin-left: .2px; */
+}
+
+#link-copied-label {
+    font-family: 'Alumni Sans';
+    font-size: 22px;
+    font-style: italic;
+    color:#4e2f4eb8;
+    /* padding-top: -15px; */
+}
+
+.share-button {
+    margin: 2px;
 }
 
 #share-popup-window-row-1,
@@ -230,6 +351,14 @@ button {
 #share-popup-window-row-4 {
     display: inline-block;
     text-align: center;
+}
+
+#share-popup-window-row-1 {
+    margin-top: -20px;
+}
+
+#share-close-button {
+    margin-top: 10px;
 }
 
 #thank-you-for-sharing-text {

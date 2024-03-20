@@ -316,6 +316,7 @@ button {
     margin-bottom: 60px;
     padding: 25px;
     background: rgba(255, 255, 255, .6);
+    width: 90%;
     /* margin-top: 20px; */
 }
 
@@ -348,6 +349,7 @@ button {
     background: rgba(255, 255, 255, .6);
     margin-top: -20px;
     max-height: 220px;
+    width: 90%;
 }
 
 #invalid-email-text {

@@ -132,29 +132,33 @@
 
     <!-- ENTER EMAIL -->
     <div class="popup-window" id="popup-window">
-      <div class="row">
-        <h5 id="enter-credentials-text">
-          <b>
-            Please enter first name and email:
-          </b>
-        </h5>
+
+      <div id="x-close-share">
+        <a>x</a>
       </div>
 
-      <div class="row add-email">
-        <form action="/add-email" method = "POST">
-          <label for="fname">First Name:</label><br>
-            <input id="fname" name="fname" required /></textarea><br>
-          <label for="email">Email:</label><br>
-            <input id="email" name="email" type="email" required /></textarea><br>
-        </form>
-      </div>
-      <div class="row submit">
-        <div class="col">
-          <br>
-          <button id="submit-button" class="btn submit-button" type="submit">Submit!</button>
-          <button id="close-button" class="btn">Close</button><br><br>
-          <div id="disclaimer-text">By clicking submit you are giving HolidayApp permission to send you daily emails, you may opt out at any time.
+      <div id="enter-email-outer-row">
+        <div class="row" id="enter-credentials-text">
+          Please enter first name and email:
+        </div>
+
+        <div class="row" id="add-email">
+          <form action="/add-email" method = "POST">
+            <label for="fname">First Name:</label><br>
+              <input id="fname" name="fname" required /></textarea><br>
+            <label for="email">Email:</label><br>
+              <input id="email" name="email" type="email" required /></textarea><br>
+          </form>
+          <div class="col" id="submit-email-buttons">
+            <button id="submit-button" class="btn submit-button" type="submit">Submit!</button>
+            <button id="close-button" class="btn">Go Back</button>
           </div>
+        </div>
+        <div class="row" id="disclaimer-text">
+            <text>
+              By clicking submit you are giving HolidayApp permission to send you daily emails,<br>
+              you may opt out at any time.
+            </text>
         </div>
       </div>
 

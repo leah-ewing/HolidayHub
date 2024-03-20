@@ -351,10 +351,6 @@ button {
     color: #f364a2
 }
 
-#disclaimer-text {
-    font-size: 12px;
-}
-
 #thank-you-text {
     text-align: center;
     font-family: 'Righteous';
@@ -426,9 +422,70 @@ button {
 }
 
 #enter-credentials-text {
-    color: #f364a2;
-    font-family: 'Righteous';
+    border: solid red;
+    color: rgb(78, 47, 78);
+    /* color: #f364a2; */
+    font-family: 'Alumni Sans';
+    font-size: 30px;
+    font-weight: 600;
+    margin-right: -.2px;
+    margin-left: -.2px;
+    padding-left: 15px;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-shadow: 0 0 2px white, 0 0 2px white;
+}
+
+#enter-email-outer-row {
+    border: solid blue;
+    /* height: 100%; */
+    margin-top: 45px;
+}
+
+#add-email {
+    border: solid orange;
+    margin-right: -.2px;
+    margin-left: -.2px;
+    /* padding-left: 15px; */
+    /* padding-bottom: 25px; */
+    /* margin-bottom: 25px; */
+    margin-left: 25px;
+    margin-right: 25px;
+    font-family: 'Alumni Sans';
+    font-size: 25px;
+    font-style: italic;
+}
+
+#add-email input {
+    /* font-family: 'Spicy Rice'; */
     font-size: 20px;
+}
+
+#submit-email-buttons {
+    border: solid yellowgreen;
+    margin-right: -.2px;
+    margin-left: -.2px;
+    /* display: grid;
+    place-items: center; */
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+
+#disclaimer-text {
+    font-size: 12px;
+    border: solid green;
+    margin-right: -.2px;
+    margin-left: -.2px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: 'Alumni Sans';
+    font-size: 15px;
+    line-height: 17px;
+    margin-bottom: 25px;
 }
 
 #homepage-logo {
@@ -479,14 +536,6 @@ button {
     background-color: rgba(255, 255, 255, .6);
     line-height: 60px;
     /* border-radius: 7px; */
-}
-
-.add-email {
-    font-family: 'Righteous';
-}
-
-.add-email input {
-    font-family: 'Inter Tight';
 }
 
 .holiday-name {

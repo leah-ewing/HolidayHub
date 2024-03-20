@@ -11,19 +11,27 @@
         <div class="row" id="error-outer-row">
             <div class="row" id="error-inner-row">
                 <div class="col" id="error-image-col">
-                    <small> - image here - </small>
+                    <div class="image-container">
+                        <img
+                            class = error-image
+                            src = "../static/media/other_images/error-image.jpg"
+                            width = 425>
+                        </img>
+                      </div>
                 </div>
                 <div class="col" id="error-text-col">
                     <div class="row" id="error-text-row">
                         <div class="row" id="oh-no-text">
                             <text>
-                                Oh no!
+                                <div id="oh-no">
+                                    Oh no!
+                                </div>
                                 It looks as though you've reached this page in error...
                             </text>
                         </div>
                         <div class="row" id="error-buttons">
                             <div class="col">
-                                <button id ="back-to-homepage-error" class="btn btn-outline-success" onclick="location.href='/'">
+                                <button id ="back-to-homepage-error" class="btn" onclick="location.href='/'">
                                     Back to Homepage
                                 </button>
                             </div>

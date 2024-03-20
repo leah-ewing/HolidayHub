@@ -69,7 +69,7 @@
     <!-- SHARE -->
     <div class="popup-window" id="share-popup-window">
 
-      <div id="x-close-share">
+      <div class="x-close" id="x-close-share">
         <a>x</a>
       </div>
 
@@ -133,7 +133,7 @@
     <!-- ENTER EMAIL -->
     <div class="popup-window" id="popup-window">
 
-      <div id="x-close-enter-email">
+      <div class="x-close" id="x-close-enter-email">
         <a>x</a>
       </div>
 
@@ -196,21 +196,18 @@
       </div>
 
       <div class="popup-window" id="invalid-email-window">
-        <div id="invalid-email-text">
-          <div class="row">
-            <h1>
-              <br>
-              <b>
-                Invalid email, please try again!
-              </b>
-            </h1>
-          </div>
-          <div class="row">
-            <div class="col">
-              <br>
-              <button id="try-again-button-invalid-email" class="btn">Try again</button>
-              <button id="close-button-invalid-email" class="btn">Close</button>
-            </div>
+
+        <div class="x-close" id="x-close-invalid-email">
+          <a>x</a>
+        </div>
+
+        <div class="row" id="invalid-email-text">
+          Invalid email, please try again!
+        </div>
+        <div class="row" id="invalid-email-buttons">
+          <div class="col">
+            <button id="try-again-button-invalid-email" class="btn">Try again</button>
+            <button id="close-button-invalid-email" class="btn">Close</button>
           </div>
         </div>
       </div>

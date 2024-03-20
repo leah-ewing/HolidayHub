@@ -262,9 +262,7 @@ button {
     line-height: 1.75;
 }
 
-#x-close-share,
-#x-close-thank-you-for-sharing,
-#x-close-enter-email {
+.x-close {
     text-align: right;
     margin-right: 15px;
     margin-bottom: -40px;
@@ -279,9 +277,7 @@ button {
     margin-left: 95%
 }
 
-#x-close-share a:hover,
-#x-close-thank-you-for-sharing a:hover,
-#x-close-enter-email a:hover {
+.x-close {
     color: rgb(78, 47, 78);
     text-shadow: 0 0 5px white, 0 0 5px white;
 }

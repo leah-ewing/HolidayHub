@@ -147,7 +147,8 @@ button {
 #facebook-share-button,
 #copy-link-button,
 #submit-button,
-#try-again-button-invalid-email {
+#try-again-button-invalid-email,
+#try-again-button {
     background-color: rgb(243, 100, 162, .9);
     color: white;
     text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);
@@ -158,7 +159,8 @@ button {
 #facebook-share-button:hover,
 #copy-link-button:hover,
 #submit-button:hover,
-#try-again-button-invalid-email:hover {
+#try-again-button-invalid-email:hover,
+#try-again-button:hover {
     background-color: rgb(243, 100, 162, .7);
 }
 
@@ -178,7 +180,8 @@ button {
 #another-random-holiday,
 #back-home-no-results,
 #calendar-view-no-results,
-#close-button-thank-you {
+#close-button-thank-you,
+#close-button-duplicate-email {
     font-family: 'Spicy Rice';
     background-color: rgba(78, 47, 78, 0.603, .9);
     color: white;
@@ -213,7 +216,8 @@ button {
 #close-button-thank-you-for-sharing:hover,
 #close-button:hover,
 #close-button-invalid-email:hover,
-#close-button-thank-you:hover {
+#close-button-thank-you:hover,
+#close-button-duplicate-email:hover {
     background-color: rgba(78, 47, 78, 0.603);
 }
 
@@ -287,7 +291,8 @@ button {
 }
 
 #thank-you-for-sharing-outer-row,
-#invalid-email-outer-row {
+#invalid-email-outer-row,
+#duplicate-email-outer-row {
     /* border: solid orange; */
     margin-top: 45px;
     display: grid;
@@ -311,7 +316,8 @@ button {
 
 #thank-you-for-sharing-text,
 #invalid-email-inner-row,
-#thank-you-email-text {
+#thank-you-email-text,
+#duplicate-email-text {
     color:rgb(78, 47, 78);
     /* color: #f364a2; */
     font-family: 'Alumni Sans';
@@ -382,20 +388,21 @@ button {
 
 #invalid-email-text {
     text-align: center;
-    font-family: 'Righteous';
-    color: #f364a2
+    /* font-family: 'Righteous'; */
+    color: #f364a2;
 }
 
 #thank-you-text {
     text-align: center;
-    font-family: 'Righteous';
-    color: #f364a2
+    /* font-family: 'Righteous'; */
+    color: #f364a2;
 }
 
 #duplicate-email-text {
     text-align: center;
-    font-family: 'Righteous';
-    color: #f364a2
+    font-size: 65px;
+    /* font-family: 'Righteous'; */
+    color: rgb(78, 47, 78);
 }
 
 .share-buttons {
@@ -451,7 +458,8 @@ button {
 
 #thank-you-for-sharing-row-2,
 #invalid-email-buttons,
-#thank-you-email-buttons {
+#thank-you-email-buttons,
+#duplicate-email-buttons {
     /* border: solid blue; */
     text-align: center;
     /* margin-bottom: 50px; */

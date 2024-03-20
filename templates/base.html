@@ -184,18 +184,20 @@
       </div>
 
       <div class="popup-window" id="duplicate-email-window">
-        <div id="duplicate-email-text"><br>
-          <div class="row">
-            <h1><b>
+
+        <div class="x-close" id="x-close-duplicate-email">
+          <a>x</a>
+        </div>
+
+        <div class="row" id="duplicate-email-outer-row">
+          <div class="row" id="duplicate-email-text">
               Email already exists, please try again!
-            </h1></b>
-          </div>
-          <div class="row">
-            <div class="col">
-              <br>
-              <button id="try-again-button" class="btn">Try again</button>
-              <button id="close-button-duplicate-email" class="btn">Close</button>
-            </div>
+              <div class="row" id="duplicate-email-buttons">
+                <div class="col">
+                  <button id="try-again-button" class="btn">Try again</button>
+                  <button id="close-button-duplicate-email" class="btn">Close</button>
+                </div>
+              </div>
           </div>
         </div>
       </div>

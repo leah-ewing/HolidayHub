@@ -16,6 +16,7 @@ const closeButtonThankYou_X = document.getElementById("x-close-thank-you")
 
 const duplicateEmailWindow = document.getElementById("duplicate-email-window")
 const closeButtonDuplicateEmail = document.getElementById("close-button-duplicate-email")
+const closeButtonDuplicateEmail_X = document.getElementById("x-close-duplicate-email")
 const tryAgainButton = document.getElementById("try-again-button")
 
 const invalidEmailWindow = document.getElementById("invalid-email-window")
@@ -46,6 +47,15 @@ closeButton_X.addEventListener("click", function() {
 })
 
 closeButtonDuplicateEmail.addEventListener("click", function() {
+    shareWindow.style.display = "none"
+    duplicateEmailWindow.style.display = "none"
+    popupWindow.style.display = "none"
+
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
+closeButtonDuplicateEmail_X.addEventListener("click", function() {
     shareWindow.style.display = "none"
     duplicateEmailWindow.style.display = "none"
     popupWindow.style.display = "none"

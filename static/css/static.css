@@ -145,7 +145,8 @@ button {
 
 #twitter-share-button,
 #facebook-share-button,
-#copy-link-button {
+#copy-link-button,
+#submit-button {
     background-color: rgb(243, 100, 162, .9);
     color: white;
     text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);
@@ -154,7 +155,8 @@ button {
 #learn-more-button:hover,
 #twitter-share-button:hover,
 #facebook-share-button:hover,
-#copy-link-button:hover {
+#copy-link-button:hover,
+#submit-button:hover {
     background-color: rgb(243, 100, 162, .7);
 }
 
@@ -206,7 +208,8 @@ button {
 #pinterest-share-button:hover,
 #email-share-button:hover,
 #share-close-button:hover,
-#close-button-thank-you-for-sharing:hover {
+#close-button-thank-you-for-sharing:hover,
+#close-button:hover {
     background-color: rgba(78, 47, 78, 0.603);
 }
 
@@ -422,7 +425,7 @@ button {
 }
 
 #enter-credentials-text {
-    border: solid red;
+    /* border: solid red; */
     color: rgb(78, 47, 78);
     /* color: #f364a2; */
     font-family: 'Alumni Sans';
@@ -431,39 +434,59 @@ button {
     margin-right: -.2px;
     margin-left: -.2px;
     padding-left: 15px;
-    margin-top: 25px;
-    margin-left: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /* margin-left: 25px; */
     margin-right: 25px;
     text-shadow: 0 0 2px white, 0 0 2px white;
+    /* background: rgba(255, 255, 255, .6); */
+    /* margin-top: 25px; */
 }
 
 #enter-email-outer-row {
-    border: solid blue;
+    /* border: solid blue; */
+    /* border: solid 0px white; */
     /* height: 100%; */
+    padding: 10px;
     margin-top: 45px;
+    background: rgba(255, 255, 255, .4);
 }
 
 #add-email {
-    border: solid orange;
+    /* border: solid orange; */
     margin-right: -.2px;
     margin-left: -.2px;
     /* padding-left: 15px; */
     /* padding-bottom: 25px; */
     /* margin-bottom: 25px; */
+    margin-top: 25px;
     margin-left: 25px;
     margin-right: 25px;
     font-family: 'Alumni Sans';
+    color: rgb(78, 47, 78, .8);
     font-size: 25px;
     font-style: italic;
+    line-height: 25px;
+    text-shadow: 0 0 1px white, 0 0 1px white;
+    background: rgba(255, 255, 255, .6);
 }
 
 #add-email input {
     /* font-family: 'Spicy Rice'; */
-    font-size: 20px;
+    font-size: 25px;
+    width: 300px;
+    height: 30px;
+    max-height: 30px;
+    color: rgb(78, 47, 78, .6);
+    /* margin-bottom: 15px; */
+}
+
+#fname {
+    margin-bottom: 10px;
 }
 
 #submit-email-buttons {
-    border: solid yellowgreen;
+    /* border: solid yellowgreen; */
     margin-right: -.2px;
     margin-left: -.2px;
     /* display: grid;
@@ -475,7 +498,7 @@ button {
 
 #disclaimer-text {
     font-size: 12px;
-    border: solid green;
+    /* border: solid green; */
     margin-right: -.2px;
     margin-left: -.2px;
     margin-left: 25px;
@@ -486,6 +509,7 @@ button {
     font-size: 15px;
     line-height: 17px;
     margin-bottom: 25px;
+    background: rgba(255, 255, 255, .6);
 }
 
 #homepage-logo {

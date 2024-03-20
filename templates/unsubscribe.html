@@ -6,32 +6,35 @@
 
 {% block body %}
 
-<body class="unsubscribe-page">
+<body>
 
-    <div class="row" id="unsubscribe-text">
-        <h1>
-            Sorry to see you go!
-        </h1>
-    
-        <h5 id="unsubscribe-text2">
-            You have been unsubscribed.
-        </h5>
-
-        <br><br>
-
-        <div>
-            <small>
-                Please allow up 24 hours for changes to take effect
-            </small>
+    <div id="unsubscribe-page-container">
+        <div class="row" id="unsubscribe-outer-row">
+            <div class="row" id="unsubscribe-inner-row">
+                <div class="row" id="unsubscribe-text-row-1">
+                    <text>
+                        Sorry to see you go!
+                    </text>
+                </div>
+                <div class="row" id="unsubscribe-text-row-2">
+                    <text>
+                        You have been unsubscribed.
+                    </text>
+                </div>
+                <div class="row" id="unsubscribe-text-row-3">
+                    <text>
+                        Please allow up 24 hours for changes to take effect
+                    </text>
+                </div>
+                <div class="row" id="unsubscribe-buttons">
+                    <a href="/">
+                        <button id="homepage-button" class="btn">Back Home</button>
+                    </a>
+                </div>
+            </div>
         </div>
-
     </div>
 
-    <br><br><br>
-
-    <a href="/">
-        <button id="homepage-button" class="btn btn-outline-success">Back to Home</button>
-    </a>
 </body>
 
 {% endblock %}

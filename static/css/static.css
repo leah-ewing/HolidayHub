@@ -218,7 +218,8 @@ button {
 #close-button-invalid-email:hover,
 #close-button-thank-you:hover,
 #close-button-duplicate-email:hover,
-#back-to-homepage-error:hover {
+#back-to-homepage-error:hover,
+#homepage-button:hover {
     background-color: rgba(78, 47, 78, 0.603);
 }
 
@@ -965,7 +966,8 @@ button {
     font-size: 50px;
 }
 
-#error-page-container {
+#error-page-container,
+#unsubscribe-page-container {
     /* border: solid aqua; */
     width: 100%;
     height: 78vh;
@@ -973,7 +975,8 @@ button {
     place-items: center;
 }
 
-#error-outer-row {
+#error-outer-row,
+#unsubscribe-outer-row {
     /* border: solid 3px red; */
     display: grid;
     place-items: center;
@@ -982,12 +985,48 @@ button {
     background: rgba(255, 255, 255, .5);
 }
 
-#error-inner-row {
+#error-inner-row,
+#unsubscribe-inner-row {
     /* border: solid 3px blue; */
     display: flex;
     place-items: center;
     max-width: 80%;
     background: rgba(255, 255, 255, .7);
+}
+
+#unsubscribe-text-row-1 {
+    /* border: solid red; */
+    text-align: center;
+    font-family: 'Spicy Rice';
+    font-size: 80px;
+    color: #f364a2;
+    text-shadow: 0 0 2px white, 0 0 2px white;
+    margin-bottom: -25px;
+}
+
+#unsubscribe-text-row-2 {
+    font-family: 'Alumni Sans';
+    text-align: center;
+    font-size: 60px;
+    font-weight: 600;
+    color:rgb(78, 47, 78);
+    text-shadow: 0 0 2px white, 0 0 2px white;
+}
+
+#unsubscribe-text-row-3 {
+    font-family: 'Alumni Sans';
+    text-align: center;
+    font-size: 60px;
+    font-style: italic;
+    color:rgb(78, 47, 78, .7);
+    text-shadow: 0 0 2px white, 0 0 2px white;
+    font-size: 20px;
+}
+
+#unsubscribe-buttons {
+    text-align: center;
+    margin-top: 80px;
+    padding-bottom: 35px;
 }
 
 #error-image-col {

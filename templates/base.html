@@ -113,7 +113,7 @@
 
     <div class="popup-window" id="thank-you-for-sharing-window">
 
-      <div id="x-close-thank-you-for-sharing">
+      <div class="x-close" id="x-close-thank-you-for-sharing">
         <a>x</a>
       </div>
 
@@ -201,15 +201,18 @@
           <a>x</a>
         </div>
 
-        <div class="row" id="invalid-email-text">
-          Invalid email, please try again!
-        </div>
-        <div class="row" id="invalid-email-buttons">
-          <div class="col">
-            <button id="try-again-button-invalid-email" class="btn">Try again</button>
-            <button id="close-button-invalid-email" class="btn">Close</button>
+        <div class="row" id="invalid-email-outer-row">
+          <div class="row" id="invalid-email-inner-row">
+            Invalid email, please try again!
+            <div class="row">
+              <div class="col" id="invalid-email-buttons">
+                  <button class="btn" id="try-again-button-invalid-email">Try again</button>
+                  <button class="btn" id="close-button-invalid-email">Go Back</button>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
 
       <!-- JAVASCRIPT -->

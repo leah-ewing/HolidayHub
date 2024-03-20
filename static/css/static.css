@@ -146,7 +146,8 @@ button {
 #twitter-share-button,
 #facebook-share-button,
 #copy-link-button,
-#submit-button {
+#submit-button,
+#try-again-button-invalid-email {
     background-color: rgb(243, 100, 162, .9);
     color: white;
     text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);
@@ -156,7 +157,8 @@ button {
 #twitter-share-button:hover,
 #facebook-share-button:hover,
 #copy-link-button:hover,
-#submit-button:hover {
+#submit-button:hover,
+#try-again-button-invalid-email:hover {
     background-color: rgb(243, 100, 162, .7);
 }
 
@@ -209,7 +211,9 @@ button {
 #email-share-button:hover,
 #share-close-button:hover,
 #close-button-thank-you-for-sharing:hover,
-#close-button:hover {
+#close-button:hover,
+#try-again-button-invalid-email:hover,
+#close-button-invalid-email:hover {
     background-color: rgba(78, 47, 78, 0.603);
 }
 
@@ -277,12 +281,13 @@ button {
     margin-left: 95%
 }
 
-.x-close {
+.x-close:hover {
     color: rgb(78, 47, 78);
     text-shadow: 0 0 5px white, 0 0 5px white;
 }
 
-#thank-you-for-sharing-outer-row {
+#thank-you-for-sharing-outer-row,
+#invalid-email-outer-row {
     /* border: solid orange; */
     margin-top: 45px;
     display: grid;
@@ -294,9 +299,10 @@ button {
     /* max-height: 50%; */
 }
 
-#thank-you-for-sharing-text {
-    /* color:rgb(78, 47, 78); */
-    color: #f364a2;
+#thank-you-for-sharing-text,
+#invalid-email-inner-row {
+    color:rgb(78, 47, 78);
+    /* color: #f364a2; */
     font-family: 'Alumni Sans';
     font-style: italic;
     font-weight: 800;
@@ -315,6 +321,16 @@ button {
     width: 90%;
     /* margin-top: 20px; */
 }
+
+/* #try-again-button-invalid-email,
+#close-button-invalid-email {
+    margin: 0;
+    padding:0
+} */
+
+/* #test-div {
+    letter-spacing: 0px;
+} */
 
 #share-popup-window-text {
     text-align: center;
@@ -417,11 +433,13 @@ button {
     margin-top: 10px;
 }
 
-#thank-you-for-sharing-row-2 {
+#thank-you-for-sharing-row-2,
+#invalid-email-buttons {
     /* border: solid blue; */
     text-align: center;
     /* margin-bottom: 50px; */
     margin-top: 15px;
+    font-size: 25px;
 }
 
 #enter-credentials-text {

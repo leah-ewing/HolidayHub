@@ -12,6 +12,7 @@ const closeButton_X = document.getElementById("x-close-enter-email")
 
 const thankYouWindow = document.getElementById("thank-you-window")
 const closeButtonThankYou = document.getElementById("close-button-thank-you")
+const closeButtonThankYou_X = document.getElementById("x-close-thank-you")
 
 const duplicateEmailWindow = document.getElementById("duplicate-email-window")
 const closeButtonDuplicateEmail = document.getElementById("close-button-duplicate-email")

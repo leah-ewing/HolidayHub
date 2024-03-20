@@ -255,7 +255,20 @@ button {
     z-index: 10;
     display: none;
     line-height: 1.75;
-}  
+}
+
+#x-close {
+    text-align: right;
+    margin-right: 15px;
+    margin-bottom: -40px;
+}
+
+#x-close a {
+    text-decoration: none;    
+    color: #4e2f4eae;
+    font-family: 'Spicy Rice';
+    font-size: 25px;
+}
 
 #share-popup-window-text {
     text-align: center;

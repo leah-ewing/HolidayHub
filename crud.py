@@ -2,7 +2,6 @@
 
 from model import db, connect_to_db, Month, Holiday, Email, MonthlyHoliday
 from datetime import datetime
-from sqlalchemy import select
 import random, sys, os, sqlalchemy
 import encryption, controller
 

@@ -5,6 +5,7 @@
 const shareButton = document.getElementById("share-button")
 const sharePopUpWindow = document.getElementById("share-popup-window")
 const closeButtonSharePopUpWindow = document.getElementById("share-close-button")
+const closeButtonSharePopUpWindow_X = document.getElementById("x-close")
 
 const thankYouForSharingPopUpWindow = document.getElementById("thank-you-for-sharing-window")
 const closeButtonThankYouForSharing = document.getElementById("close-button-thank-you-for-sharing")
@@ -33,6 +34,11 @@ shareButton.addEventListener("click", async () => {
 closeButtonSharePopUpWindow.addEventListener("click", function() {
     sharePopUpWindow.style.display = "none"
     document.getElementById("link-copied-label").innerHTML = ""
+})
+
+closeButtonSharePopUpWindow_X.addEventListener("click", function() {
+    sharePopUpWindow.style.display = "none"
+    document.getElementById("linked-copied-label").innerHTML = ""
 })
 
 twitterShareButton.addEventListener("click", function() {

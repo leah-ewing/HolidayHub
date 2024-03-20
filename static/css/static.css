@@ -212,7 +212,6 @@ button {
 #share-close-button:hover,
 #close-button-thank-you-for-sharing:hover,
 #close-button:hover,
-#try-again-button-invalid-email:hover,
 #close-button-invalid-email:hover {
     background-color: rgba(78, 47, 78, 0.603);
 }

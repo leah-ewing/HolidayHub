@@ -80,6 +80,14 @@ closeButtonThankYou.addEventListener("click", function() {
     document.getElementById("email").value = ""
 })
 
+closeButtonThankYou_X.addEventListener("click", function() {
+    thankYouWindow.style.display = "none"
+    popupWindow.style.display = "none"
+
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
 tryAgainButton.addEventListener("click", function() {
     duplicateEmailWindow.style.display = "none"
     document.getElementById("fname").value = ""

@@ -178,7 +178,7 @@ button {
 #another-random-holiday,
 #back-home-no-results,
 #calendar-view-no-results,
-#close-button-thank-you-for-sharing {
+#close-button-thank-you {
     font-family: 'Spicy Rice';
     background-color: rgba(78, 47, 78, 0.603, .9);
     color: white;
@@ -212,7 +212,8 @@ button {
 #share-close-button:hover,
 #close-button-thank-you-for-sharing:hover,
 #close-button:hover,
-#close-button-invalid-email:hover {
+#close-button-invalid-email:hover,
+#close-button-thank-you:hover {
     background-color: rgba(78, 47, 78, 0.603);
 }
 
@@ -298,8 +299,19 @@ button {
     /* max-height: 50%; */
 }
 
+#thank-you-email-outer-row {
+    margin-top: 75px;
+    display: grid;
+    place-items: center;
+    margin-left: -.2px;
+    margin-right: -.2px;
+    background: rgba(255, 255, 255, .4);
+}
+
+
 #thank-you-for-sharing-text,
-#invalid-email-inner-row {
+#invalid-email-inner-row,
+#thank-you-email-text {
     color:rgb(78, 47, 78);
     /* color: #f364a2; */
     font-family: 'Alumni Sans';
@@ -319,6 +331,11 @@ button {
     background: rgba(255, 255, 255, .6);
     width: 90%;
     /* margin-top: 20px; */
+}
+
+#thank-you-email-text,
+#thank-you-for-sharing-text {
+    color: #f364a2;
 }
 
 /* #try-again-button-invalid-email,
@@ -433,7 +450,8 @@ button {
 }
 
 #thank-you-for-sharing-row-2,
-#invalid-email-buttons {
+#invalid-email-buttons,
+#thank-you-email-buttons {
     /* border: solid blue; */
     text-align: center;
     /* margin-bottom: 50px; */

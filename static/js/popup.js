@@ -8,6 +8,7 @@ const shareWindow = document.getElementById("share-popup-window")
 const popupButton = document.getElementById("popup-button")
 const closeButton = document.getElementById("close-button")
 const submitButton = document.getElementById("submit-button")
+const closeButton_X = document.getElementById("x-close-enter-email")
 
 const thankYouWindow = document.getElementById("thank-you-window")
 const closeButtonThankYou = document.getElementById("close-button-thank-you")
@@ -27,6 +28,14 @@ popupButton.addEventListener("click", function(evt) {
 })
 
 closeButton.addEventListener("click", function() {
+    popupWindow.style.display = "none"
+    shareWindow.style.display = "none"
+
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
+closeButton_X.addEventListener("click", function() {
     popupWindow.style.display = "none"
     shareWindow.style.display = "none"
 

@@ -263,7 +263,8 @@ button {
 }
 
 #x-close-share,
-#x-close-thank-you-for-sharing {
+#x-close-thank-you-for-sharing,
+#x-close-enter-email {
     text-align: right;
     margin-right: 15px;
     margin-bottom: -40px;
@@ -279,7 +280,8 @@ button {
 }
 
 #x-close-share a:hover,
-#x-close-thank-you-for-sharing a:hover {
+#x-close-thank-you-for-sharing a:hover,
+#x-close-enter-email a:hover {
     color: rgb(78, 47, 78);
     text-shadow: 0 0 5px white, 0 0 5px white;
 }

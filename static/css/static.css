@@ -507,7 +507,7 @@ button {
 }
 
 #fname {
-    margin-bottom: 10px;
+    margin-bottom: -10px;
 }
 
 #submit-email-buttons {
@@ -517,8 +517,8 @@ button {
     /* display: grid;
     place-items: center; */
     text-align: center;
-    padding-top: 15px;
-    padding-bottom: 25px;
+    /* padding-top: 15px; */
+    padding-bottom: 10px;
 }
 
 #disclaimer-text {

@@ -38,7 +38,7 @@ closeButtonSharePopUpWindow.addEventListener("click", function() {
 
 closeButtonSharePopUpWindow_X.addEventListener("click", function() {
     sharePopUpWindow.style.display = "none"
-    document.getElementById("linked-copied-label").innerHTML = ""
+    document.getElementById("link-copied-label").innerHTML = ""
 })
 
 twitterShareButton.addEventListener("click", function() {

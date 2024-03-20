@@ -109,6 +109,11 @@
     /* background-color: rgba(130, 110, 135, .9); */
     background-color: rgba(255, 255, 255 .9);
     padding: 14px 16px;
+    /* position: fixed; */
+    bottom: 0;
+
+    /* position: fixed; */
+    /* margin-top: 83%; */
     /* border: solid red; */
     /* text-decoration: none; */
     /* position: fixed; */

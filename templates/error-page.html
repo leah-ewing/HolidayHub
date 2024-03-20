@@ -7,33 +7,32 @@
 {% block body %}
 
 <body>
-
-    <div class="row">
-        <div class="col" id="error-image">
-            <small> - image here - </small>
-        </div>
-        <div class="col" id="error-text">
-
-            <text id="oh-no-text">
-                <h1>
-                    Oh no!
-                </h1>
-                
-                <h3>
-                    It looks as though you've reached this page in error...
-                    <br><br>
-                </h3>
-
-                <button id ="back-to-homepage-error" class="btn btn-outline-success" onclick="location.href='/'">
-                    Back to Homepage
-                </button>
-            </text>
-
-            
-
+    <div id="error-page-container">
+        <div class="row" id="error-outer-row">
+            <div class="row" id="error-inner-row">
+                <div class="col" id="error-image-col">
+                    <small> - image here - </small>
+                </div>
+                <div class="col" id="error-text-col">
+                    <div class="row" id="error-text-row">
+                        <div class="row" id="oh-no-text">
+                            <text>
+                                Oh no!
+                                It looks as though you've reached this page in error...
+                            </text>
+                        </div>
+                        <div class="row" id="error-buttons">
+                            <div class="col">
+                                <button id ="back-to-homepage-error" class="btn btn-outline-success" onclick="location.href='/'">
+                                    Back to Homepage
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 </body>
 
 {% endblock %}

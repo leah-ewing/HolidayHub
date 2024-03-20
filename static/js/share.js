@@ -5,10 +5,11 @@
 const shareButton = document.getElementById("share-button")
 const sharePopUpWindow = document.getElementById("share-popup-window")
 const closeButtonSharePopUpWindow = document.getElementById("share-close-button")
-const closeButtonSharePopUpWindow_X = document.getElementById("x-close")
+const closeButtonSharePopUpWindow_X = document.getElementById("x-close-share")
 
 const thankYouForSharingPopUpWindow = document.getElementById("thank-you-for-sharing-window")
 const closeButtonThankYouForSharing = document.getElementById("close-button-thank-you-for-sharing")
+const closeButtonThankYouForSharing_X = document.getElementById("x-close-thank-you-for-sharing")
 
 const twitterShareButton = document.getElementById("twitter-share-button")
 const facebookShareButton = document.getElementById("facebook-share-button")
@@ -89,6 +90,10 @@ copyLinkButton.addEventListener("click", function() {
 })
 
 closeButtonThankYouForSharing.addEventListener("click", function() {
+    thankYouForSharingPopUpWindow.style.display = "none"
+})
+
+closeButtonThankYouForSharing_X.addEventListener("click", function() {
     thankYouForSharingPopUpWindow.style.display = "none"
 })
 

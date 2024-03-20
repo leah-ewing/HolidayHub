@@ -69,7 +69,7 @@
     <!-- SHARE -->
     <div class="popup-window" id="share-popup-window">
 
-      <div id="x-close">
+      <div id="x-close-share">
         <a>x</a>
       </div>
 
@@ -112,19 +112,20 @@
     </div>
 
     <div class="popup-window" id="thank-you-for-sharing-window">
-      <div class="row">
-        <div id="thank-you-for-sharing-text">
-          <h1><b>
-            <br><br>
-            Thank you for sharing!
-          </h1></b>
-          <br>
-        </div>
+
+      <div id="x-close-thank-you-for-sharing">
+        <a>x</a>
       </div>
 
-      <div class="row">
-        <div class="col">
-          <button id="close-button-thank-you-for-sharing" class="btn">Close</button>
+      <div class="row" id="thank-you-for-sharing-outer-row">
+        <div class="row" id="thank-you-for-sharing-text">
+          Thank you <br>
+          for sharing!
+          <div class="row" id="thank-you-for-sharing-row-2">
+            <div class="col">
+              <button id="close-button-thank-you-for-sharing" class="btn">Go Back</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

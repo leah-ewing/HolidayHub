@@ -173,7 +173,8 @@ button {
 #back-to-homepage-from-random,
 #another-random-holiday,
 #back-home-no-results,
-#calendar-view-no-results {
+#calendar-view-no-results,
+#close-button-thank-you-for-sharing {
     font-family: 'Spicy Rice';
     background-color: rgba(78, 47, 78, 0.603, .9);
     color: white;
@@ -204,7 +205,8 @@ button {
 #calendar-view-no-results:hover,
 #pinterest-share-button:hover,
 #email-share-button:hover,
-#share-close-button:hover {
+#share-close-button:hover,
+#close-button-thank-you-for-sharing:hover {
     background-color: rgba(78, 47, 78, 0.603);
 }
 
@@ -257,24 +259,59 @@ button {
     line-height: 1.75;
 }
 
-#x-close {
+#x-close-share,
+#x-close-thank-you-for-sharing {
     text-align: right;
     margin-right: 15px;
     margin-bottom: -40px;
-}
-
-#x-close a {
     text-decoration: none;    
     color: #4e2f4eae;
     font-family: 'Spicy Rice';
     font-size: 25px;
     text-shadow: 0 0 1px white, 0 0 1px white;
+    /* border: solid red; */
+    width: fit-content;
     cursor: pointer;
+    margin-left: 95%
 }
 
-#x-close a:hover {
+#x-close-share a:hover,
+#x-close-thank-you-for-sharing a:hover {
     color: rgb(78, 47, 78);
     text-shadow: 0 0 5px white, 0 0 5px white;
+}
+
+#thank-you-for-sharing-outer-row {
+    /* border: solid orange; */
+    margin-top: 45px;
+    display: grid;
+    place-items: center;
+    margin-left: -.2px;
+    margin-right: -.2px;
+    background: rgba(255, 255, 255, .4);
+    /* padding-bottom: -160px; */
+    /* max-height: 50%; */
+}
+
+#thank-you-for-sharing-text {
+    /* color:rgb(78, 47, 78); */
+    color: #f364a2;
+    font-family: 'Alumni Sans';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 75px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    line-height: 75px;
+    text-shadow: 0 0 15px white, 0 0 15px white;
+    /* border: solid red; */
+    margin-top: 60px;
+    line-height: 65px;
+    margin-bottom: 60px;
+    padding: 25px;
+    background: rgba(255, 255, 255, .6);
+    /* margin-top: 20px; */
 }
 
 #share-popup-window-text {
@@ -381,9 +418,11 @@ button {
     margin-top: 10px;
 }
 
-#thank-you-for-sharing-text {
-    color: #f364a2;
-    font-family: 'Righteous';
+#thank-you-for-sharing-row-2 {
+    /* border: solid blue; */
+    text-align: center;
+    /* margin-bottom: 50px; */
+    margin-top: 15px;
 }
 
 #enter-credentials-text {

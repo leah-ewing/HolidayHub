@@ -879,6 +879,15 @@ button {
     font-size: 30px;
 }
 
+#left-slideshow-arrow a:hover,
+#right-slideshow-arrow a:hover,
+#next-date-button:hover,
+#previous-date-button:hover,
+#navbar-logo:hover {
+    color: rgba(243, 100, 162, 0.666);
+    text-shadow: 0 0 10px white, 0 0 10px white;
+}
+
 #right-slideshow-arrow,
 #left-slideshow-arrow {
     margin-right: 20px;

@@ -7,16 +7,145 @@
     <meta name="viewport" content="width=device-width">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
-    <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=Spicy+Rice&display=swap" rel="stylesheet">
+    <style>
 
-    <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        @import url(https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&display=swap);
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../../static/css/email.css">
+        #email-body {
+            display: grid;
+            place-items: center;
+            border: 2px solid rgb(78, 47, 78);
+            border-radius: 5px;
+            background-color: hsla(334, 86%, 67%, 0.1);
+            display: grid;
+            place-items: center;
+            text-align: center;
+        }
+
+        #outer-daily-email-row {
+            /* display: grid;
+            place-items: center; */
+            width: 100%;
+            background: rgba(255, 255, 255, .6);
+            padding-top: 25px;
+        }
+
+        .inner-daily-email-row {
+            /* border: solid blue; */
+            padding: 25px;
+            margin-bottom: 25px;
+            background: white;
+            text-align: center;
+            font-family: 'Alumni Sans','Arial Narrow', Helvetica, Arial, sans-serif;
+            display: grid;
+            place-items: center;
+        }
+
+        #first-row {
+            margin-top: 25px;
+        }
+
+        #salutation-row-daily-email {
+            color: rgb(78, 47, 78);
+            font-size: 50px;
+            font-weight: 700;
+            font-family: 'Alumni Sans','Arial Narrow', Helvetica, Arial, sans-serif;
+            /* width: 100% */
+        }
+
+        #it-is-date-row-daily-email {
+            color: rgb(78, 47, 78);
+            font-size: 40px;
+            line-height: 40px;
+            font-weight: 500;
+        }
+
+        #holiday-name-row-daily-email {
+            color: #f364a2;
+            font-size: 50px;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        #holiday-image-row-daily-email {
+            margin-bottom: 25px;
+        }
+
+        #learn-more-link-daily-email a {
+            color: #f364a2;
+            font-size: 30px;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        #learn-more-link-daily-email a:hover {
+            color: #f364a2cf;
+        }
+
+        #holiday-image-row-daily-email img {
+            height: 300px;
+            width: auto;
+        }
+
+        .email-holiday-image:hover {
+            filter: brightness(102%);
+        }
+
+        #holiday-email-blurb-row-daily-email {
+            color: rgb(78, 47, 78);
+            font-size: 30px;
+            line-height: 40px;
+            margin-top: 25px;
+            margin-bottom: 40px;
+        }
+
+        #sign-off-row-daily-email {
+            color: rgb(78, 47, 78);
+            font-size: 50px;
+            text-align: center;
+            font-family: 'Alumni Sans','Arial Narrow', Helvetica, Arial, sans-serif;
+            font-weight: 600;
+        }
+
+        #signature-row-daily-email {
+            color: #f364a2;
+            font-size: 40px;
+            font-style: italic;
+            text-align: center;
+            font-family: 'Alumni Sans','Arial Narrow', Helvetica, Arial, sans-serif;
+            margin-bottom: 40px;
+        }
+
+        #signature-daily-email {
+            margin-left: 3px;
+        }
+
+        .emoji-daily-email {
+            font-size: 25px;
+            padding-bottom: 5px;
+        }
+
+        .logo:hover {
+            opacity: .8;
+        }
+
+        #bottom-logo {
+            margin-bottom: 50px;
+            padding-top: 15px;
+        }
+
+        #top-logo {
+            padding-bottom: 15px;
+            padding-top: 15px;
+        }
+
+        #unsubscribe-link {
+            font-family: 'Alumni Sans','Arial Narrow', Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            color:rgb(78, 47, 78, .5);
+            padding-bottom: 15px;
+        }
+    </style>
 
     {% endblock %}
 </head>
@@ -26,7 +155,10 @@
     <div class="container" id="email-body">
 
         <a id="top-logo" class="logo" href="{{domain}}/">
-            HolidayApp
+            <img
+                src = "../../static/media/other_images/logo.png"
+                width = 200>
+            </img>
         </a>
 
         <div class="row" id="outer-daily-email-row">
@@ -64,28 +196,33 @@
                 </div>
             </div>
             <div class="row inner-daily-email-row">
-                <div class="row" id="holiday-image-row-daily-email">
-                    <text>
-                        <!-- <img class = "email-holiday-image"
-                            src = "{{holiday.holiday_img}}"
-                            width = 200>
-                        </img> -->
-
-                        <!-- *** -->
-                        <img class = "email-holiday-image"
-                            src = "../../static/media/holiday_images/3-march/3-20-international_day_of_happiness.jpg"
-                            width = 200>
-                        <!-- *** -->
-                    </text>
-                </div>
                 <div class="row" id="holiday-email-blurb-row-daily-email">
                     <text>
                         <!-- {{holiday.holiday_email}} -->
 
                         <!-- *** -->
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum nunc aliquet bibendum enim facilisis gravida neque convallis a. Suspendisse interdum consectetur libero id faucibus nisl tincidunt. Vitae tempus quam pellentesque nec nam. Semper eget duis at tellus. Erat velit scelerisque in dictum non consectetur a erat. Netus et malesuada fames ac turpis egestas. Convallis tellus id interdum velit laoreet id. Ac felis donec et odio pellentesque diam volutpat commodo. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus.
+                        International Day of Happiness is a day dedicated to the recognition and celebration of joy and contentment. It is a time to recognize the importance of mental and emotional health, and to find ways to spread the feelings of happiness in our own communities. So be sure to spread some cheer on this special day!
                         <!-- *** -->
 
+                    </text>
+                </div>
+                <div class="row" id="holiday-image-row-daily-email">
+                    <text>
+                        <!-- <a href="{{domain}}/{{holiday.holiday_name}}">
+                            <img class = "email-holiday-image"
+                                src = "{{holiday.holiday_img}}"
+                                width = 200>
+                            </img>
+                        </a> -->
+
+                        <!-- *** -->
+                        <a href="">
+                            <img class = "email-holiday-image"
+                                src = "../../static/media/holiday_images/3-march/3-20-international_day_of_happiness.jpg"
+                                width = 200>
+                            </img>
+                        </a>
+                        <!-- *** -->
                     </text>
                 </div>
                 <div class="row" id="learn-more-link-daily-email">
@@ -98,21 +235,31 @@
                     </a>
                 </div>
             </div>
-            <div class="row inner-daily-email-row">
+            <div class="row" id="sign-off-row-daily-email">
                 <text>
                     <!-- {{random_sign_off}}<br> -->
 
                     <!-- *** -->
                     Cheers! <br>
                     <!-- *** -->
-
-                    ⭐️ HolidayApp
+                </text>
+            </div>
+            <div class="row" id="signature-row-daily-email">
+                <text>
+                    <span class="emoji-daily-email">⭐️</span>
+                    <text id="signature-daily-email">
+                        HolidayApp
+                    </text>
+                    <span class="emoji-daily-email">⭐️</span>
                 </text>
             </div>
         </div>
 
         <a id="bottom-logo" class="logo" href="{{domain}}/">
-            HolidayApp
+            <img
+                src = "../../static/media/other_images/logo.png"
+                width = 200>
+            </img>
         </a>
 
         <a id="unsubscribe-link" href="{{domain}}/unsubscribe/{{email}}">
@@ -124,5 +271,5 @@
     {% endblock %}
 </body>
 
-<!-- BOOTSTRAP SCRIPT -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<!-- BOOTSTRAP SCRIPT
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script> -->

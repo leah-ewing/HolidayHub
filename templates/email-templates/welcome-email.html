@@ -8,6 +8,98 @@
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
     <style>
+        @import url(https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&display=swap);
+
+        #welcome-email-container {
+            text-align: center;
+            border: 2px solid rgb(78, 47, 78);
+            border-radius: 5px;
+            background-color: hsla(334, 86%, 67%, 0.07);
+            font-family: 'Alumni Sans','Arial Narrow', Helvetica, Arial, sans-serif;
+            color: rgb(78, 47, 78);
+            display: grid;
+            place-items: center;
+        }
+
+        #welcome-email-outer-row {
+            background-color: hsla(334, 86%, 67%, 0.2);
+            padding: 25px;
+            display: grid;
+            place-items: center;
+            margin: 25px;
+        }
+
+        .welcome-email-inner-row {
+            background-color: rgb(255, 255, 255, 0.7);
+            margin: 25px;
+            width: 85%;
+            padding: 25px;
+            display: grid;
+            place-items: center;
+        }
+
+        #welcome-email-row-2 {
+            font-size: 60px;
+            font-weight: 700;
+            /* color: #f364a2; */
+        }
+
+        #welcome-email-row-3 text {
+            color: #f364a2;
+            font-size: 50px;
+            font-style: italic;
+            font-weight: 600;
+            line-height: 40px;
+        }
+
+        #welcome-email-row-3 {
+            display: grid;
+            place-items: center;
+            font-size: 30px;
+            line-height: 40px;
+        }
+
+        #welcome-email-row-4 {
+            max-width: 75%;
+        }
+
+        #welcome-blurb {
+            text-align: center;
+            font-size: 30px;
+            line-height: 40px;
+        }
+
+        #welcome-email-row-5 a {
+            color: #f364a2;
+            font-size: 40px;
+            font-weight: 600;
+            font-style: italic;
+            line-height: 45px;
+        }
+
+        #welcome-email-row-6 {
+            font-size: 50px;
+            text-align: center;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        #welcome-email-row-7 {
+            color: #f364a2;
+            font-size: 40px;
+            margin-bottom: 25px;
+        }
+
+        .logo:hover {
+            opacity: .8;
+        }
+
+        #unsubscribe-link {
+            font-size: 20px;
+            color:rgb(78, 47, 78, .5);
+            padding-bottom: 15px;
+        }
+
     </style>
 
     {% endblock %}
@@ -49,7 +141,8 @@
             </div>
             <div class="welcome-email-inner-row">
                 <div id="welcome-email-row-4">
-                    <text>
+                    <text id="welcome-blurb">
+                        <br>
                         Welcome aboard! 🎉 We're thrilled to have you join the HolidayApp family and embark on a journey filled with daily celebrations, fun, and delightful surprises! <br><br>
     
                         Every day, we're dedicated to bringing you the joy of discovering and celebrating unique holidays. From the well-known to the wonderfully obscure, get ready to mark your calendar with exciting festivities you never knew existed! <br><br>
@@ -59,6 +152,7 @@
                         Thank you for choosing HolidayApp to add a little more sparkle to your days. Get ready to celebrate daily moments in a whole new light!
                     </text>
                 </div>
+                <br><br><br>
                 <div id="welcome-email-row-5">
                     <text>
                         <!-- <a href="{{domain}}/{{holiday_name}}">
@@ -72,15 +166,20 @@
                         <!-- *** -->
                     </text>
                 </div>
+                <br><br>
             </div>
             <div id="welcome-email-row-6">
                 <text>
-                    Cheers to new adventures,<br>
+                    Cheers to new adventures,
+                </text>
+            </div>
+            <div id="welcome-email-row-7">
+                <text>
                     - HolidayApp
                 </text>
             </div>
         </div>
-        <div id="welcome-email-row-7">
+        <div id="welcome-email-row-8">
             <a class="logo" href="{{domain}}/">
                 <img
                     src = "https://raw.githubusercontent.com/leah-ewing/HolidayApp/3a321484f75cd6798ea5bb77e16011660933186c/static/media/other_images/logo.png"
@@ -88,11 +187,13 @@
                 </img>
             </a>
         </div>
-        <div id="welcome-email-row-8">
+        <br><br><br>
+        <div id="welcome-email-row-9">
             <a id="unsubscribe-link" href="{{domain}}/unsubscribe/{{email}}">
                 Click here to unsubscribe
             </a>
         </div>
+        <br>
     </div>
 
     {% endblock %}

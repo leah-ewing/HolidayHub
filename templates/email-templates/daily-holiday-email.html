@@ -11,6 +11,96 @@
 
         @import url(https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&display=swap);
 
+        #daily-email-container {
+            text-align: center;
+            border: 2px solid rgb(78, 47, 78);
+            border-radius: 5px;
+            background-color: hsla(334, 86%, 67%, 0.1);
+            font-family: 'Alumni Sans','Arial Narrow', Helvetica, Arial, sans-serif;
+            color: rgb(78, 47, 78);
+            display: grid;
+            place-items: center;
+        }
+
+        #daily-email-outer-row {
+            /* border: solid blue; */
+            background-color: rgba(255, 255, 255, .6);
+            padding: 25px;
+            display: grid;
+            place-items: center;
+            margin: 25px;
+        }
+
+        .daily-email-inner-row {
+            /* border: solid orange; */
+            background-color: white;
+            margin: 25px;
+            width: 85%;
+            padding: 25px;
+            display: grid;
+            place-items: center;
+        }
+
+        #daily-email-row-1 {
+            text-align: center;
+        }
+
+        #daily-email-row-2 {
+            font-size: 60px;
+            font-weight: 700;
+        }
+
+        #daily-email-row-3 {
+            font-size: 40px;
+            line-height: 40px;
+            font-weight: 500;
+        }
+
+        #daily-email-row-4 {
+            color: #f364a2;
+            font-size: 50px;
+            font-style: italic;
+            font-weight: 600;
+            line-height: 40px;
+        }
+
+        #daily-email-row-5 {
+            display: grid;
+            place-items: center;
+            font-size: 30px;
+            line-height: 40px;
+        }
+
+        #holiday-blurb {
+            max-width: 75%;
+            text-align: center;
+        }
+
+        #daily-email-row-5 img {
+            height: 300px;
+            width: auto;
+        }
+
+        #daily-email-row-6 a {
+            color: #f364a2;
+            font-size: 30px;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        #daily-email-row-7 {
+            font-size: 50px;
+            text-align: center;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        #daily-email-row-8 {
+            color: #f364a2;
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+
         .emoji-daily-email {
             font-size: 25px;
             padding-bottom: 5px;
@@ -26,96 +116,6 @@
             padding-bottom: 15px;
         }
 
-        #test-container {
-            text-align: center;
-            border: 2px solid rgb(78, 47, 78);
-            border-radius: 5px;
-            background-color: hsla(334, 86%, 67%, 0.1);
-            font-family: 'Alumni Sans','Arial Narrow', Helvetica, Arial, sans-serif;
-            color: rgb(78, 47, 78);
-            display: grid;
-            place-items: center;
-        }
-
-        #test-outer-row {
-            /* border: solid blue; */
-            background-color: rgba(255, 255, 255, .6);
-            padding: 25px;
-            display: grid;
-            place-items: center;
-            margin: 25px;
-        }
-
-        .test-inner-row {
-            /* border: solid orange; */
-            background-color: white;
-            margin: 25px;
-            width: 85%;
-            padding: 25px;
-            display: grid;
-            place-items: center;
-        }
-
-        #test-row-1 {
-            text-align: center;
-        }
-
-        #test-row-2 {
-            font-size: 60px;
-            font-weight: 700;
-        }
-
-        #test-row-3 {
-            font-size: 40px;
-            line-height: 40px;
-            font-weight: 500;
-        }
-
-        #test-row-4 {
-            color: #f364a2;
-            font-size: 50px;
-            font-style: italic;
-            font-weight: 600;
-            line-height: 40px;
-        }
-
-        #test-row-6 {
-            display: grid;
-            place-items: center;
-            font-size: 30px;
-            line-height: 40px;
-        }
-
-        #holiday-blurb {
-            max-width: 75%;
-            text-align: center;
-        }
-
-        #test-row-6 img {
-            height: 300px;
-            width: auto;
-        }
-
-        #test-row-7 a {
-            color: #f364a2;
-            font-size: 30px;
-            font-weight: 600;
-            font-style: italic;
-        }
-
-        #test-row-8 {
-            font-size: 50px;
-            text-align: center;
-            font-weight: 600;
-            font-style: italic;
-        }
-
-        #test-row-9 {
-            color: #f364a2;
-            font-size: 40px;
-            margin-bottom: 40px;
-        }
-
     </style>
 
     {% endblock %}
@@ -124,8 +124,8 @@
 <body>
     {% block body %}
 
-    <div id="test-container">
-        <div id="test-row-1">
+    <div id="daily-email-container">
+        <div id="daily-email-row-1">
             <br>
             <a class="logo" href="{{domain}}/">
                 <img
@@ -134,9 +134,9 @@
                 </img>
             </a>
         </div>
-        <div id="test-outer-row">
-            <div class="test-inner-row">
-                <div id="test-row-2">
+        <div id="daily-email-outer-row">
+            <div class="daily-email-inner-row">
+                <div id="daily-email-row-2">
                     <text>
                         {{random_salutation}} {{fname}}!
 
@@ -148,7 +148,7 @@
 
                 <br>
 
-                <div id="test-row-3">
+                <div id="daily-email-row-3">
                     <text>
                         {{random_today_is_statement}} {{month}} {{day}}{{suffix}}, <br>
             
@@ -164,7 +164,7 @@
 
                 <br><br>
 
-                <div id="test-row-4">
+                <div id="daily-email-row-4">
                     <text>
                         {{holiday.holiday_name}}!
 
@@ -174,8 +174,8 @@
                     </text>
                 </div>
             </div>
-            <div class="test-inner-row">
-                <div id="test-row-6">
+            <div class="daily-email-inner-row">
+                <div id="daily-email-row-5">
                     <text id="holiday-blurb">
                         {{holiday.holiday_email}}
 
@@ -205,7 +205,7 @@
                         <!-- *** -->
                     </text>
                 </div>
-                <div id="test-row-7">
+                <div id="daily-email-row-6">
                     <a href="{{domain}}/{{holiday.holiday_name}}">
                         Click here to learn more about {{holiday.holiday_name}}!
 
@@ -216,7 +216,7 @@
                     <br><br>
                 </div>
             </div>
-            <div id="test-row-8">
+            <div id="daily-email-row-7">
                 <text>
                     {{random_sign_off}}<br>
 
@@ -225,7 +225,7 @@
                     <!-- *** -->
                 </text>
             </div>
-            <div id="test-row-9">
+            <div id="daily-email-row-8">
                 <text>
                     <span class="emoji-daily-email">⭐️</span>
                     <text id="signature-daily-email">
@@ -235,7 +235,7 @@
                 </text>
             </div>
         </div>
-        <div id="test-row-10">
+        <div id="daily-email-row-9">
             <a class="logo" href="{{domain}}/">
                 <img
                     src = "https://raw.githubusercontent.com/leah-ewing/HolidayApp/3a321484f75cd6798ea5bb77e16011660933186c/static/media/other_images/logo.png"
@@ -244,7 +244,7 @@
             </a>
         </div>
         <br><br><br>
-        <div id="test-row-11">
+        <div id="daily-email-row-10">
             <a id="unsubscribe-link" href="{{domain}}/unsubscribe/{{email}}">
                 Click here to unsubscribe
             </a>

@@ -1229,7 +1229,7 @@ button {
     /* padding: 30px; */
 /* } */
 
-#search-result {
+.search-result {
     /* border: solid red; */
     width: 900px;
     background: rgba(255, 255, 255, .7);
@@ -1238,12 +1238,13 @@ button {
     padding-left: 30px;
     padding-right: 30px;
     padding-bottom: 30px;
+    margin: 25px;
     /* width: 100%; */
     /* margin-left: -30px; */
     /* margin-bottom: 10px; */
 }
 
-#search-result a {
+.search-result a {
     font-family: 'Alumni Sans';
     font-size: 45px;
     color: rgb(78, 47, 78);
@@ -1255,7 +1256,7 @@ button {
 #search-result-image {
     /* max-width: 30%; */
     text-align: center;
-    margin-left: -30px;
+    /* margin-left: -30px; */
     /* height: 255px;
     width: 375px; */
 
@@ -1271,7 +1272,7 @@ button {
     line-height: 28px;
     text-align: justify;
     /* border: solid red; */
-    margin-left: -90px;
+    margin-left: -50px;
 }
 
 #search-result-date {

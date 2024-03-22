@@ -46,7 +46,7 @@ def get_slideshow_holidays():
     return slideshow_holidays
     
 
-@app.route('/get-search-result')
+@app.route('/get-search-term')
 def get_search_result():
     """ Gets the given search term from the search bar """
 
@@ -61,10 +61,15 @@ def get_search_result():
 
 @app.route('/search-results/<search_term>', methods = ["GET"])
 def show_search_results(search_term):
-    """ Grabs search results from the db for a given search term """
+    """ Checks if a search-term has any results and routes to the search-results page """
 
     try:
         search_results = crud.get_search_results(search_term.lower())
+
+        if search_results == None:
+            search_results = False
+        else:
+            search_results = True
 
         return render_template('search-results.html',
                             search_term = search_term,
@@ -72,6 +77,18 @@ def show_search_results(search_term):
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
         return redirect('/error')
+    
+
+@app.route('/get-search-results/<search_term>', methods = ["GET"])
+def get_search_results_for_client(search_term):
+    """ Grabs search results from the db for a given search term and returns them to the client"""
+
+    try:
+        search_results = crud.get_search_results(search_term.lower())
+        return search_results
+
+    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+            return redirect('/error')
 
 
 @app.route('/about')

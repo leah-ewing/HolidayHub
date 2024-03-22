@@ -258,7 +258,7 @@ def get_search_results(search_term):
                                     'holiday_month': holiday_month.capitalize(), 
                                     'holiday_date': holiday.holiday_date, 
                                     'holiday_img': holiday.holiday_img, 
-                                    'holiday_blurb': holiday.holiday_blurb, 
+                                    'holiday_blurb': holiday.holiday_blurb[0:200], 
                                     'date_suffix': date_suffix,
                                     'result_num': result_num})
     

@@ -17,11 +17,6 @@ async function displaySearchResults() {
             })
 
     for (let result of searchResults) {
-        let shortenedBlurb = []
-
-        for (let i = 0; i < 201; i++) {
-            shortenedBlurb.push(result.holiday_blurb[i])
-        }
 
         searchResultsDiv.innerHTML += `<div class="row search-result" id="search-result-${result.result_num}">
                                             <a id="search-result-name-${result.result_num}" href="/${result.holiday_name}">${result.holiday_name}</a>
@@ -42,7 +37,7 @@ async function displaySearchResults() {
                                                         <div id="search-result-date">
                                                             ${result.holiday_month} ${result.holiday_date}${result.date_suffix}
                                                         </div>
-                                                        ${shortenedBlurb.join('')} <b>...</b>
+                                                        ${result.holiday_blurb} <b>...</b>
                                                     </text>
                                                 </div>
                                             </div>

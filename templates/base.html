@@ -40,7 +40,7 @@
 
     <div class="container-fluid navbar-top" id="navbar">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="collapse navbar-collapse" id="navbarText">
+        <!-- <div class="collapse navbar-collapse" id="navbarText"> -->
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="navbar-brand" aria-current="page" id="navbar-logo" href="/">HolidayApp</a>
@@ -56,10 +56,10 @@
             </li>
           </ul>
           <form class="d-flex" role="search" action="/get-search-result" method="GET">
-            <input class="form-control me-2" name="search-term" type="search" placeholder="Search holiday name" aria-label="Search" required/>
+            <input class="form-control me-2" name="search-term" type="search" placeholder="Search holiday name" aria-label="Search" autocomplete="off" required/>
             <button class="btn submit-search" type="submit"><text>Go</text></button>
           </form>
-        </div>
+        <!-- </div> -->
       </nav>
     </div>
 
@@ -147,9 +147,9 @@
 
           <form action="/add-email" method = "POST" id="email-form">
             <label for="fname">First Name:</label><br>
-              <input class="form-control me-2" id="fname" name="fname" required /></textarea><br>
+              <input class="form-control me-2" id="fname" name="fname" autocomplete="off" required /></textarea><br>
             <label for="email">Email:</label><br>
-              <input class="form-control me-2" id="email" name="email" type="email" required /></textarea><br>
+              <input class="form-control me-2" id="email" name="email" type="email" autocomplete="off" required /></textarea><br>
           </form>
           <div class="col" id="submit-email-buttons">
             <button id="submit-button" class="btn submit-button" type="submit">Submit!</button>

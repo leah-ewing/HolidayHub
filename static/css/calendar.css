@@ -181,7 +181,7 @@ body {
     position: relative;
     overflow: hidden;
     /* background-color: #00e1fa; */
-    background-color: hsla(334, 86%, 67%, 0.1);
+    background-color: rgba(243, 98, 161, 0.1);
     min-width: 600px;
     min-height: 625px;
 }

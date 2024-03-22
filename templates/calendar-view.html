@@ -67,7 +67,11 @@
           <div class="row" id="monthly-holiday-row">
               <div id="monthly-holiday-list">
                 {% for holiday in monthly_holidays %}
-                  ⭐️ {{holiday.monthly_holiday_name}}
+                <img
+                    src = "../static/media/other_images/flower-icon-pink.png"
+                    width = 17px>
+                </img> 
+                {{holiday.monthly_holiday_name}}
                   <br>
                 {% endfor %}
               </div>

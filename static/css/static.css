@@ -781,7 +781,7 @@ button {
 }
 
 #slideshow-holiday-name a {
-    color: rgb(78, 47, 78);
+    color: rgba(78, 47, 78, 0.682);
     text-decoration: none;
 }
 

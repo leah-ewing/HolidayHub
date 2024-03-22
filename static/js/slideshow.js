@@ -71,24 +71,22 @@ async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
     let slideshowHolidayIndexes = [firstHolidayIndex, secondHolidayIndex, thirdHolidayIndex]
 
     for (let i of slideshowHolidayIndexes) {
-        holidaysDiv.innerHTML += (`<div class="col" id="slideshow-holiday">
+        holidaysDiv.innerHTML += (`<div class="col slideshow-holiday" id="slideshow-holiday-${i}">
                                         <div class="row slideshow-row">
                                             <div class="col" id="slideshow-holiday-image">
-                                                <a href = "/${slideshowHolidayList[i].holiday_name}">
-                                                    <div class="image-container">
-                                                        <img
-                                                            src = "${slideshowHolidayList[i].holiday_img}"
-                                                            width = 200
-                                                            id = "slideshow-image">
-                                                        </img>
-                                                    </div>
-                                                </a>
+                                                <div class="image-container">
+                                                    <img
+                                                        src = "${slideshowHolidayList[i].holiday_img}"
+                                                        width = 200
+                                                        id = "slideshow-image">
+                                                    </img>
+                                                </div>
                                             </div>
                                         <div class="col" id="slideshow-holiday-blurb">
                                             <p id="slideshow-holiday-name">
-                                                <a href="/${slideshowHolidayList[i].holiday_name}" id="name-tag">
+                                                <span id="name-tag-${i}">
                                                     ${slideshowHolidayList[i].holiday_name}
-                                                </a>
+                                                </span>
                                             </p>
                                             <p id="slideshow-holiday-date">
                                                 ${slideshowHolidayList[i].holiday_month} ${slideshowHolidayList[i].holiday_date}${slideshowHolidayList[i].date_suffix}
@@ -96,6 +94,17 @@ async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
                                         </div>
                                     </div>`)
     }
+
+    for (let i = 0; i < 3; i++) {
+        let clickableSlideshowDiv = document.getElementById(`slideshow-holiday-${i}`)
+        let slideshowHolidayName = document.getElementById(`name-tag-${i}`).innerHTML.trim()
+        let url = `/${slideshowHolidayName}`
+
+        clickableSlideshowDiv.addEventListener("click", function() {
+            window.location.href = url
+        })
+    }
 }
+
 
 getSlideshowHolidays().then(() => holidaySlideshow())

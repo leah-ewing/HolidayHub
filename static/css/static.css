@@ -748,13 +748,14 @@ button {
     margin-right: -15px;
 }
 
-#slideshow-holiday {
+.slideshow-holiday {
     /* border: solid green; */
     margin: 10px;
     background-color: rgba(255, 255, 255, .6);
     width: 100%;
     display: inline;
     margin-top: -20px;
+    cursor: pointer;
 }
 
 #slideshow-holiday-blurb {
@@ -778,12 +779,13 @@ button {
     /* font-weight: 100; */
     font-size: 33px;
     line-height: 30px;
+    color: rgba(78, 47, 78);
 }
 
-#slideshow-holiday-name a {
+/* #slideshow-holiday-name a {
     color: rgba(78, 47, 78);
     text-decoration: none;
-}
+} */
 
 #homepage-title {
     width: 100%;

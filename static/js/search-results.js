@@ -19,10 +19,12 @@ async function displaySearchResults() {
     for (let result of searchResults) {
 
         searchResultsDiv.innerHTML += `<div class="row search-result" id="search-result-${result.result_num}">
-                                            <a id="search-result-name-${result.result_num}" href="/${result.holiday_name}">${result.holiday_name}</a>
+                                            <text class="search-result-name" id="search-result-name-${result.result_num}" href="/${result.holiday_name}">
+                                            ${result.holiday_name}
+                                            </text>
                                             <div class="row">
                                                 <div class="col" id="search-result-image">
-                                                    <a href="/${result.holiday_name}">
+                                                    <span href="/${result.holiday_name}">
                                                         <div class="image-container">
                                                             <img
                                                                 src = "${result.holiday_img}"
@@ -30,7 +32,7 @@ async function displaySearchResults() {
                                                                 id = "search-result-img">
                                                             </img>
                                                         </div>
-                                                    </a>
+                                                    </span>
                                                 </div>
                                                 <div class="col" id="search-result-blurb">
                                                     <text>
@@ -42,6 +44,17 @@ async function displaySearchResults() {
                                                 </div>
                                             </div>
                                         </div>`
+    }
+
+    for (let i = 1; i < searchResults.length + 1; i++) {
+        let clickableSearchResultDiv = document.getElementById(`search-result-${i}`)
+        let slideshowHolidayName = document.getElementById(`search-result-name-${i}`).innerHTML.trim()
+        console.log(slideshowHolidayName)
+        let url = `/${slideshowHolidayName}`
+
+        clickableSearchResultDiv.addEventListener("click", function() {
+            window.location.href = url
+        })
     }
 
 }

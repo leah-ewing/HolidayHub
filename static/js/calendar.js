@@ -80,7 +80,10 @@ month_names.forEach((e, index) => {
                 holiday_list.innerHTML = ''
 
                 for (let holiday of monthly_holiday_names) {
-                    holiday_list.innerHTML = holiday_list.innerHTML + `⭐️ ${holiday}` + '<br>'
+                    holiday_list.innerHTML = holiday_list.innerHTML + `<img
+                                                                            src = "../static/media/other_images/flower-icon-pink.png"
+                                                                            width = 17px>
+                                                                        </img>  ${holiday}` + '<br>'
                 }
             })
     })

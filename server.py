@@ -215,6 +215,8 @@ def random_holiday(name):
         previous_date = controller.get_previous_day(int(holiday.holiday_month), int(holiday.holiday_date), int(current_date['year']))
         next_date_month_string = crud.get_month_by_number(next_date["month"])
         previous_date_month_string = crud.get_month_by_number(previous_date["month"])
+        
+        multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday.holiday_month, holiday.holiday_date)
 
         return render_template('random-holiday.html',
                             month_name = month.capitalize(),
@@ -226,7 +228,9 @@ def random_holiday(name):
                             next_date = next_date,
                             next_date_month = next_date_month_string.capitalize(),
                             previous_date = previous_date,
-                            previous_date_month = previous_date_month_string.capitalize())
+                            previous_date_month = previous_date_month_string.capitalize(),
+                            multiple_holidays_on_date = multiple_holidays_on_date,
+                            month = holiday.holiday_month)
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
         return redirect('/error')

@@ -45,22 +45,23 @@
                     <div class="col" id="next-date">
                         <a id = "next-date-button" href="/day-picker/{{next_date_month}}/{{next_date.day}}">▶︎</a>
                     </div>
+
+                    {% if multiple_holidays_on_date == True %}
+                    <div class="row">
+                        <div class="col">
+                            <button id="random-holiday-on-date" class="btn" onclick="location.href='/random-holiday/{{month}}/{{day}}/{{holiday}}'">
+                                But wait! It's also...
+                            </button>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col" id="holiday-buttons-div">
-
-                {% if multiple_holidays_on_date == True %}
-            
-                    <button id="random-holiday-on-date" class="btn" onclick="location.href='/random-holiday/{{month}}/{{day}}/{{holiday}}'">
-                        But wait! It's also...
-                    </button>
-                    <br><br>
-
-                {% endif %}
-
                 <button id="back-to-homepage" class="btn" onclick="location.href='/'">
                     Back Home
                 </button>

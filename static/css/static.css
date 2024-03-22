@@ -199,6 +199,7 @@ button {
 }
 
 #random-holiday-on-date {
+    margin-top: 20px;
     background-color: rgb(243, 100, 162, .9);
     color: white;
     text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);

@@ -147,14 +147,14 @@
 
           <form action="/add-email" method = "POST" id="email-form">
             <label for="fname">First Name:</label><br>
-              <input class="form-control me-2" id="fname" name="fname" autocomplete="off" required /></textarea><br>
+            <input class="form-control me-2" id="fname" name="fname" autocomplete="off" type="text" required /></textarea><br>
             <label for="email">Email:</label><br>
-              <input class="form-control me-2" id="email" name="email" type="email" autocomplete="off" required /></textarea><br>
+            <input class="form-control me-2" id="email" name="email" type="email" autocomplete="off" required /></textarea><br>
+            <div class="col" id="submit-email-buttons">
+              <button id="submit-button" class="btn submit-button" type="submit">Submit!</button>
+              <button id="close-button" class="btn">Go Back</button>
+            </div>
           </form>
-          <div class="col" id="submit-email-buttons">
-            <button id="submit-button" class="btn submit-button" type="submit">Submit!</button>
-            <button id="close-button" class="btn">Go Back</button>
-          </div>
         </div>
         <div class="row" id="disclaimer-text">
             <text>

@@ -758,6 +758,10 @@ button {
     cursor: pointer;
 }
 
+.slideshow-holiday:hover {
+    background-color: rgba(255, 255, 255, .8);
+}
+
 #slideshow-holiday-blurb {
     height: 150px;
     max-height: auto;

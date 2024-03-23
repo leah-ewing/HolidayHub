@@ -20,7 +20,7 @@ async function displaySearchResults() {
 
         searchResultsDiv.innerHTML += `<div class="row search-result" id="search-result-${result.result_num}">
                                             <text class="search-result-name" id="search-result-name-${result.result_num}" href="/${result.holiday_name}">
-                                            ${result.holiday_name}
+                                                ${result.holiday_name}
                                             </text>
                                             <div class="row">
                                                 <div class="col" id="search-result-image">

@@ -17,6 +17,8 @@ const pinterestShareButton = document.getElementById("pinterest-share-button")
 const emailShareButton = document.getElementById("email-share-button")
 const copyLinkButton = document.getElementById("copy-link-button")
 
+const htmlBody = document.body
+
 
 shareButton.addEventListener("click", async () => {
     if (navigator.share) {

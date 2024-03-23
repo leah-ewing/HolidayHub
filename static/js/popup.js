@@ -27,72 +27,62 @@ const tryAgainButtonInvalidEmail = document.getElementById("try-again-button-inv
 
 popupButton.addEventListener("click", function(evt) {
     evt.preventDefault()
+    shareWindow.style.display = "none"
     popupWindow.style.display = "block"
 })
 
 closeButton.addEventListener("click", function() {
-    popupWindow.style.display = "none"
-    shareWindow.style.display = "none"
+
+    closePopUps()
 
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
 
 closeButton_X.addEventListener("click", function() {
-    popupWindow.style.display = "none"
-    shareWindow.style.display = "none"
+    closePopUps()
 
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
 
 closeButtonDuplicateEmail.addEventListener("click", function() {
-    shareWindow.style.display = "none"
-    duplicateEmailWindow.style.display = "none"
-    popupWindow.style.display = "none"
+    closePopUps()
 
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
 
 closeButtonDuplicateEmail_X.addEventListener("click", function() {
-    shareWindow.style.display = "none"
-    duplicateEmailWindow.style.display = "none"
-    popupWindow.style.display = "none"
+    closePopUps()
 
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
 
 closeButtonInvalidEmail.addEventListener("click", function() {
-    popupWindow.style.display = "none"
-    invalidEmailWindow.style.display = "none"
-    shareWindow.style.display = "none"
+    closePopUps()
 
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
 
 closeButtonInvalidEmail_X.addEventListener("click", function() {
-    popupWindow.style.display = "none"
-    invalidEmailWindow.style.display = "none"
-    shareWindow.style.display = "none"
+    closePopUps()
 
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
 
 closeButtonThankYou.addEventListener("click", function() {
-    thankYouWindow.style.display = "none"
-    popupWindow.style.display = "none"
+    closePopUps()
 
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
 
 closeButtonThankYou_X.addEventListener("click", function() {
-    thankYouWindow.style.display = "none"
-    popupWindow.style.display = "none"
+    closePopUps()
 
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
@@ -139,3 +129,33 @@ submitButton.addEventListener('click', (evt) => {
       }
     })
 })
+
+function closePopUps() {
+    popupWindow.style.display = "none"
+    shareWindow.style.display = "none"
+    thankYouWindow.style.display = "none"
+    invalidEmailWindow.style.display = "none"
+    duplicateEmailWindow.style.display = "none"
+}
+
+// document.addEventListener("click", function(evt) {
+    // evt.preventDefault()
+
+    // console.log(popupWindow.style.display.toString())
+
+    // if (evt.target.style.display == "block") {
+    //     console.log('block bby')
+    // }
+
+    // if (popupWindow.style.display != "none" || shareWindow.style.display != "none") {
+    //     if (evt.target.closest("#popup-window")) {
+    //         // popupWindow.style.display = "none"
+    //         // shareWindow.style.display = "none"
+    //         console.log('on')
+    //     } else {
+    //         console.log('off')
+    //         popupWindow.style.display = "none"
+    //         // shareWindow.style.display = "none"
+    //     }
+    // }
+// })

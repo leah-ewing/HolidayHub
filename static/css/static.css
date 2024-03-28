@@ -854,6 +854,7 @@ button {
     /* text-shadow: 3px 2px 20px #FDF7FA; */
     text-shadow: 0 0 30px white, 0 0 30px white;
     /* border: solid red; */
+    cursor: default;
 }
 
 #homepage-buttons {

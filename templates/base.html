@@ -40,26 +40,24 @@
 
     <div class="container-fluid navbar-top" id="navbar">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <!-- <div class="collapse navbar-collapse" id="navbarText"> -->
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="navbar-brand" aria-current="page" id="navbar-logo" href="/">HolidayApp</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="share-button">Share</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about" id="about-button">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="popup-button">Sign Up for Daily Emails!</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search" action="/get-search-term" method="GET">
-            <input class="form-control me-2" name="search-term" type="search" placeholder="Search holiday name" aria-label="Search" autocomplete="off" required/>
-            <button class="btn submit-search" type="submit"><text>Go</text></button>
-          </form>
-        <!-- </div> -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="navbar-brand" aria-current="page" id="navbar-logo" href="/">HolidayApp</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="share-button">Share</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about" id="about-button">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="popup-button">Sign Up for Daily Emails!</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search" action="/get-search-term" method="GET">
+          <input class="form-control me-2" name="search-term" type="search" placeholder="Search holiday name" aria-label="Search" autocomplete="off" required/>
+          <button class="btn submit-search" type="submit"><text>Go</text></button>
+        </form>
       </nav>
     </div>
 
@@ -223,7 +221,6 @@
 
       <!-- JAVASCRIPT -->
       <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/share.js') }}"></script>
 
     </div>
 

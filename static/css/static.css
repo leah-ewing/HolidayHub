@@ -636,6 +636,7 @@ button {
     background-color: rgba(255, 255, 255, .6);
     line-height: 60px;
     /* border-radius: 7px; */
+    cursor: default;
 }
 
 .holiday-name {
@@ -809,6 +810,7 @@ button {
     /* background: rgba(255, 255, 255, .5); */
     /* margin-top: 50px; */
     /* position: relative; */
+    cursor: default;
 }
 
 #holiday-title {
@@ -863,7 +865,7 @@ button {
     /* text-shadow: 3px 2px 20px #FDF7FA; */
     text-shadow: 0 0 30px white, 0 0 30px white;
     /* border: solid red; */
-    cursor: default;
+    /* cursor: default; */
 }
 
 #homepage-buttons {

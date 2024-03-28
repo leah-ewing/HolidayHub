@@ -173,6 +173,7 @@ body {
     /* background-color: var(--bg-body); */
     font-family: 'Inter Tight';
     background-color: #fdfdfd;
+    cursor: default;
 }
 
 .calendar {
@@ -339,7 +340,7 @@ body {
 }
 
 .calendar-empty-day:hover {
-    cursor: initial;
+    cursor: default;
 }
 
 .calendar-days div span {

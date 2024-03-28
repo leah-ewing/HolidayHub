@@ -4,6 +4,7 @@
 
 const popupWindow = document.getElementById("popup-window")
 const shareWindow = document.getElementById("share-popup-window")
+const popupWindowBox = document.getElementsByClassName("popup-window")
 
 const popupButton = document.getElementById("popup-button")
 const closeButton = document.getElementById("close-button")
@@ -27,12 +28,13 @@ const tryAgainButtonInvalidEmail = document.getElementById("try-again-button-inv
 
 popupButton.addEventListener("click", function(evt) {
     evt.preventDefault()
+    evt.stopPropagation()
+    
     shareWindow.style.display = "none"
     popupWindow.style.display = "block"
 })
 
 closeButton.addEventListener("click", function() {
-
     closePopUps()
 
     document.getElementById("fname").value = ""
@@ -130,6 +132,14 @@ submitButton.addEventListener('click', (evt) => {
     })
 })
 
+document.addEventListener("click", function(evt) {
+    evt.preventDefault()
+
+    if (!evt.target.closest(".popup-window")) {
+        closePopUps()
+    }
+})
+
 function closePopUps() {
     popupWindow.style.display = "none"
     shareWindow.style.display = "none"
@@ -137,25 +147,3 @@ function closePopUps() {
     invalidEmailWindow.style.display = "none"
     duplicateEmailWindow.style.display = "none"
 }
-
-// document.addEventListener("click", function(evt) {
-    // evt.preventDefault()
-
-    // console.log(popupWindow.style.display.toString())
-
-    // if (evt.target.style.display == "block") {
-    //     console.log('block bby')
-    // }
-
-    // if (popupWindow.style.display != "none" || shareWindow.style.display != "none") {
-    //     if (evt.target.closest("#popup-window")) {
-    //         // popupWindow.style.display = "none"
-    //         // shareWindow.style.display = "none"
-    //         console.log('on')
-    //     } else {
-    //         console.log('off')
-    //         popupWindow.style.display = "none"
-    //         // shareWindow.style.display = "none"
-    //     }
-    // }
-// })

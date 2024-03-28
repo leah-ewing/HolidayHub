@@ -20,7 +20,7 @@ const copyLinkButton = document.getElementById("copy-link-button")
 const htmlBody = document.body
 
 
-shareButton.addEventListener("click", async () => {
+shareButton.addEventListener("click", async(evt) => {
     if (navigator.share) {
         try {
             await navigator.share({ url: "" })
@@ -29,6 +29,8 @@ shareButton.addEventListener("click", async () => {
             console.error("Share failed:", err.message)
         }
     } else {
+        evt.stopPropagation()
+        
         popupWindow.style.display = "none"
         sharePopUpWindow.style.display = "block"
     }

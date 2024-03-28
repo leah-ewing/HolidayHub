@@ -123,11 +123,11 @@ def calendarView():
 def add_new_email():
     """ Adds new email from input form """
 
-    first_name = request.json.get("fname")
-    email = request.json.get("email")
+    first_name = request.json.get("fname").strip()
+    email = request.json.get("email").strip()
     valid_email = controller.check_for_valid_email(email)
 
-    if valid_email == True:
+    if valid_email == True and len(first_name) > 0:
         email_exists = crud.check_for_email(email)
         if email_exists == True:
             return jsonify({"memo": "Email already exists",

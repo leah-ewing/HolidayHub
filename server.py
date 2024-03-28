@@ -137,7 +137,7 @@ def add_new_email():
             return jsonify({"memo": "Email added successfully", 
                         "status": 200})
     else:
-        return jsonify({"memo": "Email not valid",
+        return jsonify({"memo": "First name or email not valid",
                         "status": 400})
 
 

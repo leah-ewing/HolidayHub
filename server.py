@@ -92,7 +92,7 @@ def get_search_results_for_client(search_term):
         return search_results
 
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
-            return redirect('/error')
+        return redirect('/error')
 
 
 @app.route('/about')

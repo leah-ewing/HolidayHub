@@ -50,12 +50,14 @@ def send_welcome_email(email):
     month_num = crud.get_month_by_name(current_date["month"])
     holiday = crud.get_first_holiday_by_date(month_num, current_date["day"])
     random_subject = controller.get_random_welcome_email_subject()
+    holiday_img = controller.get_formatted_github_image_url(holiday.holiday_name)
 
     template_variables = {
         'random_salutation': random_salutation,
         'fname': fname,
         'holiday_name': holiday.holiday_name,
 		'logo_source': LOGO_URL,
+		'holiday_img': holiday_img,
         'email': email,
         'domain': DOMAIN
     }

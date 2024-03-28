@@ -66,12 +66,12 @@ def show_search_results(search_term):
     try:
         search_results = crud.get_search_results(search_term.lower())
 
-        results_count = len(search_results)
-
         if search_results == None:
+            results_count = 0
             search_results = False
 
         else:
+            results_count = len(search_results)
             search_results = True
 
         return render_template('search-results.html',
@@ -152,7 +152,7 @@ def get_clicked_date(month, day):
         return redirect(f'/{holiday_data.holiday_name}')
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError, IndexError):
-            return redirect('/error')
+        return redirect('/error')
     
 
 @app.route('/random-holiday/<month>/<day>/<holiday>', methods = ["GET"])

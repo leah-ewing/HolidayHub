@@ -1132,7 +1132,7 @@ button {
     place-items: center;
     background: rgba(255, 255, 255, .5);
     /* margin-bottom: 25px; */
-    margin-top: 25px;
+    margin-top: 85px;
 }
 
 #inner-row-no-results {
@@ -1170,7 +1170,7 @@ button {
     place-items: center;
     background: rgba(255, 255, 255, .5);
     /* margin-bottom: 25px; */
-    /* margin-top: 25px; */
+    margin-top: 85px;
     /* border: solid orange; */
 }
 

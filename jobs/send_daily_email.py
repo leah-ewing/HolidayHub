@@ -1,4 +1,5 @@
 """ Sends a holiday email to emails that are opted in """
+
 import sys, os
 from jinja2 import Template
 
@@ -14,6 +15,7 @@ SENDER_EMAIL = os.environ['SENDER_EMAIL']
 API_URI = os.environ['API_URI']
 ENCRYPTION_DEV_KEY = os.environ['ENCRYPTION_DEV_KEY']
 ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']
+LOGO_URL = os.environ['LOGO_URL']
 
 logging.basicConfig(filename=f'{ROOT_FOLDER}/jobs/jobs_log.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
@@ -78,6 +80,7 @@ def send_daily_holiday_email(email):
                 'holiday_img': holiday_img,
                 'holiday_email': holiday.holiday_email
             },
+			'logo_source': LOGO_URL,
             'email': email,
             'domain': DOMAIN
         }

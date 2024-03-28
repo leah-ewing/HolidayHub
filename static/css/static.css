@@ -3,10 +3,16 @@
     /* background-color: rgba(255, 255, 255 .9); */
     /* background: linear-gradient(to bottom, rgba(255, 230, 109), pink, transparent); */
     /* background: linear-gradient(to bottom, pink, transparent, transparent); */
-    /* position: absolute; */
+    /* position: relative; */
     /* top: 0; */
     /* transition: opacity 0.3s linear; */
-    transition: opacity .6s linear;
+    /* transition: opacity .2s linear; */
+    /* transition: ease .001s; */
+    will-change: transform;
+    top: 0;
+    position: fixed;
+    /* transition: bottom ease-in 2s; */
+    transition: opacity 0.3s;
 }
 
 #navbar-logo {
@@ -846,7 +852,7 @@ button {
     /* color: #D67AB1; */
     color: #f364a2;
     height: 55px;
-    /* margin-top: -60px; */
+    margin-top: 75px;
     /* margin-top: 50px; */
     margin-bottom: -30px;
     position: relative;

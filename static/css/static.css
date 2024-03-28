@@ -1,10 +1,13 @@
-/* #navbar { */
+#navbar {
     /* background-color: #fffffc; */
     /* background-color: rgba(255, 255, 255 .9); */
     /* background: linear-gradient(to bottom, rgba(255, 230, 109), pink, transparent); */
     /* background: linear-gradient(to bottom, pink, transparent, transparent); */
-    /* position: sticky; */
-/* } */
+    /* position: absolute; */
+    /* top: 0; */
+    /* transition: opacity 0.3s linear; */
+    transition: opacity .6s linear;
+}
 
 #navbar-logo {
     /* font-family: 'Righteous'; */

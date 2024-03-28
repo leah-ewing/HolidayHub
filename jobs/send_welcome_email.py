@@ -11,6 +11,7 @@ DEVELOPER = os.environ['DEVELOPER']
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
 DOMAIN = os.environ['DOMAIN']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
+LOGO_URL = os.environ['LOGO_URL']
 
 class ApiClient:
 	apiUri = 'https://api.elasticemail.com/v2'
@@ -54,6 +55,7 @@ def send_welcome_email(email):
         'random_salutation': random_salutation,
         'fname': fname,
         'holiday_name': holiday.holiday_name,
+		'logo_source': LOGO_URL,
         'email': email,
         'domain': DOMAIN
     }

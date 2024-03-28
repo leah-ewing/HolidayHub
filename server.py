@@ -66,14 +66,18 @@ def show_search_results(search_term):
     try:
         search_results = crud.get_search_results(search_term.lower())
 
+        results_count = len(search_results)
+
         if search_results == None:
             search_results = False
+
         else:
             search_results = True
 
         return render_template('search-results.html',
                             search_term = search_term,
-                            search_results = search_results)
+                            search_results = search_results,
+                            results_count = results_count)
     
     except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
         return redirect('/error')

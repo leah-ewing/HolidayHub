@@ -917,7 +917,8 @@ button {
 #right-slideshow-arrow a:hover,
 #next-date-button:hover,
 #previous-date-button:hover,
-#navbar-logo:hover {
+#navbar-logo:hover,
+#search-results-paginate a:hover {
     color: rgba(243, 100, 162, 0.666);
     text-shadow: 0 0 10px white, 0 0 10px white;
 }
@@ -1189,7 +1190,7 @@ button {
 
 #search-results-text {
     font-family: 'Alumni Sans';
-    font-size: 75px;
+    font-size: 60px;
     font-weight: 700;
     color: #f364a2;
     display: grid;
@@ -1318,6 +1319,23 @@ button {
     /* max-height: 150px; */
     height: 102px;
     width: 150px;
+}
+
+#search-results-paginate {
+    text-align: center;
+    padding-top: 15px;
+    font-family: 'Alumni Sans';
+    font-size: 30px;
+    margin-right: 30px;
+    color: rgb(78, 47, 78);
+    font-weight: 500;
+}
+
+#search-results-paginate a {
+    text-decoration: none;
+    color: #f364a2;
+    font-size: 25px;
+    /* margin-right: 20px; */
 }
 
 #blurb {

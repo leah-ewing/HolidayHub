@@ -72,14 +72,15 @@ def show_search_results(search_term):
 
         else:
             results_count = len(search_results)
-            search_results = True
+            # search_results = True
 
         return render_template('search-results.html',
                             search_term = search_term,
                             search_results = search_results,
                             results_count = results_count)
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+    except Exception as error:
+        print(f'\n Error: {error} \n')
         return redirect('/error')
     
 

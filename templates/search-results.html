@@ -35,7 +35,38 @@
                     </div>
                 </div>
                 <div class="row search" id="search-result-outer-row">
-                    <div id="search-results-list"></div>
+                    <div id="search-results-list">
+                        {% for search_result in search_results %}
+
+                            <div class="row search-result" id="search-result-{{search_result.result_num}}">
+                                <text class="search-result-name" id="search-result-name-{{search_result.result_num}}" href="/{{search_result.holiday_name}}">
+                                    {{search_result.holiday_name}}
+                                </text>
+                                <div class="row">
+                                    <div class="col" id="search-result-image">
+                                        <a href="/{{search_result.holiday_name}}">
+                                            <div class="image-container">
+                                                <img
+                                                    src = "{{search_result.holiday_img}}"
+                                                    width = 200,
+                                                    id = "search-result-img">
+                                                </img>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col" id="search-result-blurb">
+                                        <text>
+                                            <div id="search-result-date">
+                                                {{search_result.holiday_month}} {{search_result.holiday_date}}{{search_result.date_suffix}}
+                                            </div>
+                                            {{search_result.holiday_blurb}} <b>...</b>
+                                        </text>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </div>
                     <div class="row" id="search-results-paginate">
                         <text>
                             <a href="">

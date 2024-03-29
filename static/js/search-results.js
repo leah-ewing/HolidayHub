@@ -24,7 +24,7 @@ async function displaySearchResults() {
                                             </text>
                                             <div class="row">
                                                 <div class="col" id="search-result-image">
-                                                    <span href="/${result.holiday_name}">
+                                                    <a href="/${result.holiday_name}">
                                                         <div class="image-container">
                                                             <img
                                                                 src = "${result.holiday_img}"
@@ -32,7 +32,7 @@ async function displaySearchResults() {
                                                                 id = "search-result-img">
                                                             </img>
                                                         </div>
-                                                    </span>
+                                                    </a>
                                                 </div>
                                                 <div class="col" id="search-result-blurb">
                                                     <text>

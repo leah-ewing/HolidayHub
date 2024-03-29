@@ -1182,7 +1182,7 @@ button {
 
 #inner-row-results {
     /* border: solid blue; */
-    width: 900px;
+    width: 700px;
     background: rgba(255, 255, 255, .7);
     margin: 40px;
     height: fit-content;
@@ -1200,6 +1200,7 @@ button {
     /* height: fit-content; */
     text-shadow: 0 0 2px white, 0 0 2px white;
     /* margin-top: 50px; */
+    /* width: 100px; */
 }
 
 #search-results-text b {

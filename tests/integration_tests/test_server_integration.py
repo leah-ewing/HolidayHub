@@ -258,9 +258,10 @@ class TestSearchResults(unittest.TestCase):
         """ Tests that the '/search-results/<search_term>' route renders the 'search-results' template correctly when there are no valid results """
 
         search_term = "sdfaf"
+        page = 1
 
         client = app.test_client()
-        response = client.get(f'/search-results/{search_term}')
+        response = client.get(f'/search-results/{search_term}/{page}/')
 
         assert b'No Results Found For:' in response.data
         assert b'sdfaf' in response.data

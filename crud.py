@@ -239,13 +239,21 @@ def get_search_results(search_term):
 
     holidays = Holiday.query.all()
     name_list = []
-    alphabetized_search_results = []
+    blurb_list = []
+
+    sorted_search_results = []
 
     for holiday in holidays:
-        if search_term in holiday.holiday_name.lower() or search_term in holiday.holiday_blurb.lower():
+        if search_term in holiday.holiday_name.lower():
             name_list.append(holiday.holiday_name)
 
+    for holiday in holidays:
+        if search_term in holiday.holiday_blurb.lower() and holiday.holiday_name not in name_list:
+            blurb_list.append(holiday.holiday_name)
+
     name_list = sorted(name_list)
+    blurb_list = sorted(blurb_list)
+
     result_num = 0
 
     for name in name_list:
@@ -254,7 +262,20 @@ def get_search_results(search_term):
                 holiday_month = get_month_by_number(holiday.holiday_month)
                 date_suffix = controller.get_date_suffix(str(holiday.holiday_date))
                 result_num += 1
-                alphabetized_search_results.append({'holiday_name': holiday.holiday_name, 
+                sorted_search_results.append({'holiday_name': holiday.holiday_name, 
+                                    'holiday_month': holiday_month.capitalize(), 
+                                    'holiday_date': holiday.holiday_date, 
+                                    'holiday_img': holiday.holiday_img, 
+                                    'holiday_blurb': holiday.holiday_blurb[0:200], 
+                                    'date_suffix': date_suffix,
+                                    'result_num': result_num})
+    for name in blurb_list:
+        for holiday in holidays:
+            if name == holiday.holiday_name:
+                holiday_month = get_month_by_number(holiday.holiday_month)
+                date_suffix = controller.get_date_suffix(str(holiday.holiday_date))
+                result_num += 1
+                sorted_search_results.append({'holiday_name': holiday.holiday_name, 
                                     'holiday_month': holiday_month.capitalize(), 
                                     'holiday_date': holiday.holiday_date, 
                                     'holiday_img': holiday.holiday_img, 
@@ -262,7 +283,7 @@ def get_search_results(search_term):
                                     'date_suffix': date_suffix,
                                     'result_num': result_num})
     
-    if len(alphabetized_search_results) == 0:
+    if len(sorted_search_results) == 0:
         return None
     
     paginated_results_list = []
@@ -270,14 +291,14 @@ def get_search_results(search_term):
     n = 0
     m = 5
 
-    while n < len(alphabetized_search_results):
-        paginated_results_list.append(alphabetized_search_results[n:m])
+    while n < len(sorted_search_results):
+        paginated_results_list.append(sorted_search_results[n:m])
         n = m
         m += 5
     
     results_and_count = {
         'results_pages': paginated_results_list,
-        'results_count': len(alphabetized_search_results),
+        'results_count': len(sorted_search_results),
         'page_count': len(paginated_results_list)
     }
 

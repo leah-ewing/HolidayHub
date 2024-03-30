@@ -43,8 +43,6 @@ async function getSlideshowHolidays() {
 
 async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
     const holidaysDiv = document.getElementById("holidays")
-    // const individualHoliday = document.querySelector(".slideshow-holiday")
-    // const transitionDuration = 500;
 
     if (continuing == false) {
         await getSlideshowHolidays()
@@ -74,7 +72,7 @@ async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
 
     for (let i of slideshowHolidayIndexes) {
 
-        holidaysDiv.innerHTML += (`<div class="col slideshow-holiday" id="slideshow-holiday-${i}">
+        holidaysDiv.innerHTML += (`<div class="col slideshow-holiday" onclick="location.href='/${slideshowHolidayList[i].holiday_name}'">
                                         <div class="row slideshow-row">
                                             <div class="col" id="slideshow-holiday-image">
                                                 <div class="image-container">
@@ -96,19 +94,6 @@ async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
                                             </p>
                                         </div>
                                     </div>`)
-    }
-
-    // individualHoliday.style.transition = `transform ${transitionDuration}ms ease`;
-    // individualHoliday.style.transform = `translateX(-${first * 100}%)`;
-
-    for (let i = 0; i < 3; i++) {
-        let clickableSlideshowDiv = document.getElementById(`slideshow-holiday-${i}`)
-        let slideshowHolidayName = document.getElementById(`name-tag-${i}`).innerHTML.trim()
-        let url = `/${slideshowHolidayName}`
-
-        clickableSlideshowDiv.addEventListener("click", function() {
-            window.location.href = url
-        })
     }
 }
 

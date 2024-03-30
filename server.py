@@ -53,16 +53,17 @@ def get_search_result():
 
     try:
         search_term = request.args.get("search-term").strip()
+        page = 1
 
-        return redirect(f'/search-results/{search_term}')
+        return redirect(f'/search-results/{search_term}/{page}/')
     
     except Exception as error:
         print(f'\n Error: {error} \n')
         return redirect('/error')
 
 
-@app.route('/search-results/<search_term>', methods = ["GET"])
-def show_search_results(search_term):
+@app.route('/search-results/<search_term>/<page>/', methods = ["GET"])
+def show_search_results(search_term, page):
     """ Checks if a search-term has any results and routes to the search-results page """
 
     try:
@@ -73,12 +74,15 @@ def show_search_results(search_term):
             search_results = False
 
         else:
-            results_count = len(search_results)
+            results_count = len(search_results) ## ***
+            page_count = len(search_results) ## ***
 
         return render_template('search-results.html',
                             search_term = search_term,
                             search_results = search_results,
-                            results_count = results_count)
+                            results_count = results_count,
+                            page = page,
+                            page_count = page_count)
     
     except Exception as error:
         print(f'\n Error: {error} \n')

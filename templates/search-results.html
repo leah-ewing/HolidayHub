@@ -38,7 +38,7 @@
                     <div id="search-results-list">
                         {% for search_result in search_results %}
 
-                            <div class="row search-result" id="search-result-{{search_result.result_num}}">
+                            <div class="row search-result" id="search-result-{{search_result.result_num}}" onclick="location.href='/{{search_result.holiday_name}}'">
                                 <text class="search-result-name" id="search-result-name-{{search_result.result_num}}" href="/{{search_result.holiday_name}}">
                                     {{search_result.holiday_name}}
                                 </text>

@@ -70,9 +70,9 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             evt.stopPropagation()
-        });
+        })
     }
-});
+})
 
 closeButton.addEventListener("click", function() {
     closePopUps()

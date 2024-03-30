@@ -101,6 +101,13 @@ button {
     padding: 5px;
 }
 
+button:focus,
+.btn:focus {
+    /* box-shadow: none; */
+    border: solid 2px rgb(78, 47, 78);
+    box-shadow: 0 0 15px white, 0 0 15px white;
+}
+
 .btn {
     /* border: solid #32746D; */
     border: solid 2px rgb(78, 47, 78);

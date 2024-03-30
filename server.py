@@ -67,22 +67,24 @@ def show_search_results(search_term, page):
     """ Checks if a search-term has any results and routes to the search-results page """
 
     try:
-        search_results = crud.get_search_results(search_term.lower())
+        results_and_count = crud.get_search_results(search_term.lower())
 
-        if search_results == None:
+        if results_and_count == None:
             results_count = 0
-            search_results = False
+            page_count = 0
+            search_results = results_and_count
 
         else:
-            results_count = len(search_results) ## ***
-            page_count = len(search_results) ## ***
+            page_count = results_and_count['page_count']
+            results_count = results_and_count['results_count']
+            search_results = results_and_count['results_pages'][int(page) - 1]
 
         return render_template('search-results.html',
-                            search_term = search_term,
-                            search_results = search_results,
-                            results_count = results_count,
-                            page = int(page),
-                            page_count = page_count)
+                                search_term = search_term,
+                                search_results = search_results,
+                                results_count = results_count,
+                                page = int(page),
+                                page_count = page_count)
     
     except Exception as error:
         print(f'\n Error: {error} \n')

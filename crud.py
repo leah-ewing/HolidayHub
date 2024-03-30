@@ -235,7 +235,7 @@ def get_opted_in_emails():
 
 
 def get_search_results(search_term):
-    """ Returns search results for a given search term """
+    """ Returns alphabetized search result info for a given search term """
 
     holidays = Holiday.query.all()
     name_list = []
@@ -263,9 +263,25 @@ def get_search_results(search_term):
                                     'result_num': result_num})
     
     if len(alphabetized_search_results) == 0:
-        alphabetized_search_results = None
+        return None
+    
+    paginated_results_list = []
 
-    return alphabetized_search_results
+    n = 0
+    m = 5
+
+    while n < len(alphabetized_search_results):
+        paginated_results_list.append(alphabetized_search_results[n:m])
+        n = m
+        m += 5
+    
+    results_and_count = {
+        'results_pages': paginated_results_list,
+        'results_count': len(alphabetized_search_results),
+        'page_count': len(paginated_results_list)
+    }
+
+    return results_and_count
 
 
 def get_slideshow_holidays_list():

@@ -56,21 +56,20 @@ popupButton.addEventListener("click", function(evt) {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Your script logic here
-    const calendarViewSignUpButton = document.getElementById("sign-up-button");
+    const calendarViewSignUpButton = document.getElementById("sign-up-button")
 
     if (calendarViewSignUpButton) {
         calendarViewSignUpButton.addEventListener("click", function(evt) {
-            evt.preventDefault();
+            evt.preventDefault()
 
             if (!popupOpen) {
-                shareWindow.style.display = "none";
-                popupWindow.style.display = "block";
+                shareWindow.style.display = "none"
+                popupWindow.style.display = "block"
 
-                popupOpen = true;
+                popupOpen = true
             }
 
-            evt.stopPropagation();
+            evt.stopPropagation()
         });
     }
 });

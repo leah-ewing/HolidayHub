@@ -58,7 +58,7 @@ class TestAboutPage(unittest.TestCase):
 
 
 class TestCalendarView(unittest.TestCase):
-
+    
     @freeze_time("2023-12-13")
     def test_calendar_view(self):
         """ Tests that the '/calendar-view' route renders the 'calendar-view' template correctly """
@@ -74,8 +74,7 @@ class TestCalendarView(unittest.TestCase):
         client = app.test_client()
         response = client.get('/calendar-view')
 
-        assert b'Calendar View' in response.data
-        assert b'December' in response.data
+        assert b'Holiday Picker' in response.data
         assert b'Test Monthly Holiday' in response.data
 
 

@@ -298,6 +298,14 @@ def errorPage():
     return render_template('error-page.html')
 
 
+@app.errorhandler(404)
+def not_found(error):
+    """ Redirects the user to the error page when a 404 error is encountered """
+
+    print(f'\n Error: {error} \n')
+    return redirect('/error')
+
+
 if __name__ == '__main__':
     connect_to_db(app)
     app.run(host='0.0.0.0', debug=True, port=8000)

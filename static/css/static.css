@@ -176,7 +176,8 @@ button:focus,
 #copy-link-button,
 #submit-button,
 #try-again-button-invalid-email,
-#try-again-button {
+#try-again-button,
+#sign-up-button {
     background-color: rgb(243, 100, 162, .9);
     color: white;
     text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);
@@ -188,7 +189,8 @@ button:focus,
 #copy-link-button:hover,
 #submit-button:hover,
 #try-again-button-invalid-email:hover,
-#try-again-button:hover {
+#try-again-button:hover,
+#sign-up-button:hover {
     background-color: rgb(243, 100, 162, .7);
 }
 
@@ -250,6 +252,20 @@ button:focus,
 #back-to-homepage-error:hover,
 #homepage-button:hover {
     background-color: rgba(78, 47, 78, 0.603);
+}
+
+#sign-up-button-span {
+    font-family: 'Alumni Sans';
+    color: rgb(78, 47, 78);
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 600;
+    font-size: 47px;
+    text-shadow: 0 0 1px white, 0 0 1px white;
+}
+
+#sign-up-button {
+    margin-top: -30px;
 }
 
 .homepage-container {

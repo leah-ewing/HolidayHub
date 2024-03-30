@@ -33,7 +33,8 @@ def homepage():
                                 month_name = today["month"].capitalize(),
                                 year = today["year"])
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+    except Exception as error:
+        print(f'\n Error: {error} \n')
         return redirect('/error')
 
 
@@ -55,7 +56,8 @@ def get_search_result():
 
         return redirect(f'/search-results/{search_term}')
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+    except Exception as error:
+        print(f'\n Error: {error} \n')
         return redirect('/error')
 
 
@@ -72,7 +74,6 @@ def show_search_results(search_term):
 
         else:
             results_count = len(search_results)
-            # search_results = True
 
         return render_template('search-results.html',
                             search_term = search_term,
@@ -82,25 +83,18 @@ def show_search_results(search_term):
     except Exception as error:
         print(f'\n Error: {error} \n')
         return redirect('/error')
-    
-
-@app.route('/get-search-results/<search_term>', methods = ["GET"])
-def get_search_results_for_client(search_term):
-    """ Grabs search results from the db for a given search term and returns them to the client"""
-
-    try:
-        search_results = crud.get_search_results(search_term.lower())
-        return search_results
-
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
-        return redirect('/error')
 
 
 @app.route('/about')
 def about_page():
     """ Routes to the 'About' page """
 
-    return render_template('about.html')
+    try:
+        return render_template('about.html')
+    
+    except Exception as error:
+        print(f'\n Error: {error} \n')
+        return redirect('/error')
 
 
 @app.route('/calendar-view')
@@ -116,7 +110,8 @@ def calendarView():
                                     month = current_date["month"].capitalize(),
                                     monthly_holidays = monthly_holidays)
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+    except Exception as error:
+        print(f'\n Error: {error} \n')
         return redirect('/error')
 
 
@@ -152,7 +147,8 @@ def get_clicked_date(month, day):
 
         return redirect(f'/{holiday_data.holiday_name}')
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError, IndexError):
+    except Exception as error:
+        print(f'\n Error: {error} \n')
         return redirect('/error')
     
 
@@ -168,7 +164,8 @@ def random_holiday_on_date(month, day, holiday):
 
         return redirect(f"/{holiday.holiday_name}")
         
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError, IndexError):
+    except Exception as error:
+        print(f'\n Error: {error} \n')
         return redirect('/error')
 
 
@@ -206,7 +203,8 @@ def learn_more_about_holiday(holiday):
                                 previous_date = previous_date,
                                 previous_date_month = previous_date_month_string.capitalize())
 
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+    except Exception as error:
+        print(f'\n Error: {error} \n')
         return redirect('/error')
 
 
@@ -219,7 +217,8 @@ def get_random_holiday():
 
         return redirect(f"/random-holiday/{holiday.holiday_name}")
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+    except Exception as error:
+        print(f'\n Error: {error} \n')
         return redirect('/error')
 
 
@@ -254,7 +253,8 @@ def random_holiday(name):
                             multiple_holidays_on_date = multiple_holidays_on_date,
                             month = holiday.holiday_month)
     
-    except(RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError):
+    except Exception as error:
+        print(f'\n Error: {error} \n')
         return redirect('/error')
 
 
@@ -276,9 +276,13 @@ def get_monthly_holidays(month):
 def unsubscribe_email(email):
     """ Changes an email's opt-in status for receiving daily emails """
 
-    crud.update_opt_in_status(email)
-
-    return render_template('unsubscribe.html')
+    try:
+        crud.update_opt_in_status(email)
+        return render_template('unsubscribe.html')
+    
+    except Exception as error:
+        print(f'\n Error: {error} \n')
+        return redirect('/error')
 
 
 @app.route('/error')
@@ -289,9 +293,10 @@ def errorPage():
 
 
 @app.errorhandler(404)
-def not_found(e):
+def not_found(error):
     """ Redirects the user to the error page when a 404 error is encountered """
 
+    print(f'\n Error: {error} \n')
     return redirect('/error')
 
 

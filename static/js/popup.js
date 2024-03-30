@@ -44,7 +44,6 @@ const copyLinkButton = document.getElementById("copy-link-button")
 
 popupButton.addEventListener("click", function(evt) {
     evt.preventDefault()
-    // evt.stopPropagation()
 
     if (!popupOpen) {
         shareWindow.style.display = "none"
@@ -54,11 +53,6 @@ popupButton.addEventListener("click", function(evt) {
     }
 
     evt.stopPropagation()
-    
-    // shareWindow.style.display = "none"
-    // popupWindow.style.display = "block"
-
-    // popupOpen = true
 })
 
 closeButton.addEventListener("click", function() {

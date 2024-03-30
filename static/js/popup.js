@@ -161,10 +161,7 @@ submitButton.addEventListener('click', (evt) => {
 
 document.addEventListener("click", function(evt) {
     if (!evt.target.closest(".popup-window") && popupOpen == true) {
-        console.log("off")
         closePopUps()
-    } else {
-        console.log("on")
     }
 })
 
@@ -197,14 +194,12 @@ shareButton.addEventListener("click", async(evt) => {
 })
 
 closeButtonSharePopUpWindow.addEventListener("click", function() {
-    // sharePopUpWindow.style.display = "none"
     closePopUps()
 
     document.getElementById("link-copied-label").innerHTML = ""
 })
 
 closeButtonSharePopUpWindow_X.addEventListener("click", function() {
-    // sharePopUpWindow.style.display = "none"
     closePopUps()
     
     document.getElementById("link-copied-label").innerHTML = ""

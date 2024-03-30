@@ -81,7 +81,7 @@ def show_search_results(search_term, page):
                             search_term = search_term,
                             search_results = search_results,
                             results_count = results_count,
-                            page = page,
+                            page = int(page),
                             page_count = page_count)
     
     except Exception as error:

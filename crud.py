@@ -242,7 +242,7 @@ def get_search_results(search_term):
     alphabetized_search_results = []
 
     for holiday in holidays:
-        if search_term in holiday.holiday_name.lower():
+        if search_term in holiday.holiday_name.lower() or search_term in holiday.holiday_blurb.lower():
             name_list.append(holiday.holiday_name)
 
     name_list = sorted(name_list)

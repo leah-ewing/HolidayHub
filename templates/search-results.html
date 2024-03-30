@@ -69,13 +69,19 @@
                     </div>
                     <div class="row" id="search-results-paginate">
                         <text>
-                            <a href="">
-                                ◀︎
-                            </a>
+                            {% if page > 1 %}
+                                <a href="">
+                                    ◀︎
+                                </a>
+                            {% endif %}
+
                             Page {{page}} of {{page_count}} 
-                            <a href="">
-                                ▶︎
-                            </a>
+
+                            {% if page < page_count %}
+                                <a href="">
+                                    ▶︎
+                                </a>
+                            {% endif %}
                         </text>
                     </div>
                 </div>

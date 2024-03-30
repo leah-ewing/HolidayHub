@@ -43,6 +43,8 @@ async function getSlideshowHolidays() {
 
 async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
     const holidaysDiv = document.getElementById("holidays")
+    // const individualHoliday = document.querySelector(".slideshow-holiday")
+    // const transitionDuration = 500;
 
     if (continuing == false) {
         await getSlideshowHolidays()
@@ -71,6 +73,7 @@ async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
     let slideshowHolidayIndexes = [firstHolidayIndex, secondHolidayIndex, thirdHolidayIndex]
 
     for (let i of slideshowHolidayIndexes) {
+
         holidaysDiv.innerHTML += (`<div class="col slideshow-holiday" id="slideshow-holiday-${i}">
                                         <div class="row slideshow-row">
                                             <div class="col" id="slideshow-holiday-image">
@@ -95,6 +98,9 @@ async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
                                     </div>`)
     }
 
+    // individualHoliday.style.transition = `transform ${transitionDuration}ms ease`;
+    // individualHoliday.style.transform = `translateX(-${first * 100}%)`;
+
     for (let i = 0; i < 3; i++) {
         let clickableSlideshowDiv = document.getElementById(`slideshow-holiday-${i}`)
         let slideshowHolidayName = document.getElementById(`name-tag-${i}`).innerHTML.trim()
@@ -105,6 +111,5 @@ async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
         })
     }
 }
-
 
 getSlideshowHolidays().then(() => holidaySlideshow())

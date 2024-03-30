@@ -343,12 +343,15 @@ class Crud(unittest.TestCase):
         search_term = 'io'
         search_results = crud.get_search_results(search_term)
 
-        assert search_results[0] == {'holiday_name': 'National Violin Day', 
-                                   'holiday_month': 'December', 
-                                   'holiday_date': 13, 
-                                   'holiday_img': 'test', 
-                                   'holiday_blurb': 'test', 
-                                   'date_suffix': 'th'}
+        assert search_results == {'results_pages': [[{'holiday_name': 'National Violin Day',
+                                                       'holiday_month': 'December', 
+                                                       'holiday_date': 13, 
+                                                       'holiday_img': 'test', 
+                                                       'holiday_blurb': 'test', 
+                                                       'date_suffix': 'th', 
+                                                       'result_num': 1}]], 
+                                    'results_count': 1, 
+                                    'page_count': 1}
         
 
     def test_get_search_results_no_valid_results(self):

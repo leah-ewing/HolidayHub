@@ -237,25 +237,45 @@ def get_opted_in_emails():
 def get_search_results(search_term):
     """ Returns alphabetized search result info for a given search term """
 
+    search_term = search_term.lower()
     holidays = Holiday.query.all()
+    starts_with_list = []
     name_list = []
     blurb_list = []
 
     sorted_search_results = []
 
     for holiday in holidays:
-        if search_term in holiday.holiday_name.lower():
+        if holiday.holiday_name.lower().startswith(search_term):
+            starts_with_list.append(holiday.holiday_name)
+
+    for holiday in holidays:
+        if search_term in holiday.holiday_name.lower() and holiday.holiday_name not in starts_with_list:
             name_list.append(holiday.holiday_name)
 
     for holiday in holidays:
-        if search_term in holiday.holiday_blurb.lower() and holiday.holiday_name not in name_list:
+        if search_term in holiday.holiday_blurb.lower() and holiday.holiday_name not in name_list and holiday.holiday_name not in starts_with_list:
             blurb_list.append(holiday.holiday_name)
 
+    starts_with_list = sorted(starts_with_list)
     name_list = sorted(name_list)
     blurb_list = sorted(blurb_list)
 
     result_num = 0
 
+    for name in starts_with_list:
+        for holiday in holidays:
+            if name == holiday.holiday_name:
+                holiday_month = get_month_by_number(holiday.holiday_month)
+                date_suffix = controller.get_date_suffix(str(holiday.holiday_date))
+                result_num += 1
+                sorted_search_results.append({'holiday_name': holiday.holiday_name, 
+                                    'holiday_month': holiday_month.capitalize(), 
+                                    'holiday_date': holiday.holiday_date, 
+                                    'holiday_img': holiday.holiday_img, 
+                                    'holiday_blurb': holiday.holiday_blurb[0:200], 
+                                    'date_suffix': date_suffix,
+                                    'result_num': result_num})
     for name in name_list:
         for holiday in holidays:
             if name == holiday.holiday_name:

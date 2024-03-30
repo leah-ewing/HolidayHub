@@ -247,10 +247,12 @@ class TestSearchResults(unittest.TestCase):
         """ Tests that the '/search-results/<search_term>' route renders the 'search-results' template correctly when there are valid results """
 
         search_term = "io"
+        page = 1
 
         client = app.test_client()
-        response = client.get(f'/search-results/{search_term}')
+        response = client.get(f'/search-results/{search_term}/{page}/')
 
+        assert b'Results For' in response.data
         assert b'National Violin Day' in response.data
 
 

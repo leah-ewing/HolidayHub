@@ -262,6 +262,7 @@ button:focus,
     font-weight: 600;
     font-size: 47px;
     text-shadow: 0 0 1px white, 0 0 1px white;
+    font-style: italic;
 }
 
 #sign-up-button {

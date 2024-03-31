@@ -39,7 +39,7 @@ def homepage():
     
     except Exception as error:
         print(f'\n Error: {error} \n')
-        error_handling.log_error_json(error)
+        error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
 
@@ -55,7 +55,7 @@ def get_slideshow_holidays():
     
     except Exception as error:
         print(f'\n Error: {error} \n')
-        error_handling.log_error_json(error)
+        error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
     
@@ -72,7 +72,7 @@ def get_search_result():
     
     except Exception as error:
         print(f'\n Error: {error} \n')
-        error_handling.log_error_json(error)
+        error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
 
@@ -103,7 +103,7 @@ def show_search_results(search_term, page):
     
     except Exception as error:
         print(f'\n Error: {error} \n')
-        error_handling.log_error_json(error)
+        error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
 
@@ -117,7 +117,7 @@ def about_page():
     
     except Exception as error:
         print(f'\n Error: {error} \n')
-        error_handling.log_error_json(error)
+        error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
 
@@ -137,7 +137,7 @@ def calendarView():
     
     except Exception as error:
         print(f'\n Error: {error} \n')
-        error_handling.log_error_json(error)
+        error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
 
@@ -176,7 +176,7 @@ def get_clicked_date(month, day):
     
     except Exception as error:
         print(f'\n Error: {error} \n')
-        error_handling.log_error_json(error)
+        error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
     
@@ -195,7 +195,7 @@ def random_holiday_on_date(month, day, holiday):
         
     except Exception as error:
         print(f'\n Error: {error} \n')
-        error_handling.log_error_json(error)
+        error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
 
@@ -236,7 +236,7 @@ def learn_more_about_holiday(holiday):
 
     except Exception as error:
         print(f'\n Error: {error} \n')
-        error_handling.log_error_json(error)
+        error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
 
@@ -252,7 +252,7 @@ def get_random_holiday():
     
     except Exception as error:
         print(f'\n Error: {error} \n')
-        error_handling.log_error_json(error)
+        error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
 
@@ -290,7 +290,7 @@ def random_holiday(name):
     
     except Exception as error:
         print(f'\n Error: {error} \n')
-        error_handling.log_error_json(error)
+        error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
 
@@ -311,7 +311,7 @@ def get_monthly_holidays(month):
     
     except Exception as error:
         print(f'\n Error: {error} \n')
-        error_handling.log_error_json(error)
+        error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
 
@@ -326,7 +326,7 @@ def unsubscribe_email(email):
     
     except Exception as error:
         print(f'\n Error: {error} \n')
-        error_handling.log_error_json(error)
+        error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
 
@@ -336,7 +336,7 @@ def not_found(error):
     """ Redirects the user to the error page when a 404 error is encountered """
 
     print(f'\n Error: {error} \n')
-    error_handling.log_error_json(error)
+    error_handling.log_error_json(error, request.base_url)
 
     return redirect('/error')
 

@@ -515,14 +515,14 @@ button:focus,
 #orange-flower-thank-you-share-2 {
     position: fixed;
     margin-left: 490px;
-    padding-top: 330px;
+    margin-top: 330px;
 }
 
 #purple-flower-share-1,
 #purple-flower-thank-you-share-1 {
     position: fixed;
     margin-left: 460px;
-    padding-top: 385px;
+    margin-top: 385px;
 }
 
 #thank-you-for-sharing-row-2,

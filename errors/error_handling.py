@@ -19,13 +19,13 @@ def log_error_json(error, route):
         current_time = datetime.now(pacific_timezone).strftime("%-I:%M:%S")
         
 
-        new_error = [{
+        new_error = {
                         "message": "An Error Occurred",
                         "endpoint": route,
                         "date": formatted_date,
                         "time": f"{current_time} PST",
                         "memo": f"{error}"
-                    }]
+                    }
 
         error_log_json.insert(0, new_error)
 

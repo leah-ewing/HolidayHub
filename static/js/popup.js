@@ -57,6 +57,7 @@ popupButton.addEventListener("click", function(evt) {
     evt.stopPropagation();
 });
 
+
 document.addEventListener("DOMContentLoaded", function() {
     const calendarViewSignUpButton = document.getElementById("sign-up-button")
 
@@ -76,12 +77,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 })
 
+
 closeButton.addEventListener("click", function() {
     closePopUps()
 
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
+
 
 closeButton_X.addEventListener("click", function() {
     closePopUps()
@@ -90,12 +93,14 @@ closeButton_X.addEventListener("click", function() {
     document.getElementById("email").value = ""
 })
 
+
 closeButtonDuplicateEmail.addEventListener("click", function() {
     closePopUps()
 
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
+
 
 closeButtonDuplicateEmail_X.addEventListener("click", function() {
     closePopUps()
@@ -104,12 +109,14 @@ closeButtonDuplicateEmail_X.addEventListener("click", function() {
     document.getElementById("email").value = ""
 })
 
+
 closeButtonInvalidEmail.addEventListener("click", function() {
     closePopUps()
 
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
+
 
 closeButtonInvalidEmail_X.addEventListener("click", function() {
     closePopUps()
@@ -118,12 +125,14 @@ closeButtonInvalidEmail_X.addEventListener("click", function() {
     document.getElementById("email").value = ""
 })
 
+
 closeButtonThankYou.addEventListener("click", function() {
     closePopUps()
 
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
+
 
 closeButtonThankYou_X.addEventListener("click", function() {
     closePopUps()
@@ -132,17 +141,20 @@ closeButtonThankYou_X.addEventListener("click", function() {
     document.getElementById("email").value = ""
 })
 
+
 tryAgainButton.addEventListener("click", function() {
     duplicateEmailWindow.style.display = "none"
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
 
+
 tryAgainButtonInvalidEmail.addEventListener("click", function() {
     invalidEmailWindow.style.display = "none"
     document.getElementById("fname").value = ""
     document.getElementById("email").value = ""
 })
+
 
 submitButton.addEventListener('click', (evt) => {
     evt.preventDefault()
@@ -174,11 +186,13 @@ submitButton.addEventListener('click', (evt) => {
     })
 })
 
+
 document.addEventListener("click", function(evt) {
     if (!evt.target.closest(".popup-window") && popupOpen == true) {
         closePopUps()
     }
 })
+
 
 shareButton.addEventListener("click", async(evt) => {
     if (navigator.share) {
@@ -198,6 +212,7 @@ shareButton.addEventListener("click", async(evt) => {
     }
 })
 
+
 closeButtonSharePopUpWindow.addEventListener("click", function() {
     closePopUps()
 
@@ -210,6 +225,7 @@ closeButtonSharePopUpWindow_X.addEventListener("click", function() {
     document.getElementById("link-copied-label").innerHTML = ""
 })
 
+
 twitterShareButton.addEventListener("click", function() {
     const currentUrl = window.location.href
     const twitterShareURL = "https://twitter.com/intent/tweet?url=" + encodeURIComponent(currentUrl)
@@ -219,6 +235,7 @@ twitterShareButton.addEventListener("click", function() {
     sharePopUpWindow.style.display = "none"
     thankYouForSharingPopUpWindow.style.display = "block"
 })
+
 
 facebookShareButton.addEventListener("click", function() {
     const currentUrl = window.location.href
@@ -230,6 +247,7 @@ facebookShareButton.addEventListener("click", function() {
     thankYouForSharingPopUpWindow.style.display = "block"
 })
 
+
 pinterestShareButton.addEventListener("click", function() {
     const currentUrl = window.location.href
     const pinterestSaveURL = "https://www.pinterest.com/pin/create/button/?url=" + encodeURIComponent(currentUrl)
@@ -239,6 +257,7 @@ pinterestShareButton.addEventListener("click", function() {
     sharePopUpWindow.style.display = "none"
     thankYouForSharingPopUpWindow.style.display = "block"
 })
+
 
 emailShareButton.addEventListener("click", function() {
     const currentUrl = window.location.href
@@ -252,18 +271,23 @@ emailShareButton.addEventListener("click", function() {
     thankYouForSharingPopUpWindow.style.display = "block"
 })
 
+
 copyLinkButton.addEventListener("click", function() {
     copyToClipboard(window.location.href)
     document.getElementById("link-copied-label").innerHTML = "Link Copied!"
 })
 
+
 closeButtonThankYouForSharing.addEventListener("click", function() {
     thankYouForSharingPopUpWindow.style.display = "none"
 })
 
+
 closeButtonThankYouForSharing_X.addEventListener("click", function() {
     thankYouForSharingPopUpWindow.style.display = "none"
 })
+
+
 
 function copyToClipboard(text) {
     const tempElement = document.createElement('div')

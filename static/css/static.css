@@ -507,8 +507,8 @@ button:focus,
 #orange-flower-share-1,
 #orange-flower-thank-you-share-1 {
     position: fixed;
-    padding-left: 10px;
-    padding-top: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
 #orange-flower-share-2,

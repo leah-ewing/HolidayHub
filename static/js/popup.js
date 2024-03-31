@@ -43,12 +43,14 @@ const copyLinkButton = document.getElementById("copy-link-button")
 
 
 popupButton.addEventListener("click", function(evt) {
-    evt.preventDefault();
 
     if (!popupOpen) {
-        shareWindow.style.display = "none";
         popupWindow.style.display = "block";
+        popupOpen = true;
 
+    } else {
+        closePopUps()
+        popupWindow.style.display = "block";
         popupOpen = true;
     }
 
@@ -178,16 +180,6 @@ document.addEventListener("click", function(evt) {
     }
 })
 
-function closePopUps() {
-    popupWindow.style.display = "none"
-    shareWindow.style.display = "none"
-    thankYouWindow.style.display = "none"
-    invalidEmailWindow.style.display = "none"
-    duplicateEmailWindow.style.display = "none"
-
-    popupOpen = false
-}
-
 shareButton.addEventListener("click", async(evt) => {
     if (navigator.share) {
         try {
@@ -297,4 +289,15 @@ function copyToClipboard(text) {
     } finally {
         document.body.removeChild(tempElement)
     }
+}
+
+function closePopUps() {
+    popupWindow.style.display = "none"
+    shareWindow.style.display = "none"
+    thankYouWindow.style.display = "none"
+    invalidEmailWindow.style.display = "none"
+    duplicateEmailWindow.style.display = "none"
+    thankYouForSharingPopUpWindow.style.display = "none"
+
+    popupOpen = false
 }

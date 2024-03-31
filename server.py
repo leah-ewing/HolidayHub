@@ -2,11 +2,15 @@ from flask import Flask, render_template, request, redirect, jsonify
 from model import connect_to_db
 from jinja2 import StrictUndefined
 import crud, controller
-import os
+import os, sys
 
 # from freezegun import freeze_time  ### test
 
 DEV_KEY = os.environ['DEV_KEY']
+ROOT_FOLDER = os.environ['ROOT_FOLDER']
+sys.path.append(f'{ROOT_FOLDER}/errors')
+
+from errors import error_handling
 
 app = Flask(__name__)
 app.static_folder = 'static'
@@ -35,6 +39,8 @@ def homepage():
     
     except Exception as error:
         print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error)
+
         return redirect('/error')
 
 
@@ -42,9 +48,16 @@ def homepage():
 def get_slideshow_holidays():
     """ Grabs a list of holidays to be displayed in the 'Explore More...' slideshow """
     
-    slideshow_holidays = crud.get_slideshow_holidays_list()
+    try:
+        slideshow_holidays = crud.get_slideshow_holidays_list()
 
-    return slideshow_holidays
+        return slideshow_holidays
+    
+    except Exception as error:
+        print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error)
+
+        return redirect('/error')
     
 
 @app.route('/get-search-term')
@@ -59,6 +72,8 @@ def get_search_result():
     
     except Exception as error:
         print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error)
+
         return redirect('/error')
 
 
@@ -88,6 +103,8 @@ def show_search_results(search_term, page):
     
     except Exception as error:
         print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error)
+
         return redirect('/error')
 
 
@@ -100,6 +117,8 @@ def about_page():
     
     except Exception as error:
         print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error)
+
         return redirect('/error')
 
 
@@ -118,6 +137,8 @@ def calendarView():
     
     except Exception as error:
         print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error)
+
         return redirect('/error')
 
 
@@ -155,6 +176,8 @@ def get_clicked_date(month, day):
     
     except Exception as error:
         print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error)
+
         return redirect('/error')
     
 
@@ -172,6 +195,8 @@ def random_holiday_on_date(month, day, holiday):
         
     except Exception as error:
         print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error)
+
         return redirect('/error')
 
 
@@ -211,6 +236,8 @@ def learn_more_about_holiday(holiday):
 
     except Exception as error:
         print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error)
+
         return redirect('/error')
 
 
@@ -225,6 +252,8 @@ def get_random_holiday():
     
     except Exception as error:
         print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error)
+
         return redirect('/error')
 
 
@@ -261,6 +290,8 @@ def random_holiday(name):
     
     except Exception as error:
         print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error)
+
         return redirect('/error')
 
 
@@ -268,14 +299,21 @@ def random_holiday(name):
 def get_monthly_holidays(month):
     """ Gets a list of holidays in a given month and sends them back to the client"""
 
-    month_num = crud.get_month_by_name(month.lower())
-    monthly_holidays = crud.get_holidays_in_month(month_num)
-    monthly_holiday_names = []
+    try:
+        month_num = crud.get_month_by_name(month.lower())
+        monthly_holidays = crud.get_holidays_in_month(month_num)
+        monthly_holiday_names = []
 
-    for holiday in monthly_holidays:
-        monthly_holiday_names.append(holiday.monthly_holiday_name)
+        for holiday in monthly_holidays:
+            monthly_holiday_names.append(holiday.monthly_holiday_name)
 
-    return monthly_holiday_names
+        return monthly_holiday_names
+    
+    except Exception as error:
+        print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error)
+
+        return redirect('/error')
 
 
 @app.route('/unsubscribe/<email>', methods = ["GET"])
@@ -288,14 +326,9 @@ def unsubscribe_email(email):
     
     except Exception as error:
         print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error)
+
         return redirect('/error')
-
-
-@app.route('/error')
-def errorPage():
-    """ Directs the user to the error page """
-    
-    return render_template('error-page.html')
 
 
 @app.errorhandler(404)
@@ -303,7 +336,16 @@ def not_found(error):
     """ Redirects the user to the error page when a 404 error is encountered """
 
     print(f'\n Error: {error} \n')
+    error_handling.log_error_json(error)
+
     return redirect('/error')
+
+
+@app.route('/error')
+def errorPage():
+    """ Directs the user to the error page """
+    
+    return render_template('error-page.html')
 
 
 if __name__ == '__main__':

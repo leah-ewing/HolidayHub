@@ -13,6 +13,7 @@
     position: fixed;
     /* transition: bottom ease-in 2s; */
     transition: opacity 0.3s;
+    z-index: 999;
 }
 
 #navbar-logo {

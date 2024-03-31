@@ -504,6 +504,27 @@ button:focus,
     margin-top: 10px;
 }
 
+#orange-flower-share-1,
+#orange-flower-thank-you-share-1 {
+    position: fixed;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#orange-flower-share-2,
+#orange-flower-thank-you-share-2 {
+    position: fixed;
+    margin-left: 490px;
+    padding-top: 330px;
+}
+
+#purple-flower-share-1,
+#purple-flower-thank-you-share-1 {
+    position: fixed;
+    margin-left: 460px;
+    padding-top: 385px;
+}
+
 #thank-you-for-sharing-row-2,
 #invalid-email-buttons,
 #thank-you-email-buttons,

@@ -64,17 +64,17 @@ def get_slideshow_holidays():
 def get_search_result():
     """ Gets the given search term from the search bar """
 
-    # try:
-    search_term = request.args.get("search-term").strip()
-    page = 1
+    try:
+        search_term = request.args.get("search-term").strip()
+        page = 1
 
-    return redirect(f'/search-results/{search_term}/{page}/')
+        return redirect(f'/search-results/{search_term}/{page}/')
     
-    # except Exception as error:
-    #     print(f'\n Error: {error} \n')
-    #     error_handling.log_error_json(error, request.base_url)
+    except Exception as error:
+        print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error, request.base_url)
 
-    #     return redirect('/error')
+        return redirect('/error')
 
 
 @app.route('/search-results/<search_term>/<page>/', methods = ["GET"])
@@ -234,7 +234,7 @@ def learn_more_about_holiday(holiday):
                                 previous_date = previous_date,
                                 previous_date_month = previous_date_month_string.capitalize())
 
-    except(Exception, RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError, BaseException) as error:
+    except Exception as error:
         print(f'\n Error: {error} \n')
         error_handling.log_error_json(error, request.base_url)
 
@@ -324,8 +324,7 @@ def unsubscribe_email(email):
         crud.update_opt_in_status(email)
         return render_template('unsubscribe.html')
     
-    # except Exception as error:
-    except(Exception, RuntimeError, TypeError, NameError, KeyError, AttributeError, ValueError) as error:
+    except Exception as error:
         # return redirect('/error')
         print(f'\n Error: {error} \n')
         error_handling.log_error_json(error, request.base_url)

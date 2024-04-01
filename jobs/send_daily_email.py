@@ -108,5 +108,5 @@ if __name__ == '__main__':
 		
         for email in emails:
             send_daily_holiday_email(email.email_address)
-
-    jobs_logging.log_job_json('daily-email-sent')
+    
+        jobs_logging.log_job_json('daily-email-sent')

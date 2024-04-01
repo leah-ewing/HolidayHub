@@ -2,7 +2,6 @@
 
 if __name__ == '__main__':
 	import sys, os
-	from datetime import datetime
 
 	ROOT_FOLDER = os.environ['ROOT_FOLDER']
 	sys.path.append(ROOT_FOLDER)
@@ -14,6 +13,7 @@ if __name__ == '__main__':
 	with app.app_context():
 		from model import connect_to_db
 		connect_to_db(app)
+
 		crud.remove_opted_out_emails()
 
-	jobs_logging.log_job_json('emails-removed')
+		jobs_logging.log_job_json('emails-removed')

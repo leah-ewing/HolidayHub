@@ -65,6 +65,8 @@ def send_welcome_email(email):
 
     rendered_html = template.render(template_variables)
 
+    jobs_logging.log_job_json('welcome-email-sent')
+	
     return ApiClient.Request('POST', '/email/send', {
         'subject': random_subject,
         'from': SENDER_EMAIL,
@@ -79,5 +81,3 @@ def send_welcome_email(email):
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)
-	
-    jobs_logging.log_job_json('welcome-email-sent')

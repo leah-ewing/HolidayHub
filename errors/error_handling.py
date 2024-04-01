@@ -17,7 +17,6 @@ def log_error_json(error, route):
 
         pacific_timezone = pytz.timezone('US/Pacific')
         current_time = datetime.now(pacific_timezone).strftime("%-I:%M:%S")
-        
 
         new_error = {
                         "message": "An Error Occurred",

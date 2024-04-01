@@ -5,6 +5,7 @@ import crud
 from jinja2 import Template
 import os, requests
 from model import connect_to_db
+import jobs_logging
 
 API_KEY = os.environ['API_KEY']
 DEVELOPER = os.environ['DEVELOPER']
@@ -78,3 +79,5 @@ def send_welcome_email(email):
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)
+	
+    jobs_logging.log_job_json('welcome-email-sent')

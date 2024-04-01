@@ -7,7 +7,8 @@ ROOT_FOLDER = os.environ['ROOT_FOLDER']
 sys.path.append(ROOT_FOLDER)
 
 import controller, crud, encryption
-import requests, logging
+import requests
+import jobs_logging
 
 DOMAIN = os.environ['DOMAIN']
 API_KEY = os.environ['API_KEY']
@@ -17,7 +18,6 @@ ENCRYPTION_DEV_KEY = os.environ['ENCRYPTION_DEV_KEY']
 ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']
 LOGO_URL = os.environ['LOGO_URL']
 
-logging.basicConfig(filename=f'{ROOT_FOLDER}/jobs/jobs_log.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
 class ApiClient:
 	apiUri = API_URI
@@ -100,10 +100,7 @@ def send_daily_holiday_email(email):
 
 if __name__ == '__main__':
     from server import app
-    from datetime import datetime
-	
-    current_date_time = datetime.now()
-	
+
     with app.app_context():
         from model import connect_to_db
         connect_to_db(app)
@@ -111,5 +108,5 @@ if __name__ == '__main__':
 		
         for email in emails:
             send_daily_holiday_email(email.email_address)
-			
-    logging.info(f"\n***************\n\n{current_date_time.strftime('%m-%d-%Y %I:%M %p')}\nEMAILS SENT SUCCESSFULLY: 200\n\n***************\n***************\n")
+
+    jobs_logging.log_job_json('daily-email-sent')

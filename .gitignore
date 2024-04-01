@@ -4,7 +4,7 @@ secrets.sh
 token.json
 __pycache__
 .DS_Store
-jobs_log.log
+jobs_log.json
 encryption.py
 encryption_dictionary.json
 .pytest_cache

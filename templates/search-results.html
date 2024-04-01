@@ -7,9 +7,6 @@
 {% block body %}
   
     <body>
-
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/static.css') }}">
-
         <div class="search-results-page-container">
 
             {% if results_count == 0 %}
@@ -117,6 +114,7 @@
                     <a href id="right-arrow">▶</a>
                 </div>
             </div>
+            
           </div>
           <script src="{{ url_for('static', filename='js/slideshow.js') }}"></script>
     </body>

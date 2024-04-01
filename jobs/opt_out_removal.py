@@ -9,7 +9,6 @@ if __name__ == '__main__':
 
 	from server import app
 	import crud
-	import os
 	import jobs_logging
 
 	with app.app_context():

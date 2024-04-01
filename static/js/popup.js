@@ -2,45 +2,90 @@
 
 // Pop-up window script
 
+
 let popupOpen = false
 
+
+// Close popups when clicking off
+document.addEventListener("click", function(evt) {
+    if (!evt.target.closest(".popup-window") && popupOpen == true) {
+        closePopUps()
+    }
+})
+
+
+// Copy Link button logic
+function copyToClipboard(text) {
+    const tempElement = document.createElement('div')
+    tempElement.contentEditable = true
+    tempElement.innerHTML = text
+
+    tempElement.style.position = 'absolute'
+    tempElement.style.left = '-9999px'
+
+    document.body.appendChild(tempElement)
+    
+    const range = document.createRange()
+    range.selectNodeContents(tempElement)
+    const selection = window.getSelection()
+    selection.removeAllRanges()
+    selection.addRange(range)
+
+    try {
+        document.execCommand('copy')
+        console.log('Link copied to clipboard')
+    } catch (err) {
+        console.error('Unable to copy to clipboard', err)
+    } finally {
+        document.body.removeChild(tempElement)
+    }
+}
+
+
+// Closes all popups
+function closePopUps() {
+    popupWindow.style.display = "none"
+    sharePopUpWindow.style.display = "none"
+    thankYouWindow.style.display = "none"
+    invalidEmailWindow.style.display = "none"
+    duplicateEmailWindow.style.display = "none"
+    thankYouForSharingPopUpWindow.style.display = "none"
+
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+
+    popupOpen = false
+}
+
+
+// Email Sign-Up Popup
+
+// Submission form
 const popupWindow = document.getElementById("popup-window")
-const shareWindow = document.getElementById("share-popup-window")
 
 const popupButton = document.getElementById("popup-button")
 const closeButton = document.getElementById("close-button")
 const submitButton = document.getElementById("submit-button")
 const closeButton_X = document.getElementById("x-close-enter-email")
 
-const thankYouWindow = document.getElementById("thank-you-window")
-const closeButtonThankYou = document.getElementById("close-button-thank-you")
-const closeButtonThankYou_X = document.getElementById("x-close-thank-you")
+document.addEventListener("DOMContentLoaded", function() {
+    const calendarViewSignUpButton = document.getElementById("sign-up-button")
 
-const duplicateEmailWindow = document.getElementById("duplicate-email-window")
-const closeButtonDuplicateEmail = document.getElementById("close-button-duplicate-email")
-const closeButtonDuplicateEmail_X = document.getElementById("x-close-duplicate-email")
-const tryAgainButton = document.getElementById("try-again-button")
+    if (calendarViewSignUpButton) {
+        calendarViewSignUpButton.addEventListener("click", function(evt) {
+            evt.preventDefault()
 
-const invalidEmailWindow = document.getElementById("invalid-email-window")
-const closeButtonInvalidEmail = document.getElementById("close-button-invalid-email")
-const closeButtonInvalidEmail_X = document.getElementById("x-close-invalid-email")
-const tryAgainButtonInvalidEmail = document.getElementById("try-again-button-invalid-email")
+            if (!popupOpen) {
+                sharePopUpWindow.style.display = "none"
+                popupWindow.style.display = "block"
 
-const shareButton = document.getElementById("share-button")
-const sharePopUpWindow = document.getElementById("share-popup-window")
-const closeButtonSharePopUpWindow = document.getElementById("share-close-button")
-const closeButtonSharePopUpWindow_X = document.getElementById("x-close-share")
+                popupOpen = true
+            }
 
-const thankYouForSharingPopUpWindow = document.getElementById("thank-you-for-sharing-window")
-const closeButtonThankYouForSharing = document.getElementById("close-button-thank-you-for-sharing")
-const closeButtonThankYouForSharing_X = document.getElementById("x-close-thank-you-for-sharing")
-
-const twitterShareButton = document.getElementById("twitter-share-button")
-const facebookShareButton = document.getElementById("facebook-share-button")
-const pinterestShareButton = document.getElementById("pinterest-share-button")
-const emailShareButton = document.getElementById("email-share-button")
-const copyLinkButton = document.getElementById("copy-link-button")
-
+            evt.stopPropagation()
+        })
+    }
+})
 
 popupButton.addEventListener("click", function(evt) {
 
@@ -56,105 +101,6 @@ popupButton.addEventListener("click", function(evt) {
 
     evt.stopPropagation();
 });
-
-
-document.addEventListener("DOMContentLoaded", function() {
-    const calendarViewSignUpButton = document.getElementById("sign-up-button")
-
-    if (calendarViewSignUpButton) {
-        calendarViewSignUpButton.addEventListener("click", function(evt) {
-            evt.preventDefault()
-
-            if (!popupOpen) {
-                shareWindow.style.display = "none"
-                popupWindow.style.display = "block"
-
-                popupOpen = true
-            }
-
-            evt.stopPropagation()
-        })
-    }
-})
-
-
-closeButton.addEventListener("click", function() {
-    closePopUps()
-
-    document.getElementById("fname").value = ""
-    document.getElementById("email").value = ""
-})
-
-
-closeButton_X.addEventListener("click", function() {
-    closePopUps()
-
-    document.getElementById("fname").value = ""
-    document.getElementById("email").value = ""
-})
-
-
-closeButtonDuplicateEmail.addEventListener("click", function() {
-    closePopUps()
-
-    document.getElementById("fname").value = ""
-    document.getElementById("email").value = ""
-})
-
-
-closeButtonDuplicateEmail_X.addEventListener("click", function() {
-    closePopUps()
-
-    document.getElementById("fname").value = ""
-    document.getElementById("email").value = ""
-})
-
-
-closeButtonInvalidEmail.addEventListener("click", function() {
-    closePopUps()
-
-    document.getElementById("fname").value = ""
-    document.getElementById("email").value = ""
-})
-
-
-closeButtonInvalidEmail_X.addEventListener("click", function() {
-    closePopUps()
-
-    document.getElementById("fname").value = ""
-    document.getElementById("email").value = ""
-})
-
-
-closeButtonThankYou.addEventListener("click", function() {
-    closePopUps()
-
-    document.getElementById("fname").value = ""
-    document.getElementById("email").value = ""
-})
-
-
-closeButtonThankYou_X.addEventListener("click", function() {
-    closePopUps()
-
-    document.getElementById("fname").value = ""
-    document.getElementById("email").value = ""
-})
-
-
-tryAgainButton.addEventListener("click", function() {
-    duplicateEmailWindow.style.display = "none"
-    document.getElementById("fname").value = ""
-    document.getElementById("email").value = ""
-})
-
-
-tryAgainButtonInvalidEmail.addEventListener("click", function() {
-    invalidEmailWindow.style.display = "none"
-    document.getElementById("fname").value = ""
-    document.getElementById("email").value = ""
-})
-
 
 submitButton.addEventListener('click', (evt) => {
     evt.preventDefault()
@@ -186,13 +132,106 @@ submitButton.addEventListener('click', (evt) => {
     })
 })
 
+closeButton.addEventListener("click", function() {
+    closePopUps()
 
-document.addEventListener("click", function(evt) {
-    if (!evt.target.closest(".popup-window") && popupOpen == true) {
-        closePopUps()
-    }
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
 })
 
+closeButton_X.addEventListener("click", function() {
+    closePopUps()
+
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
+
+// Thank you for submitting
+const thankYouWindow = document.getElementById("thank-you-window")
+
+const closeButtonThankYou = document.getElementById("close-button-thank-you")
+const closeButtonThankYou_X = document.getElementById("x-close-thank-you")
+
+closeButtonThankYou.addEventListener("click", function() {
+    closePopUps()
+
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
+closeButtonThankYou_X.addEventListener("click", function() {
+    closePopUps()
+
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
+
+// Duplicate email
+const duplicateEmailWindow = document.getElementById("duplicate-email-window")
+
+const closeButtonDuplicateEmail = document.getElementById("close-button-duplicate-email")
+const closeButtonDuplicateEmail_X = document.getElementById("x-close-duplicate-email")
+const tryAgainButton = document.getElementById("try-again-button")
+
+tryAgainButton.addEventListener("click", function() {
+    duplicateEmailWindow.style.display = "none"
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
+closeButtonDuplicateEmail.addEventListener("click", function() {
+    closePopUps()
+
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
+closeButtonDuplicateEmail_X.addEventListener("click", function() {
+    closePopUps()
+
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
+
+// Invalid email
+const invalidEmailWindow = document.getElementById("invalid-email-window")
+
+const tryAgainButtonInvalidEmail = document.getElementById("try-again-button-invalid-email")
+const closeButtonInvalidEmail = document.getElementById("close-button-invalid-email")
+const closeButtonInvalidEmail_X = document.getElementById("x-close-invalid-email")
+
+tryAgainButtonInvalidEmail.addEventListener("click", function() {
+    invalidEmailWindow.style.display = "none"
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
+closeButtonInvalidEmail.addEventListener("click", function() {
+    closePopUps()
+
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
+closeButtonInvalidEmail_X.addEventListener("click", function() {
+    closePopUps()
+
+    document.getElementById("fname").value = ""
+    document.getElementById("email").value = ""
+})
+
+
+// Share Popup
+
+// Share popup window
+const sharePopUpWindow = document.getElementById("share-popup-window")
+
+const shareButton = document.getElementById("share-button")
+const closeButtonSharePopUpWindow = document.getElementById("share-close-button")
+const closeButtonSharePopUpWindow_X = document.getElementById("x-close-share")
 
 shareButton.addEventListener("click", async(evt) => {
     if (navigator.share) {
@@ -212,7 +251,6 @@ shareButton.addEventListener("click", async(evt) => {
     }
 })
 
-
 closeButtonSharePopUpWindow.addEventListener("click", function() {
     closePopUps()
 
@@ -226,6 +264,13 @@ closeButtonSharePopUpWindow_X.addEventListener("click", function() {
 })
 
 
+// Share buttons
+const twitterShareButton = document.getElementById("twitter-share-button")
+const facebookShareButton = document.getElementById("facebook-share-button")
+const pinterestShareButton = document.getElementById("pinterest-share-button")
+const emailShareButton = document.getElementById("email-share-button")
+const copyLinkButton = document.getElementById("copy-link-button")
+
 twitterShareButton.addEventListener("click", function() {
     const currentUrl = window.location.href
     const twitterShareURL = "https://twitter.com/intent/tweet?url=" + encodeURIComponent(currentUrl)
@@ -235,7 +280,6 @@ twitterShareButton.addEventListener("click", function() {
     sharePopUpWindow.style.display = "none"
     thankYouForSharingPopUpWindow.style.display = "block"
 })
-
 
 facebookShareButton.addEventListener("click", function() {
     const currentUrl = window.location.href
@@ -247,7 +291,6 @@ facebookShareButton.addEventListener("click", function() {
     thankYouForSharingPopUpWindow.style.display = "block"
 })
 
-
 pinterestShareButton.addEventListener("click", function() {
     const currentUrl = window.location.href
     const pinterestSaveURL = "https://www.pinterest.com/pin/create/button/?url=" + encodeURIComponent(currentUrl)
@@ -257,7 +300,6 @@ pinterestShareButton.addEventListener("click", function() {
     sharePopUpWindow.style.display = "none"
     thankYouForSharingPopUpWindow.style.display = "block"
 })
-
 
 emailShareButton.addEventListener("click", function() {
     const currentUrl = window.location.href
@@ -271,57 +313,22 @@ emailShareButton.addEventListener("click", function() {
     thankYouForSharingPopUpWindow.style.display = "block"
 })
 
-
 copyLinkButton.addEventListener("click", function() {
     copyToClipboard(window.location.href)
     document.getElementById("link-copied-label").innerHTML = "Link Copied!"
 })
 
 
+// Thank you for sharing
+const thankYouForSharingPopUpWindow = document.getElementById("thank-you-for-sharing-window")
+
+const closeButtonThankYouForSharing = document.getElementById("close-button-thank-you-for-sharing")
+const closeButtonThankYouForSharing_X = document.getElementById("x-close-thank-you-for-sharing")
+
 closeButtonThankYouForSharing.addEventListener("click", function() {
     thankYouForSharingPopUpWindow.style.display = "none"
 })
 
-
 closeButtonThankYouForSharing_X.addEventListener("click", function() {
     thankYouForSharingPopUpWindow.style.display = "none"
 })
-
-
-
-function copyToClipboard(text) {
-    const tempElement = document.createElement('div')
-    tempElement.contentEditable = true
-    tempElement.innerHTML = text
-
-    tempElement.style.position = 'absolute'
-    tempElement.style.left = '-9999px'
-
-    document.body.appendChild(tempElement)
-    
-    const range = document.createRange()
-    range.selectNodeContents(tempElement)
-    const selection = window.getSelection()
-    selection.removeAllRanges()
-    selection.addRange(range)
-
-    try {
-        document.execCommand('copy')
-        console.log('Link copied to clipboard')
-    } catch (err) {
-        console.error('Unable to copy to clipboard', err)
-    } finally {
-        document.body.removeChild(tempElement)
-    }
-}
-
-function closePopUps() {
-    popupWindow.style.display = "none"
-    shareWindow.style.display = "none"
-    thankYouWindow.style.display = "none"
-    invalidEmailWindow.style.display = "none"
-    duplicateEmailWindow.style.display = "none"
-    thankYouForSharingPopUpWindow.style.display = "none"
-
-    popupOpen = false
-}

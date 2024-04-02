@@ -72,14 +72,15 @@ async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
 
     for (let i of slideshowHolidayIndexes) {
 
-        holidaysDiv.innerHTML += (`<div class="col slideshow-holiday" onclick="location.href='/${slideshowHolidayList[i].holiday_name}'">
+        holidaysDiv.innerHTML += (`<div class="col slideshow-holiday inner-row width-100 pointer-cursor hover-div" onclick="location.href='/${slideshowHolidayList[i].holiday_name}'">
                                         <div class="row slideshow-row">
-                                            <div class="col" id="slideshow-holiday-image">
+                                            <div class="col grid-center" id="slideshow-holiday-image">
                                                 <div class="image-container">
                                                     <img
                                                         src = "${slideshowHolidayList[i].holiday_img}"
                                                         width = 200
-                                                        id = "slideshow-image">
+                                                        id = "slideshow-image"
+                                                        class = "brightened-image">
                                                     </img>
                                                 </div>
                                             </div>
@@ -89,7 +90,7 @@ async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
                                                     ${slideshowHolidayList[i].holiday_name}
                                                 </span>
                                             </p>
-                                            <p id="slideshow-holiday-date">
+                                            <p id="slideshow-holiday-date" class="pink-text">
                                                 ${slideshowHolidayList[i].holiday_month} ${slideshowHolidayList[i].holiday_date}${slideshowHolidayList[i].date_suffix}
                                             </p>
                                         </div>

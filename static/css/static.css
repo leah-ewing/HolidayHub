@@ -1,67 +1,47 @@
-#navbar {
-    will-change: transform;
-    top: 0;
-    position: fixed;
-    transition: opacity 0.3s;
-    z-index: 999;
-}
-
-#navbar-logo {
-    font-family: 'Spicy Rice';
-    letter-spacing: -1px;
-    font-size: 32px;
-    color: #f364a2;
-    text-shadow: 0 0 2px white, 0 0 5px white;
-}
-
-#navbar-tagline {
-    font-family: 'Alumni Sans';
-    color: rgb(78, 47, 78);
-    font-size: 25px;
-    padding-right: 8px;
-    text-shadow: 0 0 15px white, 0 0 15px white;
-}
-
-.nav-link {
-    font-family: 'Alumni Sans';
-    font-size: 25px;
-    text-shadow: 0 0 15px white, 0 0 15px white;
-    color: rgb(78, 47, 78);
-}
-
-.nav-link:hover {
-    color: #4e2f4eb5;
-}
-
-.me-2 {
-    background-color: rgba(255, 255, 255, .7);
-    border: solid 2px rgba(239, 149, 157);
-    font-family: 'Alumni Sans';
-    width: 250px;
-    max-height: 45px;
-    font-size: 25px;
-    color: rgba(78, 47, 78, 0.627);
-}
-
-.me-2::placeholder {
-    font-family: 'Alumni Sans';
-    font-size: larger;
-    font-size: 25px;
-    color: rgba(78, 47, 78, 0.627);
-}
-
-.me-2:focus {
-    color: rgba(78, 47, 78, 0.627);
-    background-color: rgba(255, 255, 255, .9);
-    border: solid 2px rgba(78, 47, 78, 0.627);
-    box-shadow: none;
+:root {
+    --solid-pink: #f364a2;
+    --light-pink: #f364a2b3;
+    --solid-pink-transparent: #f364a2e6;
+    --solid-pink-hover: #f364a2a8;
+    --popup-pink: #ffd4d3eb;
+    --calendar-pink: #f362a11a;
+    --calendar-yellow: #fdfad0;
+    --dark-purple: #4e2f4e;
+    --light-purple: #4e2f4ea0;
+    --transparent-dark-purple: #4e2f4ecc;
+    --dark-purple-transparent-hover: #4e2f4eb3;
+    --title-font: 'Spicy Rice';
+    --main-font: 'Alumni Sans';
+    --thick-text-shadow: 0 0 15px white, 0 0 15px white;
+    --medium-text-shadow: 0 0 5px white, 0 0 5px white;
+    --thin-text-shadow: 0 0 2px white, 0 0 2px white;
+    --white-more-opaque: rgba(255, 255, 255, .7);
+    --white-less-opaque: rgba(255, 255, 255, .5);
+    --white-less-opaque-popup: rgba(255, 255, 255, .4);
+    --white-more-opaque-popup: rgba(255, 255, 255, .6);
+    --white-most-opaque-hover: rgba(255, 255, 255, .9);
+    
 }
 
 body {
     background-image: url("../media/other_images/background-image.png");
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: 'Alumni Sans';
+    font-family: var(--main-font);
+    color: var(--dark-purple);
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    cursor: default;
+}
+
+.btn {
+    border: solid 2px var(--dark-purple);
+    color: white;
+    background-color: var(--transparent-dark-purple);
+    font-family: var(--title-font);
+    letter-spacing: .5px;
+    font-size: 25px;
 }
 
 button {
@@ -71,469 +51,166 @@ button {
 
 button:focus,
 .btn:focus {
-    border: solid 2px rgb(78, 47, 78);
-    box-shadow: 0 0 15px white, 0 0 15px white;
-}
-
-.btn {
-    border: solid 2px rgb(78, 47, 78);
-    color: white;
-    background-color: rgb(78, 47, 78, .8);
-    font-family: 'Spicy Rice';
-    letter-spacing: .5px;
-    font-size: 25px;
+    box-shadow: var(--thick-text-shadow)
 }
 
 .btn:hover {
-    background-color: rgb(78, 47, 78);
     color: white;
+    background-color: var(--dark-purple-transparent-hover);
+}
+
+.pink-button {
+    background-color: var(--solid-pink-transparent);
+    color: white;
+    text-shadow: 0 0 1px var(--dark-purple), 0 0 1px var(--dark-purple);
+}
+
+.pink-button:hover {
+    background-color: var(--light-pink);
+}
+
+.pink-text {
+    color: var(--solid-pink);
+}
+
+.pink-hover:hover {
+    color: var(--solid-pink-hover);
+    text-shadow: var(--thick-text-shadow);
+}
+
+.outer-row {
+    background: var(--white-less-opaque);
+}
+
+.inner-row {
+    background: var(--white-more-opaque);
+}
+
+.grid-center {
+    display: grid;
+    place-items: center;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.vh-100 {
+    height: 100vh;
+}
+
+.brightened-image {
+    filter: brightness(105%)
+}
+
+.sized-image {
+    height: 255px;
+    width: 375px;
+}
+
+.pointer-cursor {
+    cursor: pointer;
+}
+
+.hover-div:hover {
+    background: var(--white-most-opaque-hover);
+}
+
+
+
+
+
+/* Navbar */
+#navbar {
+    will-change: transform;
+    top: 0;
+    position: fixed;
+    transition: opacity 0.3s;
+    z-index: 999;
+    font-size: 25px;
+    text-shadow: var(--thick-text-shadow);
+}
+
+#navbar-logo {
+    font-family: var(--title-font);
+    letter-spacing: -1px;
+    font-size: 32px;
+}
+
+#navbar-tagline {
+    padding-right: 8px;
+}
+
+.nav-link {
+    color: var(--dark-purple);
+}
+
+.nav-link:hover {
+    color: var(--light-purple);
+}
+
+
+/* Search Bar */
+.me-2 {
+    background-color: var(--white-more-opaque);
+    border: solid 2px var(--light-pink);
+    width: 250px;
+    max-height: 45px;
+    font-size: 25px;
+    color: var(--light-purple);
+}
+
+.me-2::placeholder {
+    color: var(--light-purple);
+}
+
+.me-2:focus {
+    color: var(--light-purple);
+    background-color: rgba(255, 255, 255, .9);
+    border: solid 2px var(--light-purple);
+    box-shadow: none;
 }
 
 .submit-search {
     font-size: 20px;
-    font-family: 'Spicy Rice';
-    letter-spacing: .5px;
-    background-color: rgb(243, 100, 162, .9);
-    color: rgb(78, 47, 78);
-    text-shadow: 0 0 2px white, 0 0 2px white;
+    background-color: var(--solid-pink-transparent);
+    color: var(--dark-purple);
+    text-shadow: var(--thin-text-shadow);
 }
 
 .submit-search:hover {
-    background-color: rgb(243, 100, 162, .7);
-    color: rgb(78, 47, 78);
-    text-shadow: 0 0 2px white, 0 0 2px white;
-    border: solid 2px rgb(78, 47, 78);
+    background-color: var(--light-pink);
+    color: var(--dark-purple);
+}
+
+
+
+
+/* Homepage */
+.homepage-container {
+    font-size: 22px;
+    padding-bottom: 60px;
+    width: 100%;
 }
 
 #today-is-text {
     padding-left: 5%;
     margin: 0px;
     padding-bottom: 15px;
-    font-family: 'Alumni Sans';
     font-size: 60px;
-    text-shadow: 0 0 12px white, 0 0 15px white;
-    color: #f364a2;
+    text-shadow: var(--thick-text-shadow);
+    color: var(--solid-pink);
     font-style: italic;
 }
 
 #learn-more-button {
-    max-width: 225px;
     margin-top: 20px;
     margin-bottom: 5px;
-    background-color: rgb(243, 100, 162, .9);
-    color: white;
-    text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);
-}
-
-#twitter-share-button,
-#facebook-share-button,
-#copy-link-button,
-#submit-button,
-#try-again-button-invalid-email,
-#try-again-button,
-#sign-up-button {
-    background-color: rgb(243, 100, 162, .9);
-    color: white;
-    text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);
-}
-
-#learn-more-button:hover,
-#twitter-share-button:hover,
-#facebook-share-button:hover,
-#copy-link-button:hover,
-#submit-button:hover,
-#try-again-button-invalid-email:hover,
-#try-again-button:hover,
-#sign-up-button:hover {
-    background-color: rgb(243, 100, 162, .7);
-}
-
-#copy-link-button {
-    margin-bottom: -5px;
-}
-
-#calendar-view-button,
-#random-holiday-from-homepage,
-#calendar-view-button-holiday,
-#back-to-homepage,
-#back-to-home-from-about,
-#calendar-view-from-about,
-#home-from-calendar-view,
-#random-holiday-from-calendar-view,
-#back-to-homepage-from-random,
-#another-random-holiday,
-#back-home-no-results,
-#calendar-view-no-results,
-#close-button-thank-you,
-#close-button-duplicate-email {
-    font-family: 'Spicy Rice';
-    background-color: rgba(78, 47, 78, 0.603, .9);
-    color: white;
-}
-
-#random-holiday-on-date {
-    margin-top: 20px;
-    background-color: rgb(243, 100, 162, .9);
-    color: white;
-    text-shadow: 0 0 1px rgb(78, 47, 78), 0 0 1px rgb(78, 47, 78);
-}
-
-#random-holiday-on-date:hover {
-    background-color: rgb(243, 100, 162, .7);
-    border: solid 2px rgb(78, 47, 78);
-}
-
-#calendar-view-button:hover,
-#random-holiday-from-homepage:hover,
-#calendar-view-button-holiday:hover,
-#back-to-homepage:hover,
-#back-to-home-from-about:hover,
-#calendar-view-from-about:hover,
-#home-from-calendar-view:hover,
-#random-holiday-from-calendar-view:hover,
-#back-to-homepage-from-random:hover,
-#another-random-holiday:hover,
-#back-home-no-results:hover,
-#calendar-view-no-results:hover,
-#pinterest-share-button:hover,
-#email-share-button:hover,
-#share-close-button:hover,
-#close-button-thank-you-for-sharing:hover,
-#close-button:hover,
-#close-button-invalid-email:hover,
-#close-button-thank-you:hover,
-#close-button-duplicate-email:hover,
-#back-to-homepage-error:hover,
-#homepage-button:hover {
-    background-color: rgba(78, 47, 78, 0.603);
-}
-
-#sign-up-button-span {
-    font-family: 'Alumni Sans';
-    color: rgb(78, 47, 78);
-    text-align: center;
-    margin-top: 50px;
-    font-weight: 600;
-    font-size: 47px;
-    text-shadow: 0 0 1px white, 0 0 1px white;
-    font-style: italic;
-}
-
-#sign-up-button {
-    margin-top: -30px;
-}
-
-.homepage-container {
-    display: grid;
-    place-items: center;
-    font-size: 22px;
-    padding-bottom: 60px;
-    width: 100%;
-}
-
-.homepage-container h1 {
-    display: grid;
-    place-items: center;
-}
-
-.slideshow {
-    background: rgba(255, 255, 255, .5);
-    width: 100%;
-    display: grid;
-    place-items: center;
-}
-
-.popup-window {
-    position: fixed;
-    width: 550px;
-    height: 475px;
-    background: rgb(255, 212, 211, .92);
-    border: 2px solid white;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-    display: none;
-    line-height: 1.75;
-}
-
-.x-close {
-    text-align: right;
-    margin-right: 15px;
-    margin-bottom: -40px;
-    text-decoration: none;    
-    color: #4e2f4eae;
-    font-family: 'Spicy Rice';
-    font-size: 25px;
-    text-shadow: 0 0 1px white, 0 0 1px white;
-    width: fit-content;
-    cursor: pointer;
-    margin-left: 95%
-}
-
-.x-close:hover {
-    color: rgb(78, 47, 78);
-    text-shadow: 0 0 5px white, 0 0 5px white;
-}
-
-#thank-you-for-sharing-outer-row,
-#invalid-email-outer-row,
-#duplicate-email-outer-row {
-    margin-top: 45px;
-    display: grid;
-    place-items: center;
-    margin-left: -.2px;
-    margin-right: -.2px;
-    background: rgba(255, 255, 255, .4);
-}
-
-#thank-you-email-outer-row {
-    margin-top: 75px;
-    display: grid;
-    place-items: center;
-    margin-left: -.2px;
-    margin-right: -.2px;
-    background: rgba(255, 255, 255, .4);
-}
-
-
-#thank-you-for-sharing-text,
-#invalid-email-inner-row,
-#thank-you-email-text,
-#duplicate-email-text {
-    color:rgb(78, 47, 78);
-    font-family: 'Alumni Sans';
-    font-style: italic;
-    font-weight: 800;
-    font-size: 75px;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    line-height: 75px;
-    text-shadow: 0 0 15px white, 0 0 15px white;
-    margin-top: 60px;
-    line-height: 65px;
-    margin-bottom: 60px;
-    padding: 25px;
-    background: rgba(255, 255, 255, .6);
-    width: 90%;
-}
-
-#thank-you-email-text,
-#thank-you-for-sharing-text {
-    color: #f364a2;
-}
-
-#share-popup-window-text {
-    text-align: center;
-    color:rgb(78, 47, 78);
-    font-family: 'Alumni Sans';
-    font-size: 65px;
-    font-weight: 700;
-    width: 100%;
-    margin-top: -15px;
-    text-shadow: 0 0 5px white, 0 0 5px white;
-}
-
-.outer-button-row {
-    display: grid;
-    place-items: center;
-    padding-top: 40px;
-    background: rgba(255, 255, 255, .6);
-    margin-top: -20px;
-    max-height: 220px;
-    width: 90%;
-}
-
-#invalid-email-text {
-    text-align: center;
-    color: #f364a2;
-}
-
-#thank-you-text {
-    text-align: center;
-    color: #f364a2;
-}
-
-#duplicate-email-text {
-    text-align: center;
-    font-size: 65px;
-    color: rgb(78, 47, 78);
-}
-
-.share-buttons {
-    display: grid;
-    place-items: center;
-    margin-top: 40px;
-    background: rgba(255, 255, 255, .4);
-    margin-left: .2px;
-    margin-right: -.2px;
-}
-
-#share-popup-window-row-4 {
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 25px;
-}
-
-#link-copied-label {
-    font-family: 'Alumni Sans';
-    font-size: 22px;
-    font-style: italic;
-    color:#4e2f4eb8;
-}
-
-.share-button {
-    margin: 2px;
-}
-
-#share-popup-window-row-1,
-#share-popup-window-row-2,
-#share-popup-window-row-3,
-#share-popup-window-row-4 {
-    display: inline-block;
-    text-align: center;
-}
-
-#share-popup-window-row-1 {
-    margin-top: -20px;
-}
-
-#share-close-button {
-    margin-top: 10px;
-}
-
-#orange-flower-share-1,
-#orange-flower-thank-you-share-1,
-#orange-flower-enter-email-1,
-#orange-flower-thank-you-email-1,
-#orange-flower-duplicate-email-1,
-#orange-flower-invalid-email-1 {
-    position: fixed;
-    margin-left: 10px;
-    margin-top: 10px;
-}
-
-#orange-flower-share-2,
-#orange-flower-thank-you-share-2,
-#orange-flower-enter-email-2,
-#orange-flower-thank-you-email-2,
-#orange-flower-duplicate-email-2,
-#orange-flower-invalid-email-2 {
-    position: fixed;
-    margin-left: 490px;
-    margin-top: 330px;
-}
-
-#purple-flower-share-1,
-#purple-flower-thank-you-share-1,
-#purple-flower-enter-email-1,
-#purple-flower-thank-you-email-1,
-#purple-flower-duplicate-email-1,
-#purple-flower-invalid-email-1 {
-    position: fixed;
-    margin-left: 460px;
-    margin-top: 385px;
-}
-
-#thank-you-for-sharing-row-2,
-#invalid-email-buttons,
-#thank-you-email-buttons,
-#duplicate-email-buttons {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 25px;
-}
-
-#enter-credentials-text {
-    color: rgb(78, 47, 78);
-    font-family: 'Alumni Sans';
-    font-size: 30px;
-    font-weight: 600;
-    margin-right: -.2px;
-    margin-left: -.2px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-right: 25px;
-    text-shadow: 0 0 2px white, 0 0 2px white;
-    text-align: center;
-}
-
-#enter-email-outer-row {
-    padding: 10px;
-    margin-top: 45px;
-    background: rgba(255, 255, 255, .4);
-}
-
-#add-email {
-    margin-right: -.2px;
-    margin-left: -.2px;
-    margin-top: 25px;
-    margin-left: 25px;
-    margin-right: 25px;
-    font-family: 'Alumni Sans';
-    color: rgb(78, 47, 78, .8);
-    font-size: 25px;
-    font-style: italic;
-    line-height: 25px;
-    text-shadow: 0 0 1px white, 0 0 1px white;
-    background: rgba(255, 255, 255, .6);
-}
-
-#add-email input {
-    font-size: 25px;
-    width: 300px;
-    height: 35px;
-    max-height: 35px;
-    color: rgb(78, 47, 78, .6);
-    margin-left: 15px;
-    padding-left: 10px;
-}
-
-#add-email label {
-    padding-left: 15px;
-    padding-bottom: 3px;
-}
-
-#fname {
-    margin-bottom: -10px;
-}
-
-#submit-email-buttons {
-    margin-right: -.2px;
-    margin-left: -.2px;
-    text-align: center;
-    padding-bottom: 10px;
-}
-
-#disclaimer-text {
-    font-size: 12px;
-    margin-right: -.2px;
-    margin-left: -.2px;
-    margin-left: 25px;
-    margin-right: 25px;
-    padding-bottom: 10px;
-    text-align: center;
-    font-family: 'Alumni Sans';
-    font-size: 15px;
-    line-height: 17px;
-    margin-bottom: 25px;
-    background: rgba(255, 255, 255, .6);
-}
-
-#homepage-logo {
-    font-family: 'Righteous';
-    font-size: 50px;
 }
 
 #homepage-image {
     padding-bottom: 10px;
     padding-top: 10px;
-    background-color: rgba(255, 255, 255, .6);
-    display: grid;
-    place-items: center;
     max-width: fit-content;
     padding-right: 45px;
 }
@@ -543,34 +220,67 @@ button:focus,
     margin-bottom: 10px;
 }
 
-#today-is-col {
-    display: grid;
-    place-items: center;
-}
-
 #today-is-text-col {
     max-width: 500px;
     display: grid;
     place-items: left;
     padding-top: 10px;
-    background-color: rgba(255, 255, 255, .6);
     line-height: 60px;
     cursor: default;
 }
 
 .holiday-name {
-    font-family: 'Alumni Sans';
     font-size: 80px;
-    color: rgb(78, 47, 78);
     text-shadow: 0 0 2px white, 0 0 5px white;
     text-align: center;
     padding-bottom: 15px;
 }
 
-#holiday-image
-#slideshow-image,
-#search-result-img {
-    filter: brightness(105%);
+#homepage-title {
+    text-align: center;
+    margin-top: -10px;
+}
+
+#homepage-title h1 b {
+    letter-spacing: 1px;
+    font-size: 70px;
+    text-shadow: var(--thick-text-shadow);
+
+}
+
+#celebrate-dynamic {
+    font-family: var(--title-font);
+    font-style: italic;
+    font-size: 80px;
+    height: 55px;
+    margin-top: 75px;
+    margin-bottom: -30px;
+    position: relative;
+    text-shadow: 0 0 30px white, 0 0 30px white;
+}
+
+#homepage-buttons {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+
+#today-is-inner-row {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#today-is-row {
+    margin-top: -50px;
+}
+
+
+
+
+
+/* Holiday / Random Holiday Page */
+#random-holiday-on-date {
+    margin-top: 20px;
 }
 
 #previous-date {
@@ -585,31 +295,15 @@ button:focus,
     max-width: fit-content;
 }
 
-.holiday-image,
-.homepage-image {
-    height: 255px;
-    width: 375px;
-}
-
 .holiday-page-name {
-    font-family: 'Alumni Sans';
     font-size: 80px;
-    color: rgb(78, 47, 78);
     font-weight: 700;
     text-shadow: 0 0 2px white, 0 0 5px white;
     line-height: 65px;
     margin-bottom: 35px;
 }
 
-.holiday-container {
-    width: 100%;
-}
-
 #holiday-outer-row {
-    width: 100%;
-    display: grid;
-    place-items: center;
-    background: rgba(255, 255, 255, .5);
     margin-bottom: 25px;
     margin-top: 20px;
 }
@@ -617,163 +311,26 @@ button:focus,
 #holiday-outer-col {
     max-width: 75%;
     margin: 50px;
-    display: grid;
-    place-items: center;
 }
 
 #holiday-description {
     max-width: 1000px;
-    background: rgba(255, 255, 255, .7);
     place-items: center;
     text-align: center;
     padding-top: 25px;
     padding-bottom: 25px;
 }
 
-#slideshow {
-    padding-top: 30px;
-    padding-bottom: 20px;
-    min-width: 100%;
-}
-
-#slideshow-image {
-    height: 160px;
-    width: 200px;
-}
-
-#slideshow-holiday-image {
-    display: grid;
-    place-items: center;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    margin-right: -15px;
-}
-
-.slideshow-holiday {
-    margin: 10px;
-    background-color: rgba(255, 255, 255, .6);
-    width: 100%;
-    display: inline;
-    margin-top: -20px;
-    cursor: pointer;
-}
-
-.slideshow-holiday:hover {
-    background-color: rgba(255, 255, 255, .8);
-}
-
-#slideshow-holiday-blurb {
-    height: 150px;
-    max-height: auto;
-}
-
-#slideshow-holiday-date {
-    font-family: 'Alumni Sans';
-    font-style: italic;
-    color: #f364a2;
-    font-size: 20px;
-    margin-top: -10px;
-    font-weight: 600;
-}
-
-#slideshow-holiday-name {
-    margin-top: 10px;
-    font-family: 'Alumni Sans';
-    font-weight: 600;
-    font-size: 33px;
-    line-height: 30px;
-    color: rgba(78, 47, 78);
-}
-
-#homepage-title {
-    width: 100%;
-    text-align: center;
-    margin-top: -10px;
-    cursor: default;
-}
-
 #holiday-title {
-    width: 100%;
     text-align: center;
     margin-top: -50px;
 }
 
 #date-is {
-    font-family: 'Alumni Sans';
     font-size: 70px;
-    color: #f364a2;
     font-style: italic;
     margin-bottom: -20px;
     font-weight: 600;
-}
-
-#homepage-title h1 b {
-    font-family: 'Alumni Sans';
-    letter-spacing: 1px;
-    font-size: 70px;
-    color: rgb(78, 47, 78);
-    text-shadow: 0 0 10px white, 0 0 10px white;
-
-}
-
-#celebrate-dynamic {
-    font-family: 'Spicy Rice';
-    font-style: italic;
-    font-size: 80px;
-    color: #f364a2;
-    height: 55px;
-    margin-top: 75px;
-    margin-bottom: -30px;
-    position: relative;
-    text-shadow: 0 0 30px white, 0 0 30px white;
-}
-
-#homepage-buttons {
-    width: 100%;
-    text-align: center;
-    padding-top: 50px;
-    padding-bottom: 25px;
-}
-
-#today-is-inner-row {
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-#today-is-row {
-    margin-top: -50px;
-    width: 100%;
-    background: rgba(255, 255, 255, .5);
-}
-
-#left-slideshow-arrow,
-#right-slideshow-arrow {
-    display: grid;
-    place-items: center;
-    max-width: 35px;
-    font-size: 30px;
-}
-
-#left-slideshow-arrow a,
-#right-slideshow-arrow a {
-    text-decoration: none;
-    color: #f364a2;
-    font-size: 30px;
-}
-
-#left-slideshow-arrow a:hover,
-#right-slideshow-arrow a:hover,
-#next-date-button:hover,
-#previous-date-button:hover,
-#navbar-logo:hover,
-#search-results-paginate a:hover {
-    color: rgba(243, 100, 162, 0.666);
-    text-shadow: 0 0 10px white, 0 0 10px white;
-}
-
-#right-slideshow-arrow,
-#left-slideshow-arrow {
-    margin-right: 20px;
 }
 
 #holiday-buttons-div {
@@ -782,487 +339,57 @@ button:focus,
     text-align: center;
 }
 
-.explore-more {
-    font-family: 'Spicy Rice';
-    font-size: 55px;
-    color: #f364a2;
-    background: rgba(255, 255, 255, .5);
-    text-shadow: 0 0 10px white, 0 0 10px white;
-    margin-top: -50px;
-    width: 100%;
-}
-
-#explore-more-row {
-    width: 100%;
-    text-align: center;
-}
-
-.image-container {
-    display: inline-block;
-    position: relative;
-    line-height: 0;
-    background: #ffffff;
-}
-
-.image-container::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    mix-blend-mode: multiply;
-    background: #00e1fa;
-    opacity: 0.13;
-}
-
-.image-container > img {
-    -webkit-filter:  brightness(104%) contrast(104%) grayscale(0%) hue-rotate(0deg) invert(0%) opacity(100%) saturate(122%) sepia(0%);
-            filter:  brightness(104%) contrast(104%) grayscale(0%) hue-rotate(0deg) invert(0%) opacity(100%) saturate(122%) sepia(0%);
-    mix-blend-mode: none;
-}
-
-.about-page {
-    width: 60%;
-    display: grid;
-    place-items: center;
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-
-.search-results-page-container {
-    display: grid;
-    place-items: center;
-    width: 100%;
-}
-
-#error-page-container,
-#unsubscribe-page-container {
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    place-items: center;
-}
-
-#error-outer-row,
-#unsubscribe-outer-row {
-    display: grid;
-    place-items: center;
-    width: 100%;
-    padding: 25px;
-    background: rgba(255, 255, 255, .5);
-}
-
-#error-inner-row,
-#unsubscribe-inner-row {
-    display: flex;
-    place-items: center;
-    max-width: 80%;
-    background: rgba(255, 255, 255, .7);
-}
-
-#unsubscribe-text-row-1 {
-    text-align: center;
-    font-family: 'Spicy Rice';
-    font-size: 80px;
-    color: #f364a2;
-    text-shadow: 0 0 2px white, 0 0 2px white;
-    margin-bottom: -25px;
-}
-
-#unsubscribe-text-row-2 {
-    font-family: 'Alumni Sans';
-    text-align: center;
-    font-size: 60px;
-    font-weight: 600;
-    color:rgb(78, 47, 78);
-    text-shadow: 0 0 2px white, 0 0 2px white;
-}
-
-#unsubscribe-text-row-3 {
-    font-family: 'Alumni Sans';
-    text-align: center;
-    font-size: 60px;
-    font-style: italic;
-    color:rgb(78, 47, 78, .7);
-    text-shadow: 0 0 2px white, 0 0 2px white;
-    font-size: 20px;
-}
-
-#unsubscribe-buttons {
-    text-align: center;
-    margin-top: 80px;
-    padding-bottom: 35px;
-}
-
-#error-image-col {
-    display: grid;
-    place-items: center;
-    max-width: 40%;
-}
-
-#error-text-col {
-    display: grid;
-    place-items: center;
-    padding-top: 30px;
-    margin: 10px;
-}
-
-#error-text-row {
-    display: grid;
-    place-items: center;
-}
-
-#oh-no-text {
-    font-family: 'Alumni Sans';
-    font-size: 65px;
-    line-height: 55px;
-    font-weight: 600;
-    font-style: italic;
-    text-shadow: 0 0 2px white, 0 0 2px white;
-}
-
-#oh-no {
-    font-family: 'Spicy Rice';
-    color: #f364a2;
-    text-shadow: 0 0 15px white, 0 0 15px white;
-    font-size: 120px;
-    font-weight: 400;
-    padding-bottom: 50px;
-    font-style: normal;
-}
-
-#error-buttons {
-    text-align: center;
-    padding-top: 50px;
-    padding-bottom: 15px;
-}
-
-#outer-row-no-results {
-    width: 100%;
-    display: grid;
-    place-items: center;
-    background: rgba(255, 255, 255, .5);
-    margin-top: 85px;
-}
-
-#inner-row-no-results {
-    width: 900px;
-    background: rgba(255, 255, 255, .7);
-    margin: 40px;
-}
-
-#no-results-text {
-    font-family: 'Alumni Sans';
-    font-size: 75px;
-    font-weight: 700;
-    color: #f364a2;
-    display: grid;
-    place-items: center;
-    padding-top: 10px;
-    padding-bottom: 65px;
-    text-shadow: 0 0 2px white, 0 0 2px white;
-    margin-top: 50px;
-}
-
-#no-results-text b {
-    font-family: 'Alumni Sans';
-    font-weight: 600;
-    font-style: italic;
-    color: rgb(78, 47, 78);
-}
-
-#outer-row-results {
-    width: 100%;
-    display: grid;
-    place-items: center;
-    background: rgba(255, 255, 255, .5);
-    margin-top: 85px;
-}
-
-#inner-row-results {
-    width: 700px;
-    background: rgba(255, 255, 255, .7);
-    margin: 40px;
-    height: fit-content;
-}
-
-#search-results-text {
-    font-family: 'Alumni Sans';
-    font-size: 60px;
-    font-weight: 700;
-    color: #f364a2;
-    display: grid;
-    place-items: center;
-    text-shadow: 0 0 2px white, 0 0 2px white;
-}
-
-#search-results-text b {
-    font-family: 'Alumni Sans';
-    font-weight: 600;
-    font-style: italic;
-    color: rgb(78, 47, 78);
-}
-
-#search-results-buttons {
-    display: inline-block;
-    margin-top: 25px;
-    margin-bottom: 75px;
-}
-
-#search-results-list {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-items: center;
-}
-
-#search-result-outer-row {
-    width: 100%;
-    display: grid;
-    place-items: center;
-    margin-top: 25px;
-    padding: 30px;
-    background: rgba(255, 255, 255, .5);
-}
-
-.search-result {
-    width: 700px;
-    background: rgba(255, 255, 255, .6);
-    padding-left: 20px;
-    padding-bottom: 15px;
-    margin: 10px;
-    cursor: pointer;
-}
-
-.search-result:hover {
-    background: rgba(255, 255, 255, .8);
-}
-
-.search-result-name {
-    font-family: 'Alumni Sans';
-    font-size: 30px;
-    color: rgb(78, 47, 78);
-    text-decoration: none;
-    font-weight: 600;
-    text-shadow: 0 0 2px white, 0 0 2px white;
-}
-
-#search-result-image {
-    text-align: left;
-
-}
-
-#search-result-blurb {
-    display: grid;
-    place-items: left;
-    font-family: 'Alumni Sans';
-    color: rgb(78, 47, 78);
-    font-size: 20px;
-    line-height: 23px;
-    text-align: justify;
-    margin-left: -325px;
-}
-
-#search-result-date {
-    padding-bottom: 3px;
-    font-style: italic;
-    font-family: 'Alumni Sans';
-    font-weight: 600;
-    font-size: 20px;
-    color: #f364a2;
-}
-
-#search-result-img {
-    height: 102px;
-    width: 150px;
-}
-
-#search-results-paginate {
-    text-align: center;
-    padding-top: 15px;
-    font-family: 'Alumni Sans';
-    font-size: 30px;
-    margin-right: 30px;
-    color: rgb(78, 47, 78);
-    font-weight: 500;
-}
-
-#search-results-paginate a {
-    text-decoration: none;
-    color: #f364a2;
-    font-size: 25px;
-    margin-left: 2px;
-}
-
-#search-results-paginate span {
-    text-decoration: none;
-    color: rgb(78, 47, 78);
-    font-size: 25px;
-    margin-left: 2px;
-}
-
 #blurb {
-    display: grid;
-    place-items: center;
     width: 500px;
     text-align: justify;
-    font-family: 'Alumni Sans';
     font-size: 25px;
     line-height: 30px;
     font-weight: 500;
-    color: rgb(78, 47, 78);
 }
 
 #next-date-button,
 #previous-date-button {
     text-decoration: none;
-    color: #f364a2;
     font-size: 40px;
 }
 
-.about-page-container {
-    width: 100%;
-    display: grid;
-    place-items: center;
+#holiday-body {
+    padding-top: 75px;
+    padding-bottom: 75px;
 }
 
-#about-title {
+
+
+
+
+/* Calendar View Page */
+#sign-up-button-span {
     text-align: center;
-    width: 100%;
-    margin-top: 75px;
-}
-
-#about-title h1 {
-    font-family: 'Alumni Sans';
-    font-size: 55px;
-    font-weight: 700;
-    color: rgb(78, 47, 78);
-    text-shadow: 0 0 15px white, 0 0 15px white;
-}
-
-#holidayapp-about-title {
-    color: #f364a2;
-    font-family: 'Spicy Rice';
-    letter-spacing: -1px;
-    text-shadow: 0 0 2px white, 0 0 5px white;
-}
-
-#about-title h2 {
-    margin-top: -15px;
-    font-family: 'Alumni Sans';
-    font-size: 45px;
-    margin-bottom: 25px;
-    letter-spacing: 1px;
-    color: rgb(78, 47, 78);
-    text-shadow: 0 0 5px white, 0 0 5px white;
-}
-
-.section-outer-row {
-    background-color: rgba(255, 255, 255, .5);
-    width: 100%;
-    padding-bottom: 25px;
-    margin-bottom: 25px;
-    display: grid;
-    place-items: center;
-}
-
-.about-section-title {
-    font-family: 'Alumni Sans';
-    color: #f364a2;
-    font-size: 45px;
-    width: 60%;
+    margin-top: 50px;
     font-weight: 600;
+    font-size: 47px;
+    text-shadow: var(--thin-text-shadow);
     font-style: italic;
-    text-shadow: 0 0 2px white, 0 0 2px white;
 }
 
-.about-section-text {
-    font-size: 23px;
-    line-height: 28px;
-    font-family: 'Alumni Sans';
-    width: 100%;
-    width: 60%;
-    background-color: rgba(255, 255, 255, .7);
-    color: rgb(78, 47, 78);
-    padding-top: 15px;
-    padding-bottom: 15px;
+#sign-up-button {
+    margin-top: -30px;
 }
-
-.about-section-text a {
-    color: rgba(78, 47, 78, 0.84);
-    font-weight: 700;
-}
-
-.about-buttons {
-    text-align: center;
-    width: 100%;
-}
-
-.about-thank-you {
-    font-family: 'Alumni Sans';
-    width: 100%;
-    display: grid;
-    place-items: center;
-    color: rgba(78, 47, 78, 0.84);
-    line-height: 35px;
-    font-weight: 700;
-}
-
-#about-signature {
-    margin-top: 15px;
-    text-align: center;
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 25px;
-}
-
-#thank-you-statement {
-    text-align: center;
-    font-style: italic;
-    color: #f364a2;
-    text-shadow: 0 0 3px white, 0 0 3px white;
-    font-size: 28px;
-    line-height: 35px;
-}
-
-#emoji {
-    font-style: normal;
-}
-
-.thank-you {
-    margin-top: 25px;
-}
-
-
-
-
-
-
 
 .calendar-title {
-    font-family: 'Spicy Rice';
-    display: grid;
-    place-items: center;
-    color: #f364a2;
+    font-family: var(--title-font);
     letter-spacing: -1px;
-    text-shadow: 0 0 10px white, 0 0 10px white;
+    text-shadow: var(--medium-text-shadow);
     font-size: 70px;
     text-align: center;
     line-height: 75px;
-    background-color: rgba(255, 255, 255, .5);
-    width: 100%;
     margin-top: 90px;
     padding-top: 10px;
     padding-bottom: 5px;
 }
 
 #calendar-outer-row {
-    display: grid;
-    place-items: center;
     justify-content: top;
-    width: 100%;
-    background-color: rgba(255, 255, 255, .5);
     padding-left: 25px;
     padding-right: 25px;
     padding-bottom: 50px;
@@ -1270,7 +397,6 @@ button:focus,
 
 #calendar-inner-row {
     margin-top: 5px;
-    background-color: rgba(255, 255, 255, .7);
     padding: 25px;
     max-width: 1150px;
     place-content: center;
@@ -1290,56 +416,12 @@ button:focus,
 }
 
 #is-also {
-    font-family: 'Alumni Sans';
     font-size: 45px;
     font-weight: 800;
-    color: #f364a2;
     font-style: italic;
-    height: fit-content;
     place-content: center;
     margin-bottom: 15px;
-    text-shadow: 0 0 2px white, 0 0 2px white;
-}
-
-#share-button,
-#popup-button {
-    cursor: pointer;
-}
-
-#footer {
-    background-color: rgba(255, 255, 255 .9);
-    padding: 14px 16px;
-    bottom: 0;
-    position: sticky bottom;
-    left:0; 
-    width:100%
-}
-
-#footer-text {
-    font-size: 18px;
-    font-family: 'Alumni Sans';
-    text-align: right;
-    color: rgb(78, 47, 78);
-}
-
-#footer-text a {
-    color: rgb(78, 47, 78);
-    font-weight: 600;
-}
-
-/* .light {
-    --bg-body: var(--light-body);
-    --bg-main: var(--light-main);
-    --bg-second: var(--light-second);
-    --color-hover: var(--light-hover);
-    --color-txt: var(--light-text);
-} */
-
-body {
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    cursor: default;
+    text-shadow: var(--thin-text-shadow);
 }
 
 .calendar {
@@ -1348,7 +430,7 @@ body {
     padding: 20px;
     position: relative;
     overflow: hidden;
-    background-color: rgba(243, 98, 161, 0.1);
+    background-color: var(--calendar-pink);
     min-width: 600px;
     min-height: 625px;
 }
@@ -1366,51 +448,19 @@ body {
     margin-top: -20px;
 }
 
-.calendar-view-container {
-    width: 100%;
-    display: grid;
-    place-items: center;
-}
-
-#calendar-view-container h1 {
-    color: #f364a2;
-    display: grid;
-    place-items: center;
-    width: 100%;
-}
-
-.arrows {
-    color: #f364a2;
-    width: 100%;
-}
-
 #this-month {
-    font-family: 'Alumni Sans';
-    color: rgb(78, 47, 78);
     font-weight: 700;
     font-size: 85px;
-    text-shadow: 0 0 2px white, 0 0 2px white;
+    text-shadow: var(--thin-text-shadow);
     display: grid;
     text-align: center;
     height: fit-content;
     line-height: 50px;
 }
 
-#monthly-holiday text {
-    font-family: 'Alumni Sans';
-    font-size: 45px;
-    font-weight: 800;
-    color: #f364a2;
-    margin-top: -70px;
-    font-style: italic;
-    text-align: right;
-}
-
 #monthly-holiday-list {
     font-size: 28px;
-    font-family: 'Alumni Sans';
     font-weight: 600;
-    color: rgb(78, 47, 78);
     line-height: 40px;
 }
 
@@ -1425,9 +475,7 @@ body {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     font-weight: 600;
-    font-family: 'Alumni Sans';
     font-size: 25px;
-    color: #f364a2;
     font-style: italic;
     font-weight: 600;
 }
@@ -1435,17 +483,14 @@ body {
 .calendar-week-day div {
     display: grid;
     place-items: center;
-    color: var(--bg-second);
 }
 
 .calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 2px;
-    font-family: 'Alumni Sans';
     font-weight: 700;
     font-size: 25px;
-    color: rgb(78, 47, 78);
 }
 
 .calendar-days div {
@@ -1466,7 +511,7 @@ body {
 }
 
 .calendar-day-hover:hover {
-    background-color: rgba(255, 255, 255, .7);
+    background-color: var(--white-more-opaque);
 }
 
 .calendar-empty-day:hover {
@@ -1551,30 +596,24 @@ body {
 
 .month-picker {
     padding: 5px 10px;
-    cursor: pointer;
     font-size: 75px;
     margin-bottom: 15px;
-    font-family: 'Alumni Sans';
-    text-shadow: 0 0 1px white, 0 0 1px white;
-    color: rgb(78, 47, 78);
+    text-shadow: var(--thin-text-shadow);
 }
 
 .month-picker:hover {
-    background-color: rgba(255, 255, 255, .5)
+    background-color: var(--white-less-opaque)
 }
 
 .year-picker {
     padding-top: 15px;
     display: flex;
     align-items: center center;
-    font-family: 'Alumni Sans';
     font-size: 50px;
-    color: rgb(78, 47, 78);
-    text-shadow: 0 0 1px white, 0 0 1px white;
+    text-shadow: var(--thin-text-shadow);
 }
 
 .year-picker pre {
-    color: #f364a2;
     font-size: 35px;
 }
 
@@ -1591,15 +630,13 @@ body {
 .year-change {
     height: 45px;
     width: 50px;
-    display: grid;
-    place-items: center;
     margin: 0 10px;
     cursor: pointer;
     margin-top: 15px;
 }
 
 .year-change:hover {
-    background-color: rgba(255, 255, 255, .5)
+    background-color: var(--white-less-opaque)
 }
 
 .calendar-footer {
@@ -1620,11 +657,10 @@ body {
 
 .month-list {
     position: absolute;
-    width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #FDFAD0;
+    background-color: var(--calendar-yellow);
     padding: 20px;
     grid-template-columns: repeat(3, auto);
     gap: 5px;
@@ -1653,67 +689,648 @@ body {
     padding: 5px 20px;
     text-align: center;
     cursor: pointer;
-    color: rgb(78, 47, 78);
-    font-family: 'Alumni Sans';
     font-size: 35px;
     font-weight: 600;
 }
 
 .month-list > div:hover {
-    background-color: rgba(255, 255, 255, .7)
+    background-color: var(--white-more-opaque)
 }
 
 #year {
     padding-bottom: 15px;
 }
 
-#error-text,
-#error-image {
+
+
+
+
+/* Slideshow */
+#slideshow {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    min-width: 100vw;
+}
+
+#slideshow-image {
+    height: 160px;
+    width: 200px;
+}
+
+#slideshow-holiday-image {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-right: -15px;
+}
+
+.slideshow-holiday {
+    margin: 10px;
+    display: inline;
+    margin-top: -20px;
+}
+
+#slideshow-holiday-blurb {
+    height: 150px;
+    max-height: auto;
+    font-weight: 600;
+}
+
+#slideshow-holiday-date {
+    font-style: italic;
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+#slideshow-holiday-name {
+    margin-top: 10px;
+    font-size: 33px;
+    line-height: 30px;
+}
+
+#left-slideshow-arrow,
+#right-slideshow-arrow {
+    max-width: 35px;
+    font-size: 30px;
+}
+
+.slideshow-arrows {
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.explore-more {
+    font-family: var(--title-font);
+    font-size: 55px;
+    text-shadow: var(--thick-text-shadow);
+    margin-top: -50px;
+}
+
+#explore-more-row {
+    text-align: center;
+}
+
+#right-slideshow-arrow,
+#left-slideshow-arrow {
+    margin-right: 20px;
+}
+
+
+
+
+
+/* Popups */
+.popup-window {
+    position: fixed;
+    width: 550px;
+    height: 475px;
+    background: var(--popup-pink);
+    border: 2px solid white;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+    line-height: 1.75;
+}
+
+.x-close {
+    text-align: right;
+    margin-right: 15px;
+    margin-bottom: -40px;
+    text-decoration: none;    
+    color: var(--transparent-dark-purple);
+    font-family: var(--title-font);
+    font-size: 25px;
+    text-shadow: var(--thin-text-shadow);
+    width: fit-content;
+    cursor: pointer;
+    margin-left: 95%
+}
+
+.popup-outer-row {
+    background: var(--white-less-opaque-popup);
+    margin-top: 45px;
+    margin-left: -.2px;
+    margin-right: -.2px;
+}
+
+.share-buttons {
+    margin-top: 40px;
+    margin-left: .2px;
+}
+
+.share-button {
+    margin: 2px;
+}
+
+.popup-inner-row,
+.inner-button-row {
+    background: var(--white-more-opaque-popup);
+    width: 90%;
+}
+
+.popup-inner-row {
+    font-style: italic;
+    font-weight: 800;
+    font-size: 75px;
+    text-align: center;
+    text-shadow: var(--thick-text-shadow);
+    margin-top: 60px;
+    line-height: 65px;
+    margin-bottom: 60px;
+    padding: 25px;
+}
+
+.inner-button-row {
+    padding-top: 40px;
+    margin-top: -20px;
+    max-height: 255px;
+    margin-bottom: 0;
+}
+
+.share-popup-window-inner-row {
+    display: inline-block;
+    text-align: center;
+}
+
+.x-close:hover {
+    color: var(--dark-purple);
+    text-shadow: var(--medium-text-shadow);
+}
+
+.orange-flower-1 {
+    position: fixed;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.orange-flower-2 {
+    position: fixed;
+    margin-left: 490px;
+    margin-top: 330px;
+}
+
+.purple-flower-1 {
+    position: fixed;
+    margin-left: 460px;
+    margin-top: 385px;
+}
+
+.popup-buttons {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+#thank-you-email-outer-row {
+    margin-top: 75px;
+}
+
+#share-popup-window-text {
+    text-align: center;
+    font-size: 65px;
+    font-weight: 700;
+    margin-top: -15px;
+    text-shadow: var(--medium-text-shadow);
+}
+
+#duplicate-email-text {
+    font-size: 65px;
+}
+
+#share-popup-window-row-4 {
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+
+#copy-link-button {
+    margin-bottom: -5px;
+}
+
+#link-copied-label {
+    font-size: 22px;
+    font-style: italic;
+    color: var(--light-purple);
+}
+
+#share-popup-window-row-1 {
+    margin-top: -15px;
+}
+
+#share-close-button {
+    margin-top: 10px;
+}
+
+#enter-credentials-text {
+    font-size: 30px;
+    font-weight: 600;
+    margin-right: -.2px;
+    margin-left: -.2px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 25px;
+    text-shadow: var(--thin-text-shadow);
+    text-align: center;
+}
+
+#enter-email-outer-row {
+    padding: 10px;
+    margin-top: 45px;
+    background: var(--white-less-opaque-popup);
+}
+
+#add-email {
+    margin-right: -.2px;
+    margin-left: -.2px;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    color: var(--transparent-dark-purple);
+    font-size: 25px;
+    font-style: italic;
+    line-height: 25px;
+    text-shadow: var(--thin-text-shadow);
+    background: var(--white-more-opaque-popup);
+}
+
+#add-email input {
+    font-size: 25px;
+    width: 300px;
+    height: 35px;
+    max-height: 35px;
+    color: var(--light-purple);
+    margin-left: 15px;
+    padding-left: 10px;
+}
+
+#add-email label {
+    padding-left: 15px;
+    padding-bottom: 3px;
+}
+
+#fname {
+    margin-bottom: -10px;
+}
+
+#submit-email-buttons {
+    margin-right: -.2px;
+    margin-left: -.2px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#disclaimer-text {
+    font-size: 12px;
+    margin-right: -.2px;
+    margin-left: -.2px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 17px;
+    margin-bottom: 25px;
+    background: var(--white-more-opaque-popup);
+}
+
+
+
+
+
+/* Search Results Page */
+.outer-row-search-results {
+    margin-top: 85px;
+}
+
+#inner-row-no-results {
+    width: 900px;
+    margin: 40px;
+}
+
+#no-results-text {
+    font-size: 75px;
+    font-weight: 700;
+    padding-top: 10px;
+    padding-bottom: 65px;
+    text-shadow: var(--thin-text-shadow);
+    margin-top: 50px;
+}
+
+#no-results-text b {
+    font-weight: 600;
+    font-style: italic;
+    color: var(--dark-purple);
+}
+
+#inner-row-results {
+    width: 700px;
+    margin: 40px;
+    height: fit-content;
+}
+
+#search-results-text {
+    font-size: 60px;
+    font-weight: 700;
+    text-shadow: var(--thin-text-shadow);
+}
+
+#search-results-text b {
+    font-weight: 600;
+    font-style: italic;
+    color: var(--dark-purple);
+}
+
+#search-results-buttons {
+    display: inline-block;
+    margin-top: 25px;
+    margin-bottom: 75px;
+}
+
+#search-results-list {
+    height: 100%;
+}
+
+#search-result-outer-row {
+    margin-top: 25px;
+    padding: 30px;
+}
+
+.search-result {
+    width: 700px;
+    padding-left: 20px;
+    padding-bottom: 15px;
+    margin: 10px;
+}
+
+.search-result-name {
+    font-size: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    text-shadow: var(--thin-text-shadow);
+}
+
+#search-result-image {
+    text-align: left;
+
+}
+
+#search-result-blurb {
     display: grid;
+    place-items: left;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: justify;
+    margin-left: -325px;
+}
+
+#search-result-date {
+    padding-bottom: 3px;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+#search-result-img {
+    height: 102px;
+    width: 150px;
+}
+
+#search-results-paginate {
+    text-align: center;
+    padding-top: 15px;
+    font-size: 30px;
+    margin-right: 30px;
+    font-weight: 500;
+}
+
+#search-results-paginate a {
+    text-decoration: none;
+    font-size: 25px;
+    margin-left: 2px;
+}
+
+
+
+
+
+/* About Page */
+#about-title {
+    text-align: center;
+    margin-top: 75px;
+}
+
+#about-title h1 {
+    font-size: 55px;
+    font-weight: 700;
+    text-shadow: var(--thick-text-shadow);
+}
+
+#holidayapp-about-title {
+    font-family: var(--title-font);
+    letter-spacing: -1px;
+    text-shadow: 0 0 2px white, 0 0 5px white;
+}
+
+#about-title h2 {
+    margin-top: -15px;
+    font-size: 45px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-shadow: var(--medium-text-shadow);
+}
+
+.section-outer-row {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+}
+
+.about-section-title {
+    font-size: 45px;
+    width: 60%;
+    font-weight: 600;
+    font-style: italic;
+    text-shadow: var(--thin-text-shadow);
+}
+
+.about-section-text {
+    font-size: 23px;
+    line-height: 28px;
+    width: 60%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.about-section-text a {
+    color: var(--dark-purple-transparent-hover);
+    font-weight: 700;
+}
+
+.about-buttons {
+    text-align: center;
+}
+
+.about-thank-you {
+    line-height: 35px;
+    font-weight: 700;
+}
+
+#about-signature {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 25px;
+}
+
+#thank-you-statement {
+    text-align: center;
+    font-style: italic;
+    text-shadow: var(--thin-text-shadow);
+    font-size: 28px;
+    line-height: 35px;
+}
+
+#emoji {
+    font-style: normal;
+}
+
+.thank-you {
+    margin-top: 25px;
+}
+
+
+
+
+
+/* Error / Unsubscribe Pages */
+#error-outer-row,
+#unsubscribe-outer-row {
+    padding: 25px;
+}
+
+#error-inner-row,
+#unsubscribe-inner-row {
+    display: flex;
     place-items: center;
-    font-family: 'Righteous';
-    margin-top: 250px;
+    max-width: 80%;
 }
 
-#error-image {
-    margin-left: -100px;
+#unsubscribe-text-row-1 {
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 80px;
+    text-shadow: var(--thin-text-shadow);
+    margin-bottom: -25px;
 }
 
+#unsubscribe-text-row-2 {
+    text-align: center;
+    font-size: 60px;
+    font-weight: 600;
+    text-shadow: var(--thin-text-shadow);
+}
+
+#unsubscribe-text-row-3 {
+    text-align: center;
+    font-size: 60px;
+    font-style: italic;
+    color: var(--dark-purple-transparent-hover);
+    text-shadow: var(--thin-text-shadow);
+    font-size: 20px;
+}
+
+#unsubscribe-buttons {
+    text-align: center;
+    margin-top: 80px;
+    padding-bottom: 35px;
+}
+
+#error-image-col {
+    max-width: 40%;
+}
+
+#error-text-col {
+    padding-top: 30px;
+    margin: 10px;
+}
+
+#oh-no-text {
+    font-size: 65px;
+    line-height: 55px;
+    font-weight: 600;
+    font-style: italic;
+    text-shadow: var(--thin-text-shadow);
+}
+
+#oh-no {
+    font-family: var(--title-font);
+    text-shadow: var(--thick-text-shadow);
+    font-size: 120px;
+    font-weight: 400;
+    padding-bottom: 50px;
+    font-style: normal;
+}
+
+#error-buttons {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 15px;
+}
 
 #oh-no-text {
     text-align: center;
 }
 
-#oh-no-text h1 {
-    font-size: 60px;
-    color: #f364a2;
+
+
+
+
+/* Image Filter */
+.image-container {
+    display: inline-block;
+    position: relative;
+    line-height: 0;
+    background: #ffffff;
 }
 
-.unsubscribe-page {
-    padding-top: 250px;
-    padding-bottom: 100px;
+.image-container::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    mix-blend-mode: multiply;
+    background: #00e1fa;
+    opacity: 0.13;
 }
 
-#unsubscribe-text1 {
-    font-family: 'Righteous';
-    font-size: 60px;
+.image-container > img {
+    -webkit-filter:  brightness(104%) contrast(104%) grayscale(0%) hue-rotate(0deg) invert(0%) opacity(100%) saturate(122%) sepia(0%);
+            filter:  brightness(104%) contrast(104%) grayscale(0%) hue-rotate(0deg) invert(0%) opacity(100%) saturate(122%) sepia(0%);
+    mix-blend-mode: none;
 }
 
-#unsubscribe-text2 {
-    font-family: 'Righteous';
-    font-size: 30px;
+
+
+
+
+/* Footer */
+#footer {
+    padding: 14px 16px;
+    bottom: 0;
+    position: sticky bottom;
+    left: 0;
 }
 
-#holiday-body {
-    padding-top: 75px;
-    padding-bottom: 75px;
-    display: grid;
-    place-items: center;
+#footer-text {
+    font-size: 18px;
+    text-align: right;
 }
 
-#calendar-body {
-    padding-top: 75px;
-    padding-bottom: 75px;
-    display: grid;
-    place-items: center;
+#footer-text a {
+    color: rgb(78, 47, 78);
+    font-weight: 600;
 }

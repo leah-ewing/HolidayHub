@@ -7,11 +7,11 @@
 {% block body %}
 
 <body>
-  <div class="homepage-container">
+  <div class="homepage-container grid-center">
 
-    <div class="row" id="homepage-title">
-      <h1>
-        <span is="type-async" id="celebrate-dynamic">Celebrate</span>
+    <div class="row width-100" id="homepage-title">
+      <h1 class="grid-center">
+        <span is="type-async" id="celebrate-dynamic" class="pink-text">Celebrate</span>
         <script src="../static/js/static.js"></script>
         <br>
         <b>Today!</b>
@@ -19,10 +19,10 @@
       </h1>
     </div>
 
-    <div class="row" id="today-is-row">
-      <div class="col" id="today-is-col">
+    <div class="row width-100 outer-row" id="today-is-row">
+      <div class="col grid-center" id="today-is-col">
         <div class="row" id="today-is-inner-row">
-          <div class="col" id="today-is-text-col">
+          <div class="col inner-row" id="today-is-text-col">
             <text id="today-is-text">
               <b>
                 Today is...
@@ -36,17 +36,17 @@
             </text>
 
             <div id="learn-more-button-span">
-              <button id="learn-more-button" class="btn" onclick="location.href='/{{holiday}}'">
+              <button id="learn-more-button" class="btn pink-button" onclick="location.href='/{{holiday}}'">
                 Learn more
               </button>
             </div>
           </div>
 
-          <div class="col" id="homepage-image">
+          <div class="col grid-center inner-row" id="homepage-image">
             <a href="/{{holiday}}">
               <div class="image-container">
                 <img
-                    class = homepage-image
+                    class = "homepage-image brightened-image sized-image"
                     src = "{{image}}"
                     width = 400>
                 </img>
@@ -57,7 +57,7 @@
       </div>
     </div>
 
-    <div id="homepage-buttons">
+    <div id="homepage-buttons" class="width-100">
       <button id="calendar-view-button" class="btn" onclick="location.href='/calendar-view'">
         View Calendar
       </button>
@@ -68,28 +68,26 @@
     </div>
   </div>
 
-  <div class="row" id="explore-more-row">
-    <span class="explore-more">
+  <div class="row width-100" id="explore-more-row">
+    <span class="explore-more pink-text outer-row width-100">
       Explore More Holidays!
     </span>
   </div>
 
-  <div class="container-fluid slideshow">
-    <div class="row home-slideshow" id="slideshow">
-        <div class="col" id="left-slideshow-arrow">
-            <a href id="left-arrow">◀︎</a>
-        </div>
-        <div class="col" id="holidays-container">
-            <div class="row" id="holidays">
-            </div>
-        </div>
-        <div class="col" id="right-slideshow-arrow">
-            <a href id="right-arrow">▶</a>
-        </div>
-    </div>
-    
+  <div class="container-fluid slideshow grid-center">
+      <div class="row outer-row" id="slideshow">
+          <div class="col grid-center" id="left-slideshow-arrow">
+              <a class="pink-text pink-hover slideshow-arrows" href id="left-arrow">◀︎</a>
+          </div>
+          <div class="col">
+              <div class="row" id="holidays"></div>
+          </div>
+          <div class="col grid-center" id="right-slideshow-arrow">
+              <a class="pink-text pink-hover slideshow-arrows" href id="right-arrow">▶</a>
+          </div>
+      </div>
+      <script src="../static/js/slideshow.js"></script>
   </div>
-  <script src="../static/js/slideshow.js"></script>
 </body>
 
 {% endblock %}

@@ -9,35 +9,35 @@
 {% block body %}
 
 <body>
-    <div class="holiday-container" id="holiday-body">
+    <div class="holiday-container width-100 grid-center" id="holiday-body">
 
-        <div class="row" id="holiday-outer-row">
-            <div class="col" id="holiday-outer-col">
-                <div class="row" id="holiday-title">
-                    <text id="date-is">
+        <div class="row outer-row grid-center width-100" id="holiday-outer-row">
+            <div class="col grid-center" id="holiday-outer-col">
+                <div class="row width-100" id="holiday-title">
+                    <text id="date-is" class="pink-text">
                         {{month_name}} {{day}}{{suffix}} is...
                     </text>
                     <text class="holiday-page-name">
                         {{holiday}}!
                     </text>
                 </div>
-                <div class="row" id="holiday-description">
+                <div class="row inner-row" id="holiday-description">
                     <div class="col" id="previous-date">
-                        <a id = "previous-date-button" href="/day-picker/{{previous_date_month}}/{{previous_date.day}}">◀︎</a>
+                        <a class="date-scroll-arrows pink-text pink-hover" id="previous-date-button" href="/day-picker/{{previous_date_month}}/{{previous_date.day}}">◀︎</a>
                     </div>
                     <div class="col" id="holiday-image-col">
                         <div id="holiday-image" class="image-container">
-                            <img class = "holiday-image"
+                            <img class = "holiday-image sized-image brightened-image"
                                 src = "{{image}}"
                                 width = 300>
                             </img>
                         </div>
                     </div>
-                    <div class="col" id="blurb">
+                    <div class="col grid-center" id="blurb">
                         {{blurb}}
                     </div>
                     <div class="col" id="next-date">
-                        <a id = "next-date-button" href="/day-picker/{{next_date_month}}/{{next_date.day}}">▶︎</a>
+                        <a class="date-scroll-arrows pink-text pink-hover" id="next-date-button" href="/day-picker/{{next_date_month}}/{{next_date.day}}">▶︎</a>
                     </div>
 
                     {% if multiple_holidays_on_date == True %}
@@ -66,23 +66,22 @@
         </div>
     </div>
 
-    <div class="row" id="explore-more-row">
-        <span class="explore-more">
+    <div class="row width-100" id="explore-more-row">
+        <span class="explore-more pink-text outer-row width-100">
           Explore More Holidays!
         </span>
     </div>
 
-    <div class="container-fluid slideshow">
-        <div class="row" id="slideshow">
-            <div class="col" id="left-slideshow-arrow">
-                <a href id="left-arrow">◀︎</a>
+    <div class="container-fluid slideshow grid-center">
+        <div class="row outer-row" id="slideshow">
+            <div class="col grid-center" id="left-slideshow-arrow">
+                <a class="pink-text pink-hover slideshow-arrows" href id="left-arrow">◀︎</a>
             </div>
-            <div class="col" id="test">
-                <div class="row" id="holidays">
-                </div>
+            <div class="col">
+                <div class="row" id="holidays"></div>
             </div>
-            <div class="col" id="right-slideshow-arrow">
-                <a href id="right-arrow">▶</a>
+            <div class="col grid-center" id="right-slideshow-arrow">
+                <a class="pink-text pink-hover slideshow-arrows" href id="right-arrow">▶</a>
             </div>
         </div>
         <script src="../static/js/slideshow.js"></script>

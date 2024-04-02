@@ -7,12 +7,12 @@
 {% block body %}
   
     <body>
-        <div class="search-results-page-container">
+        <div class="search-results-page-container grid-center width-100">
 
             {% if results_count == 0 %}
-                <div class="row" id="outer-row-no-results">
-                    <div class="row" id="inner-row-no-results">
-                        <div id="no-results-text">
+                <div class="row width-100 grid-center outer-row outer-row-search-results" id="outer-row-no-results">
+                    <div class="row inner-row" id="inner-row-no-results">
+                        <div class="pink-text grid-center" id="no-results-text">
                             <text>
                                 No Results Found For: <b>"{{search_term}}"</b>
                             </text>
@@ -20,20 +20,20 @@
                     </div>
                 </div>
             {% else %}
-                <div class="row" id="outer-row-results">
-                    <div class="row" id="inner-row-results">
-                        <div id="search-results-text">
+                <div class="row width-100 grid-center outer-row outer-row-search-results" id="outer-row-results">
+                    <div class="row inner-row" id="inner-row-results">
+                        <div class="pink-text grid-center" id="search-results-text">
                             <text>
                                 {{results_count}} Results For: <b>"<span id="search-term">{{search_term}}</span>"</b>
                             </text>
                         </div>
                     </div>
                 </div>
-                <div class="row search" id="search-result-outer-row">
-                    <div id="search-results-list">
+                <div class="row search outer-row width-100" id="search-result-outer-row">
+                    <div class="grid-center width-100" id="search-results-list">
                         {% for search_result in search_results %}
 
-                            <div class="row search-result" id="search-result-{{search_result.result_num}}" onclick="location.href='/{{search_result.holiday_name}}'">
+                            <div class="row search-result pointer-cursor inner-row hover-div" id="search-result-{{search_result.result_num}}" onclick="location.href='/{{search_result.holiday_name}}'">
                                 <text class="search-result-name" id="search-result-name-{{search_result.result_num}}" href="/{{search_result.holiday_name}}">
                                     {{search_result.holiday_name}}
                                 </text>
@@ -44,14 +44,15 @@
                                                 <img
                                                     src = "{{search_result.holiday_img}}"
                                                     width = 200,
-                                                    id = "search-result-img">
+                                                    id = "search-result-img",
+                                                    class = "brightened-image">
                                                 </img>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col" id="search-result-blurb">
                                         <text>
-                                            <div id="search-result-date">
+                                            <div class="pink-text" id="search-result-date">
                                                 {{search_result.holiday_month}} {{search_result.holiday_date}}{{search_result.date_suffix}}
                                             </div>
                                             {{search_result.holiday_blurb}} <b>...</b>
@@ -65,7 +66,7 @@
                     <div class="row" id="search-results-paginate">
                         <text>
                             {% if page > 1 %}
-                                <a href="/search-results/{{search_term}}/{{page - 1}}/">
+                                <a class="pink-text pink-hover" href="/search-results/{{search_term}}/{{page - 1}}/">
                                     ◀︎
                                 </a>
                             {% endif %}
@@ -73,7 +74,7 @@
                             Page {{page}} of {{page_count}} 
 
                             {% if page < page_count %}
-                                <a href="/search-results/{{search_term}}/{{page + 1}}/">
+                                <a class="pink-text pink-hover" href="/search-results/{{search_term}}/{{page + 1}}/">
                                     ▶︎
                                 </a>
                             {% endif %}
@@ -95,28 +96,26 @@
             </div>
         </div>
 
-        <div class="row" id="explore-more-row">
-            <span class="explore-more">
+        <div class="row width-100" id="explore-more-row">
+            <span class="explore-more pink-text outer-row width-100">
               Explore More Holidays!
             </span>
-          </div>
-        
-          <div class="container-fluid slideshow">
-            <div class="row home-slideshow" id="slideshow">
-                <div class="col" id="left-slideshow-arrow">
-                    <a href id="left-arrow">◀︎</a>
+        </div>
+    
+        <div class="container-fluid slideshow grid-center">
+            <div class="row outer-row" id="slideshow">
+                <div class="col grid-center" id="left-slideshow-arrow">
+                    <a class="pink-text pink-hover slideshow-arrows" href id="left-arrow">◀︎</a>
                 </div>
-                <div class="col" id="holidays-container">
-                    <div class="row" id="holidays">
-                    </div>
+                <div class="col">
+                    <div class="row" id="holidays"></div>
                 </div>
-                <div class="col" id="right-slideshow-arrow">
-                    <a href id="right-arrow">▶</a>
+                <div class="col grid-center" id="right-slideshow-arrow">
+                    <a class="pink-text pink-hover slideshow-arrows" href id="right-arrow">▶</a>
                 </div>
             </div>
-            
-          </div>
-          <script src="{{ url_for('static', filename='js/slideshow.js') }}"></script>
+            <script src="{{ url_for('static', filename='js/slideshow.js') }}"></script>
+        </div>
     </body>
     
 {% endblock %}

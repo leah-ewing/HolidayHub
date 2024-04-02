@@ -32,16 +32,20 @@
     <nav class="navbar container-fluid navbar-expand-lg" id="navbar">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="navbar-brand" aria-current="page" id="navbar-logo" href="/">HolidayApp</a>
+          <a class="navbar-brand pink-text pink-hover" aria-current="page" id="navbar-logo" href="/">
+            <text>
+              HolidayApp
+            </text>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="share-button">Share</a>
+          <a class="nav-link pointer-cursor" id="share-button">Share</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/about" id="about-button">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="popup-button">Sign Up for Daily Emails!</a>
+          <a class="nav-link pointer-cursor" id="popup-button">Sign Up for Daily Emails!</a>
         </li>
       </ul>
       <form class="d-flex" role="search" action="/get-search-term" method="GET">
@@ -60,54 +64,57 @@
       </div>
 
       <img
+        class = "orange-flower-1"
         id = "orange-flower-share-1"
         src="{{ url_for('static', filename='media/other_images/orange-flower.png') }}"
         width = 85>
       </img>
 
       <img
+        class = "orange-flower-2"
         id = "orange-flower-share-2"
         src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}"
         width = 50>
       </img>
 
       <img
+        class = "purple-flower-1"
         id = "purple-flower-share-1"
         src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}"
         width = 75>
       </img>
 
-      <div class="row share-buttons">
+      <div class="row popup-outer-row share-buttons grid-center">
         <div class="row" id="share-popup-window-text">
           <text>
             Share:
           </text>
         </div>
-        <div class="row outer-button-row">
-          <div class="row" id="share-popup-window-row-1">
+        <div class="row inner-button-row grid-center">
+          <div class="row share-popup-window-inner-row" id="share-popup-window-row-1">
             <div class="col">
-              <button id="twitter-share-button" class="btn share-button">Twitter</button>
-              <button id="facebook-share-button" class="btn share-button">Facebook</button>
+              <button id="twitter-share-button" class="btn share-button pink-button">Twitter</button>
+              <button id="facebook-share-button" class="btn share-button pink-button">Facebook</button>
             </div>
           </div>
 
-          <div class="row" id="share-popup-window-row-2">
+          <div class="row share-popup-window-inner-row" id="share-popup-window-row-2">
             <div class="col">
               <button id="pinterest-share-button" class="btn share-button">Pinterest</button>
               <button id="email-share-button" class="btn share-button">Email</button><br>
             </div>
           </div>
 
-          <div class="row" id="share-popup-window-row-3">
+          <div class="row share-popup-window-inner-row" id="share-popup-window-row-3">
             <div class="col">
-              <button id="copy-link-button" class="btn share-button">Copy Page Link</button><br>
+              <button id="copy-link-button" class="btn share-button pink-button">Copy Page Link</button><br>
               <small>
                 <span id="link-copied-label"></span><br>
               </small>
             </div>
           </div>
         </div>
-        <div class="row" id="share-popup-window-row-4">
+        <div class="row share-popup-window-inner-row" id="share-popup-window-row-4">
           <div class="col">
             <button id="share-close-button" class="btn">Go Back</button>
           </div>
@@ -122,28 +129,31 @@
       </div>
 
       <img
+        class = "orange-flower-1"
         id = "orange-flower-thank-you-share-1"
         src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}"
         width = 85>
       </img>
 
       <img
+        class = "orange-flower-2"
         id = "orange-flower-thank-you-share-2"
         src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}"
         width = 50>
       </img>
 
       <img
+        class = "purple-flower-1"
         id = "purple-flower-thank-you-share-1"
         src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}"
         width = 75>
       </img>
 
-      <div class="row" id="thank-you-for-sharing-outer-row">
-        <div class="row" id="thank-you-for-sharing-text">
+      <div class="row popup-outer-row" id="thank-you-for-sharing-outer-row">
+        <div class="row popup-inner-row pink-text grid-center" id="thank-you-for-sharing-text">
           Thank you <br>
           for sharing!
-          <div class="row" id="thank-you-for-sharing-row-2">
+          <div class="row popup-buttons" id="thank-you-for-sharing-row-2">
             <div class="col">
               <button id="close-button-thank-you-for-sharing" class="btn">Go Back</button>
             </div>
@@ -160,18 +170,21 @@
       </div>
 
       <img
+        class = "orange-flower-1"
         id = "orange-flower-enter-email-1"
         src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}"
         width = 85>
       </img>
 
       <img
+        class = "orange-flower-2"
         id = "orange-flower-enter-email-2"
         src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}"
         width = 50>
       </img>
 
       <img
+        class = "purple-flower-1"
         id = "purple-flower-enter-email-1"
         src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}"
         width = 75>
@@ -192,7 +205,7 @@
             <label for="email">Email:</label><br>
             <input class="form-control me-2" id="email" name="email" type="email" autocomplete="off" required /></textarea><br>
             <div class="col" id="submit-email-buttons">
-              <button id="submit-button" class="btn submit-button" type="submit">Submit!</button>
+              <button id="submit-button" class="btn submit-button pink-button" type="submit">Submit!</button>
               <button id="close-button" class="btn">Go Back</button>
             </div>
           </form>
@@ -212,28 +225,31 @@
         </div>
 
       <img
+        class = "orange-flower-1"
         id = "orange-flower-thank-you-email-1"
         src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}"
         width = 85>
       </img>
 
       <img
+        class = "orange-flower-2"
         id = "orange-flower-thank-you-email-2"
         src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}"
         width = 50>
       </img>
 
       <img
+        class = "purple-flower-1"
         id = "purple-flower-thank-you-email-1"
         src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}"
         width = 75>
       </img>
 
-        <div class="row" id="thank-you-email-outer-row">
-          <div class="row" id="thank-you-email-text">
+        <div class="row popup-outer-row" id="thank-you-email-outer-row">
+          <div class="row popup-inner-row pink-text" id="thank-you-email-text">
               Thank you!
               <div class="row">
-                <div class="col" id="thank-you-email-buttons">
+                <div class="col popup-buttons" id="thank-you-email-buttons">
                   <button id="close-button-thank-you" class="btn">Close</button>
                 </div>
               </div>
@@ -248,29 +264,32 @@
         </div>
 
         <img
+          class = "orange-flower-1"
           id = "orange-flower-duplicate-email-1"
           src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}"
           width = 85>
         </img>
 
         <img
+          class = "orange-flower-2"
           id = "orange-flower-duplicate-email-2"
           src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}"
           width = 50>
         </img>
 
         <img
+          class = "purple-flower-1"
           id = "purple-flower-duplicate-email-1"
           src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}"
           width = 75>
         </img>
 
-        <div class="row" id="duplicate-email-outer-row">
-          <div class="row" id="duplicate-email-text">
+        <div class="row popup-outer-row" id="duplicate-email-outer-row">
+          <div class="row popup-inner-row" id="duplicate-email-text">
               Email already exists, please try again!
-              <div class="row" id="duplicate-email-buttons">
+              <div class="row popup-buttons" id="duplicate-email-buttons">
                 <div class="col">
-                  <button id="try-again-button" class="btn">Try again</button>
+                  <button id="try-again-button" class="btn pink-button">Try again</button>
                   <button id="close-button-duplicate-email" class="btn">Close</button>
                 </div>
               </div>
@@ -285,29 +304,32 @@
         </div>
 
         <img
+          class = "orange-flower-1"
           id = "orange-flower-invalid-email-1"
           src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}"
           width = 85>
         </img>
 
         <img
+          class = "orange-flower-2"
           id = "orange-flower-invalid-email-2"
           src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}"
           width = 50>
         </img>
 
         <img
+          class = "purple-flower-1"
           id = "purple-flower-invalid-email-1"
           src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}"
           width = 75>
         </img>
 
-        <div class="row" id="invalid-email-outer-row">
-          <div class="row" id="invalid-email-inner-row">
+        <div class="row popup-outer-row" id="invalid-email-outer-row">
+          <div class="row popup-inner-row" id="invalid-email-inner-row">
             Invalid input, please try again!
             <div class="row">
-              <div class="col" id="invalid-email-buttons">
-                  <button class="btn" id="try-again-button-invalid-email">Try again</button>
+              <div class="col popup-buttons" id="invalid-email-buttons">
+                  <button class="btn pink-button" id="try-again-button-invalid-email">Try again</button>
                   <button class="btn" id="close-button-invalid-email">Close</button>
               </div>
             </div>
@@ -334,7 +356,7 @@
 
 {% block after_body %}
 
-  <div class="container-fluid" id="footer">
+  <div class="container-fluid width-100" id="footer">
     <nav class="navbar bg-body-tertiary">
       <span class="navbar-text" id="footer-text">
         🎉 <a href="https://github.com/leah-ewing">Leah Ewing</a>, &#9426; 2024

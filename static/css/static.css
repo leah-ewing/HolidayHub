@@ -1132,7 +1132,7 @@ button:focus,
     text-shadow: var(--thick-text-shadow);
 }
 
-#holidayapp-about-title {
+#holidayhub-about-title {
     font-family: var(--title-font);
     letter-spacing: -1px;
     text-shadow: 0 0 2px white, 0 0 5px white;

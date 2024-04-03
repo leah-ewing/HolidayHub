@@ -90,7 +90,7 @@ def send_daily_holiday_email(email):
         return ApiClient.Request('POST', '/email/send', {
             'subject': random_subject,
             'from': SENDER_EMAIL,
-            'fromName': "HolidayApp",
+            'fromName': "HolidayHub",
             'to': email,
             'bodyHtml': rendered_html,
             'bodyText': "Text body will go here",

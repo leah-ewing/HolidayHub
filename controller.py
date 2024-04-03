@@ -193,12 +193,12 @@ def get_random_it_is_also_statement():
 
 def get_random_holiday_email_subject():
     """ Returns a random email subject for a daily holiday email """
-    subjects = ["Incoming: Your daily HolidayApp email!",
-                "Oh hey! It's your HolidayApp email!",
-                "Your HolidayApp email has arrived!",
+    subjects = ["Incoming: Your daily HolidayHub email!",
+                "Oh hey! It's your HolidayHub email!",
+                "Your HolidayHub email has arrived!",
                 "Today is a GREAT day! Check it out!",
                 "Check out what today's holiday is!",
-                "Brought to you by HolidayApp: Today is...!",
+                "Brought to you by HolidayHub: Today is...!",
                 "Oh wow!! Today is..."]
 
     return random.choice(subjects)
@@ -206,11 +206,11 @@ def get_random_holiday_email_subject():
 
 def get_random_welcome_email_subject():
     """ Returns a random email subject for a daily holiday email """
-    subjects = ["Welcome to HolidayApp!",
-                "So happy to have you apart of the HolidayApp community!",
+    subjects = ["Welcome to HolidayHub!",
+                "So happy to have you apart of the HolidayHub community!",
                 "Welcome!",
-                "Yay! Your first HolidayApp email!",
-                "HolidayApp is happy to meet you!"]
+                "Yay! Your first HolidayHub email!",
+                "HolidayHub is happy to meet you!"]
     
     return random.choice(subjects)
 

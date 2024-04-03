@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, jsonify
-from model import connect_to_db
 from jinja2 import StrictUndefined
 import crud, controller
 import os, sys
@@ -18,6 +17,8 @@ app.secret_key = DEV_KEY
 app.app_context().push()
 
 app.jinja_env.undefined = StrictUndefined
+
+crud.connect_to_db(app)
 
 
 @app.route('/')
@@ -325,7 +326,6 @@ def unsubscribe_email(email):
         return render_template('unsubscribe.html')
     
     except Exception as error:
-        # return redirect('/error')
         print(f'\n Error: {error} \n')
         error_handling.log_error_json(error, request.base_url)
 
@@ -350,5 +350,4 @@ def errorPage():
 
 
 if __name__ == '__main__':
-    connect_to_db(app)
     app.run(host='0.0.0.0', debug=True, port=8000)

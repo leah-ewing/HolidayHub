@@ -11,7 +11,7 @@ def log_job_json(job):
 
         current_date = datetime.now().strftime("%-m-%-d-%Y")
         pacific_timezone = pytz.timezone('US/Pacific')
-        current_time = datetime.now(pacific_timezone).strftime("%-I:%M:%S")
+        current_time = datetime.now(pacific_timezone).strftime("%-I:%M:%S a")
 
         if job == 'daily-email-job':
             job_message = "Daily Email Job Started"

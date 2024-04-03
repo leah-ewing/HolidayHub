@@ -3,28 +3,28 @@
         "message": "An Error Occurred",
         "endpoint": "http://0.0.0.0:8000/calendar-viedfw",
         "date": "4-1-2024",
-        "time": "5:54:16 PST",
+        "time": "5:54:16 PM PST",
         "memo": "'NoneType' object has no attribute 'holiday_month'"
     },
     {
         "message": "An Error Occurred",
         "endpoint": "http://0.0.0.0:8000/unsudfsfbscribe/test@test.test",
         "date": "4-1-2024",
-        "time": "4:16:09 PST",
+        "time": "4:16:09 PM PST",
         "memo": "404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again."
     },
     {
         "message": "An Error Occurred",
         "endpoint": "http://0.0.0.0:8000/search-results/sdfasdf/1/2",
         "date": "4-1-2024",
-        "time": "4:06:51 PST",
+        "time": "4:06:51 PM PST",
         "memo": "404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again."
     },
     {
         "message": "An Error Occurred",
         "endpoint": "http://0.0.0.0:8000/National%20Crabmeat%2y",
         "date": "3-31-2024",
-        "time": "6:52:16 PST",
+        "time": "6:52:16 PM PST",
         "memo": "'NoneType' object has no attribute 'holiday_month'"
     }
 ]

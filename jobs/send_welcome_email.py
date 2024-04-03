@@ -1,18 +1,21 @@
 """ Sends a welcome email after sign-up """
 
-import controller
-import crud
 from jinja2 import Template
-import os, requests
-from model import connect_to_db
+import os, sys, requests
 import jobs_logging
+
+ROOT_FOLDER = os.environ['ROOT_FOLDER']
+sys.path.append(ROOT_FOLDER)
+
+from model import connect_to_db
+import controller, crud
 
 API_KEY = os.environ['API_KEY']
 DEVELOPER = os.environ['DEVELOPER']
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
 DOMAIN = os.environ['DOMAIN']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
 LOGO_URL = os.environ['LOGO_URL']
+
 
 class ApiClient:
 	apiUri = 'https://api.elasticemail.com/v2'

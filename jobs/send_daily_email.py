@@ -6,6 +6,8 @@ from jinja2 import Template
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
 sys.path.append(ROOT_FOLDER)
 
+from server import app
+from model import db, connect_to_db
 import controller, crud, encryption
 import requests
 import jobs_logging
@@ -97,16 +99,26 @@ def send_daily_holiday_email(email):
             'isTransactional': True
         })
 	
+def send_all_emails():
+    emails = crud.get_opted_in_emails()
+            
+    for email in emails:
+        send_daily_holiday_email(email.email_address)
 
-if __name__ == '__main__':
-    from server import app
+    jobs_logging.log_job_json('daily-email-sent')
+	
 
-    with app.app_context():
-        from model import connect_to_db
-        connect_to_db(app)
-        emails = crud.get_opted_in_emails()
+with app.app_context():
+    send_all_emails()
+# if __name__ == '__main__':
+#     from server import app
+
+#     with app.app_context():
+#         from model import connect_to_db
+#         connect_to_db(app)
+#         emails = crud.get_opted_in_emails()
 		
-        for email in emails:
-            send_daily_holiday_email(email.email_address)
+#         for email in emails:
+#             send_daily_holiday_email(email.email_address)
     
-        jobs_logging.log_job_json('daily-email-sent')
+#         jobs_logging.log_job_json('daily-email-sent')

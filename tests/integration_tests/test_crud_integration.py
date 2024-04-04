@@ -19,8 +19,6 @@ from server import app
 
 class Crud(unittest.TestCase):
 
-    connect_to_db(app, TEST_DB_URI)
-
     # @pytest.mark.slow ### pytest -m slow
     def test_create_month(self):
         """ Should create a month and add it to the database """

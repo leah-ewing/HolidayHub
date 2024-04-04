@@ -29,30 +29,35 @@
       {% endblock %}
     </title>
 
-    <nav class="navbar container-fluid navbar-expand-lg" id="navbar">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="navbar-brand pink-text pink-hover" aria-current="page" id="navbar-logo" href="/">
-            <text>
-              HolidayHub
-            </text>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link pointer-cursor" id="share-button">Share</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about" id="about-button">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link pointer-cursor" id="popup-button">Sign Up for Daily Emails!</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search" action="/get-search-term" method="GET">
-        <input class="form-control me-2" name="search-term" type="search" placeholder="Holiday Search" aria-label="Search" autocomplete="off" required/>
-        <button class="btn submit-search" type="submit"><text>Go</text></button>
-      </form>
-    </nav>
+    {% if user != None %}
+      <nav class="navbar container-fluid navbar-expand-lg" id="navbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="navbar-brand pink-text pink-hover" aria-current="page" id="navbar-logo" href="/">
+              <text>
+                HolidayHub
+              </text>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pointer-cursor" id="share-button">Share</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about" id="about-button">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pointer-cursor" id="popup-button">Sign Up for Daily Emails!</a>
+          </li>
+        </ul>
+
+        <!-- SEARCH BAR -->
+        <form class="d-flex" role="search" action="/get-search-term" method="GET">
+          <input class="form-control me-2" name="search-term" type="search" placeholder="Holiday Search" aria-label="Search" autocomplete="off" required/>
+          <button class="btn submit-search" type="submit"><text>Go</text></button>
+        </form>
+      </nav>
+
+    {% endif %}
 
     <!-- POP-UPS -->
 

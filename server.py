@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify, session
 from jinja2 import StrictUndefined
 import crud, controller
 import os, sys
@@ -21,22 +21,33 @@ app.jinja_env.undefined = StrictUndefined
 crud.connect_to_db(app)
 
 
+@app.route('/password-screen')
+def password_screen():
+    """ Routes to password-screen """
+
+    return render_template('password-screen.html')
+
+
 @app.route('/')
 # @freeze_time("2024-3-17") ### test
 def homepage():
     """ Routes to app homepage """
 
     try:
-        today = controller.get_current_date()
-        month_num = crud.get_month_by_name(today["month"])
-        holiday = crud.get_first_holiday_by_date(month_num, today["day"])
+        if 'user' in session:
+            today = controller.get_current_date()
+            month_num = crud.get_month_by_name(today["month"])
+            holiday = crud.get_first_holiday_by_date(month_num, today["day"])
 
-        return render_template('homepage.html',
-                                holiday = holiday.holiday_name,
-                                image = holiday.holiday_img,
-                                day = holiday.holiday_date,
-                                month_name = today["month"].capitalize(),
-                                year = today["year"])
+            return render_template('homepage.html',
+                                    holiday = holiday.holiday_name,
+                                    image = holiday.holiday_img,
+                                    day = holiday.holiday_date,
+                                    month_name = today["month"].capitalize(),
+                                    year = today["year"],
+                                    user = "user")
+        else:
+            return render_template('password-screen.html', user = None)
     
     except Exception as error:
         print(f'\n Error: {error} \n')

@@ -1216,7 +1216,8 @@ button:focus,
 }
 
 #error-inner-row,
-#unsubscribe-inner-row {
+#unsubscribe-inner-row,
+#password-inner-row {
     display: flex;
     place-items: center;
     max-width: 80%;
@@ -1261,7 +1262,9 @@ button:focus,
     margin: 10px;
 }
 
-#oh-no-text {
+#oh-no-text,
+#welcome-text {
+    text-align: center;
     font-size: 65px;
     line-height: 55px;
     font-weight: 600;
@@ -1269,7 +1272,8 @@ button:focus,
     text-shadow: var(--thin-text-shadow);
 }
 
-#oh-no {
+#oh-no,
+#welcome-text {
     font-family: var(--title-font);
     text-shadow: var(--thick-text-shadow);
     font-size: 120px;
@@ -1282,10 +1286,6 @@ button:focus,
     text-align: center;
     padding-top: 50px;
     padding-bottom: 15px;
-}
-
-#oh-no-text {
-    text-align: center;
 }
 
 
@@ -1338,4 +1338,48 @@ button:focus,
 #footer-text a {
     color: rgb(78, 47, 78);
     font-weight: 600;
+}
+
+
+
+
+
+/* Password Page */
+#welcome-text {
+    font-family: var(--main-font);
+    color: var(--dark-purple);
+    letter-spacing: -4px;
+    font-size: 100px;
+    line-height: 100px;
+}
+
+#welcome-text span {
+    letter-spacing: -1px;
+    font-family: var(--title-font);
+    font-size: 100px;
+}
+
+#password-outer-row {
+    padding: 50px;
+    margin-top: -25px;
+    margin-bottom: -40px;
+}
+
+#password-inner-row {
+    padding: 20px;
+}
+
+#password-form label {
+    margin-bottom: 5px;
+    font-size: 50px;
+}
+
+#password-form input {
+    margin-bottom: 15px;
+    width: 400px;
+    text-align: center;
+}
+
+#password-form button {
+    margin-bottom: 25px;
 }

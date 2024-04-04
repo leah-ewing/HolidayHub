@@ -15,6 +15,7 @@ DEVELOPER = os.environ['DEVELOPER']
 DOMAIN = os.environ['DOMAIN']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
 LOGO_URL = os.environ['LOGO_URL']
+# LOGO_URL_1 = 
 
 
 class ApiClient:
@@ -79,8 +80,3 @@ def send_welcome_email(email):
         'bodyText': "Text body will go here",
         'isTransactional': True
     })
-
-
-if __name__ == '__main__':
-    from server import app
-    connect_to_db(app)

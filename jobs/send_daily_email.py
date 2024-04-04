@@ -110,15 +110,3 @@ def send_all_emails():
 
 with app.app_context():
     send_all_emails()
-# if __name__ == '__main__':
-#     from server import app
-
-#     with app.app_context():
-#         from model import connect_to_db
-#         connect_to_db(app)
-#         emails = crud.get_opted_in_emails()
-		
-#         for email in emails:
-#             send_daily_holiday_email(email.email_address)
-    
-#         jobs_logging.log_job_json('daily-email-sent')

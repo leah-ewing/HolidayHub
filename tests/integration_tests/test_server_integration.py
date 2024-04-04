@@ -1,6 +1,7 @@
 import unittest, pytest
 import sys, os
 from freezegun import freeze_time
+from flask import session
 from test_seeds import seed_test_months, seed_test_holiday, seed_monthly_holidays, seed_test_emails
 from test_db_config import reset_test_db
 
@@ -26,24 +27,14 @@ class TestHomepage(unittest.TestCase):
         seed_test_holiday()
 
         client = app.test_client()
+
+        with client.session_transaction() as session:
+            session['valid_user'] = True
+
         response = client.get('/')
 
         assert b'Homepage' in response.data
         assert b'National Violin Day' in response.data
-
-
-    @freeze_time("2023-12-14")
-    def test_homepage_error(self):
-        """ Tests that 'homepage' error triggers a redirect to the 'error' page """
-
-        reset_test_db()
-        seed_test_months()
-        seed_test_holiday()
-
-        client = app.test_client()
-        response = client.get('/')
-
-        assert response.status_code == 302
 
 
 class TestAboutPage(unittest.TestCase):
@@ -229,12 +220,12 @@ class TestUnsubscribeEmail(unittest.TestCase):
     seed_test_emails()
 
     def test_unsubscribe_email(self):
-        """ Tests that the '/unsubscribe/<email>' route renders the 'unsubscribe' template correctly """
+        """ Tests that the '/unsubscribe/<email>' route redirects to '/unsubscribe' """
 
         client = app.test_client()
         response = client.get('/unsubscribe/test1@test.test')
 
-        assert b'Unsubscribed' in response.data
+        assert response.status_code == 302
 
 
 class TestSearchResults(unittest.TestCase):

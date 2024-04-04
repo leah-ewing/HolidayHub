@@ -2,10 +2,17 @@
 
 from datetime import date
 import crud, random
-import os
+import os, sys
 
 DEVELOPER = os.environ['DEVELOPER']
 DOMAIN = os.environ['DOMAIN']
+TEST_USER_PASSWORD = os.environ['TEST_USER_PASSWORD']
+ROOT_FOLDER = os.environ['ROOT_FOLDER']
+
+sys.path.append(f'{ROOT_FOLDER}/errors')
+
+from errors import error_handling
+
 
 def get_date_suffix(number):
     """ Gets the suffix for a given date ('st', 'nd', 'rd', or 'th') """
@@ -243,3 +250,13 @@ def get_formatted_github_image_url(holiday_name):
     formatted_holiday_name = get_formatted_github_holiday_name(holiday_name)
     
     return(f"https://github.com/{DEVELOPER}/HolidayApp/blob/main/static/media/holiday_images/{month_num}-{month_name}/{month_num}-{day_num}-{formatted_holiday_name}.jpg?raw=true")
+
+
+def check_valid_password(password):
+    """ Checks if a given password is valid """
+
+    if password == TEST_USER_PASSWORD:
+        return True
+    
+    error_handling.log_error_json(f'Invalid Password', '/check-password')
+    return False

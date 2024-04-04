@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, jsonify, session
 from jinja2 import StrictUndefined
+from datetime import timedelta
 import crud, controller
 import os, sys
 
@@ -21,20 +22,13 @@ app.jinja_env.undefined = StrictUndefined
 crud.connect_to_db(app)
 
 
-@app.route('/password-screen')
-def password_screen():
-    """ Routes to password-screen """
-
-    return render_template('password-screen.html')
-
-
 @app.route('/')
 # @freeze_time("2024-3-17") ### test
 def homepage():
     """ Routes to app homepage """
 
     try:
-        if 'user' in session:
+        if 'valid_user' in session:
             today = controller.get_current_date()
             month_num = crud.get_month_by_name(today["month"])
             holiday = crud.get_first_holiday_by_date(month_num, today["day"])
@@ -44,10 +38,47 @@ def homepage():
                                     image = holiday.holiday_img,
                                     day = holiday.holiday_date,
                                     month_name = today["month"].capitalize(),
-                                    year = today["year"],
-                                    user = "user")
+                                    year = today["year"])
         else:
-            return render_template('password-screen.html', user = None)
+            if 'invalid_user' in session:
+                invalid_password = True
+            else:
+                invalid_password = False
+
+            return render_template('password-screen.html',
+                                   invalid_password = invalid_password)
+    
+    except Exception as error:
+        print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error, request.base_url)
+
+        return redirect('/error')
+    
+
+@app.route('/check-password', methods = ["GET"])
+def get_password():
+    """ Gets the password input from the password-screen form """
+
+    try:
+        password = request.args.get("password").strip()
+        valid_password = controller.check_valid_password(password)
+        
+        if valid_password == True:
+            session['valid_user'] = 'valid_user'
+
+            if 'invalid_user' in session:
+                session.pop('invalid_user')
+
+            session.permanent = True
+            app.permanent_session_lifetime = timedelta(minutes=5)
+
+        else:
+            session['invalid_user'] = 'invalid_user'
+
+            session.permanent = True
+            app.permanent_session_lifetime = timedelta(seconds=1)
+
+        return redirect('/')
     
     except Exception as error:
         print(f'\n Error: {error} \n')
@@ -334,13 +365,29 @@ def unsubscribe_email(email):
 
     try:
         crud.update_opt_in_status(email)
-        return render_template('unsubscribe.html')
-    
+
+        return redirect('/unsubscribed')
+
     except Exception as error:
         print(f'\n Error: {error} \n')
         error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
+    
+
+@app.route('/unsubscribed')
+def unsubscribe():
+    """ Redirects to the 'Unsubscribe' page """
+
+    try:
+        return render_template('unsubscribe.html')
+        
+    except Exception as error:
+        print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error, request.base_url)
+
+        return redirect('/error')
+
 
 
 @app.errorhandler(404)
@@ -356,8 +403,11 @@ def not_found(error):
 @app.route('/error')
 def errorPage():
     """ Directs the user to the error page """
+
+    if 'user' in session:
+        return render_template('error-page.html')
     
-    return render_template('error-page.html')
+    return redirect('/')
 
 
 if __name__ == '__main__':

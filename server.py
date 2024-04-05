@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, jsonify, session
 from jinja2 import StrictUndefined
 from datetime import timedelta
+from model import db, connect_to_db
 import crud, controller
 import os, sys
 
@@ -19,7 +20,7 @@ app.app_context().push()
 
 app.jinja_env.undefined = StrictUndefined
 
-crud.connect_to_db(app)
+connect_to_db(app)
 
 
 @app.route('/')

@@ -5,6 +5,7 @@ from test_seeds import seed_test_months, seed_test_holiday, seed_monthly_holiday
 from test_db_config import reset_test_db
 
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
+
 sys.path.append(ROOT_FOLDER)
 
 DEVELOPER = os.environ['DEVELOPER']
@@ -16,8 +17,9 @@ import crud, encryption
 from model import connect_to_db, db, Holiday, Month, Email, MonthlyHoliday
 from server import app
 
-
 class Crud(unittest.TestCase):
+
+    connect_to_db(app, TEST_DB_URI)
 
     # @pytest.mark.slow ### pytest -m slow
     def test_create_month(self):
@@ -52,7 +54,7 @@ class Crud(unittest.TestCase):
                              holiday_img = holiday_img, 
                              holiday_blurb = holiday_blurb, 
                              holiday_email = holiday_email)
-
+        
         assert Holiday.query.first().holiday_name == 'National Violin Day'
         assert Holiday.query.first().holiday_month == 12
         assert Holiday.query.first().holiday_date == 13
@@ -75,14 +77,15 @@ class Crud(unittest.TestCase):
         decrypted_firstname = encryption.decrypt_first_name(Email.query.first().email_firstname, 
                                                             ENCRYPTION_DEV_KEY,
                                                             ENCRYPTION_CIPHER_KEY)
+        
         decrypted_email = encryption.decrypt_email(Email.query.first().email_address,
                                                    ENCRYPTION_DEV_KEY,
                                                    ENCRYPTION_CIPHER_KEY)
-
+        
         assert decrypted_firstname == 'Jane'
         assert decrypted_email == 'test@test.test'
-  
 
+  
     def test_create_monthly_holiday(self):
         """ Should create a monthly holiday and add it to the database """
 
@@ -165,6 +168,7 @@ class Crud(unittest.TestCase):
                          holiday_img = 'test', 
                          holiday_blurb = 'test', 
                          holiday_email = 'test')
+        
         db.session.add(test_holiday_2)
         db.session.commit()
 
@@ -198,6 +202,7 @@ class Crud(unittest.TestCase):
                          holiday_img = 'test', 
                          holiday_blurb = 'test', 
                          holiday_email = 'test')
+        
         db.session.add(test_holiday_2)
         db.session.commit()
 
@@ -217,6 +222,7 @@ class Crud(unittest.TestCase):
                          holiday_img = 'test', 
                          holiday_blurb = 'test', 
                          holiday_email = 'test')
+        
         db.session.add(test_holiday_2)
         db.session.commit()
 
@@ -333,7 +339,6 @@ class Crud(unittest.TestCase):
 
     def test_get_search_results_valid_results(self):
         """ Should return a list of results for a valid search term """
-
         reset_test_db()
         seed_test_months()
         seed_test_holiday()
@@ -347,10 +352,10 @@ class Crud(unittest.TestCase):
                                                        'holiday_img': 'test', 
                                                        'holiday_blurb': 'test', 
                                                        'date_suffix': 'th', 
-                                                       'result_num': 1}]], 
-                                    'results_count': 1, 
-                                    'page_count': 1}
-        
+                                                       'result_num': 1}]],
+                                                       'results_count': 1,
+                                                       'page_count': 1}
+
 
     def test_get_search_results_no_valid_results(self):
         """ Should return None if no valid results are found for a given search term """
@@ -358,7 +363,7 @@ class Crud(unittest.TestCase):
         reset_test_db()
         seed_test_months()
         seed_test_holiday()
-
+        
         search_term = 'sdfaf'
         search_results = crud.get_search_results(search_term)
 
@@ -378,6 +383,7 @@ class Crud(unittest.TestCase):
                     holiday_img = 'test', 
                     holiday_blurb = 'test', 
                     holiday_email = 'test')
+        
         db.session.add(test_holiday_2)
         db.session.commit()
 
@@ -398,7 +404,7 @@ class Crud(unittest.TestCase):
                 'holiday_img': 'test', 
                 'holiday_blurb': 'test', 
                 'date_suffix': 'rd'} in slideshow_holidays
-
+        
 
 if __name__ == "__main__":
     unittest.main()

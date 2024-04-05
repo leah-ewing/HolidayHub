@@ -1,7 +1,6 @@
 import unittest, pytest
 import sys, os
 from freezegun import freeze_time
-from flask import session
 from test_seeds import seed_test_months, seed_test_holiday, seed_monthly_holidays, seed_test_emails
 from test_db_config import reset_test_db
 
@@ -9,6 +8,7 @@ ROOT_FOLDER = os.environ['ROOT_FOLDER']
 TEST_DB_URI = os.environ['TEST_DB_URI']
 ENCRYPTION_DEV_KEY = os.environ['ENCRYPTION_DEV_KEY']
 ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']
+
 sys.path.append(ROOT_FOLDER)
 
 from server import app
@@ -18,7 +18,7 @@ from model import connect_to_db, db, Holiday, MonthlyHoliday
 class TestHomepage(unittest.TestCase):
 
     @freeze_time("2023-12-13")
-    @pytest.mark.slow ### pytest -m slow
+    # @pytest.mark.slow ### pytest -m slow
     def test_homepage(self):
         """ Tests that the 'Homepage' template is rendered via the '/' route """
 
@@ -27,20 +27,27 @@ class TestHomepage(unittest.TestCase):
         seed_test_holiday()
 
         client = app.test_client()
-
-        # with client.session_transaction() as sess:
-        #     sess['valid_user'] = True
-
         response = client.get('/')
 
         assert b'Homepage' in response.data
         assert b'National Violin Day' in response.data
 
-        # sess.pop('valid_user')
+
+    @freeze_time("2023-12-14")
+    def test_homepage_error(self):
+        """ Tests that 'homepage' error triggers a redirect to the 'error' page """
+
+        reset_test_db()
+        seed_test_months()
+        seed_test_holiday()
+
+        client = app.test_client()
+        response = client.get('/')
+
+        assert response.status_code == 302
 
 
 class TestAboutPage(unittest.TestCase):
-
     def test_about_page(self):
         """ Tests that the 'About Page' template is rendered via the '/about' route """
 
@@ -61,6 +68,7 @@ class TestCalendarView(unittest.TestCase):
 
         test_monthly_holiday = MonthlyHoliday(monthly_holiday_name = 'Test Monthly Holiday',
                                 monthly_holiday_month = 12)
+        
         db.session.add(test_monthly_holiday)
         db.session.commit()
 
@@ -72,7 +80,6 @@ class TestCalendarView(unittest.TestCase):
 
 
 class TestGetClickedDate(unittest.TestCase):
-
     def test_get_clicked_date(self):
         """ Tests that the '/day-picker/<month>/<day>' route triggers a redirect """
 
@@ -100,7 +107,6 @@ class TestGetClickedDate(unittest.TestCase):
 
 
 class TestRandomHolidayOnDate(unittest.TestCase):
-
     def test_random_holiday_on_date(self):
         """ Tests that the '/random-holiday/<month>/<day>/holiday-name>' route triggers a redirect """
 
@@ -114,6 +120,7 @@ class TestRandomHolidayOnDate(unittest.TestCase):
                          holiday_img = 'test', 
                          holiday_blurb = 'test', 
                          holiday_email = 'test')
+        
         db.session.add(test_holiday_2)
         db.session.commit()
 
@@ -126,13 +133,13 @@ class TestRandomHolidayOnDate(unittest.TestCase):
     def test_random_holiday_on_date_error(self):
         """ Tests that 'random-holiday/<month>/<day>' error triggers a redirect to the 'error' page """
 
-    reset_test_db()
-    seed_test_months()
+        reset_test_db()
+        seed_test_months()
 
-    client = app.test_client()
-    response = client.get('/random-holiday/12/14')
+        client = app.test_client()
+        response = client.get('/random-holiday/12/14')
 
-    assert response.status_code == 302
+        assert response.status_code == 302
 
 
 class TestHoliday(unittest.TestCase):
@@ -152,8 +159,8 @@ class TestHoliday(unittest.TestCase):
         assert b'13' in response.data
         assert b'th' in response.data
         assert b'test' in response.data
-    
 
+    
     def test_holiday_error(self):
         """ Tests that '/<holiday>' error triggers a redirect to the 'error' page """
 
@@ -168,7 +175,6 @@ class TestHoliday(unittest.TestCase):
 
 
 class TestGetRandomHoliday(unittest.TestCase):
-
     reset_test_db()
     seed_test_months()
     seed_test_holiday()
@@ -183,7 +189,6 @@ class TestGetRandomHoliday(unittest.TestCase):
 
 
 class TestRandomHoliday(unittest.TestCase):
-
     reset_test_db()
     seed_test_months()
     seed_test_holiday()
@@ -202,7 +207,6 @@ class TestRandomHoliday(unittest.TestCase):
 
 
 class TestGetMonthlyHoliday(unittest.TestCase):
-
     reset_test_db()
     seed_test_months()
     seed_monthly_holidays()
@@ -212,26 +216,23 @@ class TestGetMonthlyHoliday(unittest.TestCase):
 
         client = app.test_client()
         response = client.get('/get-monthly-holidays/March')
-
         assert b'["Endometriosis Awareness Month','National Celery Month"]' in response.data
 
 
 class TestUnsubscribeEmail(unittest.TestCase):
-
     reset_test_db()
     seed_test_emails()
 
     def test_unsubscribe_email(self):
-        """ Tests that the '/unsubscribe/<email>' route redirects to '/unsubscribe' """
+        """ Tests that the '/unsubscribe/<email>' route renders the 'unsubscribe' template correctly """
 
         client = app.test_client()
         response = client.get('/unsubscribe/test1@test.test')
 
-        assert response.status_code == 302
+        assert b'Unsubscribed' in response.data
 
 
 class TestSearchResults(unittest.TestCase):
-
     reset_test_db()
     seed_test_months()
     seed_test_holiday()
@@ -254,7 +255,6 @@ class TestSearchResults(unittest.TestCase):
 
         search_term = "sdfaf"
         page = 1
-
         client = app.test_client()
         response = client.get(f'/search-results/{search_term}/{page}/')
 
@@ -263,7 +263,6 @@ class TestSearchResults(unittest.TestCase):
 
 
 class TestSlideshowHolidays(unittest.TestCase):
-
     reset_test_db()
     seed_test_months()
     seed_test_holiday()
@@ -274,6 +273,7 @@ class TestSlideshowHolidays(unittest.TestCase):
             holiday_img = 'test', 
             holiday_blurb = 'test', 
             holiday_email = 'test')
+    
     db.session.add(test_holiday_2)
     db.session.commit()
 
@@ -285,7 +285,7 @@ class TestSlideshowHolidays(unittest.TestCase):
         
         assert response.status_code == 302
 
-
+        
 if __name__ == "__main__":
     unittest.main()
     connect_to_db(app, TEST_DB_URI)

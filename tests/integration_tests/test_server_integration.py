@@ -18,7 +18,7 @@ from model import connect_to_db, db, Holiday, MonthlyHoliday
 class TestHomepage(unittest.TestCase):
 
     @freeze_time("2023-12-13")
-    # @pytest.mark.slow ### pytest -m slow
+    @pytest.mark.slow ### pytest -m slow
     def test_homepage(self):
         """ Tests that the 'Homepage' template is rendered via the '/' route """
 
@@ -28,13 +28,15 @@ class TestHomepage(unittest.TestCase):
 
         client = app.test_client()
 
-        with client.session_transaction() as session:
-            session['valid_user'] = True
+        # with client.session_transaction() as sess:
+        #     sess['valid_user'] = True
 
         response = client.get('/')
 
         assert b'Homepage' in response.data
         assert b'National Violin Day' in response.data
+
+        # sess.pop('valid_user')
 
 
 class TestAboutPage(unittest.TestCase):

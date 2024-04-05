@@ -7,9 +7,9 @@ import json, sys, os
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
 sys.path.append(ROOT_FOLDER)
 
+from model import db, connect_to_db
 import crud, model, server
 
-model.connect_to_db(server.app)
 model.db.create_all()
 
 

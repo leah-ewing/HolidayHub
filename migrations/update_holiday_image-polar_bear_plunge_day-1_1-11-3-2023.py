@@ -3,11 +3,9 @@ import sys, os
 ROOT_FOLDER = os.environ['ROOT_FOLDER']
 sys.path.append(ROOT_FOLDER)
 
-import crud
-from model import connect_to_db
-import server
-
-connect_to_db(server.app)
+import crud, server
+from server import app
+from model import db, connect_to_db
 
 """ 
 Holiday:

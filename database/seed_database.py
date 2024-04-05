@@ -7,12 +7,13 @@ ROOT_FOLDER = os.environ['ROOT_FOLDER']
 sys.path.append(ROOT_FOLDER)
 
 import model, server
+from model import db, connect_to_db
 from crud import create_month, create_email_address
 
 os.system('dropdb holidaydb')
 os.system('createdb holidaydb')
 
-model.connect_to_db(server.app)
+# model.connect_to_db(server.app)
 model.db.create_all()
 
 """ Seed Months """

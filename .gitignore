@@ -9,3 +9,5 @@ encryption.py
 encryption_dictionary.json
 .pytest_cache
 error_log.json
+startup.sh
+init.sh

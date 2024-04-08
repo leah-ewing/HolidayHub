@@ -33,11 +33,11 @@ for month in months:
         create_month(month)
 
 
-""" Seed 10 test emails """
-current_date = datetime.now()
+# """ Seed 10 test emails """
+# current_date = datetime.now()
 
-for n in range(1, 11):
-        email_firstname = f'User{n}'
-        email_address = f'testuser{n}@test.com'
+# for n in range(1, 11):
+#         email_firstname = f'User{n}'
+#         email_address = f'testuser{n}@test.com'
 
-        new_email = create_email_address(email_firstname, email_address)
+#         new_email = create_email_address(email_firstname, email_address)

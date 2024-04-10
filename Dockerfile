@@ -19,7 +19,9 @@ COPY ${VALID_ENCRYPTION_KEYS_PATH} /HolidayApp/${VALID_ENCRYPTION_KEYS_PATH}
 ## Install dependancies
 RUN pip3 install -r requirements.txt
 
-## Expose port and start app
+## Expose port
 EXPOSE 5000
+
+## Start app and begin cron jobs
 ENV FLASK_APP=server.py
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "server:app"]
+CMD ["sh", "-c", "python3 jobs/run_jobs.py && gunicorn -b 0.0.0.0:8000 server:app"]

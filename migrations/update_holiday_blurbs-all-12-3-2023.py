@@ -1,7 +1,7 @@
 import sys, os, json
 
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
-sys.path.append(ROOT_FOLDER)
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(root_directory)
 
 import crud, server
 from server import app
@@ -14,7 +14,7 @@ holiday_name: String
 holiday_blurb: String
 """
 
-holiday_blurbs_json = open(f'{ROOT_FOLDER}/ai/json/new_holiday_blurbs.json')
+holiday_blurbs_json = open(f'{root_directory}/ai/json/new_holiday_blurbs.json')
 holidays = json.load(holiday_blurbs_json)
 
 for holiday in holidays:

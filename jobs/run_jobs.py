@@ -2,7 +2,7 @@ import os
 from crontab import CronTab
 import jobs_logging
 
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 
 def schedule_daily_email_job():
@@ -10,7 +10,7 @@ def schedule_daily_email_job():
 
     cron = CronTab(user=True)
 
-    command_with_secrets = f'source {ROOT_FOLDER}/secrets.sh && {ROOT_FOLDER}/env/bin/python3 {ROOT_FOLDER}/jobs/send_daily_email.py'
+    command_with_secrets = f'source {root_directory}/.env && {root_directory}/env/bin/python3 {root_directory}/jobs/send_daily_email.py'
 
     jobs_with_secrets = cron.new(command=command_with_secrets)
     jobs_with_secrets.setall('0 10 * * *')
@@ -29,7 +29,8 @@ def schedule_opt_out_removal_job():
 
     cron = CronTab(user=True)
 
-    command_with_secrets = f'source {ROOT_FOLDER}/secrets.sh && {ROOT_FOLDER}/env/bin/python3 {ROOT_FOLDER}/jobs/opt_out_removal.py'
+    # command_with_secrets = f'source {root_directory}/.env && {root_directory}/env/bin/python3 {root_directory}/jobs/opt_out_removal.py'
+    command_with_secrets = f'source {root_directory}/.env && python3 {root_directory}/jobs/opt_out_removal.py'
 
     jobs_with_secrets = cron.new(command=command_with_secrets)
     jobs_with_secrets.setall('0 */12 * * *')

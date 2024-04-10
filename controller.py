@@ -5,11 +5,10 @@ import crud, random
 import os, sys
 
 DEVELOPER = os.environ['DEVELOPER']
-DOMAIN = os.environ['DOMAIN']
 TEST_USER_PASSWORD = os.environ['TEST_USER_PASSWORD']
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
 
-sys.path.append(f'{ROOT_FOLDER}/errors')
+errors_directory = os.path.join(os.path.dirname(__file__), "errors")
+sys.path.append(errors_directory)
 
 from errors import error_handling
 

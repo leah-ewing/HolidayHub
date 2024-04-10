@@ -4,14 +4,13 @@ from test_seeds import holiday, months, email, monthly_holidays
 from test_seeds import seed_test_months, seed_test_holiday, seed_monthly_holidays, seed_test_emails
 from test_db_config import reset_test_db
 
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
-
-sys.path.append(ROOT_FOLDER)
-
 DEVELOPER = os.environ['DEVELOPER']
 TEST_DB_URI = os.environ['TEST_DB_URI']
 ENCRYPTION_DEV_KEY = os.environ['ENCRYPTION_DEV_KEY']
 ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']
+
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+sys.path.append(root_directory)
 
 import crud, encryption
 from model import connect_to_db, db, Holiday, Month, Email, MonthlyHoliday

@@ -2,11 +2,11 @@ import os, sys, json
 import pytz
 from datetime import datetime
 
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 
 def log_job_json(job):
-    with open(f'{ROOT_FOLDER}/jobs/jobs_log.json', 'r+') as json_file:
+    with open(f'{root_directory}/jobs/jobs_log.json', 'r+') as json_file:
         jobs_log_json = json.load(json_file)
 
         current_date = datetime.now().strftime("%-m-%-d-%Y")

@@ -1,9 +1,10 @@
 import os, sys
 
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
-sys.path.append(ROOT_FOLDER)
 
-directory = f'{ROOT_FOLDER}/migrations'
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(root_directory)
+
+directory = f'{root_directory}/migrations'
 
 for file in os.listdir(directory):
     file_name = os.path.join(directory, file)

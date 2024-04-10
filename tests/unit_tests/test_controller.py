@@ -1,8 +1,8 @@
 import unittest
 import sys, os
 
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
-sys.path.append(ROOT_FOLDER)
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+sys.path.append(root_directory)
 
 import controller
 

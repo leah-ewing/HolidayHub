@@ -3,10 +3,11 @@ import sys, os
 from test_seeds import holiday, seed_test_months
 from test_db_config import reset_test_db
 
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
-sys.path.append(ROOT_FOLDER)
 DEVELOPER = os.environ['DEVELOPER']
 TEST_DB_URI = os.environ['TEST_DB_URI']
+
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+sys.path.append(root_directory)
 
 import controller
 from model import connect_to_db, db, Holiday

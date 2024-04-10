@@ -4,8 +4,8 @@ from jinja2 import Template
 import os, sys, requests
 import jobs_logging
 
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
-sys.path.append(ROOT_FOLDER)
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(root_directory)
 
 from model import connect_to_db
 import controller, crud
@@ -15,7 +15,6 @@ DEVELOPER = os.environ['DEVELOPER']
 DOMAIN = os.environ['DOMAIN']
 SENDER_EMAIL = os.environ['SENDER_EMAIL']
 LOGO_URL = os.environ['LOGO_URL']
-# LOGO_URL_1 = 
 
 
 class ApiClient:
@@ -44,7 +43,7 @@ class ApiClient:
 	
 
 def send_welcome_email(email):
-    file_name = f"{ROOT_FOLDER}/templates/email-templates/welcome-email.html"
+    file_name = f"{root_directory}/templates/email-templates/welcome-email.html"
     html_file = open(file_name, 'r', encoding='utf-8')
     source_code = html_file.read()
     template = Template(source_code)

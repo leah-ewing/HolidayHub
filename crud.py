@@ -5,8 +5,8 @@ from datetime import datetime
 import random, sys, os, sqlalchemy
 import encryption, controller
 
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
-sys.path.append(f'{ROOT_FOLDER}/jobs')
+jobs_directory = os.path.join(os.path.dirname(__file__), "jobs")
+sys.path.append(jobs_directory)
 
 import send_welcome_email
 
@@ -59,8 +59,8 @@ def create_email_address(email_firstname, email_address, testing=False):
     db.session.add(new_email)
     db.session.commit()
 
-    # if testing == False:
-    #     send_welcome_email.send_welcome_email(email_address)
+    if testing == False:
+        send_welcome_email.send_welcome_email(email_address)
 
     return print('Encrypted email created and welcome email sent successfully: 200')
 

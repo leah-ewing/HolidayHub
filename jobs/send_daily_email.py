@@ -3,8 +3,8 @@
 import sys, os
 from jinja2 import Template
 
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
-sys.path.append(ROOT_FOLDER)
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(root_directory)
 
 from server import app
 from model import db, connect_to_db
@@ -51,7 +51,7 @@ def send_daily_holiday_email(email):
     email = encryption.decrypt_email(email, ENCRYPTION_DEV_KEY, ENCRYPTION_CIPHER_KEY)
 	
     with app.app_context():
-        file_name = f"{ROOT_FOLDER}/templates/email-templates/daily-holiday-email.html"
+        file_name = f"{root_directory}/templates/email-templates/daily-holiday-email.html"
         html_file = open(file_name, 'r', encoding='utf-8')
         source_code = html_file.read()
         template = Template(source_code)

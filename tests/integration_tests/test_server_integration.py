@@ -4,12 +4,12 @@ from freezegun import freeze_time
 from test_seeds import seed_test_months, seed_test_holiday, seed_monthly_holidays, seed_test_emails
 from test_db_config import reset_test_db
 
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
 TEST_DB_URI = os.environ['TEST_DB_URI']
 ENCRYPTION_DEV_KEY = os.environ['ENCRYPTION_DEV_KEY']
 ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']
 
-sys.path.append(ROOT_FOLDER)
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+sys.path.append(root_directory)
 
 from server import app
 from model import connect_to_db, db, Holiday, MonthlyHoliday

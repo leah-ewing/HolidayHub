@@ -8,8 +8,9 @@ import os, sys
 # from freezegun import freeze_time  ### test
 
 DEV_KEY = os.environ['DEV_KEY']
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
-sys.path.append(f'{ROOT_FOLDER}/errors')
+
+errors_directory = os.path.join(os.path.dirname(__file__), "errors")
+sys.path.append(errors_directory)
 
 from errors import error_handling
 
@@ -422,7 +423,7 @@ def not_found(error):
 def errorPage():
     """ Directs the user to the error page """
 
-    if 'user' in session:
+    if 'valid_user' in session:
         return render_template('error-page.html')
     
     return redirect('/')

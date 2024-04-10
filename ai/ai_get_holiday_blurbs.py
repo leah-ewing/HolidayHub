@@ -1,9 +1,10 @@
 import requests, os, json
 import time
 
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
 OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
 OPENAI_API_URI = os.environ['OPENAI_API_URI']
+
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 api_key = OPENAI_API_KEY
 endpoint = OPENAI_API_URI
@@ -35,10 +36,10 @@ def ask_question(question):
 def create_blurb_json():
     """ Creates a json of holiday names and their blurbs populated from OpenAI responses """
 
-    new_holiday_blurbs_json = open(f'{ROOT_FOLDER}/ai/json/new_holiday_blurbs.json')
+    new_holiday_blurbs_json = open(f'{root_directory}/ai/json/new_holiday_blurbs.json')
     new_json = json.load(new_holiday_blurbs_json)
 
-    directory = f'{ROOT_FOLDER}/json/holidays'
+    directory = f'{root_directory}/json/holidays'
     for file in os.listdir(directory):
         file_name = os.path.join(directory, file)
         f  = open(file_name)

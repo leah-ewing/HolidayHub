@@ -2,13 +2,13 @@ import os, sys, json
 from datetime import datetime
 import pytz
 
-ROOT_FOLDER = os.environ['ROOT_FOLDER']
-sys.path.append(ROOT_FOLDER)
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(root_directory)
 
 import controller, crud
 
 def log_error_json(error, route):
-    with open(f'{ROOT_FOLDER}/errors/error_log.json', 'r+') as json_file:
+    with open(f'{root_directory}/errors/error_log.json', 'r+') as json_file:
         error_log_json = json.load(json_file)
 
         current_date = controller.get_current_date()

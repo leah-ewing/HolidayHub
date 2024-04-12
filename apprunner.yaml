@@ -2,15 +2,15 @@ version: '1'
 
 services:
   app:
-  
+
     image: holidayhub:latest
     environment:
       - $(cat .env | xargs)
 
     volumes:
-      - ./${ENCRYPTION_SCRIPT_PATH}:/app/${ENCRYPTION_SCRIPT_PATH}
-      - ./${ENCRYPTION_DICT_PATH}:/app/${ENCRYPTION_DICT_PATH}
-      - ./${VALID_ENCRYPTION_KEYS_PATH}:/app/${VALID_ENCRYPTION_KEYS_PATH}
+      - ./${ENCRYPTION_SCRIPT_PATH}:/${ENCRYPTION_SCRIPT_PATH}
+      - ./${ENCRYPTION_DICT_PATH}:/${ENCRYPTION_DICT_PATH}
+      - ./${VALID_ENCRYPTION_KEYS_PATH}:/${VALID_ENCRYPTION_KEYS_PATH}
 
     command: sh -c "pip3 install -r requirements.txt && createdb holidayapp && python3 database/seed_database.py && python3 database/seed_holidays.py && python3 database/run_migrations.py && python3 jobs/run_jobs.py && gunicorn -b 0.0.0.0:8000 server:app"
     

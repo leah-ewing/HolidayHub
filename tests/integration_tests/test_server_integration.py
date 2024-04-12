@@ -14,7 +14,6 @@ sys.path.append(root_directory)
 from server import app
 from model import connect_to_db, db, Holiday, MonthlyHoliday
 
-
 class TestHomepage(unittest.TestCase):
 
     @freeze_time("2023-12-13")

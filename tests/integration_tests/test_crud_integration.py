@@ -16,6 +16,7 @@ import crud, encryption
 from model import connect_to_db, db, Holiday, Month, Email, MonthlyHoliday
 from server import app
 
+
 class Crud(unittest.TestCase):
 
     connect_to_db(app, TEST_DB_URI)

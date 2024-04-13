@@ -22,19 +22,15 @@ jobs:
       - name: Create encryption files
         run: |
            mkdir ${{ secrets.ENCRYPTION_DIRECTORY }}
-           echo "ENCRYPTION_DIRECTORY: ${{ secrets.ENCRYPTION_DIRECTORY }}"
            touch ${{ secrets.ENCRYPTION_PATH }}
-           echo "ENCRYPTION_PATH: ${{ secrets.ENCRYPTION_PATH }}"
            touch ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
-           echo "VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}"
            touch ${{ secrets.ENCRYPTION_DICT_PATH }}
-           echo "ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}"
 
       - name: Import encryption code
         run: |
-           echo "${{ secrets.ENCRYPTION_SCRIPT }}" | base64 --decode > ${{ secrets.ENCRYPTION_PATH }}
-           echo "${{ secrets.VALID_ENCRYPTION_KEYS }}" | base64 --decode > ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
-           echo "${{ secrets.ENCRYPTION_DICTIONARY }}" | base64 --decode > ${{ secrets.ENCRYPTION_DICT_PATH }}
+           echo "${{ secrets.ENCRYPTION_SCRIPT }}" > ${{ secrets.ENCRYPTION_PATH }}
+           echo "${{ secrets.VALID_ENCRYPTION_KEYS }}" > ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
+           echo "${{ secrets.ENCRYPTION_DICTIONARY }}" > ${{ secrets.ENCRYPTION_DICT_PATH }}
 
       - name: Generate Docker Compose file
         run: ./generate-compose.sh

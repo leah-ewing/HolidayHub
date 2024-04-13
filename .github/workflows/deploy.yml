@@ -28,6 +28,10 @@ jobs:
           mkdir -p "$(dirname "$VALID_ENCRYPTION_KEYS_PATH")"
           mkdir -p "$(dirname "$ENCRYPTION_DICT_PATH")"
 
+      - name: Debug ENCRYPTION_PATH
+        run: |
+          echo "ENCRYPTION_PATH: $ENCRYPTION_PATH"
+
       - name: Import encryption code
         run: |
           echo "${{ secrets.ENCRYPTION_SCRIPT }}" | base64 --decode > "$ENCRYPTION_PATH"

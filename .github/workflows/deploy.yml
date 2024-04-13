@@ -19,6 +19,13 @@ jobs:
         run: |
           pip3 install -r requirements.txt
 
+      - name: Debug ENCRYPTION_PATH
+        run: |
+           echo "ENCRYPTION_DIRECTORY: ${{ secrets.ENCRYPTION_DIRECTORY }}
+           echo "ENCRYPTION_PATH: ${{ secrets.ENCRYPTION_PATH }}
+           echo "VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
+           echo "ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}
+
       - name: Create encryption files
         run: |
           mkdir -p "${{secrets.ENCRYPTION_DIRECTORY}}"

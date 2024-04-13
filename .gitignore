@@ -4,8 +4,8 @@ token.json
 __pycache__
 .DS_Store
 jobs_log.json
+encryption
 encryption.py
-encryption_dictionary.json
 .pytest_cache
 error_log.json
 .env

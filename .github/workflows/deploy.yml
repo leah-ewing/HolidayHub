@@ -31,6 +31,7 @@ jobs:
       - name: Create encryption files
         run: |
           touch "${{ secrets.ENCRYPTION_PATH }}"
+          mkdir "encryption"
           touch "${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}"
           touch "${{ secrets.ENCRYPTION_DICT_PATH }}"
 

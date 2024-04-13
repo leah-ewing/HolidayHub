@@ -33,7 +33,6 @@ jobs:
         TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
         
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -48,22 +47,22 @@ jobs:
 
       - name: Create encryption files
         run: |
-           mkdir $ENCRYPTION_DIRECTORY
-           touch $ENCRYPTION_PATH
-           touch $VALID_ENCRYPTION_KEYS_PATH
-           touch $ENCRYPTION_DICT_PATH
+          mkdir $ENCRYPTION_DIRECTORY
+          touch $ENCRYPTION_PATH
+          touch $VALID_ENCRYPTION_KEYS_PATH
+          touch $ENCRYPTION_DICT_PATH
 
       - name: Import encryption code
         run: |
-           echo "$ENCRYPTION_SCRIPT" > $ENCRYPTION_PATH
-           echo "$VALID_ENCRYPTION_KEYS" > $VALID_ENCRYPTION_KEYS_PATH
-           echo "$ENCRYPTION_DICTIONARY" > $ENCRYPTION_DICT_PATH
+          echo "$ENCRYPTION_SCRIPT" > $ENCRYPTION_PATH
+          echo "$VALID_ENCRYPTION_KEYS" > $VALID_ENCRYPTION_KEYS_PATH
+          echo "$ENCRYPTION_DICTIONARY" > $ENCRYPTION_DICT_PATH
 
 
       - name: Generate Docker Compose file and create database
         run: |
-            sed -i "s/\$DB_NAME/${DB_NAME}/g" docker-compose.yml
-            sleep 10 
+          sed -i "s/\$DB_NAME/${DB_NAME}/g" docker-compose.yml
+          sleep 10 
 
       - name: Seed database
         run: |
@@ -73,8 +72,8 @@ jobs:
           
       - name: Start jobs
         run: |
-            python3 jobs/run_jobs.py
+          python3 jobs/run_jobs.py
 
       - name: Start Flask app using Gunicorn
         run: |
-            gunicorn -b 0.0.0.0:8000 server:app
+          gunicorn -b 0.0.0.0:8000 server:app

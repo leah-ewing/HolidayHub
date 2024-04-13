@@ -1,63 +1,48 @@
 name: HolidayHub
-
 on:
   push:
     branches:
       - main
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3'
-
       - name: Install dependencies
         run: |
           pip3 install -r requirements.txt
-
-      - name: Debug ENCRYPTION_PATH
-        run: |
-          echo "ENCRYPTION_PATH: ${{ secrets.ENCRYPTION_PATH }}"
-          echo "VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}"
-          echo "ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}"
-
       - name: Create encryption files
         run: |
-          touch "${{ secrets.ENCRYPTION_PATH }}"
-          mkdir -p "encryption"
-          touch "${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}"
-          touch "${{ secrets.ENCRYPTION_DICT_PATH }}"
-
+          mkdir -p "${{ secrets.ENCRYPTION_PATH }}"
+          mkdir -p "${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}"
+          mkdir -p "${{ secrets.ENCRYPTION_DICT_PATH }}"
+      - name: Debug ENCRYPTION_PATH
+        run: |
+           echo "ENCRYPTION_PATH: ${{ secrets.ENCRYPTION_PATH }}
       - name: Import encryption code
         run: |
-          echo "${{ secrets.ENCRYPTION_SCRIPT }}" | base64 --decode > "$ENCRYPTION_PATH"
-          echo "${{ secrets.VALID_ENCRYPTION_KEYS }}" | base64 --decode > "$VALID_ENCRYPTION_KEYS_PATH"
-          echo "${{ secrets.ENCRYPTION_DICTIONARY }}" | base64 --decode > "$ENCRYPTION_DICT_PATH"
-
+           echo "${{ secrets.ENCRYPTION_SCRIPT }}" | base64 --decode > "${{ secrets.ENCRYPTION_PATH }}"
+           echo "${{ secrets.VALID_ENCRYPTION_KEYS }}" | base64 --decode > "${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}"
+           echo "${{ secrets.ENCRYPTION_DICTIONARY }}" | base64 --decode > "${{ secrets.ENCRYPTION_DICT_PATH }}"
       - name: Generate Docker Compose file
         run: ./generate-compose.sh
         env:
           DB_NAME: ${{ secrets.DB_NAME }}
           DB_USER: leahewing
-
       - name: Setup database
         run: |
           createdb ${{ secrets.DB_NAME }}
           python3 database/seed_database.py
           python3 database/seed_holidays.py
           python3 database/run_migrations.py
-          
       - name: Start Jobs
         run: |
             python3 jobs/run_jobs.py
-
       - name: Start Flask app using Gunicorn
         run: |
             gunicorn -b 0.0.0.0:8000 server:app

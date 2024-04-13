@@ -1,12 +1,15 @@
 name: HolidayHub
+
 on:
   push:
     branches:
       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -35,7 +38,7 @@ jobs:
 
       - name: Generate Docker Compose file and create database
         run: |
-            ./generate-compose.sh ${{ secrets.DB_NAME }}
+            sed -i "s/\${{ secrets.DB_NAME }}/${DB_NAME}/g" docker-compose.yml
             sleep 10
 
       - name: Seed database

@@ -32,19 +32,16 @@ jobs:
            echo "${{ secrets.VALID_ENCRYPTION_KEYS }}" > ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
            echo "${{ secrets.ENCRYPTION_DICTIONARY }}" > ${{ secrets.ENCRYPTION_DICT_PATH }}
 
-      - name: Start Postgresql and wait to complete
+      - name: Start Postgresql and create database
         run: |
-           docker-compose up -d postgres
+           docker-compose up -d postgres -U leahewing ${{ secrets.DB_NAME }}
            sleep 10
 
       - name: Setup database
         run: |
           python3 database/seed_database.py
-          echo "1"
           python3 database/seed_holidays.py
-          echo "2"
           python3 database/run_migrations.py
-          echo "3"
           
       - name: Start Jobs
         run: |

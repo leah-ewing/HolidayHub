@@ -41,7 +41,7 @@ jobs:
 
       - name: Configure Nginx
         run: |
-          sudo cp config/nginx.conf /etc/nginx/nginx.conf
+          sudo cp HolidayApp/config/nginx.conf /etc/nginx/nginx.conf
           sudo systemctl restart nginx
 
       - name: Checkout code

@@ -8,6 +8,30 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    env:
+        DEV_KEY: ${{ secrets.DEV_KEY }}
+        SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        API_KEY: ${{ secrets.API_KEY }}
+        DEVELOPER: ${{ secrets.DEVELOPER }}
+        DOMAIN: ${{ secrets.DOMAIN }}
+        EMAIL_PREFIX: ${{ secrets.EMAIL_PREFIX }}
+        API_URI: ${{ secrets.API_URI }}
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        OPENAI_API_URI: ${{ secrets.OPENAI_API_URI }}
+        ENCRYPTION_DIRECTORY: ${{ secrets.ENCRYPTION_DIRECTORY }}
+        ENCRYPTION_PATH: ${{ secrets.ENCRYPTION_PATH }}
+        ENCRYPTION_DEV_KEY: ${{ secrets.ENCRYPTION_DEV_KEY }}
+        ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}
+        ENCRYPTION_CIPHER_KEY: ${{ secrets.ENCRYPTION_CIPHER_KEY }}
+        VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
+        DB_NAME: ${{ secrets.DB_NAME }}
+        DEV_DB_URI: ${{ secrets.DEV_DB_URI }}
+        TEST_DB_URI: ${{ secrets.TEST_DB_URI }}
+        LOGO_URL: ${{ secrets.LOGO_URL }}
+        TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
+        
     steps:
 
       - name: Checkout code
@@ -24,22 +48,22 @@ jobs:
 
       - name: Create encryption files
         run: |
-           mkdir ${{ secrets.ENCRYPTION_DIRECTORY }}
-           touch ${{ secrets.ENCRYPTION_PATH }}
-           touch ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
-           touch ${{ secrets.ENCRYPTION_DICT_PATH }}
+           mkdir $ENCRYPTION_DIRECTORY
+           touch $ENCRYPTION_PATH
+           touch $VALID_ENCRYPTION_KEYS_PATH
+           touch $ENCRYPTION_DICT_PATH
 
       - name: Import encryption code
         run: |
-           echo "${{ secrets.ENCRYPTION_SCRIPT }}" > ${{ secrets.ENCRYPTION_PATH }}
-           echo "${{ secrets.VALID_ENCRYPTION_KEYS }}" > ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
-           echo "${{ secrets.ENCRYPTION_DICTIONARY }}" > ${{ secrets.ENCRYPTION_DICT_PATH }}
+           echo "$ENCRYPTION_SCRIPT" > $ENCRYPTION_PATH
+           echo "$VALID_ENCRYPTION_KEYS" > $VALID_ENCRYPTION_KEYS_PATH
+           echo "$ENCRYPTION_DICTIONARY" > $ENCRYPTION_DICT_PATH
 
 
       - name: Generate Docker Compose file and create database
         run: |
-            sed -i "s/\${{ secrets.DB_NAME }}/${DB_NAME}/g" docker-compose.yml
-            sleep 10
+            sed -i "s/\$DB_NAME/${DB_NAME}/g" docker-compose.yml
+            sleep 10 
 
       - name: Seed database
         run: |

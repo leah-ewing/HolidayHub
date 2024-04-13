@@ -27,9 +27,10 @@ jobs:
 
       - name: Create encryption files
         run: |
-           mkdir -p "${{ secrets.ENCRYPTION_PATH }}"
-           mkdir -p "${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}"
-           mkdir -p "${{ secrets.ENCRYPTION_DICT_PATH }}"
+           mkdir "${{ secrets.ENCRYPTION_DIRECTORY }}"
+           touch "${{ secrets.ENCRYPTION_PATH }}"
+           touch "${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}"
+           touch "${{ secrets.ENCRYPTION_DICT_PATH }}"
 
       - name: Import encryption code
         run: |

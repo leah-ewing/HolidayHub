@@ -24,19 +24,19 @@ jobs:
 
       - name: Create encryption files
         run: |
-          mkdir -p "$(dirname "$ENCRYPTION_PATH")"
-          mkdir -p "$(dirname "$VALID_ENCRYPTION_KEYS_PATH")"
-          mkdir -p "$(dirname "$ENCRYPTION_DICT_PATH")"
+          mkdir -p "${{ secrets.ENCRYPTION_PATH }}"
+          mkdir -p "${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}"
+          mkdir -p "${{ secrets.ENCRYPTION_DICT_PATH }}"
 
       - name: Debug ENCRYPTION_PATH
         run: |
-          echo "ENCRYPTION_PATH: $ENCRYPTION_PATH"
+          echo "ENCRYPTION_PATH: ${{ secrets.ENCRYPTION_PATH }}
 
       - name: Import encryption code
         run: |
-          echo "${{ secrets.ENCRYPTION_SCRIPT }}" | base64 --decode > "$ENCRYPTION_PATH"
-          echo "${{ secrets.VALID_ENCRYPTION_KEYS }}" | base64 --decode > "$VALID_ENCRYPTION_KEYS_PATH"
-          echo "${{ secrets.ENCRYPTION_DICTIONARY }}" | base64 --decode > "$ENCRYPTION_DICT_PATH"
+          echo "${{ secrets.ENCRYPTION_SCRIPT }}" | base64 --decode > "${{ secrets.ENCRYPTION_PATH }}"
+          echo "${{ secrets.VALID_ENCRYPTION_KEYS }}" | base64 --decode > "${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}"
+          echo "${{ secrets.ENCRYPTION_DICTIONARY }}" | base64 --decode > "${{ secrets.ENCRYPTION_DICT_PATH }}"
 
       - name: Generate Docker Compose file
         run: ./generate-compose.sh

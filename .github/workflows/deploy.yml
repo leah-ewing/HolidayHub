@@ -72,12 +72,12 @@ jobs:
       - name: Install Nginx
         run: sudo apt-get install nginx
 
-      - name: List directory contents
-        run: ls -l /home/runner/work/HolidayApp/HolidayApp
+    #   - name: List directory contents
+    #     run: ls -l /home/runner/work/HolidayApp/HolidayApp
 
       - name: Configure Nginx
         run: |
-          sudo cp HolidayApp/config/nginx.conf /etc/nginx/nginx.conf
+          sudo cp config/nginx.conf /etc/nginx/nginx.conf
           sudo systemctl restart nginx
 
       - name: Generate Docker Compose file and create database

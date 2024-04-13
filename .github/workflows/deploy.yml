@@ -59,6 +59,11 @@ jobs:
           echo "$VALID_ENCRYPTION_KEYS" > $VALID_ENCRYPTION_KEYS_PATH
           echo "$ENCRYPTION_DICTIONARY" > $ENCRYPTION_DICT_PATH
 
+      - name: Create and initialize log files
+        run: |
+          touch errors/error_log.json && echo "[]" > errors/error_log.json
+          touch jobs/jobs_log.json && echo "[]" > jobs/jobs_log.json
+
       - name: Install Nginx
         run: sudo apt-get install nginx
 

@@ -34,11 +34,12 @@ jobs:
 
       - name: Start Postgresql and wait to complete
         run: |
-           docker-compose exec postgres createdb -U leahewing ${{ secrets.DB_NAME }}
+           postgres
            sleep 10
 
       - name: Setup database
         run: |
+          docker-compose exec postgres createdb -U leahewing ${{ secrets.DB_NAME }}
           python3 database/seed_database.py
           python3 database/seed_holidays.py
           python3 database/run_migrations.py

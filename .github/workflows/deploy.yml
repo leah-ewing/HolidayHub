@@ -39,14 +39,12 @@ jobs:
 
       - name: Setup database
         run: |
-          docker-compose exec postgres createdb -U leahewing ${{ secrets.DB_NAME }}
-          echo "1"
           python3 database/seed_database.py
-          echo "2"
+          echo "1"
           python3 database/seed_holidays.py
-          echo "3"
+          echo "2"
           python3 database/run_migrations.py
-          echo "4"
+          echo "3"
           
       - name: Start Jobs
         run: |

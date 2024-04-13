@@ -32,16 +32,14 @@ jobs:
            echo "${{ secrets.VALID_ENCRYPTION_KEYS }}" > ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
            echo "${{ secrets.ENCRYPTION_DICTIONARY }}" > ${{ secrets.ENCRYPTION_DICT_PATH }}
 
-      - name: Generate Docker Compose file
-        run: ./generate-compose.sh
-        env:
-          DB_NAME: ${{ secrets.DB_NAME }}
-          DB_USER: leahewing
+      - name: Start Postgresql and wait to complete
+        run: |
+           docker-compose up -d postgres
+           sleep 10
 
       - name: Setup database
         run: |
-          docker-compose up -d postgres
-          createdb ${{ secrets.DB_NAME }}
+          docker-compose exec postgres createdb -U leahewing ${{ secrets.DB_NAME }}
           python3 database/seed_database.py
           python3 database/seed_holidays.py
           python3 database/run_migrations.py

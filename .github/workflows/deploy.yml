@@ -35,7 +35,7 @@ jobs:
 
       - name: Generate Docker Compose file and create database
         run: |
-            docker-compose up -d postgres ${{ secrets.DB_NAME }}
+            ./generate-compose.sh ${{ secrets.DB_NAME }}
             sleep 10
 
       - name: Seed database

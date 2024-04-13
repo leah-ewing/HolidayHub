@@ -37,7 +37,7 @@ jobs:
         run: sudo apt-get install nginx
 
       - name: List directory contents
-        run: pwd
+        run: ls -l /home/runner/work/HolidayApp/HolidayApp
 
       - name: Configure Nginx
         run: |

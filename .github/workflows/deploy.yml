@@ -22,6 +22,12 @@ jobs:
         run: |
           pip3 install -r requirements.txt
 
+      - name: Generate Docker Compose file
+        run: ./generate-compose.sh
+        env:
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: leahewing
+
       - name: Setup database
         run: |
           createdb ${{ secrets.DB_NAME }}

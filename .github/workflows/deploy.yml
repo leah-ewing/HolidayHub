@@ -40,6 +40,7 @@ jobs:
 
       - name: Setup database
         run: |
+          docker-compose up -d postgres
           createdb ${{ secrets.DB_NAME }}
           python3 database/seed_database.py
           python3 database/seed_holidays.py

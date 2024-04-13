@@ -2,7 +2,6 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 
 DEV_DB_URI = os.environ['DEV_DB_URI']
-# print(DEV_DB_URI)
 
 db = SQLAlchemy()
 

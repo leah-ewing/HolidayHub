@@ -24,9 +24,9 @@ jobs:
 
       - name: Import encryption files
         run: |
-          echo "${{ secrets.ENCRYPTION_SCRIPT }}" | base64 --decode > ${{ secrets.ENCRYPTION_PATH }}
-          echo "${{ secrets.VALID_ENCRYPTION_KEYS }}" | base64 --decode > ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
-          echo "${{ secrets.ENCRYPTION_DICTIONARY }}" | base64 --decode > ${{ secrets.ENCRYPTION_DICT_PATH }}
+          echo "${{ secrets.ENCRYPTION_SCRIPT }}" | base64 --decode > $ENCRYPTION_PATH
+          echo "${{ secrets.VALID_ENCRYPTION_KEYS }}" | base64 --decode > $VALID_ENCRYPTION_KEYS_PATH
+          echo "${{ secrets.ENCRYPTION_DICTIONARY }}" | base64 --decode > $ENCRYPTION_DICT_PATH
 
       - name: Generate Docker Compose file
         run: ./generate-compose.sh

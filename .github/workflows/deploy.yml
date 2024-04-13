@@ -32,10 +32,11 @@ jobs:
            echo "${{ secrets.VALID_ENCRYPTION_KEYS }}" > ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
            echo "${{ secrets.ENCRYPTION_DICTIONARY }}" > ${{ secrets.ENCRYPTION_DICT_PATH }}
 
-      - name: Start Postgresql and wait to complete
+
+      - name: Generate Docker Compose file
         run: |
-           docker-compose up -d postgres createdb -U leahewing ${{ secrets.DB_NAME }}
-           sleep 10
+            ./generate-compose.sh ${{ secrets.DB_NAME }}
+            sleep 10
 
       - name: Setup database
         run: |

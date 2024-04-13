@@ -36,6 +36,9 @@ jobs:
       - name: Install Nginx
         run: sudo apt-get install nginx
 
+      - name: List directory contents
+        run: ls -l config
+
       - name: Configure Nginx
         run: |
           sudo cp config/nginx.conf /etc/nginx/nginx.conf

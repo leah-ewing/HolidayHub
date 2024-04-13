@@ -22,7 +22,13 @@ jobs:
         run: |
           pip3 install -r requirements.txt
 
-      - name: Import encryption files
+      - name: Create encryption files
+        run: |
+          mkdir -p "$(dirname "$ENCRYPTION_PATH")"
+          mkdir -p "$(dirname "$VALID_ENCRYPTION_KEYS_PATH")"
+          mkdir -p "$(dirname "$ENCRYPTION_DICT_PATH")"
+
+      - name: Import encryption code
         run: |
           echo "${{ secrets.ENCRYPTION_SCRIPT }}" | base64 --decode > $ENCRYPTION_PATH
           echo "${{ secrets.VALID_ENCRYPTION_KEYS }}" | base64 --decode > $VALID_ENCRYPTION_KEYS_PATH

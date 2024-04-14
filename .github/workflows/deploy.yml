@@ -75,6 +75,7 @@ jobs:
       - name: Generate Docker Compose file and create database
         run: |
           sed -i "s/\$DB_NAME/${DB_NAME}/g" config/docker-compose.yml
+          docker-compose -f config/docker-compose.yml up -d
           sleep 10 
 
       - name: Check and start PostgreSQL service

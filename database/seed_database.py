@@ -29,14 +29,16 @@ months = ["january",
           "december"]
 
 
-""" Seed Months """
 def seed_months():
-        for month in months:
-                crud.create_month(month)
+    """ Seeds db with months """
+
+    for month in months:
+        crud.create_month(month)
 
 
-""" Seed Daily Holidays """
 def seed_daily_holidays():
+    """ Seeds db with daily holidays """
+
     holiday_data = []
     month_num = 1
 
@@ -63,8 +65,9 @@ def seed_daily_holidays():
                            holiday_email)
         
 
-""" SEED MONTHLY HOLIDAYS """
 def seed_monthly_holidays():
+    """ Seeds db with monthly holidays """
+
     monthly_holiday_data = []
     month_num = 1
 

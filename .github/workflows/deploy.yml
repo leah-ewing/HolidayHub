@@ -81,7 +81,8 @@ jobs:
       - name: Check and start PostgreSQL service
         run: |
           sudo systemctl enable postgresql
-          sudo service postgresql status || sudo service postgresql start
+          sudo systemctl start postgresql
+          sudo systemctl status postgresql
 
       - name: Seed database
         run: |

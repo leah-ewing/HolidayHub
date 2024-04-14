@@ -7,5 +7,4 @@ services:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: leahewing
     ports:
-      - "5433:5432"
-    hostname: "/tmp/"
+      - "5432:5432"

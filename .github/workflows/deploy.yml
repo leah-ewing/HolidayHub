@@ -30,6 +30,7 @@ jobs:
         PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
         DEV_DB_URI: ${{ secrets.DEV_DB_URI }}
         TEST_DB_URI: ${{ secrets.TEST_DB_URI }}
+        PROD_DB_URI: ${{ secrets.PROD_DB_URI }}
         LOGO_URL: ${{ secrets.LOGO_URL }}
         TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
         

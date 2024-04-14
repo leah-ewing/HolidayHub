@@ -13,7 +13,7 @@ from crud import create_month, create_email_address
 # os.system('dropdb holidaydb')
 # os.system('createdb holidaydb')
 
-model.db.create_all()
+# model.db.create_all()
 
 """ Seed Months """
 months = ["january", 

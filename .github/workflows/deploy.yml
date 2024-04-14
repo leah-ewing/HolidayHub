@@ -27,6 +27,7 @@ jobs:
         ENCRYPTION_CIPHER_KEY: ${{ secrets.ENCRYPTION_CIPHER_KEY }}
         VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
         DB_NAME: ${{ secrets.DB_NAME }}
+        PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
         DEV_DB_URI: ${{ secrets.DEV_DB_URI }}
         TEST_DB_URI: ${{ secrets.TEST_DB_URI }}
         LOGO_URL: ${{ secrets.LOGO_URL }}
@@ -74,13 +75,14 @@ jobs:
 
       - name: Check and start PostgreSQL service
         run: |
-            sudo systemctl enable postgresql
-            sudo systemctl start postgresql
-            sudo systemctl status postgresql
+          sudo systemctl enable postgresql
+          sudo systemctl start postgresql
+          sudo systemctl status postgresql
 
       - name: Generate Docker Compose file and create database
         run: |
           sed -i "s/\$DB_NAME/${DB_NAME}/g" config/docker-compose.yml
+          sed -i "s/\$PROD_DB_PASSWORD/${PROD_DB_PASSWORD}/g" config/docker-compose.yml
           docker-compose -f config/docker-compose.yml up -d
           sleep 10 
 

@@ -77,6 +77,10 @@ jobs:
           sed -i "s/\$DB_NAME/${DB_NAME}/g" config/docker-compose.yml
           sleep 10 
 
+      - name: Check and start PostgreSQL service
+        run: |
+          sudo service postgresql status || sudo service postgresql start
+
       - name: Seed database
         run: |
           python3 database/seed_database.py

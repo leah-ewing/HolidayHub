@@ -17,7 +17,7 @@ ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']
 def create_month(month_name):
     """ Create and return a month """
 
-    new_month = Month(month_name = month_name)
+    new_month = Month(month_name = month_name.strip())
 
     db.session.add(new_month)
     db.session.commit()
@@ -30,12 +30,12 @@ def create_holiday(holiday_name, holiday_month,
                    holiday_blurb, holiday_email):
     """ Create and return a new daily holiday """
 
-    new_holiday = Holiday(holiday_name = holiday_name,
+    new_holiday = Holiday(holiday_name = holiday_name.strip(),
                           holiday_month = holiday_month,
                           holiday_date = holiday_date,
-                          holiday_img = holiday_img,
-                          holiday_blurb = holiday_blurb,
-                          holiday_email = holiday_email)
+                          holiday_img = holiday_img.strip(),
+                          holiday_blurb = holiday_blurb.strip(),
+                          holiday_email = holiday_email.strip())
     
     db.session.add(new_holiday)
     db.session.commit()
@@ -46,8 +46,8 @@ def create_holiday(holiday_name, holiday_month,
 def create_email_address(email_firstname, email_address, testing=False):
     """ Create and return a new email entry """
 
-    encrypted_email = encryption.encrypt_data(email_address.lower())
-    encrypted_firstname = encryption.encrypt_data(email_firstname.lower())
+    encrypted_email = encryption.encrypt_data(email_address.lower().strip())
+    encrypted_firstname = encryption.encrypt_data(email_firstname.lower().strip())
 
     current_date = datetime.now()
 
@@ -94,7 +94,7 @@ def update_holiday_blurb(name, blurb):
 
     holiday = Holiday.query.where(Holiday.holiday_name == name).first()
 
-    holiday.holiday_blurb = blurb
+    holiday.holiday_blurb = blurb.strip()
 
     db.session.commit()
 
@@ -104,7 +104,7 @@ def update_holiday_email(name, email):
 
     holiday = Holiday.query.where(Holiday.holiday_name == name).first()
 
-    holiday.holiday_email = email
+    holiday.holiday_email = email.strip()
     
     db.session.commit()
 

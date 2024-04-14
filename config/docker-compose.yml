@@ -7,6 +7,6 @@ services:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: leahewing
       POSTGRES_PASSWORD: ${PROD_DB_PASSWORD}
-      POSTGRES_HOST: 0.0.0.0
+      POSTGRES_HOST: "/tmp/"
     ports:
       - "5433:5433"

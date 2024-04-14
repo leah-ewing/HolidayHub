@@ -72,17 +72,17 @@ jobs:
           sudo cp config/nginx.conf /etc/nginx/nginx.conf
           sudo systemctl restart nginx
 
+      - name: Check and start PostgreSQL service
+        run: |
+            sudo systemctl enable postgresql
+            sudo systemctl start postgresql
+            sudo systemctl status postgresql
+
       - name: Generate Docker Compose file and create database
         run: |
           sed -i "s/\$DB_NAME/${DB_NAME}/g" config/docker-compose.yml
           docker-compose -f config/docker-compose.yml up -d
           sleep 10 
-
-      - name: Check and start PostgreSQL service
-        run: |
-          sudo systemctl enable postgresql
-          sudo systemctl start postgresql
-          sudo systemctl status postgresql
 
       - name: Seed database
         run: |

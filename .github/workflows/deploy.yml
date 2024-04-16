@@ -58,9 +58,9 @@ jobs:
 
       - name: Import encryption code
         run: |
-          echo $ENCRYPTION_SCRIPT > $ENCRYPTION_PATH
-          echo "$VALID_ENCRYPTION_KEYS" > $VALID_ENCRYPTION_KEYS_PATH
-          echo $ENCRYPTION_DICTIONARY > $ENCRYPTION_DICT_PATH
+          cp $ENCRYPTION_SCRIPT $ENCRYPTION_PATH
+          cp "$VALID_ENCRYPTION_KEYS" $VALID_ENCRYPTION_KEYS_PATH
+          cp $ENCRYPTION_DICTIONARY $ENCRYPTION_DICT_PATH
 
       - name: Create and initialize log files
         run: |

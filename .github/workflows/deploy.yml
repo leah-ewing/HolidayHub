@@ -51,16 +51,16 @@ jobs:
 
       - name: Create encryption files
         run: |
-          mkdir "$ENCRYPTION_DIRECTORY"
-          touch "$ENCRYPTION_PATH"
-          touch "$VALID_ENCRYPTION_KEYS_PATH"
-          touch "$ENCRYPTION_DICT_PATH"
+          mkdir $ENCRYPTION_DIRECTORY
+          touch $ENCRYPTION_PATH
+          touch $VALID_ENCRYPTION_KEYS_PATH
+          touch $ENCRYPTION_DICT_PATH
 
       - name: Import encryption code
         run: |
-          echo "$ENCRYPTION_SCRIPT" | python > "$ENCRYPTION_PATH"
-          echo "$VALID_ENCRYPTION_KEYS" > "$VALID_ENCRYPTION_KEYS_PATH"
-          echo "$ENCRYPTION_DICTIONARY" | jq '.' > "$ENCRYPTION_DICT_PATH"
+          echo $ENCRYPTION_SCRIPT | python > $ENCRYPTION_PATH
+          echo $VALID_ENCRYPTION_KEYS > $VALID_ENCRYPTION_KEYS_PATH
+          echo $ENCRYPTION_DICTIONARY | jq '.' > $ENCRYPTION_DICT_PATH
 
       - name: Create and initialize log files
         run: |

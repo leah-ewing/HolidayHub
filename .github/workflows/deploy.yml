@@ -52,12 +52,19 @@ jobs:
       - name: Create populate encryption files
         run: |
           touch $ENCRYPTION_PATH
+          echo "encryption file created"
           echo "$ENCRYPTION_SCRIPT" | python > $ENCRYPTION_PATH
-          mkdir $ENCRYPTION_DIRECTORY    
+          echo "encryption script copied into encryption file"
+          mkdir $ENCRYPTION_DIRECTORY
+          echo "encryption directory created"
           touch $VALID_ENCRYPTION_KEYS_PATH
+          echo "valid_encryption_keys file created"
           echo $VALID_ENCRYPTION_KEYS > $VALID_ENCRYPTION_KEYS_PATH
+          echo "valid_encryption_keys copied into key file"
           touch $ENCRYPTION_DICT_PATH
+          echo "encryption_dictionary file created"
           echo $ENCRYPTION_DICTIONARY | jq '.' > $ENCRYPTION_DICT_PATH
+          echo "encryption_dictionary copied into dictionary file"
 
       - name: Create and initialize log files
         run: |

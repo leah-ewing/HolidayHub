@@ -52,10 +52,9 @@ jobs:
         run: touch "./$ENCRYPTION_PATH"
 
       - name: Debug ENCRYPTION_PATH
-        run: echo $ENCRYPTION_PATH > path.txt
-      
-      - name: Show ENCRYPTION_PATH
-        run: cat path.txt
+        run: |
+          TEMP_PATH="${ENCRYPTION_PATH}"
+          echo "ENCRYPTION_PATH: $TEMP_PATH"
 
       - name: Populate encryption script
         run: echo "$ENCRYPTION_SCRIPT" | python3 > "./$ENCRYPTION_PATH"

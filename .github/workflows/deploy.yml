@@ -52,7 +52,7 @@ jobs:
         run: touch "./$ENCRYPTION_PATH"
 
       - name: Debug ENCRYPTION_PATH
-        run: echo "$ENCRYPTION_PATH" > path.txt
+        run: echo $ENCRYPTION_PATH > path.txt
       
       - name: Show ENCRYPTION_PATH
         run: cat path.txt

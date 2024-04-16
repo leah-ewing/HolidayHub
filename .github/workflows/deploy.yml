@@ -58,7 +58,7 @@ jobs:
 
       - name: Import encryption code
         run: |
-          echo "$ENCRYPTION_SCRIPT" | python > $ENCRYPTION_PATH
+          echo "$ENCRYPTION_SCRIPT" | python > "$ENCRYPTION_PATH"
           echo $VALID_ENCRYPTION_KEYS > $VALID_ENCRYPTION_KEYS_PATH
           echo $ENCRYPTION_DICTIONARY | jq '.' > $ENCRYPTION_DICT_PATH
 

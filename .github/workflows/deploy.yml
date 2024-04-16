@@ -49,17 +49,14 @@ jobs:
         run: |
           pip3 install -r requirements.txt
 
-      - name: Create encryption files
+      - name: Create populate encryption files
         run: |
-          mkdir $ENCRYPTION_DIRECTORY
           touch $ENCRYPTION_PATH
+          echo "$ENCRYPTION_SCRIPT" | python > $ENCRYPTION_PATH
+          mkdir $ENCRYPTION_DIRECTORY    
           touch $VALID_ENCRYPTION_KEYS_PATH
-          touch $ENCRYPTION_DICT_PATH
-
-      - name: Import encryption code
-        run: |
-          echo "$ENCRYPTION_SCRIPT" | python > "$ENCRYPTION_PATH"
           echo $VALID_ENCRYPTION_KEYS > $VALID_ENCRYPTION_KEYS_PATH
+          touch $ENCRYPTION_DICT_PATH
           echo $ENCRYPTION_DICTIONARY | jq '.' > $ENCRYPTION_DICT_PATH
 
       - name: Create and initialize log files

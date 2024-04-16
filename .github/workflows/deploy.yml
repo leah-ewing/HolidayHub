@@ -51,6 +51,12 @@ jobs:
       - name: Create encryption script file
         run: touch "./$ENCRYPTION_PATH"
 
+      - name: Debug ENCRYPTION_PATH
+        run: echo "$ENCRYPTION_PATH" > path.txt
+      
+      - name: Show ENCRYPTION_PATH
+        run: cat path.txt
+
       - name: Populate encryption script
         run: echo "$ENCRYPTION_SCRIPT" | python3 > "./$ENCRYPTION_PATH"
           

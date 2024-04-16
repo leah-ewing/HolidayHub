@@ -46,25 +46,28 @@ jobs:
           python-version: '3'
 
       - name: Install dependencies
-        run: |
-          pip3 install -r requirements.txt
+        run: pip3 install -r requirements.txt
 
-      - name: Create populate encryption files
-        run: |
-          touch $ENCRYPTION_PATH
-          echo "encryption file created"
-          echo "$ENCRYPTION_SCRIPT" | python > $ENCRYPTION_PATH
-          echo "encryption script copied into encryption file"
-          mkdir $ENCRYPTION_DIRECTORY
-          echo "encryption directory created"
-          touch $VALID_ENCRYPTION_KEYS_PATH
-          echo "valid_encryption_keys file created"
-          echo $VALID_ENCRYPTION_KEYS > $VALID_ENCRYPTION_KEYS_PATH
-          echo "valid_encryption_keys copied into key file"
-          touch $ENCRYPTION_DICT_PATH
-          echo "encryption_dictionary file created"
-          echo $ENCRYPTION_DICTIONARY | jq '.' > $ENCRYPTION_DICT_PATH
-          echo "encryption_dictionary copied into dictionary file"
+      - name: Create encryption script file
+        run: touch $ENCRYPTION_PATH
+
+      - name: Populate encryption script
+        run: echo "$ENCRYPTION_SCRIPT" | python > $ENCRYPTION_PATH
+          
+      - name: Create encryption directory
+        run: mkdir $ENCRYPTION_DIRECTORY
+      
+      - name: Create encryption key file
+        run: touch $VALID_ENCRYPTION_KEYS_PATH
+      
+      - name: Populate encryption key file
+        run: echo $VALID_ENCRYPTION_KEYS > $VALID_ENCRYPTION_KEYS_PATH
+
+      - name: Create encryption dictionary file
+        run: touch $ENCRYPTION_DICT_PATH
+          
+      - name: Populate encryption dictionary file
+        run: echo $ENCRYPTION_DICTIONARY | jq '.' > $ENCRYPTION_DICT_PATH
 
       - name: Create and initialize log files
         run: |
@@ -93,13 +96,10 @@ jobs:
           sleep 10 
 
       - name: Seed database
-        run: |
-          python3 database/seed_database.py
+        run: python3 database/seed_database.py
           
       - name: Start jobs
-        run: |
-          python3 jobs/run_jobs.py
+        run: python3 jobs/run_jobs.py
 
       - name: Start Flask app using Gunicorn
-        run: |
-          gunicorn -b 0.0.0.0:8000 server:app
+        run: gunicorn -b 0.0.0.0:8000 server:app

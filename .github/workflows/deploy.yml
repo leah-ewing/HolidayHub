@@ -49,15 +49,10 @@ jobs:
         run: pip3 install -r requirements.txt
 
       - name: Create encryption script file
-        run: touch "./$ENCRYPTION_PATH"
-
-      - name: Debug ENCRYPTION_PATH
-        run: |
-          TEMP_PATH="${ENCRYPTION_PATH}"
-          echo "ENCRYPTION_PATH: $TEMP_PATH"
+        run: touch encryption.py
 
       - name: Populate encryption script
-        run: echo "$ENCRYPTION_SCRIPT" | python3 > "./$ENCRYPTION_PATH"
+        run: echo "$ENCRYPTION_SCRIPT" | python3 > encryption.py
           
       - name: Create encryption directory
         run: mkdir $ENCRYPTION_DIRECTORY

@@ -51,10 +51,10 @@ jobs:
 
       - name: Create encryption files
         run: |
-          mkdir $ENCRYPTION_DIRECTORY
-          touch $ENCRYPTION_PATH
-          touch $VALID_ENCRYPTION_KEYS_PATH
-          touch $ENCRYPTION_DICT_PATH
+          mkdir "$ENCRYPTION_DIRECTORY"
+          touch "$ENCRYPTION_PATH"
+          touch "$VALID_ENCRYPTION_KEYS_PATH"
+          touch "$ENCRYPTION_DICT_PATH"
 
       - name: Import encryption code
         run: |

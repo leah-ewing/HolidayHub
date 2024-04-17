@@ -64,10 +64,10 @@ jobs:
         run: echo $ENCRYPTION_DICTIONARY | jq '.' > $ENCRYPTION_DICT_PATH
 
       - name: Create encryption script file
-        run: touch "$ENCRYPTION_PATH"
+        run: touch encryption.py
 
       - name: Populate encryption script
-        run: echo "$ENCRYPTION_SCRIPT" | python3 > "$ENCRYPTION_PATH"
+        run: echo "$ENCRYPTION_SCRIPT" | python3 > encryption.py
 
       - name: Create and initialize log files
         run: |

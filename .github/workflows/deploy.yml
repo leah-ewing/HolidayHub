@@ -34,6 +34,7 @@ jobs:
         PROD_DB_URI: ${{ secrets.PROD_DB_URI }}
         LOGO_URL: ${{ secrets.LOGO_URL }}
         TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
+        TEST_VAR: ${{ github.TEST_VAR }}
         
     steps:
 
@@ -74,7 +75,10 @@ jobs:
       - name: Populate encryption script
         run: |
           echo $ENCRYPTION_SCRIPT | python3 > $ENCRYPTION_PATH
-          echo $ENCRYPTION_SCRIPT 
+
+      - name: Debug environment variables
+        run: |
+          echo "Test Variable: $TEST_VAR"
 
       - name: Install Nginx
         run: sudo apt-get install nginx

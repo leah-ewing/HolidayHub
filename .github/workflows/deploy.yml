@@ -74,11 +74,7 @@ jobs:
 
       - name: Populate encryption script
         run: |
-          echo $ENCRYPTION_SCRIPT | python3 > $ENCRYPTION_PATH
-
-      - name: Debug environment variables
-        run: |
-          echo "Test Variable: $TEST_VAR"
+          echo $ENCRYPTION_SCRIPT > $ENCRYPTION_PATH
 
       - name: Install Nginx
         run: sudo apt-get install nginx

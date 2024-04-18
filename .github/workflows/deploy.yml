@@ -67,7 +67,7 @@ jobs:
         run: touch $ENCRYPTION_DICT_PATH
           
       - name: Populate encryption dictionary file
-        run: echo $ENCRYPTION_DICTIONARY | jq '.' > $ENCRYPTION_DICT_PATH
+        run: echo -e "$ENCRYPTION_DICTIONARY" | jq '.' > $ENCRYPTION_DICT_PATH
 
       - name: Create encryption script file
         run: touch $ENCRYPTION_PATH

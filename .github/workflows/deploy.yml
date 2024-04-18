@@ -74,7 +74,7 @@ jobs:
       - name: Populate encryption script
         run: |
           touch script_file.py
-          echo $ENCRYPTION_SCRIPT > script_file.py
+          echo $ENCRYPTION_SCRIPT | python3 > script_file.py
           cp script_file.py $ENCRYPTION_PATH
 
       - name: Install Nginx

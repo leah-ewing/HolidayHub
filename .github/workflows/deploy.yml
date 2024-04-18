@@ -63,16 +63,16 @@ jobs:
       - name: Populate encryption dictionary file
         run: echo $ENCRYPTION_DICTIONARY | jq '.' > $ENCRYPTION_DICT_PATH
 
-      - name: Create encryption script file
-        run: touch test.py
-
-      - name: Populate encryption script
-        run: echo "$ENCRYPTION_SCRIPT" | python3 > test.py
-
       - name: Create and initialize log files
         run: |
           touch errors/error_log.json && echo "[]" > errors/error_log.json
           touch jobs/jobs_log.json && echo "[]" > jobs/jobs_log.json
+
+      - name: Create encryption script file
+        run: touch $ENCRYPTION_PATH
+
+      - name: Populate encryption script
+        run: echo "$ENCRYPTION_SCRIPT" | python3 > $ENCRYPTION_PATH
 
       - name: Install Nginx
         run: sudo apt-get install nginx

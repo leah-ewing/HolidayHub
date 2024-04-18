@@ -34,7 +34,7 @@ jobs:
         PROD_DB_URI: ${{ secrets.PROD_DB_URI }}
         LOGO_URL: ${{ secrets.LOGO_URL }}
         TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
-        TEST_VAR: ${{ github.TEST_VAR }}
+        TEST_VAR: ${{ github.env.TEST_VAR }}
         
     steps:
 

@@ -48,6 +48,11 @@ jobs:
       - name: Install dependencies
         run: pip3 install -r requirements.txt
 
+      - name: Create and initialize log files
+        run: |
+          touch errors/error_log.json && echo "[]" > errors/error_log.json
+          touch jobs/jobs_log.json && echo "[]" > jobs/jobs_log.json
+
       - name: Create encryption directory
         run: mkdir $ENCRYPTION_DIRECTORY
       
@@ -62,11 +67,6 @@ jobs:
           
       - name: Populate encryption dictionary file
         run: echo $ENCRYPTION_DICTIONARY | jq '.' > $ENCRYPTION_DICT_PATH
-
-      - name: Create and initialize log files
-        run: |
-          touch errors/error_log.json && echo "[]" > errors/error_log.json
-          touch jobs/jobs_log.json && echo "[]" > jobs/jobs_log.json
 
       - name: Create encryption script file
         run: touch $ENCRYPTION_PATH

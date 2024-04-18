@@ -1,12 +1,12 @@
 from flask_sqlalchemy import SQLAlchemy
 import os
 
-DEV_DB_URI = os.environ['DEV_DB_URI']
+DB_URI = os.environ['DB_URI']
 
 db = SQLAlchemy()
 
 
-def connect_to_db(flask_app, db_uri=DEV_DB_URI, echo=True):
+def connect_to_db(flask_app, db_uri=DB_URI, echo=True):
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     flask_app.config['SQLALCHEMY_ECHO'] = echo
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

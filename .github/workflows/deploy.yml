@@ -27,9 +27,9 @@ jobs:
         ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}
         ENCRYPTION_CIPHER_KEY: ${{ secrets.ENCRYPTION_CIPHER_KEY }}
         VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
-        DB_NAME: ${{ secrets.DB_NAME }}
         PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
-        DEV_DB_URI: ${{ secrets.DEV_DB_URI }}
+        PROD_DB_NAME: ${{ secrets.PROD_DB_NAME }}
+        DB_URI: ${{ secrets.DB_URI }}
         TEST_DB_URI: ${{ secrets.TEST_DB_URI }}
         PROD_DB_URI: ${{ secrets.PROD_DB_URI }}
         LOGO_URL: ${{ secrets.LOGO_URL }}
@@ -38,6 +38,8 @@ jobs:
     services:
         postgres:
             image: postgres
+            env:
+              POSTGRES_PASSWORD: $PROD_DB_PASSWORD
             options: >-
               --health-cmd pg_isready
               --health-interval 10s
@@ -93,7 +95,9 @@ jobs:
       #     sleep 10 
 
       - name: Seed database
-        run: python3 database/seed_database.py
+        run: |
+          createdb $PROD_DB_NAME
+          python3 database/seed_database.py
         env:
           POSTGRES_HOST: localhost
           POSTGRES_PORT: 5432

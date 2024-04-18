@@ -28,7 +28,7 @@ jobs:
         ENCRYPTION_CIPHER_KEY: ${{ secrets.ENCRYPTION_CIPHER_KEY }}
         VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
         PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
-        PROD_DB_NAME: ${{ secrets.PROD_DB_NAME }}
+        DB_NAME: ${{ secrets.DB_NAME }}
         DB_URI: ${{ secrets.DB_URI }}
         TEST_DB_URI: ${{ secrets.TEST_DB_URI }}
         PROD_DB_URI: ${{ secrets.PROD_DB_URI }}
@@ -95,9 +95,7 @@ jobs:
       #     sleep 10 
 
       - name: Seed database
-        run: |
-          createdb $PROD_DB_NAME
-          python3 database/seed_database.py
+        run: python3 database/seed_database.py
         env:
           POSTGRES_HOST: localhost
           POSTGRES_PORT: 5432

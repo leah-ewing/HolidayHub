@@ -10,8 +10,10 @@ import server, crud
 from model import db, connect_to_db
 # from crud import create_month, create_holiday, create_monthly_holiday
 
-# os.system('dropdb holidaydb')
-# os.system('createdb holidaydb')
+DB_NAME = os.environ['DB_NAME']
+
+# os.system(f'dropdb {DB_NAME}')
+os.system(f'createdb {DB_NAME}')
 
 db.create_all()
 

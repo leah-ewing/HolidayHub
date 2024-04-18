@@ -34,6 +34,19 @@ jobs:
         PROD_DB_URI: ${{ secrets.PROD_DB_URI }}
         LOGO_URL: ${{ secrets.LOGO_URL }}
         TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
+
+    services:
+        postgres:
+            image: postgres
+            env:
+              POSTGRES_PASSWORD: $PROD_DB_PASSWORD
+            options: >-
+              --health-cmd pg_isready
+              --health-interval 10s
+              --health-timeout 5s
+              --health-retries 5
+            ports:
+              - 5432:5432
         
     steps:
 
@@ -68,18 +81,18 @@ jobs:
           sudo cp config/nginx.conf /etc/nginx/nginx.conf
           sudo systemctl restart nginx
 
-      - name: Check and start PostgreSQL service
-        run: |
-          sudo systemctl enable postgresql
-          sudo systemctl start postgresql
-          sudo systemctl status postgresql
+      # - name: Check and start PostgreSQL service
+      #   run: |
+      #     sudo systemctl enable postgresql
+      #     sudo systemctl start postgresql
+      #     sudo systemctl status postgresql
 
-      - name: Generate Docker Compose file and create database
-        run: |
-          sed -i "s/\$DB_NAME/${DB_NAME}/g" config/docker-compose.yml
-          sed -i "s/\$PROD_DB_PASSWORD/${PROD_DB_PASSWORD}/g" config/docker-compose.yml
-          docker-compose -f config/docker-compose.yml up -d
-          sleep 10 
+      # - name: Generate Docker Compose file and create database
+      #   run: |
+      #     sed -i "s/\$DB_NAME/${DB_NAME}/g" config/docker-compose.yml
+      #     sed -i "s/\$PROD_DB_PASSWORD/${PROD_DB_PASSWORD}/g" config/docker-compose.yml
+      #     docker-compose -f config/docker-compose.yml up -d
+      #     sleep 10 
 
       - name: Seed database
         run: python3 database/seed_database.py

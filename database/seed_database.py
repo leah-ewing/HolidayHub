@@ -6,14 +6,14 @@ from datetime import datetime
 root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_directory)
 
-import model, server, crud
+import server, crud
 from model import db, connect_to_db
 # from crud import create_month, create_holiday, create_monthly_holiday
 
-# os.system('dropdb holidaydb')
-# os.system('createdb holidaydb')
+os.system('dropdb holidaydb')
+os.system('createdb holidaydb')
 
-model.db.create_all()
+db.create_all()
 
 months = ["january", 
           "february", 

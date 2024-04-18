@@ -64,10 +64,10 @@ jobs:
         run: echo $VALID_ENCRYPTION_KEYS > $VALID_ENCRYPTION_KEYS_PATH
 
       - name: Create encryption dictionary file
-        run: touch $ENCRYPTION_DICT_PATH
+        run: touch $ENCRYPTION_DICT_PATH && echo "[$ENCRYPTION_DICTIONARY]" > $ENCRYPTION_DICT_PATH
           
-      - name: Populate encryption dictionary file
-        run: echo -e "$ENCRYPTION_DICTIONARY" > $ENCRYPTION_DICT_PATH
+      # - name: Populate encryption dictionary file
+      #   run: echo -e "$ENCRYPTION_DICTIONARY" > $ENCRYPTION_DICT_PATH
 
       - name: Create encryption script file
         run: touch $ENCRYPTION_PATH

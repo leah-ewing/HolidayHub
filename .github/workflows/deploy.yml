@@ -56,20 +56,11 @@ jobs:
       - name: Create encryption directory
         run: mkdir $ENCRYPTION_DIRECTORY
       
-      - name: Create encryption key file
-        run: touch $VALID_ENCRYPTION_KEYS_PATH
-      
-      - name: Populate encryption key file
-        run: echo $VALID_ENCRYPTION_KEYS > $VALID_ENCRYPTION_KEYS_PATH
-
-      - name: Create encryption dictionary file
-        run: touch $ENCRYPTION_DICT_PATH && echo "[$ENCRYPTION_DICTIONARY]" > $ENCRYPTION_DICT_PATH
-
-      - name: Create encryption script file
-        run: touch $ENCRYPTION_PATH
-
-      - name: Populate encryption script
-        run: echo -e "$ENCRYPTION_SCRIPT" > $ENCRYPTION_PATH
+      - name: Create and populate encryption files
+        run: |
+          touch $VALID_ENCRYPTION_KEYS_PATH && echo $VALID_ENCRYPTION_KEYS > $VALID_ENCRYPTION_KEYS_PATH
+          touch $ENCRYPTION_DICT_PATH && echo "[$ENCRYPTION_DICTIONARY]" > $ENCRYPTION_DICT_PATH
+          touch $ENCRYPTION_PATH && echo -e "$ENCRYPTION_SCRIPT" > $ENCRYPTION_PATH
 
       - name: Install Nginx
         run: sudo apt-get install nginx

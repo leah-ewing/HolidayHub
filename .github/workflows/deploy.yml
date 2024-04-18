@@ -74,7 +74,7 @@ jobs:
 
       - name: Populate encryption script
         run: |
-          echo $ENCRYPTION_SCRIPT > $ENCRYPTION_PATH
+          echo -e "$ENCRYPTION_SCRIPT" > $ENCRYPTION_PATH
 
       - name: Install Nginx
         run: sudo apt-get install nginx

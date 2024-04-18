@@ -21,7 +21,7 @@ jobs:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         OPENAI_API_URI: ${{ secrets.OPENAI_API_URI }}
         ENCRYPTION_DIRECTORY: ${{ secrets.ENCRYPTION_DIRECTORY }}
-        ENCRYPTION_SCRIPT: ${{ github.ENCRYPTION_SCRIPT }}
+        ENCRYPTION_SCRIPT: ${{ vars.ENCRYPTION_SCRIPT }}
         ENCRYPTION_PATH: ${{ secrets.ENCRYPTION_PATH }}
         ENCRYPTION_DEV_KEY: ${{ secrets.ENCRYPTION_DEV_KEY }}
         ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}
@@ -34,7 +34,7 @@ jobs:
         PROD_DB_URI: ${{ secrets.PROD_DB_URI }}
         LOGO_URL: ${{ secrets.LOGO_URL }}
         TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
-        TEST_VAR: ${{ github.env.TEST_VAR }}
+        TEST_VAR: ${{ vars.TEST_VAR }}
         
     steps:
 

@@ -21,7 +21,7 @@ jobs:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         OPENAI_API_URI: ${{ secrets.OPENAI_API_URI }}
         ENCRYPTION_DIRECTORY: ${{ secrets.ENCRYPTION_DIRECTORY }}
-        ENCRYPTION_SCRIPT: ${{vars.ENCRYPTION_SCRIPT}}
+        ENCRYPTION_SCRIPT: ${{ vars.ENCRYPTION_SCRIPT }}
         ENCRYPTION_PATH: ${{ secrets.ENCRYPTION_PATH }}
         ENCRYPTION_DEV_KEY: ${{ secrets.ENCRYPTION_DEV_KEY }}
         ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}
@@ -74,7 +74,7 @@ jobs:
 
       - name: Populate encryption script
         run: |
-          echo $ENCRYPTION_SCRIPT > $ENCRYPTION_PATH
+          echo "$ENCRYPTION_SCRIPT" > $ENCRYPTION_PATH
 
       - name: Install Nginx
         run: sudo apt-get install nginx

@@ -8,5 +8,5 @@ encryption
 encryption.py
 .pytest_cache
 error_log.json
-local.env
-secrets.yml
+.env.local
+.env.production

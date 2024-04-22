@@ -2,11 +2,17 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 
 DB_URI = os.environ['DB_URI']
+DB_USERNAME = os.environ['DB_USERNAME']
+DB_PASSWORD = os.environ['DB_PASSWORD']
+DB_NAME = os.environ['DB_NAME']
+DB_HOST = os.environ['DB_HOST']
+
+formatted_uri = f"postgresql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:5432/{DB_NAME}"
 
 db = SQLAlchemy()
 
 
-def connect_to_db(flask_app, db_uri=DB_URI, echo=True):
+def connect_to_db(flask_app, db_uri=formatted_uri, echo=True):
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     flask_app.config['SQLALCHEMY_ECHO'] = echo
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

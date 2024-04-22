@@ -27,9 +27,9 @@ jobs:
         ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}
         ENCRYPTION_CIPHER_KEY: ${{ secrets.ENCRYPTION_CIPHER_KEY }}
         VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
-        PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }} 
-        DB_NAME: ${{ secrets.DB_NAME }} ## PROD_DB_NAME
-        DB_URI: ${{ secrets.DB_URI }} ## PROD_DB_URI
+        DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }} 
+        DB_NAME: ${{ secrets.PROD_DB_NAME }}
+        DB_URI: ${{ secrets.PROD_DB_URI }}
         TEST_DB_URI: ${{ secrets.TEST_DB_URI }}
         LOGO_URL: ${{ secrets.LOGO_URL }}
         TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
@@ -39,7 +39,7 @@ jobs:
             image: postgres
             env:
               POSTGRES_USER: leahewing
-              POSTGRES_PASSWORD: $PROD_DB_PASSWORD
+              POSTGRES_PASSWORD: $DB_PASSWORD
             options: >-
               --health-cmd pg_isready
               --health-interval 10s

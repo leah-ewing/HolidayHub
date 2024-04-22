@@ -27,7 +27,7 @@ jobs:
         ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}
         ENCRYPTION_CIPHER_KEY: ${{ secrets.ENCRYPTION_CIPHER_KEY }}
         VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
-        DB_HOST: ${{ secrets.DB_HOST }}
+        DB_HOST: "${{ secrets.DB_HOST }}"
         DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }} 
         DB_NAME: ${{ secrets.PROD_DB_NAME }}
         DB_URI: ${{ secrets.PROD_DB_URI }}

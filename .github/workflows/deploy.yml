@@ -38,7 +38,7 @@ jobs:
         postgres:
             image: postgres
             env:
-              POSTGRES_USER: postgres
+              POSTGRES_USER: leahewing
               POSTGRES_PASSWORD: $PROD_DB_PASSWORD
             options: >-
               --health-cmd pg_isready

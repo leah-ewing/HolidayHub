@@ -41,7 +41,7 @@ jobs:
           
       - name: Create and populate encryption files
         run: |
-          mkdir "$ENCRYPTION_DIRECTORY"
+          mkdir $ENCRYPTION_DIRECTORY
           touch $VALID_ENCRYPTION_KEYS_PATH && echo $VALID_ENCRYPTION_KEYS > $VALID_ENCRYPTION_KEYS_PATH
           touch $ENCRYPTION_DICT_PATH && echo "[$ENCRYPTION_DICTIONARY]" > $ENCRYPTION_DICT_PATH
           touch $ENCRYPTION_PATH && echo -e "$ENCRYPTION_SCRIPT" > $ENCRYPTION_PATH

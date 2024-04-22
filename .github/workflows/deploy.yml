@@ -14,12 +14,13 @@ jobs:
 
     steps:
       - name: Load secrets
-        run: |
-          export $(cat secrets.yml | xargs)
+        uses: setup-dotenv@v2
+        with:
+          dotenv_path: .env
 
       - name: Debug secrets
         run: |
-          echo "ENCRYPTION_DIRECTORY: $ENCRYPTION_DIRECTORY"
+          echo "DEVELOPER: $DEVELOPER"
 
       - name: Setup PostgreSQL service
         run: |

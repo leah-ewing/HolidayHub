@@ -82,12 +82,7 @@ jobs:
           sudo systemctl restart nginx
 
       - name: Seed database
-        run: |
-          createdb $DB_NAME
-          python3 database/seed_database.py
-        # env:
-        #   POSTGRES_HOST: localhost
-        #   POSTGRES_PORT: 5432
+        run: python3 database/seed_database.py
           
       - name: Start jobs
         run: python3 jobs/run_jobs.py

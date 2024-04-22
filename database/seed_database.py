@@ -13,7 +13,7 @@ from model import db, connect_to_db
 DB_NAME = os.environ['DB_NAME']
 
 # os.system(f'dropdb {DB_NAME}')
-# os.system(f'createdb {DB_NAME}')
+os.system(f'createdb {DB_NAME}')
 
 db.create_all()
 

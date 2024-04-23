@@ -16,7 +16,7 @@ jobs:
       - name: Load secrets
         uses: actions/setup-dotenv@v2
         with:
-          dotenv_path: .env
+          dotenv_path: .env.production
 
       - name: Debug secrets
         run: |

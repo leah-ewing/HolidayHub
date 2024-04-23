@@ -11,6 +11,7 @@ jobs:
 
     env:
       ENCRYPTION_SCRIPT: ${{ secrets.ENCRYPTION_SCRIPT }}
+      PRODUCTION_ENV: ${{ secrets.PRODUCTION_ENV }}
 
     steps:
 
@@ -25,8 +26,10 @@ jobs:
       - name: Install dependencies
         run: pip3 install -r requirements.txt
 
-      - name: Load environment variables from .env file
-        run: source .env.production
+      - name: Create and populate .env file
+        run: |
+          touch .env && echo PRODUCTION_ENV > .env
+          source .env
 
       - name: Debug secrets
         run: |

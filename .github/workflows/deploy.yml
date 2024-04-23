@@ -13,8 +13,8 @@ jobs:
       ENCRYPTION_SCRIPT: ${{ secrets.ENCRYPTION_SCRIPT }}
 
     steps:
-      - name: Install dotenv package
-        run: npm install -g dotenv-cli --force
+      # - name: Install dotenv package
+      #   run: npm install -g dotenv-cli --force
 
       - name: Load environment variables from .env file
         run: dotenv -e .env.production

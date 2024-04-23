@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Install dotenv package
-        run: npm install -g dotenv-cli
+        run: npm install -g dotenv-cli --force
 
       - name: Load environment variables from .env file
         run: dotenv -e .env.production

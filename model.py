@@ -2,12 +2,6 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 
 DB_URI = os.environ['DB_URI']
-# DB_USERNAME = os.environ['DB_USERNAME']
-# DB_PASSWORD = os.environ['DB_PASSWORD']
-# DB_NAME = os.environ['DB_NAME']
-# DB_HOST = os.environ['DB_HOST']
-
-# formatted_uri = f"postgresql://leahewing:{DB_PASSWORD}@{DB_HOST}:5432/{DB_NAME}"
 
 db = SQLAlchemy()
 

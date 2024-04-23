@@ -25,6 +25,13 @@ jobs:
       - name: Install dependencies
         run: pip3 install -r requirements.txt
 
+      - name: Load environment variables from .env file
+        run: dotenv -f .env.production
+
+      - name: Debug secrets
+        run: |
+          echo "DEVELOPER: $DEVELOPER"
+
       - name: Create and initialize log files
         run: |
           touch errors/error_log.json && echo "[]" > errors/error_log.json
@@ -36,13 +43,6 @@ jobs:
           touch $VALID_ENCRYPTION_KEYS_PATH && echo $VALID_ENCRYPTION_KEYS > $VALID_ENCRYPTION_KEYS_PATH
           touch $ENCRYPTION_DICT_PATH && echo "[$ENCRYPTION_DICTIONARY]" > $ENCRYPTION_DICT_PATH
           touch $ENCRYPTION_PATH && echo -e "$ENCRYPTION_SCRIPT" > $ENCRYPTION_PATH
-
-      - name: Load environment variables from .env file
-        run: dotenv -f .env.production
-  
-      - name: Debug secrets
-        run: |
-          echo "DEVELOPER: $DEVELOPER"
   
       - name: Setup PostgreSQL service
         run: |

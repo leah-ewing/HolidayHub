@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Load secrets
-        uses: actions/setup-dotenv@v2
+        uses: setup-dotenv@v2
         with:
           dotenv_path: .env.production
 

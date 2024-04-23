@@ -1,6 +1,7 @@
 """Script to seed database."""
 
 import os, sys, json
+import subprocess
 from datetime import datetime
 
 root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -9,11 +10,15 @@ sys.path.append(root_directory)
 import server, crud
 from model import db, connect_to_db
 
-DB_NAME = os.environ['DB_NAME']
 DB_PASSWORD = os.environ['DB_PASSWORD']
 
+os.environ['PGPASSWORD'] = os.environ['DB_PASSWORD']
+DB_NAME = os.environ['DB_NAME']
+
+subprocess.run(['createdb', '-h', 'localhost', '-p', '5432', '-U', 'leahewing', DB_NAME], check=True)
+
 # os.system(f'dropdb {DB_NAME}')
-os.system(f'createdb -h localhost -p 5432 -U leahewing -W {DB_PASSWORD} {DB_NAME}')
+# os.system(f'createdb -h localhost -p 5432 -U leahewing -W {DB_PASSWORD} {DB_NAME}')
 
 db.create_all()
 

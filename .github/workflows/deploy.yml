@@ -18,8 +18,6 @@ jobs:
       DOMAIN: ${{ secrets.DOMAIN }}
       EMAIL_PREFIX: ${{ secrets.EMAIL_PREFIX }}
       API_URI: ${{ secrets.API_URI }}
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      OPENAI_API_URI: ${{ secrets.OPENAI_API_URI }}
       ENCRYPTION_DIRECTORY: ${{ secrets.ENCRYPTION_DIRECTORY }}
       ENCRYPTION_SCRIPT: ${{ secrets.ENCRYPTION_SCRIPT }}
       ENCRYPTION_PATH: ${{ secrets.ENCRYPTION_PATH }}
@@ -27,12 +25,25 @@ jobs:
       ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}
       ENCRYPTION_CIPHER_KEY: ${{ secrets.ENCRYPTION_CIPHER_KEY }}
       VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
-      PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }} 
-      DB_NAME: ${{ secrets.PROD_DB_NAME }}
-      DB_URI: ${{ secrets.PROD_DB_URI }}
-      TEST_DB_URI: ${{ secrets.TEST_DB_URI }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }} 
+      DB_NAME: ${{ secrets.DB_NAME }}
+      DB_URI: ${{ secrets.DB_URI }}
       LOGO_URL: ${{ secrets.LOGO_URL }}
       TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
+
+    services:
+      postgres:
+          image: postgres
+          env:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: $PROD_DB_PASSWORD
+          options: >-
+            --health-cmd pg_isready
+            --health-interval 10s
+            --health-timeout 5s
+            --health-retries 5
+          ports:
+            - 5432:5432
 
     steps:
 
@@ -59,11 +70,14 @@ jobs:
           touch $ENCRYPTION_DICT_PATH && echo "[$ENCRYPTION_DICTIONARY]" > $ENCRYPTION_DICT_PATH
           touch $ENCRYPTION_PATH && echo -e "$ENCRYPTION_SCRIPT" > $ENCRYPTION_PATH
   
-      - name: Setup PostgreSQL service
-        run: |
-          echo "POSTGRES_USER=leahewing" >> postgres.env
-          echo "POSTGRES_PASSWORD=$DB_PASSWORD" >> postgres.env
-          docker run --name postgres -d --env-file postgres.env -p 5432:5432 postgres:latest
+      # - name: Setup PostgreSQL service
+      #   run: |
+      #     echo "POSTGRES_USER=leahewing" >> postgres.env
+      #     echo "POSTGRES_PASSWORD=$DB_PASSWORD" >> postgres.env
+      #     docker run --name postgres -d --env-file postgres.env -p 5432:5432 postgres:latest
+
+      - name: Seed database
+        run: python3 database/seed_database.py
 
       - name: Install Nginx
         run: sudo apt-get install nginx
@@ -72,9 +86,6 @@ jobs:
         run: |
           sudo cp config/nginx.conf /etc/nginx/nginx.conf
           sudo systemctl restart nginx
-
-      - name: Seed database
-        run: python3 database/seed_database.py
           
       - name: Start jobs
         run: python3 jobs/run_jobs.py

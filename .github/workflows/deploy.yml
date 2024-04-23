@@ -26,7 +26,7 @@ jobs:
         run: pip3 install -r requirements.txt
 
       - name: Load environment variables from .env file
-        run: python3 load_env_variables.py
+        run: source .env.production
 
       - name: Debug secrets
         run: |

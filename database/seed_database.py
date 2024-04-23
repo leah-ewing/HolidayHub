@@ -8,12 +8,12 @@ sys.path.append(root_directory)
 
 import server, crud
 from model import db, connect_to_db
-# from crud import create_month, create_holiday, create_monthly_holiday
 
 DB_NAME = os.environ['DB_NAME']
+DB_PASSWORD = os.environ['DB_PASSWORD']
 
 # os.system(f'dropdb {DB_NAME}')
-os.system(f'createdb -h localhost -p 5432 -U leahewing {DB_NAME}')
+os.system(f'createdb -h localhost -p 5432 -U leahewing -W {DB_PASSWORD} {DB_NAME}')
 
 db.create_all()
 

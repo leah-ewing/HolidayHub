@@ -28,7 +28,7 @@ jobs:
 
       - name: Create and populate .env file
         run: |
-          touch .env && echo PRODUCTION_ENV > .env
+          touch .env && echo $PRODUCTION_ENV > .env
           source .env
 
       - name: Debug secrets

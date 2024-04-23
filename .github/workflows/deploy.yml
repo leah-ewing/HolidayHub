@@ -10,8 +10,29 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      DEV_KEY: ${{ secrets.DEV_KEY }}
+      SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      API_KEY: ${{ secrets.API_KEY }}
+      DEVELOPER: ${{ secrets.DEVELOPER }}
+      DOMAIN: ${{ secrets.DOMAIN }}
+      EMAIL_PREFIX: ${{ secrets.EMAIL_PREFIX }}
+      API_URI: ${{ secrets.API_URI }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_API_URI: ${{ secrets.OPENAI_API_URI }}
+      ENCRYPTION_DIRECTORY: ${{ secrets.ENCRYPTION_DIRECTORY }}
       ENCRYPTION_SCRIPT: ${{ secrets.ENCRYPTION_SCRIPT }}
-      PRODUCTION_ENV: ${{ secrets.PRODUCTION_ENV }}
+      ENCRYPTION_PATH: ${{ secrets.ENCRYPTION_PATH }}
+      ENCRYPTION_DEV_KEY: ${{ secrets.ENCRYPTION_DEV_KEY }}
+      ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}
+      ENCRYPTION_CIPHER_KEY: ${{ secrets.ENCRYPTION_CIPHER_KEY }}
+      VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
+      PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }} 
+      DB_NAME: ${{ secrets.PROD_DB_NAME }}
+      DB_URI: ${{ secrets.PROD_DB_URI }}
+      TEST_DB_URI: ${{ secrets.TEST_DB_URI }}
+      LOGO_URL: ${{ secrets.LOGO_URL }}
+      TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
 
     steps:
 
@@ -25,15 +46,6 @@ jobs:
 
       - name: Install dependencies
         run: pip3 install -r requirements.txt
-
-      - name: Create and populate .env file
-        run: |
-          touch .env && echo -e "$PRODUCTION_ENV" > .env
-          source .env
-
-      - name: Debug secrets
-        run: |
-          echo "DEVELOPER: $DEVELOPER"
 
       - name: Create and initialize log files
         run: |

@@ -13,11 +13,11 @@ jobs:
       ENCRYPTION_SCRIPT: ${{ secrets.ENCRYPTION_SCRIPT }}
 
     steps:
-      # - name: Install dotenv package
-      #   run: npm install -g dotenv-cli --force
+      - name: Install dependencies
+        run: pip3 install -r requirements.txt
 
       - name: Load environment variables from .env file
-        run: dotenv -e .env.production
+        run: python3 -m dotenv -f .env.production
 
       - name: Debug secrets
         run: |
@@ -36,9 +36,6 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3'
-
-      - name: Install dependencies
-        run: pip3 install -r requirements.txt
 
       - name: Create and initialize log files
         run: |

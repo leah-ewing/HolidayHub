@@ -21,3 +21,4 @@ freezegun
 pytz
 gunicorn
 boto3
+python-dotenv

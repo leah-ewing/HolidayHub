@@ -123,14 +123,14 @@ jobs:
       - name: Start jobs
         run: python3 jobs/run_jobs.py
       
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-pages
-          path: ${{ github.workspace }}
+      # - name: Upload artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: github-pages
+      #     path: ${{ github.workspace }}
 
-      - name: Check artifact size
-        run: du -sh ${{ github.workspace }}
+      # - name: Check artifact size
+      #   run: du -sh ${{ github.workspace }}
 
   deploy:
     environment:

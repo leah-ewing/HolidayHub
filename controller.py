@@ -6,6 +6,7 @@ import os, sys
 
 DEVELOPER = os.environ['DEVELOPER']
 TEST_USER_PASSWORD = os.environ['TEST_USER_PASSWORD']
+REPO_NAME = os.environ['REPO_NAME']
 
 errors_directory = os.path.join(os.path.dirname(__file__), "errors")
 sys.path.append(errors_directory)
@@ -248,8 +249,7 @@ def get_formatted_github_image_url(holiday_name):
     day_num = str(holiday.holiday_date)
     formatted_holiday_name = get_formatted_github_holiday_name(holiday_name)
     
-    return(f"https://github.com/{DEVELOPER}/HolidayApp/blob/main/static/media/holiday_images/{month_num}-{month_name}/{month_num}-{day_num}-{formatted_holiday_name}.jpg?raw=true")
-
+    return(f"https://github.com/{DEVELOPER}/{REPO_NAME}/blob/main/static/media/holiday_images/{month_num}-{month_name}/{month_num}-{day_num}-{formatted_holiday_name}.jpg?raw=true")
 
 def check_valid_password(password):
     """ Checks if a given password is valid """

@@ -27,6 +27,7 @@ jobs:
       DEVELOPER: ${{ secrets.DEVELOPER }}
       DOMAIN: ${{ secrets.DOMAIN }}
       EMAIL_PREFIX: ${{ secrets.EMAIL_PREFIX }}
+      REPO_NAME: leah-ewing.github.io ## add to secrets
       API_URI: ${{ secrets.API_URI }}
       ENCRYPTION_DIRECTORY: ${{ secrets.ENCRYPTION_DIRECTORY }}
       ENCRYPTION_SCRIPT: ${{ secrets.ENCRYPTION_SCRIPT }}
@@ -90,6 +91,9 @@ jobs:
           touch $VALID_ENCRYPTION_KEYS_PATH && echo $VALID_ENCRYPTION_KEYS > $VALID_ENCRYPTION_KEYS_PATH
           touch $ENCRYPTION_DICT_PATH && echo "[$ENCRYPTION_DICTIONARY]" > $ENCRYPTION_DICT_PATH
           touch $ENCRYPTION_PATH && echo -e "$ENCRYPTION_SCRIPT" > $ENCRYPTION_PATH
+
+      - name: Remove holiday image directory
+        run: rm -r static/media/holiday_images
 
       - name: Install Nginx
         run: sudo apt-get install nginx

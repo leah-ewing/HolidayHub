@@ -126,7 +126,7 @@ jobs:
           path: ${{ github.workspace }}
 
       - name: Check artifact size
-          run: echo $(du -sh artifact)
+        run: echo $(du -sh github-pages)
 
   deploy:
     environment:

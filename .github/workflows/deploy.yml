@@ -103,6 +103,4 @@ jobs:
           fi
           
       - name: Start jobs
-        run: |
-          crontab -r
-          python3 jobs/run_jobs.py
+        run: python3 jobs/run_jobs.py

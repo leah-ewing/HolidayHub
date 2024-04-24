@@ -90,20 +90,17 @@ jobs:
           sudo service postgresql start
           sleep 10
 
-      - name: Create database
+      - name: Create/seed database & Run Flask app
         run: |
           if ! psql -h localhost -p 5432 -U "$DB_USERNAME" -lqt | cut -d \| -f 1 | grep -qw "$DB_NAME"; then
             createdb -h localhost -p 5432 -U "$DB_USERNAME" -W "$DB_PASSWORD" "$DB_NAME"
             echo "Database '$DB_NAME' created successfully."
+            gunicorn -b 0.0.0.0:8000 --daemon server:app
+            python3 database/seed_database.py
           else
             echo "Database '$DB_NAME' already exists."
+            gunicorn -b 0.0.0.0:8000 --daemon server:app
           fi
-
-      - name: Start Flask app using Gunicorn
-        run: gunicorn -b 0.0.0.0:8000 --daemon server:app
-
-      - name: Seed database
-        run: python3 database/seed_database.py
           
       - name: Start jobs
         run: python3 jobs/run_jobs.py

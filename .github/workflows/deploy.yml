@@ -92,6 +92,7 @@ jobs:
 
       - name: Create database
         run: |
+          dropdb $DB_USERNAME
           createdb -h localhost -p 5432 -U $DB_USERNAME -W $DB_PASSWORD $DB_NAME
 
       - name: Start Flask app using Gunicorn

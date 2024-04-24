@@ -19,8 +19,8 @@ os.environ['PGPASSWORD'] = DB_PASSWORD
 # subprocess.run(['createdb', '-h', 'localhost', '-p', '5432', '-U', 'leahewing', DB_NAME], check=True)
 
 # os.system(f'dropdb {DB_NAME}')
-# os.system(f'dropdb holidaydb_prod')
-os.system(f'createdb -h localhost -p 5432 -U {DB_USERNAME} -W {DB_PASSWORD} {DB_NAME}')
+os.system(f'createdb holidaydb_prod')
+# os.system(f'createdb -h localhost -p 5432 -U {DB_USERNAME} -W {DB_PASSWORD} {DB_NAME}')
 # os.system(f'createdb -h localhost -p 5432 -U postgres -W test holidaydb_prod')
 
 db.create_all()

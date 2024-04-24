@@ -99,10 +99,10 @@ jobs:
             python3 database/seed_database.py
           else
             echo "Database '$DB_NAME' already exists."
+            gunicorn -b 0.0.0.0:8000 --daemon server:app
             dropdb -h localhost -p 5432 -U "$DB_USERNAME" -W "$DB_NAME"
             createdb -h localhost -p 5432 -U "$DB_USERNAME" -W "$DB_PASSWORD" "$DB_NAME"
             python3 database/seed_database.py
-            gunicorn -b 0.0.0.0:8000 --daemon server:app
           fi
           
       - name: Start jobs

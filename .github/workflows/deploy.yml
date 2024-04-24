@@ -25,7 +25,8 @@ jobs:
       ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}
       ENCRYPTION_CIPHER_KEY: ${{ secrets.ENCRYPTION_CIPHER_KEY }}
       VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
-      DB_PASSWORD: ${{ secrets.DB_PASSWORD }} 
+      # DB_PASSWORD: ${{ secrets.DB_PASSWORD }} 
+      DB_PASSWORD: test
       # DB_NAME: ${{ secrets.DB_NAME }}
       DB_NAME: holidaydb_prod
       # DB_URI: ${{ secrets.DB_URI }}

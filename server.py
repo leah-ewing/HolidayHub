@@ -8,6 +8,9 @@ import os, sys
 # from freezegun import freeze_time  ### test
 
 DEV_KEY = os.environ['DEV_KEY']
+DB_PASSWORD = os.environ['DB_PASSWORD']
+
+os.environ['PGPASSWORD'] = DB_PASSWORD
 
 errors_directory = os.path.join(os.path.dirname(__file__), "errors")
 sys.path.append(errors_directory)
@@ -22,7 +25,7 @@ app.app_context().push()
 app.jinja_env.undefined = StrictUndefined
 
 connect_to_db(app)
-
+db.create_all()
 
 @app.route('/')
 # @freeze_time("2024-3-17") ### test

@@ -11,11 +11,9 @@ from server import app
 import crud
 from model import db, connect_to_db
 
-DB_USERNAME = os.environ['DB_USERNAME']
-DB_PASSWORD = os.environ['DB_PASSWORD']
-DB_NAME = os.environ['DB_NAME']
-
-os.environ['PGPASSWORD'] = DB_PASSWORD
+# DB_USERNAME = os.environ['DB_USERNAME']
+# DB_PASSWORD = os.environ['DB_PASSWORD']
+# DB_NAME = os.environ['DB_NAME']
 
 # subprocess.run(['createdb', '-h', 'localhost', '-p', '5432', '-U', 'leahewing', DB_NAME], check=True)
 
@@ -25,7 +23,7 @@ os.environ['PGPASSWORD'] = DB_PASSWORD
 # os.system(f'createdb -h localhost -p 5432 -U postgres -W test holidaydb_prod')
 
 # connect_to_db(app)
-db.create_all()
+# db.create_all()
 
 months = ["january", 
           "february", 

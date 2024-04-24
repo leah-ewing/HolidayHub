@@ -11,9 +11,8 @@ import server, crud
 from model import db, connect_to_db
 
 # DB_NAME = os.environ['DB_NAME']
-DB_PASSWORD = os.environ['test']
 
-os.environ['PGPASSWORD'] = os.environ['DB_PASSWORD']
+os.environ['PGPASSWORD'] = 'test'
 
 # subprocess.run(['createdb', '-h', 'localhost', '-p', '5432', '-U', 'leahewing', DB_NAME], check=True)
 

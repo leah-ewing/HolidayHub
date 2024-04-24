@@ -121,6 +121,9 @@ jobs:
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          name: holidayhub-artifact
+          path: ${{ github.workspace }}
 
   deploy:
     environment:

@@ -34,6 +34,7 @@ jobs:
       DB_URI: postgresql://postgres:test@localhost:5432/holidaydb_prod
       LOGO_URL: ${{ secrets.LOGO_URL }}
       TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
+      PGPASSWORD: test
 
     services:
       postgres:

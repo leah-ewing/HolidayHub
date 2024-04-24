@@ -25,6 +25,7 @@ from model import db, connect_to_db
 # connect_to_db(app)
 # db.create_all()
 
+
 months = ["january", 
           "february", 
           "march", 

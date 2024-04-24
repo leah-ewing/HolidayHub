@@ -1,7 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
 import os
 
-DB_URI = os.environ['DB_URI']
+# DB_URI = os.environ['DB_URI']
+DB_URI = "postgresql://postgres:test@localhost:5432/holidaydb_prod"
 
 db = SQLAlchemy()
 

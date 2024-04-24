@@ -26,7 +26,8 @@ jobs:
       ENCRYPTION_CIPHER_KEY: ${{ secrets.ENCRYPTION_CIPHER_KEY }}
       VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }} 
-      DB_NAME: ${{ secrets.DB_NAME }}
+      # DB_NAME: ${{ secrets.DB_NAME }}
+      DB_NAME: holidaydb_prod
       # DB_URI: ${{ secrets.DB_URI }}
       DB_URI: postgresql://postgres:test@localhost:5432/holidaydb_prod
       LOGO_URL: ${{ secrets.LOGO_URL }}

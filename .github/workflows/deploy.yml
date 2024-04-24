@@ -93,7 +93,7 @@ jobs:
       - name: Create database
         run: |
           export PGPASSWORD="$DB_PASSWORD"
-          dropdb -h localhost -p 5432 -U $DB_USERNAME -W $DB_PASSWORD $DB_NAME
+          dropdb $DB_NAME
           createdb -h localhost -p 5432 -U $DB_USERNAME -W $DB_PASSWORD $DB_NAME
 
       - name: Start Flask app using Gunicorn

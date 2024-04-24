@@ -83,8 +83,15 @@ jobs:
           sudo cp config/nginx.conf /etc/nginx/nginx.conf
           sudo systemctl restart nginx
 
+      - name: Start PostgreSQL service
+        run: |
+          sudo service postgresql start
+          sleep 10
+
       - name: Create Postgres database
-        run: createdb -h localhost -p 5432 -U $DB_USERNAME -W $DB_PASSWORD $DB_NAME
+        run: |
+          createdb -h localhost -p 5432 -U $DB_USERNAME -W $DB_PASSWORD $DB_NAME
+          echo "Database created successfully. PostgreSQL service is running."
 
       - name: Start Flask app using Gunicorn
         run: gunicorn -b 0.0.0.0:8000 --daemon server:app

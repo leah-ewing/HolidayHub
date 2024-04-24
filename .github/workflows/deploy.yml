@@ -91,7 +91,7 @@ jobs:
       - name: Create Postgres database
         run: |
           createdb -h localhost -p 5432 -U $DB_USERNAME -W $DB_PASSWORD $DB_NAME
-          echo "Database created successfully. PostgreSQL service is running."
+          echo "Database: '$DB_NAME' created successfully. PostgreSQL service is running."
 
       - name: Start Flask app using Gunicorn
         run: gunicorn -b 0.0.0.0:8000 --daemon server:app

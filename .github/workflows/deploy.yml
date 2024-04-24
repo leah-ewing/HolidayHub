@@ -27,7 +27,8 @@ jobs:
       VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }} 
       DB_NAME: ${{ secrets.DB_NAME }}
-      DB_URI: ${{ secrets.DB_URI }}
+      # DB_URI: ${{ secrets.DB_URI }}
+      DB_URI: postgresql://postgres:test@localhost:5432/holidaydb_prod
       LOGO_URL: ${{ secrets.LOGO_URL }}
       TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
 
@@ -35,8 +36,8 @@ jobs:
       postgres:
           image: postgres
           env:
-            POSTGRES_USER: leahewing
-            POSTGRES_PASSWORD: $PROD_DB_PASSWORD
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: test ## testing
           options: >-
             --health-cmd pg_isready
             --health-interval 10s

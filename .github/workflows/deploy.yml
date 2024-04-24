@@ -85,6 +85,9 @@ jobs:
       - name: Start Flask app using Gunicorn
         run: gunicorn -b 0.0.0.0:8000 --daemon server:app
 
+      - name: Create Postgres database
+        run: createdb -h localhost -p 5432 -U {DB_USERNAME} -W {DB_PASSWORD} {DB_NAME}
+
       - name: Seed database
         run: python3 database/seed_database.py
           

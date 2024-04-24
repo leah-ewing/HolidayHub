@@ -92,9 +92,12 @@ jobs:
 
       - name: Create database
         run: |
-          export PGPASSWORD="$DB_PASSWORD"
-          dropdb -h localhost -p 5432 -U "$DB_USERNAME" "$DB_NAME"
-          createdb -h localhost -p 5432 -U $DB_USERNAME -W $DB_PASSWORD $DB_NAME
+          if ! psql -h localhost -p 5432 -U "$DB_USERNAME" -lqt | cut -d \| -f 1 | grep -qw "$DB_NAME"; then
+            createdb -h localhost -p 5432 -U "$DB_USERNAME" -W "$DB_PASSWORD" "$DB_NAME"
+            echo "Database '$DB_NAME' created successfully."
+          else
+            echo "Database '$DB_NAME' already exists."
+          fi
 
       - name: Start Flask app using Gunicorn
         run: gunicorn -b 0.0.0.0:8000 --daemon server:app

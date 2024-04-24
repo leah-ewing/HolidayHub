@@ -10,16 +10,18 @@ sys.path.append(root_directory)
 import server, crud
 from model import db, connect_to_db
 
-# DB_NAME = os.environ['DB_NAME']
+DB_USERNAME = os.environ['DB_USERNAME']
+DB_PASSWORD = os.environ['DB_PASSWORD']
+DB_NAME = os.environ['DB_NAME']
 
-os.environ['PGPASSWORD'] = 'test'
+# os.environ['PGPASSWORD'] = DB_PASSWORD
 
 # subprocess.run(['createdb', '-h', 'localhost', '-p', '5432', '-U', 'leahewing', DB_NAME], check=True)
 
 # os.system(f'dropdb {DB_NAME}')
 # os.system(f'dropdb holidaydb_prod')
-# os.system(f'createdb -h localhost -p 5432 -U postgres -W {DB_PASSWORD} {DB_NAME}')
-os.system(f'createdb -h localhost -p 5432 -U postgres -W test holidaydb_prod')
+os.system(f'createdb -h localhost -p 5432 -U {DB_USERNAME} -W {DB_PASSWORD} {DB_NAME}')
+# os.system(f'createdb -h localhost -p 5432 -U postgres -W test holidaydb_prod')
 
 db.create_all()
 

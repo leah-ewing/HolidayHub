@@ -25,6 +25,7 @@ jobs:
       ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}
       ENCRYPTION_CIPHER_KEY: ${{ secrets.ENCRYPTION_CIPHER_KEY }}
       VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
+      DB_USERNAME: postgres
       # DB_PASSWORD: ${{ secrets.DB_PASSWORD }} 
       DB_PASSWORD: test
       # DB_NAME: ${{ secrets.DB_NAME }}
@@ -38,7 +39,7 @@ jobs:
       postgres:
           image: postgres
           env:
-            POSTGRES_USER: postgres
+            POSTGRES_USER: $DB_USERNAME
             POSTGRES_PASSWORD: test ## testing
           options: >-
             --health-cmd pg_isready
@@ -73,9 +74,6 @@ jobs:
           touch $ENCRYPTION_DICT_PATH && echo "[$ENCRYPTION_DICTIONARY]" > $ENCRYPTION_DICT_PATH
           touch $ENCRYPTION_PATH && echo -e "$ENCRYPTION_SCRIPT" > $ENCRYPTION_PATH
 
-      - name: Seed database
-        run: python3 database/seed_database.py
-
       - name: Install Nginx
         run: sudo apt-get install nginx
 
@@ -83,9 +81,12 @@ jobs:
         run: |
           sudo cp config/nginx.conf /etc/nginx/nginx.conf
           sudo systemctl restart nginx
+      
+      - name: Start Flask app using Gunicorn
+        run: gunicorn -b 0.0.0.0:8000 server:app
+
+      - name: Seed database
+        run: python3 database/seed_database.py
           
       - name: Start jobs
         run: python3 jobs/run_jobs.py
-
-      - name: Start Flask app using Gunicorn
-        run: gunicorn -b 0.0.0.0:8000 server:app

@@ -1,8 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
 import os
 
-# DB_URI = os.environ['DB_URI']
-DB_URI = "postgresql://postgres:test@localhost:5432/holidaydb_prod"
+DB_URI = os.environ['DB_URI']
+# DB_URI = "postgresql://postgres:test@localhost:5432/holidaydb_prod"
 
 db = SQLAlchemy()
 
@@ -82,8 +82,8 @@ class MonthlyHoliday(db.Model):
         return f'<Monthly Holiday - monthly_holiday_id = {self.monthly_holiday_id}, monthly_holiday_name = {self.monthly_holiday_name}, monthly_holiday_month = {self.monthly_holiday_month}>'
 
     
-if __name__ == '__main__':
-    from server import app
+# if __name__ == '__main__':
+#     from server import app
     
-    db.connect_to_db(app)
+#     db.connect_to_db(app)
     # db.create_all()

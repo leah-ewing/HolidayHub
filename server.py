@@ -10,7 +10,7 @@ import os, sys
 DEV_KEY = os.environ['DEV_KEY']
 DB_PASSWORD = os.environ['DB_PASSWORD']
 
-os.environ['PGPASSWORD'] = DB_PASSWORD
+# os.environ['PGPASSWORD'] = DB_PASSWORD
 
 errors_directory = os.path.join(os.path.dirname(__file__), "errors")
 sys.path.append(errors_directory)

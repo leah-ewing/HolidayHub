@@ -14,7 +14,7 @@ DB_USERNAME = os.environ['DB_USERNAME']
 DB_PASSWORD = os.environ['DB_PASSWORD']
 DB_NAME = os.environ['DB_NAME']
 
-# os.environ['PGPASSWORD'] = DB_PASSWORD
+os.environ['PGPASSWORD'] = DB_PASSWORD
 
 # subprocess.run(['createdb', '-h', 'localhost', '-p', '5432', '-U', 'leahewing', DB_NAME], check=True)
 

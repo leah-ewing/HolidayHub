@@ -41,9 +41,9 @@ jobs:
           image: postgres
           env:
             POSTGRES_HOST: localhost
-            POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: test ## testing
-            POSTGRES_DB: holidaydb_prod
+            POSTGRES_USER: $DB_USERNAME
+            POSTGRES_PASSWORD: $DB_PASSWORD ## testing
+            POSTGRES_DB: $DB_NAME
           options: >-
             --health-cmd pg_isready
             --health-interval 10s

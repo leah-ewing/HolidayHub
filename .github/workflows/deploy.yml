@@ -124,7 +124,7 @@ jobs:
         run: python3 jobs/run_jobs.py
       
       - name: Upload artifact
-        uses: actions/upload-pages-artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
           path: ${{ github.workspace }}

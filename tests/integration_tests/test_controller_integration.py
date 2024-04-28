@@ -38,7 +38,7 @@ class TestGetFormattedGithubUrl(unittest.TestCase):
         db.session.add(test_holiday)
         db.session.commit()
 
-        assert controller.get_formatted_github_image_url(holiday_name) == f"https://github.com/{DEVELOPER}/HolidayApp/blob/main/static/media/holiday_images/12-december/12-13-national_violin_day.jpg?raw=true"
+        assert controller.get_formatted_github_image_url(holiday_name) == f"https://github.com/{DEVELOPER}/HolidayHub/blob/main/static/media/holiday_images/12-december/12-13-national_violin_day.jpg?raw=true"
 
 
 if __name__ == "__main__":

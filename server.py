@@ -37,7 +37,8 @@ def homepage():
             today = controller.get_current_date()
             month_num = crud.get_month_by_name(today["month"])
             holiday = crud.get_first_holiday_by_date(month_num, today["day"])
-            image = controller.get_formatted_github_image_url(holiday.holiday_name)
+            # image = controller.get_formatted_github_image_url(holiday.holiday_name)
+            image = holiday.holiday_img
 
             return render_template('homepage.html',
                                     holiday = holiday.holiday_name,
@@ -270,7 +271,8 @@ def learn_more_about_holiday(holiday):
             month_name = crud.get_month_by_number(holiday_data.holiday_month)
             day = holiday_data.holiday_date
             suffix = controller.get_date_suffix(str(day))
-            image = controller.get_formatted_github_image_url(holiday)
+            # image = controller.get_formatted_github_image_url(holiday)
+            image = holiday_data.holiday_img
             multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday_data.holiday_month, day)
 
             current_date = controller.get_current_date()
@@ -329,7 +331,8 @@ def random_holiday(name):
             holiday = crud.get_holiday_by_name(name)
             month = crud.get_month_by_number(holiday.holiday_month)
             suffix = controller.get_date_suffix(str(holiday.holiday_date))
-            image = controller.get_formatted_github_image_url(name)
+            # image = controller.get_formatted_github_image_url(name)
+            image = holiday.holiday_img
             
             current_date = controller.get_current_date()
             next_date = controller.get_next_day(int(holiday.holiday_month), int(holiday.holiday_date), int(current_date['year']))

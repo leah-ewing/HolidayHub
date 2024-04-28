@@ -10,3 +10,4 @@ encryption.py
 error_log.json
 .env.local
 .env.production
+deploy.py

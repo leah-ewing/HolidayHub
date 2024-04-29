@@ -123,6 +123,45 @@ button:focus,
 
 
 /* Navbar */
+
+#phone-navbar {
+    display: none;
+}
+
+@media only screen and (max-width: 991px) {
+    #phone-navbar {
+        display: block;
+        width: 100%;
+        will-change: transform;
+        top: 0;
+        position: fixed;
+        transition: opacity 0.3s;
+        z-index: 999;
+        font-size: 25px;
+        text-shadow: var(--thick-text-shadow);
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    #phone-navlinks a {
+        color: var(--dark-purple);
+        text-decoration: none;
+        margin-right: 10px;
+    }
+
+    #phone-navlinks a:hover {
+        color: var(--light-purple);
+    }
+    
+    #phone-search-bar {
+        width: 100%;
+        display: grid;
+        place-items: center;
+        margin-top: 15px;
+        padding-bottom: 5px;
+    }
+}
+
 #navbar {
     will-change: transform;
     top: 0;
@@ -131,6 +170,12 @@ button:focus,
     z-index: 999;
     font-size: 25px;
     text-shadow: var(--thick-text-shadow);
+}
+
+@media only screen and (max-width: 991px){
+    #navbar {
+        display: none;
+    }
 }
 
 #navbar-logo {
@@ -262,6 +307,12 @@ button:focus,
     margin-bottom: -30px;
     position: relative;
     text-shadow: 0 0 30px white, 0 0 30px white;
+}
+
+@media only screen and (max-width: 991px) {
+    #celebrate-dynamic {
+        margin-top: 170px;
+    }
 }
 
 #homepage-buttons {

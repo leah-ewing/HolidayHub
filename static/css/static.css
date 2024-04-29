@@ -279,6 +279,24 @@ button:focus,
     cursor: default;
 }
 
+@media only screen and (max-width: 781px) {
+    #today-is-inner-row {
+        display: grid;
+        place-items: center;
+        min-width: 90%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    #today-is-text-col {
+        min-width: 100%
+    }
+
+    #homepage-image {
+        min-width: 100%
+    }
+}
+
 .holiday-name {
     font-size: 80px;
     text-shadow: 0 0 2px white, 0 0 5px white;
@@ -312,6 +330,11 @@ button:focus,
 @media only screen and (max-width: 991px) {
     #celebrate-dynamic {
         margin-top: 170px;
+        padding-bottom: 65px;
+    }
+
+    #homepage-title {
+        margin-bottom: 15px;
     }
 }
 

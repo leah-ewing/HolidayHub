@@ -848,6 +848,28 @@ button:focus,
     text-align: center;
 }
 
+@media only screen and (max-width: 800px) {
+    #explore-more-row {
+        line-height: 60px;
+    }
+
+    #explore-more-row span {
+        padding-top: 25px;
+        padding-bottom: 5px;
+    }
+
+    .slideshow-holiday {
+        margin: 5px;
+    }
+}
+
+@media only screen and (max-width: 1268px) {
+    #slideshow-holiday-name {
+        font-size: 25px;
+        line-height: 25px;
+    }
+}
+
 #right-slideshow-arrow,
 #left-slideshow-arrow {
     margin-right: 20px;

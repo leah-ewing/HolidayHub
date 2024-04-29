@@ -29,8 +29,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row search outer-row width-100" id="search-result-outer-row">
-                    <div class="grid-center width-100" id="search-results-list">
+                <div class="row width-100 outer-row" id="search-result-outer-row">
+                    <div class="grid-center" id="search-results-list">
                         {% for search_result in search_results %}
 
                             <div class="row search-result pointer-cursor inner-row hover-div" id="search-result-{{search_result.result_num}}" onclick="location.href='/{{search_result.holiday_name}}'">
@@ -38,7 +38,7 @@
                                     {{search_result.holiday_name}}
                                 </text>
                                 <div class="row">
-                                    <div class="col" id="search-result-image">
+                                    <div class="col grid-center" id="search-result-image">
                                         <a href="/{{search_result.holiday_name}}">
                                             <div class="image-container">
                                                 <img

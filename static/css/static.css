@@ -289,11 +289,12 @@ button:focus,
     }
 
     #today-is-text-col {
-        min-width: 100%
+        min-width: 100%;
     }
 
     #homepage-image {
-        min-width: 100%
+        min-width: 100%;
+        padding-bottom: 25px;
     }
 }
 
@@ -1134,21 +1135,34 @@ button:focus,
 }
 
 #inner-row-results {
-    width: 700px;
+    width: 57%;
     margin: 40px;
     height: fit-content;
+    padding: 25px;
+    text-align: center;
 }
 
 #search-results-text {
     font-size: 60px;
     font-weight: 700;
     text-shadow: var(--thin-text-shadow);
+    line-height: 50px;
 }
 
 #search-results-text b {
     font-weight: 600;
     font-style: italic;
     color: var(--dark-purple);
+}
+
+@media only screen and (max-width: 991px) {
+    #outer-row-results {
+        margin-top: 155px;
+    }
+
+    #inner-row-results {
+        width: 90%;
+    }
 }
 
 #search-results-buttons {
@@ -1167,7 +1181,7 @@ button:focus,
 }
 
 .search-result {
-    width: 700px;
+    width: 60%;
     padding-left: 20px;
     padding-bottom: 15px;
     margin: 10px;
@@ -1175,35 +1189,38 @@ button:focus,
 
 .search-result-name {
     font-size: 30px;
+    line-height: 29px;
     text-decoration: none;
     font-weight: 600;
     text-shadow: var(--thin-text-shadow);
+    padding-top: 15px;
+    padding-bottom: 10px;
 }
 
 #search-result-image {
     text-align: left;
-
+    max-width: fit-content;
+    padding-bottom: 10px;
 }
 
 #search-result-blurb {
     display: grid;
     place-items: left;
-    font-size: 20px;
-    line-height: 23px;
-    text-align: justify;
-    margin-left: -325px;
+    font-size: 25px;
+    line-height: 25px;
+    width: 100%;
 }
 
 #search-result-date {
-    padding-bottom: 3px;
+    padding-bottom: 7px;
     font-style: italic;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 #search-result-img {
-    height: 102px;
-    width: 150px;
+    height: 130px;
+    width: 170px;
 }
 
 #search-results-paginate {
@@ -1218,6 +1235,46 @@ button:focus,
     text-decoration: none;
     font-size: 25px;
     margin-left: 2px;
+}
+
+@media only screen and (max-width: 991px) {
+    .search-result {
+        width: 90%;
+    }
+
+    .search-result-name {
+        font-size: 28px;
+        line-height: 27px;
+    }
+
+    #search-result-date {
+        font-size: 20px;
+    }
+
+    #search-result-blurb {
+        font-size: 18px;
+        line-height: 19px;
+    }
+}
+
+@media only screen and (max-width: 623px) {
+    .search-result {
+        width: 110%;
+    }
+
+    #search-result-date {
+        font-size: 18px;
+    }
+
+    #search-result-blurb {
+        font-size: 16px;
+        line-height: 17px;
+    }
+
+    #search-result-img {
+        height: 130px;
+        width: 170px;
+    }
 }
 
 

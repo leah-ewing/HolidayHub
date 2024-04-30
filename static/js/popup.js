@@ -61,9 +61,11 @@ function closePopUps() {
 // Email Sign-Up Popup
 
 // Submission form
-const popupWindow = document.getElementById("popup-window")
+const popupWindow = document.getElementById("popup-window") 
 
 const popupButton = document.getElementById("popup-button")
+const popupButtonPhone = document.getElementById("popup-button-phone")
+
 const closeButton = document.getElementById("close-button")
 const submitButton = document.getElementById("submit-button")
 const closeButton_X = document.getElementById("x-close-enter-email")
@@ -88,6 +90,21 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
 popupButton.addEventListener("click", function(evt) {
+
+    if (!popupOpen) {
+        popupWindow.style.display = "block";
+        popupOpen = true;
+
+    } else {
+        closePopUps()
+        popupWindow.style.display = "block";
+        popupOpen = true;
+    }
+
+    evt.stopPropagation();
+});
+
+popupButtonPhone.addEventListener("click", function(evt) {
 
     if (!popupOpen) {
         popupWindow.style.display = "block";
@@ -230,10 +247,30 @@ closeButtonInvalidEmail_X.addEventListener("click", function() {
 const sharePopUpWindow = document.getElementById("share-popup-window")
 
 const shareButton = document.getElementById("share-button")
+const shareButtonPhone = document.getElementById("share-button-phone")
+
 const closeButtonSharePopUpWindow = document.getElementById("share-close-button")
 const closeButtonSharePopUpWindow_X = document.getElementById("x-close-share")
 
 shareButton.addEventListener("click", async(evt) => {
+    if (navigator.share) {
+        try {
+            await navigator.share({ url: "" })
+            console.log("Data was shared successfully")
+        } catch (err) {
+            console.error("Share failed:", err.message)
+        }
+    } else {
+        evt.stopPropagation()
+        
+        popupWindow.style.display = "none"
+        sharePopUpWindow.style.display = "block"
+
+        popupOpen = true
+    }
+})
+
+shareButtonPhone.addEventListener("click", async(evt) => {
     if (navigator.share) {
         try {
             await navigator.share({ url: "" })

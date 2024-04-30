@@ -1269,6 +1269,14 @@ button:focus,
         display: none;
     }
 
+    #thank-you-for-sharing-outer-row {
+        max-height: 80%;
+    }
+
+    #thank-you-for-sharing-text {
+        margin-top: 15px;
+    }
+
 }
 
 .x-close {

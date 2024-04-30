@@ -51,6 +51,40 @@
                     {% endif %}
 
                 </div>
+
+                <!-- PHONE STYLING -->
+                <div class="row inner-row" id="holiday-description-phone">
+                    <div>
+                        <a class="date-scroll-arrows pink-text pink-hover" id="previous-date-button" href="/day-picker/{{previous_date_month}}/{{previous_date.day}}">
+                            ◀︎
+                        </a>
+
+                        <div id="holiday-image" class="image-container">
+                            <img class = "holiday-image sized-image brightened-image"
+                                src = "{{image}}">
+                            </img>
+                        </div>
+
+                        <a class="date-scroll-arrows pink-text pink-hover" id="next-date-button" href="/day-picker/{{next_date_month}}/{{next_date.day}}">
+                            <text>
+                                ▶︎
+                            </text>
+                        </a>
+                    </div>
+
+                    <div id="phone-blurb">
+                        {{blurb}}
+                    </div>
+
+                    {% if multiple_holidays_on_date == True %}
+                        <div class="col">
+                            <button id="random-holiday-on-date" class="btn pink-button" onclick="location.href='/random-holiday/{{month}}/{{day}}/{{holiday}}'">
+                                But wait! It's also...
+                            </button>
+                        </div>
+                    {% endif %}
+                </div>
+
             </div>
         </div>
         <div class="row" id="holiday-buttons-div">

@@ -373,6 +373,11 @@ button:focus,
 
 #holiday-image-col {
     max-width: fit-content;
+    padding-bottom: 25px;
+}
+
+.holiday-image {
+    width: 300px;
 }
 
 .holiday-page-name {
@@ -388,22 +393,16 @@ button:focus,
     margin-top: 20px;
 }
 
-#holiday-outer-col {
-    max-width: 75%;
-    margin: 50px;
-}
-
 #holiday-description {
     max-width: 1000px;
     place-items: center;
     text-align: center;
     padding-top: 25px;
-    padding-bottom: 25px;
+    margin-bottom: 25px;
 }
 
 #holiday-title {
     text-align: center;
-    margin-top: -50px;
 }
 
 #date-is {
@@ -421,10 +420,11 @@ button:focus,
 
 #blurb {
     width: 500px;
-    text-align: justify;
+    text-align: left;
     font-size: 25px;
     line-height: 30px;
     font-weight: 500;
+    padding-bottom: 25px;
 }
 
 #next-date-button,
@@ -436,6 +436,64 @@ button:focus,
 #holiday-body {
     padding-top: 75px;
     padding-bottom: 75px;
+}
+
+#holiday-description-phone {
+    display: none;
+}
+
+@media only screen and (max-width: 991px) {
+    #holiday-outer-row {
+        margin-top: 90px;
+    }
+
+    #holiday-description {
+        max-width: 90%;
+    }
+
+    #date-is {
+        font-size: 60px;
+        padding-bottom: 5px;
+    }
+
+    .holiday-page-name {
+        font-size: 70px;
+        margin-bottom: 15px;
+        line-height: 55px;
+    }
+
+    .holiday-image {
+        height: 205px;
+        width: 250px;
+    }
+
+    #blurb {
+        font-size: 20px;
+        line-height: 25px;
+    }
+}
+
+@media only screen and (max-width: 781px) {
+    #holiday-description {
+        display: none;
+    }
+
+    #holiday-image {
+        margin-right: 8px;
+    }
+
+    #holiday-description-phone {
+        display: inline-block;
+        text-align: center;
+        padding: 25px;
+        max-width: 95%;
+    }
+
+    #phone-blurb {
+        padding-top: 10px;
+        font-size: 20px;
+        line-height: 25px;
+    }
 }
 
 

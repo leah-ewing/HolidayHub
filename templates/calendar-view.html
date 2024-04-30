@@ -54,23 +54,23 @@
             is also...
           </div>
           <div class="row" id="monthly-holiday-row">
-              <div id="monthly-holiday-list">
-                {% for holiday in monthly_holidays %}
+            <div id="monthly-holiday-list">
+              {% for holiday in monthly_holidays %}
                 <img
                     src = "../static/media/other_images/flower-icon-pink.png"
                     width = 17px>
                 </img> 
                 {{holiday.monthly_holiday_name}}
                   <br>
-                {% endfor %}
-              </div>
-              <div id="sign-up-button-span">
-                Stay in the know! 
-                <br>
-                <button id="sign-up-button" class="btn pink-button">
-                  Sign Up for Daily Emails!
-                </button>
-              </div>
+              {% endfor %}
+            </div>
+            <div id="sign-up-button-span">
+              Stay in the know! 
+              <br>
+              <button id="sign-up-button" class="btn pink-button">
+                Sign Up for Daily Emails!
+              </button>
+            </div>
           </div>
         </div>
       </div>

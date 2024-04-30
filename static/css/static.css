@@ -1277,6 +1277,32 @@ button:focus,
         margin-top: 15px;
     }
 
+    #enter-email-outer-row {
+        max-height: 80%;
+    }
+
+    #enter-credentials-text {
+        display: none;
+    }
+
+    #email-form input {
+        max-width: 275px;
+        margin-bottom: -20px;
+    }
+
+    #submit-email-buttons {
+        padding-top: 5px;
+    }
+
+    #submit-email-buttons button {
+        font-size: 20px;
+    }
+
+    #add-email label {
+        text-align: center;
+        width: 100%;
+        font-size: 25px;
+    }
 }
 
 .x-close {
@@ -1468,6 +1494,13 @@ button:focus,
     padding-bottom: 3px;
 }
 
+@media only screen and (max-width: 695px) {
+    #add-email {
+        margin-top: 5px;
+        padding-top: 10px;
+    }
+}
+
 #fname {
     margin-bottom: -10px;
 }
@@ -1491,6 +1524,28 @@ button:focus,
     line-height: 17px;
     margin-bottom: 25px;
     background: var(--white-more-opaque-popup);
+}
+
+#disclaimer-breakpoint-phone {
+    display: none;
+}
+
+@media only screen and (max-width: 695px) {
+    #disclaimer-text {
+        font-size: 11px;
+        line-height: 8px;
+        margin-bottom: 0px;
+        padding-bottom: 5px;
+        text-align: left;
+    }
+
+    #disclaimer-breakpoint-phone {
+        display: block;
+    }
+
+    #disclaimer-breakpoint {
+        display: none;
+    }
 }
 
 

@@ -59,8 +59,8 @@ def create_email_address(email_firstname, email_address, testing=False):
     db.session.add(new_email)
     db.session.commit()
 
-    if testing == False:
-        send_welcome_email.send_welcome_email(email_address)
+    # if testing == False:
+    #     send_welcome_email.send_welcome_email(email_address)
 
     return print('Encrypted email created and welcome email sent successfully: 200')
 

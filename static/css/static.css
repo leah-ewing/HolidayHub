@@ -510,7 +510,21 @@ button:focus,
     #invalid-email-outer-row {
         max-height: 75%;
     }
+
+    #duplicate-email-text {
+        margin-top: 25px;
+    }
+
+    #duplicate-email-text text {
+        font-size: 50px;
+        line-height: 40px;
+    }
+
+    #duplicate-email-outer-row {
+        max-height: 80%;
+    }
 }
+
 
 
 

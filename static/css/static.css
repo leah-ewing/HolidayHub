@@ -134,15 +134,12 @@ button:focus,
         min-width: 100%;
         will-change: transform;
         top: 0;
-        /* position: fixed; */
-        /* transition: opacity 0.3s; */
         z-index: 999;
         font-size: 25px;
         text-shadow: var(--thick-text-shadow);
         text-align: center;
         background: linear-gradient(to bottom, #ffac8c, #ffad8cb6, transparent);
         margin-top: 0px;
-        /* padding-bottom: 40px; */
     }
 
     #phone-navlinks a {

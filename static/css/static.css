@@ -141,6 +141,9 @@ button:focus,
         text-shadow: var(--thick-text-shadow);
         text-align: center;
         margin-top: 10px;
+        background: linear-gradient(to bottom, #ffac8c, #ffad8cb6, transparent);
+        margin-top: 0px;
+        padding-bottom: 70px;
     }
 
     #phone-navlinks a {
@@ -159,6 +162,10 @@ button:focus,
         place-items: center;
         margin-top: 15px;
         padding-bottom: 5px;
+    }
+
+    #phone-search-bar input {
+        background: white;
     }
 }
 

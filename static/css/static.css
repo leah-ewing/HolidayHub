@@ -511,7 +511,8 @@ button:focus,
         max-height: 75%;
     }
 
-    #duplicate-email-text {
+    #duplicate-email-text,
+    #thank-you-email-text {
         margin-top: 25px;
     }
 
@@ -522,6 +523,11 @@ button:focus,
 
     #duplicate-email-outer-row {
         max-height: 80%;
+    }
+
+    #thank-you-email-outer-row {
+        margin-top: -25px;
+        max-height: 65%;
     }
 }
 

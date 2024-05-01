@@ -131,19 +131,18 @@ button:focus,
 @media only screen and (max-width: 991px) {
     #phone-navbar {
         display: block;
-        width: 100%;
+        min-width: 100%;
         will-change: transform;
         top: 0;
-        position: fixed;
-        transition: opacity 0.3s;
+        /* position: fixed; */
+        /* transition: opacity 0.3s; */
         z-index: 999;
         font-size: 25px;
         text-shadow: var(--thick-text-shadow);
         text-align: center;
-        margin-top: 10px;
         background: linear-gradient(to bottom, #ffac8c, #ffad8cb6, transparent);
         margin-top: 0px;
-        padding-bottom: 70px;
+        /* padding-bottom: 40px; */
     }
 
     #phone-navlinks a {
@@ -266,8 +265,8 @@ button:focus,
 }
 
 #homepage-image {
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding-bottom: 25px;
+    padding-top: 25px;
     max-width: fit-content;
     padding-right: 45px;
 }
@@ -303,6 +302,10 @@ button:focus,
         min-width: 100%;
         padding-bottom: 25px;
     }
+
+    #homepage-buttons {
+        line-height: 60px;
+    }
 }
 
 .holiday-name {
@@ -337,12 +340,25 @@ button:focus,
 
 @media only screen and (max-width: 991px) {
     #celebrate-dynamic {
-        margin-top: 170px;
+        margin-top: 50px;
         padding-bottom: 65px;
     }
 
     #homepage-title {
         margin-bottom: 15px;
+    }
+
+    #homepage-image {
+        display: grid;
+        place-items: center;
+        padding-left: 25px;
+        padding-top: 25px;
+        padding-right: 25px;
+        padding-bottom: 25px;
+    }
+
+    .homepage-image {
+        max-width: 75vw;
     }
 }
 
@@ -381,10 +397,6 @@ button:focus,
 #holiday-image-col {
     max-width: fit-content;
     padding-bottom: 25px;
-}
-
-.holiday-image {
-    width: 300px;
 }
 
 .holiday-page-name {
@@ -451,7 +463,7 @@ button:focus,
 
 @media only screen and (max-width: 991px) {
     #holiday-outer-row {
-        margin-top: 90px;
+        margin-top: -25px;
     }
 
     #holiday-description {
@@ -459,14 +471,17 @@ button:focus,
     }
 
     #date-is {
-        font-size: 60px;
+        font-size: 45px;
         padding-bottom: 5px;
+        line-height: 45px;
+        padding-bottom: 25px;
+        padding-top: 15px;
     }
 
     .holiday-page-name {
-        font-size: 70px;
+        font-size: 60px;
         margin-bottom: 15px;
-        line-height: 55px;
+        line-height: 50px;
     }
 
     .holiday-image {
@@ -504,6 +519,14 @@ button:focus,
         padding-top: 10px;
         font-size: 20px;
         line-height: 25px;
+    }
+
+    .holiday-image {
+        max-width: 43vw;
+    }
+
+    #holiday-buttons-div {
+        line-height: 60px;
     }
 }
 
@@ -1606,7 +1629,7 @@ button:focus,
 
 @media only screen and (max-width: 991px) {
     #outer-row-no-results {
-        margin-top: 175px;
+        margin-top: 40px;
         line-height: 70px;
         text-align: center;
     }
@@ -1650,7 +1673,7 @@ button:focus,
 
 @media only screen and (max-width: 991px) {
     #outer-row-results {
-        margin-top: 155px;
+        margin-top: 40px;
     }
 
     #inner-row-results {
@@ -1662,6 +1685,8 @@ button:focus,
     display: inline-block;
     margin-top: 25px;
     margin-bottom: 75px;
+    line-height: 60px;
+    text-align: center;
 }
 
 #search-results-list {

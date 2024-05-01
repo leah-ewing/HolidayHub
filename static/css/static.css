@@ -498,7 +498,9 @@ button:focus,
         font-size: 20px;
         line-height: 25px;
     }
+}
 
+@media only screen and (max-width: 695px) {
     #invalid-email-inner-row {
         font-size: 50px;
         line-height: 55px;

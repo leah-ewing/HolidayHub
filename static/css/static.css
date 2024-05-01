@@ -898,8 +898,17 @@ button:focus,
     padding-bottom: 15px;
 }
 
-/* *** */
-@media only screen and (max-width: 991px) {
+/* @media only screen and (max-width: 1391px) {
+    .calendar {
+        border: solid green;
+    }
+} */
+
+@media only screen and (max-width: 1391px) {
+    #monthly-holiday-col {
+        max-width: fit-content;
+    }
+
     .calendar-title {
         font-size: 60px;
         margin-top: 50px;
@@ -928,7 +937,12 @@ button:focus,
     
     #this-month {
         font-size: 75px;
-        line-height: 65px;
+        line-height: 50px;
+        margin-bottom: -10px;
+    }
+
+    #is-also {
+        margin-bottom: -1px;
     }
     
     #calendar-view-nav-buttons {
@@ -986,6 +1000,14 @@ button:focus,
     .month-list > div > div {
         padding: 2px 2px;
         font-size: 25px;
+    }
+
+    #sign-up-button-span {
+        line-height: 40px;
+    }
+
+    #sign-up-button {
+        margin-top: 10px;
     }
 }
 

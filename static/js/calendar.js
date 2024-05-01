@@ -76,7 +76,10 @@ month_names.forEach((e, index) => {
         fetch(`get-monthly-holidays/${shown_month}`)
             .then((response) => response.json())
             .then((monthly_holiday_names) => {
+                let this_month = document.getElementById("this-month")
                 let holiday_list = document.getElementById("monthly-holiday-list")
+
+                this_month.innerHTML = shown_month
                 holiday_list.innerHTML = ''
 
                 for (let holiday of monthly_holiday_names) {

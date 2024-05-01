@@ -211,8 +211,6 @@ def add_new_email():
     email = request.json.get("email").strip()
     valid_email = controller.check_for_valid_email(email)
 
-    # error_handling.log_error_json(f'Input email: {email}', request.base_url)
-
     if valid_email == True and len(first_name) > 0:
         email_exists = crud.check_for_email(email)
         if email_exists == True:

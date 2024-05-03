@@ -1740,6 +1740,10 @@ button:focus,
     padding: 25px;
 }
 
+#error-outer-row {
+    margin-top: 50px;
+}
+
 #error-inner-row,
 #unsubscribe-inner-row,
 #password-inner-row {
@@ -1811,6 +1815,10 @@ button:focus,
     }
 }
 
+#error-page-container {
+    max-height: 87vh
+}
+
 #error-image-col {
     max-width: 40%;
 }
@@ -1851,6 +1859,10 @@ button:focus,
     padding-bottom: 15px;
 }
 
+#phone-error-outer-row {
+    display: none;
+}
+
 @media only screen and (max-width: 1385px) {
 
     #oh-no {
@@ -1879,63 +1891,17 @@ button:focus,
     }
 }
 
-@media only screen and (max-width: 939px) {
-    #error-inner-row {
-        min-width: 95%;
+@media only screen and (max-width: 991px) {
+    #error-image-col {
+        display: none;
     }
 
-    #oh-no {
-        font-size: 75px;
-        margin-bottom: -20px;
+    #error-outer-row {
+        margin-top: -125px;
     }
 
-    #oh-no-text {
-        font-size: 35px;
-        line-height: 30px;
-        margin-bottom: -20px;
-    }
-}
-
-@media only screen and (max-width: 750px) {
-    #oh-no {
-        font-size: 55px;
-        margin-bottom: -20px;
-    }
-
-    #oh-no-text {
-        font-size: 30px;
-        line-height: 25px;
-        margin-bottom: -20px;
-    }
-}
-
-@media only screen and (max-width: 646px) {
-    #oh-no-text {
-        font-size: 25px;
-        line-height: 20px;
-        margin-bottom: -20px;
-    }
-}
-
-@media only screen and (max-width: 599px) {
-    #oh-no {
-        font-size: 45px;
-        margin-bottom: -30px;
-    }
-
-    #oh-no-text {
-        font-size: 20px;
-        line-height: 15px;
-        margin-bottom: -30px;
-    }
-
-    #back-to-homepage-error {
-        width: 160px;
-        font-size: 15px;
-    }
-
-    #oh-no-text {
-        margin-bottom: -30px;
+    #footer {
+        margin-top: -100px;
     }
 }
 

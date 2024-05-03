@@ -131,7 +131,7 @@ submitButton.addEventListener('click', (evt) => {
         method: 'POST',
         body: JSON.stringify(formInputs),
         headers: {
-        'Content-Type': 'application/json',
+            'Content-Type': 'application/json',
         },
     })
     .then((response) => response.json())

@@ -153,6 +153,21 @@ def get_current_date():
     return today
 
 
+def get_formatted_date(date_obj):
+    """ Returns the current date """
+
+    current_date = str(date_obj).split('/')
+    month_string = crud.get_month_by_number(current_date[0])
+    
+    today = {
+        "month": month_string,
+        "day": int(current_date[1]),
+        "year": int(current_date[2])
+    }
+
+    return today
+
+
 def check_for_valid_email(email):
     """ Checks if a given email is valid """
 
@@ -249,6 +264,7 @@ def get_formatted_github_image_url(holiday_name):
     formatted_holiday_name = get_formatted_github_holiday_name(holiday_name)
     
     return(f"https://github.com/{DEVELOPER}/HolidayHub/blob/main/static/media/holiday_images/{month_num}-{month_name}/{month_num}-{day_num}-{formatted_holiday_name}.jpg?raw=true")
+
 
 def check_valid_password(password):
     """ Checks if a given password is valid """

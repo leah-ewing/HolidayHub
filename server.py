@@ -34,10 +34,10 @@ def homepage():
 
     try:
         if 'valid_user' in session:
-            today = controller.get_current_date()
+            today = session['formatted_date']
+
             month_num = crud.get_month_by_name(today["month"])
             holiday = crud.get_first_holiday_by_date(month_num, today["day"])
-            # image = controller.get_formatted_github_image_url(holiday.holiday_name)
             image = holiday.holiday_img
 
             return render_template('homepage.html',
@@ -60,7 +60,15 @@ def homepage():
         error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
-    
+
+
+@app.route('/get-current-date', methods = ["GET"])
+def get_current_date():  
+    current_date = request.args.get('current_date')
+    formatted_date = controller.get_formatted_date(current_date)
+
+    session['formatted_date'] = formatted_date
+
 
 @app.route('/check-password', methods = ["GET"])
 def get_password():

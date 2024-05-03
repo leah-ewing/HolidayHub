@@ -64,10 +64,13 @@ def homepage():
 
 @app.route('/get-current-date', methods = ["GET"])
 def get_current_date():  
+    """ Gets the current date from the client """
+    
     current_date = request.args.get('current_date')
     formatted_date = controller.get_formatted_date(current_date)
 
     session['formatted_date'] = formatted_date
+    return session['formatted_date']
 
 
 @app.route('/check-password', methods = ["GET"])

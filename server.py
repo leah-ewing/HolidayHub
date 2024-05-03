@@ -33,44 +33,24 @@ def homepage():
     """ Routes to app homepage """
 
     try:
-        if 'valid_user' in session:
-            today = session['formatted_date']
+        today = controller.get_current_date()
 
-            month_num = crud.get_month_by_name(today["month"])
-            holiday = crud.get_first_holiday_by_date(month_num, today["day"])
-            image = holiday.holiday_img
+        month_num = crud.get_month_by_name(today["month"])
+        holiday = crud.get_first_holiday_by_date(month_num, today["day"])
+        image = holiday.holiday_img
 
-            return render_template('homepage.html',
+        return render_template('homepage.html',
                                     holiday = holiday.holiday_name,
                                     image = image,
                                     day = holiday.holiday_date,
                                     month_name = today["month"].capitalize(),
                                     year = today["year"])
-        else:
-            if 'invalid_user' in session:
-                invalid_password = True
-            else:
-                invalid_password = False
-
-            return render_template('password-screen.html',
-                                   invalid_password = invalid_password)
     
     except Exception as error:
         print(f'\n Error: {error} \n')
         error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
-
-
-@app.route('/get-current-date', methods = ["GET"])
-def get_current_date():  
-    """ Gets the current date from the client """
-    
-    current_date = request.args.get('current_date')
-    formatted_date = controller.get_formatted_date(current_date)
-
-    session['formatted_date'] = formatted_date
-    return session['formatted_date']
 
 
 @app.route('/check-password', methods = ["GET"])
@@ -103,6 +83,35 @@ def get_password():
         error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
+
+
+@app.route('/password-login')
+def password_login():
+    """ Directs a user to the Beta Tester login page """
+
+    if 'valid_user' not in session:
+        if 'invalid_user' in session:
+            invalid_password = True
+        else:
+            invalid_password = False
+
+        return render_template('password-screen.html',
+                                invalid_password = invalid_password)
+    else:
+        return redirect('/')
+    
+    
+@app.route('/logout')
+def logout_user():
+    """ Logs out a Beta Tester """
+
+    if 'valid_user' in session:
+        session.pop('valid_user')
+        print('Beta User logged out')
+
+        return redirect(request.referrer or '/')
+    else:
+        return print('No Beta User found in session')
 
 
 @app.route('/get-slideshow-holidays', methods = ["GET"])
@@ -143,27 +152,24 @@ def show_search_results(search_term, page):
     """ Checks if a search-term has any results and routes to the search-results page """
 
     try:
-        if 'valid_user' in session:
-            results_and_count = crud.get_search_results(search_term.lower())
+        results_and_count = crud.get_search_results(search_term.lower())
 
-            if results_and_count == None:
-                results_count = 0
-                page_count = 0
-                search_results = results_and_count
+        if results_and_count == None:
+            results_count = 0
+            page_count = 0
+            search_results = results_and_count
 
-            else:
-                page_count = results_and_count['page_count']
-                results_count = results_and_count['results_count']
-                search_results = results_and_count['results_pages'][int(page) - 1]
+        else:
+            page_count = results_and_count['page_count']
+            results_count = results_and_count['results_count']
+            search_results = results_and_count['results_pages'][int(page) - 1]
 
-            return render_template('search-results.html',
+        return render_template('search-results.html',
                                 search_term = search_term,
                                 search_results = search_results,
                                 results_count = results_count,
                                 page = int(page),
                                 page_count = page_count)
-        else:
-            raise Exception('Invalid User')
     
     except Exception as error:
         print(f'\n Error: {error} \n')
@@ -177,11 +183,7 @@ def about_page():
     """ Routes to the 'About' page """
 
     try:
-        if 'valid_user' in session:
-            return render_template('about.html')
-        
-        else:
-            raise Exception('Invalid User')
+        return render_template('about.html')
     
     except Exception as error:
         print(f'\n Error: {error} \n')
@@ -195,17 +197,13 @@ def calendarView():
     """ Routes to Calendar page """
 
     try:
-        if 'valid_user' in session:
-            current_date = controller.get_current_date()
-            month_num = crud.get_month_by_name(current_date["month"])
-            monthly_holidays = crud.get_holidays_in_month(month_num)
+        current_date = controller.get_current_date()
+        month_num = crud.get_month_by_name(current_date["month"])
+        monthly_holidays = crud.get_holidays_in_month(month_num)
 
-            return render_template('calendar-view.html',
+        return render_template('calendar-view.html',
                                         month = current_date["month"].capitalize(),
                                         monthly_holidays = monthly_holidays)
-        
-        else:
-            raise Exception('Invalid User')
     
     except Exception as error:
         print(f'\n Error: {error} \n')
@@ -277,24 +275,22 @@ def learn_more_about_holiday(holiday):
     """ Navigates to a holiday's page after clicking 'Learn More' on the homepage or email """
 
     try:
-        if 'valid_user' in session:
-            holiday_data = crud.get_holiday_by_name(holiday)
-            month_name = crud.get_month_by_number(holiday_data.holiday_month)
-            day = holiday_data.holiday_date
-            suffix = controller.get_date_suffix(str(day))
-            # image = controller.get_formatted_github_image_url(holiday)
-            image = holiday_data.holiday_img
-            multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday_data.holiday_month, day)
+        holiday_data = crud.get_holiday_by_name(holiday)
+        month_name = crud.get_month_by_number(holiday_data.holiday_month)
+        day = holiday_data.holiday_date
+        suffix = controller.get_date_suffix(str(day))
+        image = holiday_data.holiday_img
+        multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday_data.holiday_month, day)
 
-            current_date = controller.get_current_date()
+        current_date = controller.get_current_date()
 
-            next_date = controller.get_next_day(int(holiday_data.holiday_month), int(day), int(current_date['year']))
-            previous_date = controller.get_previous_day(int(holiday_data.holiday_month), int(day), int(current_date['year']))
+        next_date = controller.get_next_day(int(holiday_data.holiday_month), int(day), int(current_date['year']))
+        previous_date = controller.get_previous_day(int(holiday_data.holiday_month), int(day), int(current_date['year']))
 
-            next_date_month_string = crud.get_month_by_number(next_date["month"])
-            previous_date_month_string = crud.get_month_by_number(previous_date["month"])
+        next_date_month_string = crud.get_month_by_number(next_date["month"])
+        previous_date_month_string = crud.get_month_by_number(previous_date["month"])
 
-            return render_template('holiday.html',
+        return render_template('holiday.html',
                                 holiday = holiday,
                                 month_name = month_name.capitalize(),
                                 day = day,
@@ -307,8 +303,6 @@ def learn_more_about_holiday(holiday):
                                 next_date_month = next_date_month_string.capitalize(),
                                 previous_date = previous_date,
                                 previous_date_month = previous_date_month_string.capitalize())
-        else:
-            raise Exception('Invalid User')
 
     except Exception as error:
         print(f'\n Error: {error} \n')
@@ -338,22 +332,20 @@ def random_holiday(name):
     """ Directs a user to a random holiday's page """
 
     try:
-        if 'valid_user' in session:
-            holiday = crud.get_holiday_by_name(name)
-            month = crud.get_month_by_number(holiday.holiday_month)
-            suffix = controller.get_date_suffix(str(holiday.holiday_date))
-            # image = controller.get_formatted_github_image_url(name)
-            image = holiday.holiday_img
-            
-            current_date = controller.get_current_date()
-            next_date = controller.get_next_day(int(holiday.holiday_month), int(holiday.holiday_date), int(current_date['year']))
-            previous_date = controller.get_previous_day(int(holiday.holiday_month), int(holiday.holiday_date), int(current_date['year']))
-            next_date_month_string = crud.get_month_by_number(next_date["month"])
-            previous_date_month_string = crud.get_month_by_number(previous_date["month"])
-            
-            multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday.holiday_month, holiday.holiday_date)
+        holiday = crud.get_holiday_by_name(name)
+        month = crud.get_month_by_number(holiday.holiday_month)
+        suffix = controller.get_date_suffix(str(holiday.holiday_date))
+        image = holiday.holiday_img
+        
+        current_date = controller.get_current_date()
+        next_date = controller.get_next_day(int(holiday.holiday_month), int(holiday.holiday_date), int(current_date['year']))
+        previous_date = controller.get_previous_day(int(holiday.holiday_month), int(holiday.holiday_date), int(current_date['year']))
+        next_date_month_string = crud.get_month_by_number(next_date["month"])
+        previous_date_month_string = crud.get_month_by_number(previous_date["month"])
+        
+        multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday.holiday_month, holiday.holiday_date)
 
-            return render_template('random-holiday.html',
+        return render_template('random-holiday.html',
                             month_name = month.capitalize(),
                             day = holiday.holiday_date,
                             holiday = holiday.holiday_name,
@@ -366,8 +358,6 @@ def random_holiday(name):
                             previous_date_month = previous_date_month_string.capitalize(),
                             multiple_holidays_on_date = multiple_holidays_on_date,
                             month = holiday.holiday_month)
-        else:
-            raise Exception('Invalid User')
     
     except Exception as error:
         print(f'\n Error: {error} \n')
@@ -427,10 +417,19 @@ def unsubscribe():
         return redirect('/error')
 
 
-
 @app.errorhandler(404)
 def not_found(error):
     """ Redirects the user to the error page when a 404 error is encountered """
+
+    print(f'\n Error: {error} \n')
+    error_handling.log_error_json(error, request.base_url)
+
+    return redirect('/error')
+
+
+@app.errorhandler(500)
+def not_found(error):
+    """ Redirects the user to the error page when a 500 error is encountered """
 
     print(f'\n Error: {error} \n')
     error_handling.log_error_json(error, request.base_url)
@@ -442,10 +441,7 @@ def not_found(error):
 def errorPage():
     """ Directs the user to the error page """
 
-    if 'valid_user' in session:
-        return render_template('error-page.html')
-    
-    return redirect('/')
+    return render_template('error-page.html')
 
 
 if __name__ == '__main__':

@@ -138,31 +138,16 @@ def get_previous_day(month, day, year):
     return previous_date
 
 
-def get_current_date():
+def get_current_date(current_date=date.today()):
     """ Returns the current date from the server """
 
-    current_date = str(date.today()).split('-')
-    month_string = crud.get_month_by_number(int(current_date[1]))
+    formatted_date = str(current_date).split('-')
+    month_string = crud.get_month_by_number(int(formatted_date[1]))
     
     today = {
         "month": month_string,
-        "day": int(current_date[2]),
-        "year": int(current_date[0])
-    }
-
-    return today
-
-
-def get_formatted_date(date_obj):
-    """ Returns the current date from the client """
-
-    current_date = str(date_obj).split('/')
-    month_string = crud.get_month_by_number(current_date[0])
-    
-    today = {
-        "month": month_string,
-        "day": int(current_date[1]),
-        "year": int(current_date[2])
+        "day": int(formatted_date[2]),
+        "year": int(formatted_date[0])
     }
 
     return today

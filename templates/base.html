@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=Spicy+Rice&display=swap" rel="stylesheet">
-      
+    
     <title>
       {% block title %}
       {% endblock %}
@@ -41,7 +41,11 @@
             <a class="nav-link" href="/about" id="about-button">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link pointer-cursor" id="popup-button">Sign Up for Daily Emails!</a>
+            <a class="nav-link pointer-cursor" id="popup-button">
+              {% if 'valid_user' in session %}
+                Sign Up for Daily Emails!
+              {% endif %}
+            </a>
           </li>
         </ul>
 
@@ -64,7 +68,11 @@
         <span id="phone-navlinks">
           <a class="pointer-cursor" id="share-button-phone">Share</a>
           <a  href="/about" id="about-button">About</a>
-          <a class="pointer-cursor" id="popup-button-phone">Sign Up!</a>
+          <a class="pointer-cursor" id="popup-button-phone">
+            {% if 'valid_user' in session %}
+              Sign Up!
+            {% endif %}
+          </a>
         </span>
         <div id="phone-search-bar">
           <form class="d-flex" role="search" action="/get-search-term" method="GET">
@@ -377,6 +385,24 @@
 <body>
 
   {% block body %}
+    <script>
+      $(document).ready(function() {
+          var today = new Date()
+          var formattedDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+      
+          $.ajax({
+              url: '/',
+              type: 'POST',
+              data: {client_date: formattedDate},
+              success: function(response) {
+                  console.log('Client date sent to server')
+              },
+              error: function(xhr, status, error) {
+                  console.error('Error sending client date to server:', error)
+              }
+          })
+      })
+      </script>
   {% endblock %}
 
 </body>
@@ -393,9 +419,15 @@
         🎉 <a href="https://github.com/leah-ewing">Leah Ewing</a>, &#9426; 2024
       </span>
 
-      <span class="d-flex">
-        <a href="" id="beta-login-link">Beta User Login</a>
-      </span>
+      {% if 'valid_user' not in session %}
+        <span class="d-flex">
+          <a href="/password-login" id="beta-login-link">Beta User Login</a>
+        </span>
+      {% else %}
+        <span class="d-flex">
+          <a href="/logout" id="beta-login-link">Sign Out of Beta Version</a>
+        </span>
+      {% endif %}
     </nav>
   </div>
     

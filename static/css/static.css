@@ -1910,10 +1910,6 @@ button:focus,
         margin-top: -125px;
     }
 
-    #footer {
-        margin-top: -100px;
-    }
-
     #unsubscribe-page-container {
         margin-top: -115px;
     }
@@ -1971,10 +1967,21 @@ button:focus,
 }
 
 #footer-text a {
-    color: rgb(78, 47, 78);
+    color: var(--dark-purple);
     font-weight: 600;
 }
 
+#beta-login-link {
+    color: var(--dark-purple); 
+    font-size: 20px;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 991px) {
+    #footer {
+        margin-top: -100px;
+    }
+}
 
 
 

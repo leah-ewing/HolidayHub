@@ -1079,6 +1079,12 @@ button:focus,
     text-align: center;
 }
 
+@media only screen and (max-width: 991px) {
+    #slideshow {
+        margin-bottom: 100px;
+    }
+}
+
 @media only screen and (max-width: 800px) {
     #explore-more-row {
         line-height: 60px;
@@ -1618,7 +1624,11 @@ button:focus,
 
 @media only screen and (max-width: 991px) {
     #about-title {
-        margin-top: 150px;
+        margin-top: 25px;
+    }
+
+    .about-buttons {
+        margin-bottom: 100px;
     }
 }
 
@@ -1902,6 +1912,10 @@ button:focus,
 
     #footer {
         margin-top: -100px;
+    }
+
+    #unsubscribe-page-container {
+        margin-top: -115px;
     }
 }
 

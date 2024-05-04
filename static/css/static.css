@@ -614,6 +614,7 @@ button:focus,
     display: grid;
     place-content: center;
     max-width: 500px;
+    padding-bottom: 35px;
 }
 
 #is-also {

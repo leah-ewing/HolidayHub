@@ -418,21 +418,25 @@ def unsubscribe():
         error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
+    
+
+@app.route('/privacy-policy')
+def privacy_policy():
+    """ Redirects to the 'Privacy Policy' page """
+
+    try:
+        return render_template('privacy-policy.html')
+    
+    except Exception as error:
+        print(f'\n Error: {error} \n')
+        error_handling.log_error_json(error, request.base_url)
+
+        return redirect('/error')
 
 
 @app.errorhandler(404)
 def not_found(error):
     """ Redirects the user to the error page when a 404 error is encountered """
-
-    print(f'\n Error: {error} \n')
-    error_handling.log_error_json(error, request.base_url)
-
-    return redirect('/error')
-
-
-@app.errorhandler(500)
-def not_found(error):
-    """ Redirects the user to the error page when a 500 error is encountered """
 
     print(f'\n Error: {error} \n')
     error_handling.log_error_json(error, request.base_url)

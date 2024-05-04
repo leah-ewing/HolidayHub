@@ -22,37 +22,7 @@
     <div class="row width-100 outer-row" id="today-is-row">
       <div class="col grid-center" id="today-is-col">
         <div class="row" id="today-is-inner-row">
-          <div class="col inner-row" id="today-is-text-col">
-            <text id="today-is-text">
-              <b>
-                Today is...
-              </b>
-            </text>
-
-            <text class="holiday-name">
-              <b>
-                {{holiday}}!
-              </b>
-            </text>
-
-            <div id="learn-more-button-span">
-              <button id="learn-more-button" class="btn pink-button" onclick="location.href='/{{holiday}}'">
-                Learn more
-              </button>
-            </div>
-          </div>
-
-          <div class="col grid-center inner-row" id="homepage-image">
-            <a href="/{{holiday}}">
-              <div class="image-container">
-                <img
-                    class = "homepage-image brightened-image sized-image"
-                    src = "{{image}}"
-                    width = 400>
-                </img>
-              </div>
-            </a>
-          </div>
+          <script src="../static/js/homepage.js"></script>
         </div>
       </div>
     </div>
@@ -88,6 +58,7 @@
       </div>
       <script src="../static/js/slideshow.js"></script>
   </div>
+
 </body>
 
 {% endblock %}

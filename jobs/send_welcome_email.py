@@ -50,7 +50,7 @@ def send_welcome_email(email):
 
     random_salutation = controller.get_random_salutation()
     fname = crud.get_fname_by_email(email)
-    current_date = controller.get_current_date()
+    current_date = controller.get_formatted_date()
     month_num = crud.get_month_by_name(current_date["month"])
     holiday = crud.get_first_holiday_by_date(month_num, current_date["day"])
     random_subject = controller.get_random_welcome_email_subject()

@@ -11,7 +11,7 @@ def log_error_json(error, route):
     with open(f'{root_directory}/errors/error_log.json', 'r+') as json_file:
         error_log_json = json.load(json_file)
 
-        current_date = controller.get_current_date()
+        current_date = controller.get_formatted_date()
         current_month = crud.get_month_by_name(current_date['month'])
         formatted_date = f"{current_month}-{current_date['day']}-{current_date['year']}"
 

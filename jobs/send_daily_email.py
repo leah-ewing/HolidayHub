@@ -60,7 +60,7 @@ def send_daily_holiday_email(email):
         random_today_is_statement = controller.get_random_today_is_statement()
         random_it_is_also_statement = controller.get_random_it_is_also_statement()
         fname = crud.get_fname_by_email(email)
-        current_date = controller.get_current_date()
+        current_date = controller.get_formatted_date()
         suffix = controller.get_date_suffix(str(current_date["day"]))
         month_num = crud.get_month_by_name(current_date["month"])
         holiday = crud.get_first_holiday_by_date(month_num, current_date["day"])

@@ -138,7 +138,7 @@ def get_previous_day(month, day, year):
     return previous_date
 
 
-def get_current_date(current_date=date.today()):
+def get_formatted_date(current_date=date.today()):
     """ Returns the current date from the server """
 
     formatted_date = str(current_date).split('-')

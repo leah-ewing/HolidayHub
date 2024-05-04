@@ -33,24 +33,27 @@ def homepage():
     """ Routes to app homepage """
 
     try:
-        today = controller.get_current_date()
-
-        month_num = crud.get_month_by_name(today["month"])
-        holiday = crud.get_first_holiday_by_date(month_num, today["day"])
-        image = holiday.holiday_img
-
-        return render_template('homepage.html',
-                                    holiday = holiday.holiday_name,
-                                    image = image,
-                                    day = holiday.holiday_date,
-                                    month_name = today["month"].capitalize(),
-                                    year = today["year"])
+        return render_template('homepage.html')
     
     except Exception as error:
         print(f'\n Error: {error} \n')
         error_handling.log_error_json(error, request.base_url)
 
         return redirect('/error')
+    
+
+@app.route('/get-homepage-holiday', methods = ['POST'])
+def get_homepage_holiday():
+    """ Gets a holiday for a given date to be displayed on the homepage """
+
+    current_date = request.json.get('current_date')
+
+    formatted_current_date = controller.get_formatted_date(current_date)
+    month_num = crud.get_month_by_name(formatted_current_date["month"])
+    holiday = crud.get_first_holiday_by_date(month_num, formatted_current_date["day"])
+
+    return jsonify({'holiday_name': holiday.holiday_name,
+                    'holiday_img': holiday.holiday_img})
 
 
 @app.route('/check-password', methods = ["GET"])
@@ -197,7 +200,7 @@ def calendarView():
     """ Routes to Calendar page """
 
     try:
-        current_date = controller.get_current_date()
+        current_date = controller.get_formatted_date()
         month_num = crud.get_month_by_name(current_date["month"])
         monthly_holidays = crud.get_holidays_in_month(month_num)
 
@@ -282,7 +285,7 @@ def learn_more_about_holiday(holiday):
         image = holiday_data.holiday_img
         multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday_data.holiday_month, day)
 
-        current_date = controller.get_current_date()
+        current_date = controller.get_formatted_date()
 
         next_date = controller.get_next_day(int(holiday_data.holiday_month), int(day), int(current_date['year']))
         previous_date = controller.get_previous_day(int(holiday_data.holiday_month), int(day), int(current_date['year']))
@@ -337,7 +340,7 @@ def random_holiday(name):
         suffix = controller.get_date_suffix(str(holiday.holiday_date))
         image = holiday.holiday_img
         
-        current_date = controller.get_current_date()
+        current_date = controller.get_formatted_date()
         next_date = controller.get_next_day(int(holiday.holiday_month), int(holiday.holiday_date), int(current_date['year']))
         previous_date = controller.get_previous_day(int(holiday.holiday_month), int(holiday.holiday_date), int(current_date['year']))
         next_date_month_string = crud.get_month_by_number(next_date["month"])
@@ -346,18 +349,18 @@ def random_holiday(name):
         multiple_holidays_on_date = crud.check_for_multiple_holidays(holiday.holiday_month, holiday.holiday_date)
 
         return render_template('random-holiday.html',
-                            month_name = month.capitalize(),
-                            day = holiday.holiday_date,
-                            holiday = holiday.holiday_name,
-                            blurb = holiday.holiday_blurb,
-                            image = image,
-                            suffix = suffix,
-                            next_date = next_date,
-                            next_date_month = next_date_month_string.capitalize(),
-                            previous_date = previous_date,
-                            previous_date_month = previous_date_month_string.capitalize(),
-                            multiple_holidays_on_date = multiple_holidays_on_date,
-                            month = holiday.holiday_month)
+                                month_name = month.capitalize(),
+                                day = holiday.holiday_date,
+                                holiday = holiday.holiday_name,
+                                blurb = holiday.holiday_blurb,
+                                image = image,
+                                suffix = suffix,
+                                next_date = next_date,
+                                next_date_month = next_date_month_string.capitalize(),
+                                previous_date = previous_date,
+                                previous_date_month = previous_date_month_string.capitalize(),
+                                multiple_holidays_on_date = multiple_holidays_on_date,
+                                month = holiday.holiday_month)
     
     except Exception as error:
         print(f'\n Error: {error} \n')

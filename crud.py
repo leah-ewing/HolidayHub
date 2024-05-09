@@ -77,6 +77,18 @@ def create_monthly_holiday(monthly_holiday_name, monthly_holiday_month):
     return new_monthly_holiday
 
 
+def update_holiday_name(old_name, new_name):
+    """ Updates the name for a given holiday """
+
+    holiday = Holiday.query.where(Holiday.holiday_name == old_name).first()
+
+    holiday.holiday_name = new_name
+
+    db.session.commit()
+
+    return holiday
+
+
 def update_holiday_image(name, img):
     """ Updates the image for a given holiday """
 
@@ -108,6 +120,26 @@ def update_holiday_email(name, email):
     
     db.session.commit()
 
+
+def update_holiday_date(name, date):
+    """ Updates the date for a given holiday """
+
+    holiday = Holiday.query.where(Holiday.holiday_name == name).first()
+
+    holiday.holiday_date = date
+
+    db.session.commit()
+
+
+def remove_holiday(name):
+    """ Removes a given holiday from the database """
+
+    delete_holiday = sqlalchemy.sql.text(f"DELETE FROM holiday WHERE holiday_name = '{name}'")
+
+    db.session.execute(delete_holiday)
+
+    db.session.commit()
+    
 
 def get_month_by_name(name):
     """ Returns a month's corresponding number """

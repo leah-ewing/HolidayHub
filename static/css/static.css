@@ -437,8 +437,8 @@ button:focus,
 #blurb {
     width: 500px;
     text-align: left;
-    font-size: 25px;
-    line-height: 30px;
+    font-size: 20px;
+    line-height: 23px;
     font-weight: 500;
     padding-bottom: 25px;
 }

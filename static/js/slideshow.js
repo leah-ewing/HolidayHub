@@ -1,101 +1,76 @@
 'use strict';
 
-// 'Explore More Holidays...' Slideshow Script
-
 let slideshowHolidayList = []
-
-let firstHolidayIndex
-let secondHolidayIndex
-let thirdHolidayIndex
+let currentIndex = 0
 
 const leftArrowButton = document.getElementById("left-arrow")
 const rightArrowButton = document.getElementById("right-arrow")
 
-
 leftArrowButton.addEventListener("click", function(evt) {
     evt.preventDefault()
-
-    const holidaysDiv = document.getElementById("holidays")
-    holidaysDiv.innerHTML = ""
-
-    holidaySlideshow(firstHolidayIndex-1, secondHolidayIndex-1, thirdHolidayIndex-1, true)
+    currentIndex = (currentIndex === 0) ? slideshowHolidayList.length - 1 : currentIndex - 1
+    updateSlideshow()
 })
-
 
 rightArrowButton.addEventListener("click", function(evt) {
     evt.preventDefault()
-
-    const holidaysDiv = document.getElementById("holidays")
-    holidaysDiv.innerHTML = ""
-
-    holidaySlideshow(firstHolidayIndex+1, secondHolidayIndex+1, thirdHolidayIndex+1, true)
+    currentIndex = (currentIndex === slideshowHolidayList.length - 1) ? 0 : currentIndex + 1
+    updateSlideshow()
 })
-
 
 async function getSlideshowHolidays() {
     return fetch("/get-slideshow-holidays")
         .then((response) => response.json())
         .then((slideshow_holidays) => {
             slideshowHolidayList = slideshow_holidays
+            updateSlideshow()
         })
 }
 
+async function loadNextHolidays() {
+    const nextIndex = (currentIndex + 3) % slideshowHolidayList.length
+    await fetch(`/get-slideshow-holidays?start=${nextIndex}&count=3`)
+        .then((response) => response.json())
+        .then((next_holidays) => {
+            slideshowHolidayList = slideshowHolidayList.concat(next_holidays)
+        })
+}
 
-async function holidaySlideshow(first=0, second=1, third=2, continuing=false) {
+async function updateSlideshow() {
     const holidaysDiv = document.getElementById("holidays")
+    holidaysDiv.innerHTML = ""
 
-    if (continuing == false) {
-        await getSlideshowHolidays()
-    } 
-    
-    else if (third == slideshowHolidayList.length) {
-        third = 0
-    } else if (second == slideshowHolidayList.length) {
-        second = 0
-    } else if (first == slideshowHolidayList.length) {
-        first = 0
-    }
+    const startIndex = currentIndex
+    const endIndex = (currentIndex + 2) % slideshowHolidayList.length
 
-    else if (first == -1) {
-        first = slideshowHolidayList.length - 1
-    } else if (second == -1) {
-        second = slideshowHolidayList.length -1
-    } else if (third == -1) {
-        third = slideshowHolidayList.length - 1
-    }
-
-    firstHolidayIndex = first
-    secondHolidayIndex = second
-    thirdHolidayIndex = third
-
-    let slideshowHolidayIndexes = [firstHolidayIndex, secondHolidayIndex, thirdHolidayIndex]
-
-    for (let i of slideshowHolidayIndexes) {
-
-        holidaysDiv.innerHTML += (`<div class="col slideshow-holiday inner-row width-100 pointer-cursor hover-div" onclick="location.href='/${slideshowHolidayList[i].holiday_name}'">
-                                        <div class="row slideshow-row">
-                                            <div class="col grid-center" id="slideshow-holiday-image">
-                                                <div class="image-container">
-                                                    <img
-                                                        src = "${slideshowHolidayList[i].holiday_img}"
-                                                        width = 200
-                                                        id = "slideshow-image"
-                                                        class = "brightened-image">
-                                                    </img>
-                                                </div>
+    for (let i = startIndex; i <= endIndex; i++) {
+        const index = i % slideshowHolidayList.length
+        const holiday = slideshowHolidayList[index]
+        holidaysDiv.innerHTML += `<div class="col slideshow-holiday inner-row width-100 pointer-cursor hover-div" onclick="location.href='/${holiday.holiday_name}'">
+                                    <div class="row slideshow-row">
+                                        <div class="col grid-center" id="slideshow-holiday-image">
+                                            <div class="image-container">
+                                                <img src="${holiday.holiday_img}" width="200" id="slideshow-image" class="brightened-image">
+                                                </img>
                                             </div>
+                                        </div>
                                         <div class="col" id="slideshow-holiday-blurb">
                                             <p id="slideshow-holiday-name">
-                                                <span id="name-tag-${i}">
-                                                    ${slideshowHolidayList[i].holiday_name}
+                                                <span id="name-tag-${index}">
+                                                    ${holiday.holiday_name}
                                                 </span>
                                             </p>
                                             <p id="slideshow-holiday-date" class="pink-text">
-                                                ${slideshowHolidayList[i].holiday_month} ${slideshowHolidayList[i].holiday_date}${slideshowHolidayList[i].date_suffix}
+                                                ${holiday.holiday_month} ${holiday.holiday_date}${holiday.date_suffix}
                                             </p>
                                         </div>
-                                    </div>`)
+                                    </div>
+                                </div>`
+    }
+
+    if (endIndex + 1 === slideshowHolidayList.length) {
+        await loadNextHolidays()
     }
 }
 
-getSlideshowHolidays().then(() => holidaySlideshow())
+getSlideshowHolidays()

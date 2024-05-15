@@ -15,7 +15,9 @@ holiday_date: Integer
 
 holiday = "National Donut Day"
 updated_holiday = {
-                "holiday_date": 7
+                "holiday_date": 7,
+                "holiday_img": "/static/media/holiday_images/6-june/6-7-national_donut_day.jpg"
             }
 
 crud.update_holiday_date(holiday, updated_holiday['holiday_date'])
+crud.update_holiday_image(holiday, updated_holiday["holiday_img"])

@@ -2073,11 +2073,27 @@ button:focus,
 }
 
 .privacy-policy-inner-row {
-    max-width: 75%;
-    padding: 15px;
+    max-width: 60%;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-left: 100px;
+    padding-right: 100px;
     margin: 10px;
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: justify;
+    text-align-last: center;
+}
+
+.padded-text {
+    margin-bottom: -15px;
+}
+
+.inner-row-title {
+    text-align: center;
+    padding-top: 35px;
+    padding-bottom: 10px;
+    font-size: 25px;
 }
 
 #privacy-policy-outer-row {
@@ -2090,12 +2106,14 @@ button:focus,
     text-align: center;
     font-family: var(--title-font);
     font-size: 55px;
-    padding-top: 25px;
     line-height: 55px;
+    margin-bottom: 15px;
+    padding: 25px;
 }
 
 #privacy-policy-inner-row-1 {
     margin-top: 0px;
+    text-align: center;
 }
 
 #privacy-policy-inner-row-12 {

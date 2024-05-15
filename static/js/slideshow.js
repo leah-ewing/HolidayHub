@@ -8,44 +8,47 @@ const rightArrowButton = document.getElementById("right-arrow")
 
 leftArrowButton.addEventListener("click", function(evt) {
     evt.preventDefault()
+
     currentIndex = (currentIndex === 0) ? slideshowHolidayList.length - 1 : currentIndex - 1
     updateSlideshow()
 })
 
 rightArrowButton.addEventListener("click", function(evt) {
     evt.preventDefault()
+
     currentIndex = (currentIndex === slideshowHolidayList.length - 1) ? 0 : currentIndex + 1
     updateSlideshow()
 })
 
-async function getSlideshowHolidays() {
-    return fetch("/get-slideshow-holidays")
+async function getSlideshowHolidays(startIndex, count) {
+    return fetch(`/get-slideshow-holidays?start=${startIndex}&count=${count}`)
         .then((response) => response.json())
         .then((slideshow_holidays) => {
-            slideshowHolidayList = slideshow_holidays
-            updateSlideshow()
+            return slideshow_holidays
         })
 }
 
 async function loadNextHolidays() {
     const nextIndex = (currentIndex + 3) % slideshowHolidayList.length
-    await fetch(`/get-slideshow-holidays?start=${nextIndex}&count=3`)
-        .then((response) => response.json())
-        .then((next_holidays) => {
-            slideshowHolidayList = slideshowHolidayList.concat(next_holidays)
-        })
+    const nextHolidays = await getSlideshowHolidays(nextIndex, 3)
+    slideshowHolidayList = slideshowHolidayList.concat(nextHolidays)
 }
 
 async function updateSlideshow() {
     const holidaysDiv = document.getElementById("holidays")
     holidaysDiv.innerHTML = ""
 
-    const startIndex = currentIndex
-    const endIndex = (currentIndex + 2) % slideshowHolidayList.length
+    const currentIndexMod = currentIndex % slideshowHolidayList.length
+    const prevIndex = (currentIndexMod === 0) ? slideshowHolidayList.length - 1 : currentIndexMod - 1
+    const nextIndex = (currentIndexMod === slideshowHolidayList.length - 1) ? 0 : currentIndexMod + 1
 
-    for (let i = startIndex; i <= endIndex; i++) {
-        const index = i % slideshowHolidayList.length
-        const holiday = slideshowHolidayList[index]
+    const slideshowItems = [
+        slideshowHolidayList[prevIndex],
+        slideshowHolidayList[currentIndexMod],
+        slideshowHolidayList[nextIndex]
+    ]
+
+    for (const holiday of slideshowItems) {
         holidaysDiv.innerHTML += `<div class="col slideshow-holiday inner-row width-100 pointer-cursor hover-div" onclick="location.href='/${holiday.holiday_name}'">
                                     <div class="row slideshow-row">
                                         <div class="col grid-center" id="slideshow-holiday-image">
@@ -56,7 +59,7 @@ async function updateSlideshow() {
                                         </div>
                                         <div class="col" id="slideshow-holiday-blurb">
                                             <p id="slideshow-holiday-name">
-                                                <span id="name-tag-${index}">
+                                                <span id="name-tag-${holiday.index}">
                                                     ${holiday.holiday_name}
                                                 </span>
                                             </p>
@@ -68,9 +71,15 @@ async function updateSlideshow() {
                                 </div>`
     }
 
-    if (endIndex + 1 === slideshowHolidayList.length) {
+    if (nextIndex === 0) {
         await loadNextHolidays()
     }
 }
 
-getSlideshowHolidays()
+async function initializeSlideshow() {
+    const initialHolidays = await getSlideshowHolidays(0, 3)
+    slideshowHolidayList = initialHolidays
+    updateSlideshow()
+}
+
+initializeSlideshow()

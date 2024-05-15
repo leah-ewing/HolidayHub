@@ -2072,6 +2072,10 @@ button:focus,
     font-size: 15px;
 }
 
+#privacy-policy-text a:hover {
+    color: var(--light-purple);
+}
+
 .privacy-policy-inner-row {
     max-width: 60%;
     padding-top: 45px;
@@ -2083,6 +2087,15 @@ button:focus,
     line-height: 25px;
     text-align: justify;
     text-align-last: center;
+}
+
+.privacy-policy-inner-row a {
+    color: var(--dark-purple);
+    font-weight: 600;
+}
+
+.privacy-policy-inner-row a:hover {
+    color: var(--light-purple);
 }
 
 .padded-text {
@@ -2118,6 +2131,7 @@ button:focus,
 
 #privacy-policy-inner-row-12 {
     text-align: center;
+    padding: 25px;
 }
 
 #privacy-policy-cheers {
@@ -2136,5 +2150,10 @@ button:focus,
     #privacy-policy-outer-row {
         margin-top: 25px;
         margin-bottom: 100px;
+    }
+
+    .privacy-policy-inner-row {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }

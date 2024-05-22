@@ -2231,5 +2231,6 @@ button:focus,
     .privacy-policy-inner-row {
         padding-left: 10px;
         padding-right: 10px;
+        min-width: 95%;
     }
 }

@@ -1705,6 +1705,10 @@ button:focus,
     text-align: center;
 }
 
+.about-section-text a:hover {
+    color: var(--dark-purple);
+}
+
 @media only screen and (max-width: 781px) {
     .about-section-text {
         font-size: 20px;

@@ -1623,6 +1623,10 @@ button:focus,
     margin-top: 75px;
 }
 
+#phone-meet-the-developer-section {
+    display: none;
+}
+
 @media only screen and (max-width: 991px) {
     #about-title {
         margin-top: 25px;
@@ -1659,18 +1663,32 @@ button:focus,
 }
 
 .about-section-title {
-    font-size: 45px;
+    font-size: 55px;
     width: 60%;
     font-weight: 600;
     font-style: italic;
     text-shadow: var(--thin-text-shadow);
     line-height: 40px;
-    padding: 10px;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+#about-image-1 {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#about-image-2 {
+    width: 100%;
+    height: auto;
 }
 
 @media only screen and (max-width: 781px) {
     .about-section-title {
-        font-size: 30px;
+        margin-top: 15px;
+        font-size: 45px;
         padding: 5px;
         min-width: 90%;
     }
@@ -1682,6 +1700,7 @@ button:focus,
     width: 60%;
     padding-top: 15px;
     padding-bottom: 15px;
+    text-align: center;
 }
 
 @media only screen and (max-width: 781px) {
@@ -1689,6 +1708,46 @@ button:focus,
         font-size: 20px;
         line-height: 25px;
         min-width: 90%;
+    }
+}
+
+@media only screen and (max-width: 1347px) {
+    .meet-the-developer-section {
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    #about-signature {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 1179px) {
+    #about-image-1-phone,
+    #about-image-2-phone {
+        width: 50%;
+        padding: 0px;
+    }
+
+    .phone-about-images {
+        display: inline-flex;
+    }
+
+    .meet-the-developer-section {
+        margin: 0px;
+        padding-top: 15px;
+    }
+
+    #phone-meet-the-developer-section {
+        display: block;
+    }
+
+    #main-meet-the-developer-section {
+        display: none;
+    }
+
+    #about-signature {
+        font-size: 20px;
     }
 }
 
@@ -1707,11 +1766,18 @@ button:focus,
 }
 
 #about-signature {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: center;
     font-weight: 500;
     font-size: 25px;
-    line-height: 25px;
+    line-height: 23px;
+    margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 1347px) {
+    #about-signature {
+        font-size: 20px;
+    }
 }
 
 #thank-you-statement {
@@ -1723,10 +1789,6 @@ button:focus,
 }
 
 @media only screen and (max-width: 781px) {
-    #about-signature {
-        font-size: 20px;
-    }
-
     #thank-you-statement {
         font-size: 25px;
         line-height: 28px;

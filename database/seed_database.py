@@ -84,4 +84,4 @@ seed_months()
 seed_daily_holidays()
 seed_monthly_holidays()
 
-# import run_migrations
+import run_migrations

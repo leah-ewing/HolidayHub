@@ -5,7 +5,8 @@ sys.path.append(root_directory)
 
 directory = f'{root_directory}/migrations'
 
-for file in os.listdir(directory):
-    file_name = os.path.join(directory, file)
-    if os.path.isfile(file_name):
-        os.system(f"python3 {file_name}")
+for i in range(1, len(os.listdir(directory)) + 1):
+    for file in os.listdir(directory):
+        if int(file[0:2].strip('-')) == i:
+            file_name = os.path.join(directory, file)
+            os.system(f"python3 {file_name}")

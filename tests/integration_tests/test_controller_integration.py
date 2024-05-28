@@ -12,22 +12,22 @@ import controller
 DEVELOPER = os.environ['DEVELOPER']
 
 
-# class TestController(unittest.TestCase):
+class TestController(unittest.TestCase):
 
-#     # @pytest.mark.slow  ### pytest -m slow
-#     def test_get_formatted_github_image_url(self):
-#         """Should return the formatted Github URL for a given holiday"""
+    # @pytest.mark.slow  ### pytest -m slow
+    def test_get_formatted_github_image_url(self):
+        """Should return the formatted Github URL for a given holiday"""
 
-#         with app.app_context():
-#             reset_test_db()
+        with app.app_context():
+            reset_test_db()
 
-#             seed_test_months()
-#             seed_test_holiday()
+            seed_test_months()
+            seed_test_holiday()
 
-#             holiday = Holiday.query.first()
-#             expected_url = f"https://github.com/{DEVELOPER}/HolidayHub/blob/main/static/media/holiday_images/12-december/12-13-national_violin_day.jpg?raw=true"
+            holiday = Holiday.query.first()
+            expected_url = f"https://github.com/{DEVELOPER}/HolidayHub/blob/main/static/media/holiday_images/12-december/12-13-national_violin_day.jpg?raw=true"
 
-#             assert controller.get_formatted_github_image_url(holiday.holiday_name) == expected_url
+            assert controller.get_formatted_github_image_url(holiday.holiday_name) == expected_url
 
 
 if __name__ == "__main__":

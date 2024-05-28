@@ -2,17 +2,13 @@ import os, sys
 from freezegun import freeze_time
 import unittest, pytest
 # import test_db_config
-# from test_db_config import seed_test_months, seed_test_holiday, seed_test_monthly_holidays, seed_test_emails, reset_test_db, app
+from test_db_config import seed_test_months, seed_test_holiday, seed_test_monthly_holidays, seed_test_emails, reset_test_db, app
 
 root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_directory)
 
 from model import db, connect_to_db, Holiday, Month
 from server import create_app
-
-sys.path.append(f'{root_directory}/tests')
-
-from test_db_config import app, reset_test_db, seed_test_months, seed_test_holiday
 
 
 class TestServer(unittest.TestCase):

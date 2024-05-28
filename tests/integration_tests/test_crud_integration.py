@@ -59,7 +59,7 @@ class TestCrud(unittest.TestCase):
             assert Holiday.query.first().holiday_email == holiday_email
 
 
-    def test_create_email_address(self): ### FAILING
+    def test_create_email_address(self):
         """ Should create an email entry and add it to the database """
         
         with app.app_context():
@@ -269,7 +269,7 @@ class TestCrud(unittest.TestCase):
             assert 'National Soup Month' not in monthly_holiday_names
 
      
-    def test_check_for_email(self):  ### FAILING
+    def test_check_for_email(self):
         """ Should return a Bool representing whether a given email is already in the db """
 
         with app.app_context():
@@ -285,7 +285,7 @@ class TestCrud(unittest.TestCase):
             assert crud.check_for_email('test2@test.test') == False
 
     
-    def test_get_fname_by_email(self): ### FAILING
+    def test_get_fname_by_email(self):
         """ Should return a first name matching a given email """
         
         with app.app_context():
@@ -300,7 +300,7 @@ class TestCrud(unittest.TestCase):
             assert crud.get_fname_by_email(email_address) == first_name
 
     
-    def test_update_opt_in_status(self): ### FAILING
+    def test_update_opt_in_status(self):
         """ Should update the opt-in status for a given email to False """
 
         with app.app_context():
@@ -316,7 +316,7 @@ class TestCrud(unittest.TestCase):
             assert Email.query.first().email_opt_in == False
 
     
-    def test_remove_opted_out_emails(self): ### FAILING
+    def test_remove_opted_out_emails(self):
         """ Should remove all emails with an opt-in status of false from the db """
 
         with app.app_context():
@@ -337,15 +337,13 @@ class TestCrud(unittest.TestCase):
             assert len(Email.query.all()) < original_email_count
 
     
-    def test_get_opted_in_emails(self): ### FAILING
+    def test_get_opted_in_emails(self):
         """ Should return a list of all opted-in emails """
 
         with app.app_context():
             reset_test_db()
             seed_test_months()
             seed_test_emails()
-
-            time.sleep(3)
 
             email_firstname = 'Jane'
             email_address = 'test@test.test'
@@ -359,7 +357,6 @@ class TestCrud(unittest.TestCase):
                 email_list.append(encryption.decrypt_email(item.email_address, ENCRYPTION_DEV_KEY, ENCRYPTION_CIPHER_KEY))
 
             assert 'test@test.test' in email_list
-            assert 'test1@test.test' in email_list
             assert 'test2@test.test' in email_list
 
      

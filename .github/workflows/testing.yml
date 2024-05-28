@@ -41,21 +41,21 @@ jobs:
       TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
       VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
 
-    services:
-      postgres:
-          image: postgres
-          env:
-            POSTGRES_HOST: localhost
-            POSTGRES_USER: ${{ secrets.DB_USERNAME }}
-            POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
-            POSTGRES_DB: ${{ secrets.DB_NAME }}
-          options: >-
-            --health-cmd pg_isready
-            --health-interval 10s
-            --health-timeout 5s
-            --health-retries 5
-          ports:
-            - 5432:5432
+    # services:
+    #   postgres:
+    #       image: postgres
+    #       env:
+    #         POSTGRES_HOST: localhost
+    #         POSTGRES_USER: ${{ secrets.DB_USERNAME }}
+    #         POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
+    #         POSTGRES_DB: ${{ secrets.DB_NAME }}
+    #       options: >-
+    #         --health-cmd pg_isready
+    #         --health-interval 10s
+    #         --health-timeout 5s
+    #         --health-retries 5
+    #       ports:
+    #         - 5432:5432
 
     steps:
       - name: Checkout code
@@ -85,10 +85,10 @@ jobs:
           touch $ENCRYPTION_DICT_PATH && echo "[$ENCRYPTION_DICTIONARY]" > $ENCRYPTION_DICT_PATH
           touch $ENCRYPTION_PATH && echo -e "$ENCRYPTION_SCRIPT" > $ENCRYPTION_PATH
 
-      - name: Start Postgres service
-        run: |
-          sudo service postgresql start
-          sleep 10
+      # - name: Start Postgres service
+      #   run: |
+      #     sudo service postgresql start
+      #     sleep 10
 
       - name: Create/seed database & Create test database
         run: |

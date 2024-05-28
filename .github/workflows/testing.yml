@@ -93,4 +93,6 @@ jobs:
           python3 database/seed_database.py
       
       - name: Run tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}
         run: pytest

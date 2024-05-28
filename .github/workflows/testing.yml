@@ -38,7 +38,7 @@ env:
   VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
 
 jobs:
-  build:
+  testing:
     runs-on: ubuntu-latest
 
     services:

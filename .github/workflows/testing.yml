@@ -46,9 +46,9 @@ jobs:
           image: postgres
           env:
             POSTGRES_HOST: localhost
-            POSTGRES_USER: leahewing
-            POSTGRES_PASSWORD: test
-            POSTGRES_DB: holidaydb_test
+            POSTGRES_USER: ${{ secrets.DB_USERNAME }}
+            POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
+            POSTGRES_DB: ${{ secrets.DB_NAME }}
           options: >-
             --health-cmd pg_isready
             --health-interval 10s
@@ -90,8 +90,10 @@ jobs:
           sudo service postgresql start
           sleep 10
 
-      - name: Create/seed database
+      - name: Create/seed database & Create test database
         run: |
+          createdb $DB_NAME
+          createdb $TEST_DB_NAME
           python3 database/seed_database.py
       
       - name: Run tests

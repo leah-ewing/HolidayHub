@@ -1,46 +1,34 @@
-import unittest
-import sys, os
-from test_seeds import holiday, seed_test_months
-from test_db_config import reset_test_db
+import os, sys
+import unittest, pytest
+from test_db_config import app, reset_test_db, seed_test_months, seed_test_holiday
 
-DEVELOPER = os.environ['DEVELOPER']
-TEST_DB_URI = os.environ['TEST_DB_URI']
-
-root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_directory)
 
+from model import db, connect_to_db, Holiday
+from server import create_app
 import controller
-from model import connect_to_db, db, Holiday
-from server import app
+
+DEVELOPER = os.environ['DEVELOPER']
 
 
-class TestGetFormattedGithubUrl(unittest.TestCase):
+class TestController(unittest.TestCase):
+
+    # @pytest.mark.slow  ### pytest -m slow
     def test_get_formatted_github_image_url(self):
-        """ Should return the formatted Github URL for a given holiday """
+        """Should return the formatted Github URL for a given holiday"""
 
-        reset_test_db()
-        seed_test_months()
+        with app.app_context():
+            reset_test_db()
 
-        holiday_name = holiday['holiday_name']
-        holiday_month = holiday['holiday_month']
-        holiday_date = holiday['holiday_date']
-        holiday_img = holiday['holiday_img']
-        holiday_blurb = holiday['holiday_blurb']
-        holiday_email = holiday['holiday_email']
+            seed_test_months()
+            seed_test_holiday()
 
-        test_holiday = Holiday(holiday_name = holiday_name, 
-                             holiday_month = holiday_month, 
-                             holiday_date = holiday_date, 
-                             holiday_img = holiday_img, 
-                             holiday_blurb = holiday_blurb, 
-                             holiday_email = holiday_email)
-        
-        db.session.add(test_holiday)
-        db.session.commit()
+            holiday = Holiday.query.first()
+            expected_url = f"https://github.com/{DEVELOPER}/HolidayHub/blob/main/static/media/holiday_images/12-december/12-13-national_violin_day.jpg?raw=true"
 
-        assert controller.get_formatted_github_image_url(holiday_name) == f"https://github.com/{DEVELOPER}/HolidayHub/blob/main/static/media/holiday_images/12-december/12-13-national_violin_day.jpg?raw=true"
+            assert controller.get_formatted_github_image_url(holiday.holiday_name) == expected_url
 
 
 if __name__ == "__main__":
     unittest.main()
-    connect_to_db(app, TEST_DB_URI)

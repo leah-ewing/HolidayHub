@@ -79,10 +79,3 @@ class MonthlyHoliday(db.Model):
 
     def __repr__(self):
         return f'<Monthly Holiday - monthly_holiday_id = {self.monthly_holiday_id}, monthly_holiday_name = {self.monthly_holiday_name}, monthly_holiday_month = {self.monthly_holiday_month}>'
-
-    
-# if __name__ == '__main__':
-#     from server import app
-    
-#     db.connect_to_db(app)
-    # db.create_all()

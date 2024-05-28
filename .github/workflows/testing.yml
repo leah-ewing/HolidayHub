@@ -85,10 +85,10 @@ jobs:
           touch $ENCRYPTION_DICT_PATH && echo "[$ENCRYPTION_DICTIONARY]" > $ENCRYPTION_DICT_PATH
           touch $ENCRYPTION_PATH && echo -e "$ENCRYPTION_SCRIPT" > $ENCRYPTION_PATH
 
-      - name: Start Postgres service
-        run: |
-          sudo service postgresql start
-          sleep 10
+      # - name: Start Postgres service
+      #   run: |
+      #     sudo service postgresql start
+      #     sleep 10
 
       - name: Create/seed database
         run: |

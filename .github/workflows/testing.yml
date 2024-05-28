@@ -92,13 +92,7 @@ jobs:
 
       - name: Create/seed database
         run: |
-          if ! psql -h localhost -p 5432 -U "$DB_USERNAME" -lqt | cut -d \| -f 1 | grep -qw "$DB_NAME"; then
-            createdb -h localhost -p 5432 -U "$DB_USERNAME" -W "$DB_PASSWORD" "$DB_NAME"
-            echo "Database '$DB_NAME' created successfully."
-            python3 database/seed_database.py
-          else
-            echo "Database '$DB_NAME' already exists."
-          fi
+          python3 database/seed_database.py
       
       - name: Run tests
         run: |

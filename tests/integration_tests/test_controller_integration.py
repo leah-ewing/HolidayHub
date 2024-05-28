@@ -1,6 +1,6 @@
 import os, sys
 import unittest, pytest
-from test_db_config import app, reset_test_db, seed_test_months, seed_test_holiday
+from ..test_db_config import app, reset_test_db, seed_test_months, seed_test_holiday
 
 root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_directory)

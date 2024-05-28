@@ -83,11 +83,12 @@ jobs:
           done
 
       - name: Create/seed database & Create test database
+        env:
+          PGPASSWORD: ${{ secrets.DB_PASSWORD }}
         run: |
-          createdb $DB_NAME
-          createdb $TEST_DB_NAME
+          createdb -h localhost -U $DB_USERNAME $DB_NAME
+          createdb -h localhost -U $DB_USERNAME $TEST_DB_NAME
           python3 database/seed_database.py
       
       - name: Run tests
-        run: |
-          pytest
+        run: pytest

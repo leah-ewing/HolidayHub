@@ -96,11 +96,11 @@ jobs:
       - name: Run unit tests
         env:
           PYTHONPATH: ${{ github.workspace }}
-        run: pytest -v tests/unit_tests/ | sed 's/PASSED ✅' | sed 's/FAILED 🚫'
+        run: pytest -v tests/unit_tests/
           
       - name: Run integration tests
         env: 
           PYTHONPATH: ${{ github.workspace }}
-        run: pytest -v tests/integration_tests/ | sed 's/PASSED ✅' | sed 's/FAILED 🚫'
+        run: pytest -v tests/integration_tests/
       
 

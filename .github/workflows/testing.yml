@@ -91,6 +91,7 @@ jobs:
           createdb -h localhost -U $DB_USERNAME $DB_NAME
           createdb -h localhost -U $DB_USERNAME $TEST_DB_NAME
           python3 database/seed_database.py
+          python3 tests/test_db_config.py
       
       - name: Run tests
         env:

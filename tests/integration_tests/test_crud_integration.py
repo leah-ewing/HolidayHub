@@ -1,4 +1,4 @@
-import os, sys, sqlalchemy
+import os, sys, time
 import unittest, pytest
 from ..test_db_config import app, reset_test_db, seed_test_months, seed_test_holiday, seed_test_monthly_holidays, seed_test_emails
 
@@ -344,6 +344,8 @@ class TestCrud(unittest.TestCase):
             reset_test_db()
             seed_test_months()
             seed_test_emails()
+
+            time.sleep(3)
 
             email_firstname = 'Jane'
             email_address = 'test@test.test'

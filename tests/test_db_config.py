@@ -16,6 +16,15 @@ app = create_app(TEST_DB_URI)
 
 
 with app.app_context():
+    def setup_test_db():
+        """ Configures initial test database setup """
+
+        os.system(f'dropdb {TEST_DB_NAME}')
+        os.system(f'createdb {TEST_DB_NAME}')
+
+        db.create_all()
+
+
     def reset_sequence(table_name):
         """ Resets primary key sequence for a table """
 
@@ -115,3 +124,5 @@ with app.app_context():
 
         for email in test_emails:
             crud.create_email_address(email['email_firstname'], email['email_address'], True)
+
+    setup_test_db()

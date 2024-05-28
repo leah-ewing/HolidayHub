@@ -93,18 +93,14 @@ jobs:
           python3 database/seed_database.py
           python3 tests/test_db_config.py
       
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Run unit tests
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: pytest -v tests/unit_tests/
-      
+          
       - name: Run integration tests
         env: 
           PYTHONPATH: ${{ github.workspace }}
         run: pytest -v tests/integration_tests/
+      
 

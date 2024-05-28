@@ -125,4 +125,5 @@ with app.app_context():
         for email in test_emails:
             crud.create_email_address(email['email_firstname'], email['email_address'], True)
 
+
     setup_test_db()

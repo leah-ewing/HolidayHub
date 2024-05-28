@@ -81,10 +81,8 @@ jobs:
 
       - name: Start Postgres service
         run: |
-          until pg_isready -h localhost -p 5432; do
-            echo "Waiting for PostgreSQL to start..."
-            sleep 1
-          done
+          sudo service postgresql start
+          sleep 10
 
       - name: Create/seed database & Create test database
         run: |

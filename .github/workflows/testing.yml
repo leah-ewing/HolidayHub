@@ -11,35 +11,35 @@ permissions:
   actions: read
   id-token: write
 
+env:
+  API_KEY: ${{ secrets.API_KEY }}
+  API_URI: ${{ secrets.API_URI }}
+  DB_NAME: ${{ secrets.DB_NAME }}
+  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+  DB_URI: ${{ secrets.DB_URI }}
+  DB_USERNAME: ${{ secrets.DB_USERNAME }}
+  DEVELOPER: ${{ secrets.DEVELOPER }}
+  DEV_KEY: ${{ secrets.DEV_KEY }}
+  DOMAIN: ${{ secrets.DOMAIN }}
+  EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+  EMAIL_PREFIX: ${{ secrets.EMAIL_PREFIX }}
+  ENCRYPTION_CIPHER_KEY: ${{ secrets.ENCRYPTION_CIPHER_KEY }}
+  ENCRYPTION_DEV_KEY: ${{ secrets.ENCRYPTION_DEV_KEY }}
+  ENCRYPTION_DICTIONARY: ${{secrets.ENCRYPTION_DICTIONARY}}
+  ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}
+  ENCRYPTION_DIRECTORY: ${{ secrets.ENCRYPTION_DIRECTORY }}
+  ENCRYPTION_PATH: ${{ secrets.ENCRYPTION_PATH }}
+  ENCRYPTION_SCRIPT: ${{ secrets.ENCRYPTION_SCRIPT }}
+  LOGO_URL: ${{ secrets.LOGO_URL }}
+  SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+  TEST_DB_NAME: ${{ secrets.TEST_DB_NAME }}
+  TEST_DB_URI: ${{ secrets.TEST_DB_URI }}
+  TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
+  VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    env:
-      API_KEY: ${{ secrets.API_KEY }}
-      API_URI: ${{ secrets.API_URI }}
-      DB_NAME: ${{ secrets.DB_NAME }}
-      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      DB_URI: ${{ secrets.DB_URI }}
-      DB_USERNAME: ${{ secrets.DB_USERNAME }}
-      DEVELOPER: ${{ secrets.DEVELOPER }}
-      DEV_KEY: ${{ secrets.DEV_KEY }}
-      DOMAIN: ${{ secrets.DOMAIN }}
-      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-      EMAIL_PREFIX: ${{ secrets.EMAIL_PREFIX }}
-      ENCRYPTION_CIPHER_KEY: ${{ secrets.ENCRYPTION_CIPHER_KEY }}
-      ENCRYPTION_DEV_KEY: ${{ secrets.ENCRYPTION_DEV_KEY }}
-      ENCRYPTION_DICTIONARY: ${{secrets.ENCRYPTION_DICTIONARY}}
-      ENCRYPTION_DICT_PATH: ${{ secrets.ENCRYPTION_DICT_PATH }}
-      ENCRYPTION_DIRECTORY: ${{ secrets.ENCRYPTION_DIRECTORY }}
-      ENCRYPTION_PATH: ${{ secrets.ENCRYPTION_PATH }}
-      ENCRYPTION_SCRIPT: ${{ secrets.ENCRYPTION_SCRIPT }}
-      LOGO_URL: ${{ secrets.LOGO_URL }}
-      SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
-      TEST_DB_NAME: ${{ secrets.TEST_DB_NAME }}
-      TEST_DB_URI: ${{ secrets.TEST_DB_URI }}
-      TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
-      VALID_ENCRYPTION_KEYS_PATH: ${{ secrets.VALID_ENCRYPTION_KEYS_PATH }}
 
     services:
       postgres:
@@ -93,7 +93,18 @@ jobs:
           python3 database/seed_database.py
           python3 tests/test_db_config.py
       
-      - name: Run tests
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run unit tests
         env:
           PYTHONPATH: ${{ github.workspace }}
-        run: pytest -v
+        run: pytest -v tests/unit_tests/
+      
+      - name: Run integration tests
+        env: 
+          PYTHONPATH: ${{ github.workspace }}
+        run: pytest -v tests/integration_tests/
+

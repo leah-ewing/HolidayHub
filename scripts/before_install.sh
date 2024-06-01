@@ -7,7 +7,7 @@ if [ ! -x "$0" ]; then
     sudo chmod +x "$0"
 fi
 
-# Set permissions for after_install.sh
+# Set executable permissions for after_install.sh
 sudo chmod +x /scripts/after_install.sh
 
 # Change to app root directory

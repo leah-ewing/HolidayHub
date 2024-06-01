@@ -18,6 +18,10 @@ source .env.production
 # Set secrets permissions
 sudo chmod 600 /HolidayHub/.env.production
 
+# Create and initialize log files
+touch errors/error_log.json && echo "[]" > errors/error_log.json
+touch jobs/jobs_log.json && echo "[]" > jobs/jobs_log.json
+
 # Seed database
 python3 database/seed_database.py
 

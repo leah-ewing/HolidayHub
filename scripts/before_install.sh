@@ -17,4 +17,4 @@ cd /HolidayHub
 sudo systemctl stop holidayhub.service
 
 # Remove all repo files for replacement, leave important files
-find . -mindepth 1 ! -name 'encryption.py' ! -name '.env.production' ! -path './env*' ! -path './encryption*' ! -path './errors*' ! -path /etc/systemd/system/holidayhub.service -print0 | xargs -0 rm -rf
+find . -mindepth 1 ! -name 'encryption.py' ! -name '.env.production' ! -path './env*' ! -path './encryption*' ! -print0 | xargs -0 rm -rf

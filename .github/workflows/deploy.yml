@@ -25,12 +25,6 @@ jobs:
             - name: Copy production branch to Lightsail
               run: "$SSH_COMMAND 'git clone --single-branch --branch production ${{ secrets.REPOSITORY_NAME }} /home/ubuntu/lightsail_temp'"
 
-            - name: Source secrets
-              run: |
-                $SSH_COMMAND 'cd $APP_DIRECTORY'
-                $SSH_COMMAND 'source .env.production'
-                $SSH_COMMAND 'sudo chmod 600 .env.production'
-
             - name: Stop current service
               run: |
                 $SSH_COMMAND 'cd $APP_DIRECTORY'
@@ -56,6 +50,12 @@ jobs:
               run: |
                 $SSH_COMMAND 'cd $APP_DIRECTORY'
                 $SSH_COMMAND 'source env/bin/activate'
+            
+            - name: Source secrets
+              run: |
+                $SSH_COMMAND 'cd $APP_DIRECTORY'
+                $SSH_COMMAND 'source .env.production'
+                $SSH_COMMAND 'sudo chmod 600 .env.production'
 
             - name: Install dependencies
               run: |

@@ -6,7 +6,7 @@ on:
       - production
 
 env:
-    LIGHTSAIL_IP_ADDRESS: ${{ secrets.LIGHTSAIL_IP_ADDRESS }} ## setup
+    LIGHTSAIL_IP_ADDRESS: ${{ secrets.LIGHTSAIL_IP_ADDRESS }}
     SSH_COMMAND: ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.LIGHTSAIL_IP_ADDRESS }}
     APP_DIRECTORY: /home/ubuntu/HolidayHub/
 
@@ -21,7 +21,7 @@ jobs:
             - name: Set up SSH
               uses: webfactory/ssh-agent@v0.5.3
               with:
-                ssh-private-key: ${{ secrets.LIGHTSAIL_SSH_KEY }} ## setup
+                ssh-private-key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
 
             - name: Copy production branch to Lightsail
               run: rsync -avz -e '$SSH_COMMAND' ./* ubuntu@$LIGHTSAIL_IP_ADDRESS:/home/ubuntu/lightsail_temp/
@@ -31,13 +31,6 @@ jobs:
                 $SSH_COMMAND 'cd $APP_DIRECTORY'
                 $SSH_COMMAND 'source .env.production'
                 $SSH_COMMAND 'sudo chmod 600 .env.production'
-                  
-            - name: Configure Nginx
-              run: |
-                ## command to install Nginx if not already installed
-                $SSH_COMMAND 'cd $APP_DIRECTORY'
-                $SSH_COMMAND 'sudo cp config/nginx.conf /etc/nginx/nginx.conf'
-                $SSH_COMMAND 'sudo systemctl restart nginx'
 
             - name: Stop current service
               run: |

@@ -27,12 +27,6 @@ jobs:
                 $SSH_COMMAND 'rm -rf /home/ubuntu/lightsail_temp/*'
                 $SSH_COMMAND "git clone --single-branch --branch production ${{ secrets.REPOSITORY_NAME }} /home/ubuntu/lightsail_temp"
 
-            - name: Source secrets
-              run: |
-                $SSH_COMMAND 'cd $APP_DIRECTORY'
-                $SSH_COMMAND 'source .env.production'
-                $SSH_COMMAND 'sudo chmod 600 .env.production'
-
             - name: Stop current service
               run: |
                 $SSH_COMMAND 'cd $APP_DIRECTORY'
@@ -63,6 +57,11 @@ jobs:
               run: |
                 $SSH_COMMAND 'cd $APP_DIRECTORY'
                 $SSH_COMMAND 'pip3 install -r requirements.txt'
+
+            - name: Source secrets
+              run: |
+                $SSH_COMMAND 'cd $APP_DIRECTORY'
+                $SSH_COMMAND 'source .env.production'
 
             - name: Create and initialize log files
               run: |

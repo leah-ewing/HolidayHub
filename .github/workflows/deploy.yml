@@ -24,7 +24,7 @@ jobs:
                 ssh-private-key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
 
             - name: Copy production branch to Lightsail
-              run: rsync -avz -e '$SSH_COMMAND' ./* ubuntu@$LIGHTSAIL_IP_ADDRESS:/home/ubuntu/lightsail_temp
+              run: rsync -avz -e "$SSH_COMMAND" ./* ubuntu@$LIGHTSAIL_IP_ADDRESS:/home/ubuntu/lightsail_temp
 
             - name: Source secrets
               run: |

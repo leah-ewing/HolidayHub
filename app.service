@@ -6,7 +6,7 @@ After=network.target
 User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/HolidayHub
-ExecStart=/bin/bash -c 'source env/bin/activate && source .env.production && gunicorn -b 0.0.0.0:8000 server:create_app()'
+ExecStart=/bin/bash -c 'source env/bin/activate && source .env.production && gunicorn -b 0.0.0.0:8000 "server:create_app()"'
 Restart=always
 RestartSec=3
 

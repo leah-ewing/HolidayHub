@@ -24,7 +24,7 @@ jobs:
 
             - name: Copy production branch to Lightsail
               run: |
-                $SSH_COMMAND 'rm -rf /home/ubuntu/lightsail_temp/*
+                $SSH_COMMAND 'rm -rf /home/ubuntu/lightsail_temp/*'
                 "$SSH_COMMAND 'git clone --single-branch --branch production ${{ secrets.REPOSITORY_NAME }} /home/ubuntu/lightsail_temp'"
 
             - name: Source secrets

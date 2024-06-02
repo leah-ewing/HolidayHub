@@ -1,4 +1,4 @@
-name: HolidayHub
+name: HolidayHub Tests
 
 on:
   push:

@@ -4,6 +4,20 @@ import jobs_logging
 
 root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
+cron = CronTab(user=True)
+
+
+def stop_all_jobs():
+    """ Stops all cron jobs """
+    
+    os.system("crontab -r")
+
+    print('\n***************\n')
+    print('CRONTAB CLEARED: all jobs removed')
+    print('\n***************\n')
+    print('Jobs:')
+    os.system("crontab -l")
+
 
 def schedule_daily_email_job():
     """ Sends emails to opted-in users 1x daily at 10:00 AM """
@@ -29,7 +43,6 @@ def schedule_opt_out_removal_job():
 
     cron = CronTab(user=True)
 
-    # command_with_secrets = f'source {root_directory}/.env && {root_directory}/env/bin/python3 {root_directory}/jobs/opt_out_removal.py'
     command_with_secrets = f'source {root_directory}/.env && python3 {root_directory}/jobs/opt_out_removal.py'
 
     jobs_with_secrets = cron.new(command=command_with_secrets)
@@ -45,5 +58,6 @@ def schedule_opt_out_removal_job():
     jobs_logging.log_job_json('opt-out-removal-job')
 
 
+stop_all_jobs()
 schedule_daily_email_job()
 schedule_opt_out_removal_job()

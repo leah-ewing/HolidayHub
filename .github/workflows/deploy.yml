@@ -23,7 +23,9 @@ jobs:
                 ssh-private-key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
 
             - name: Copy production branch to Lightsail
-              run: "$SSH_COMMAND 'git clone --single-branch --branch production ${{ secrets.REPOSITORY_NAME }} /home/ubuntu/lightsail_temp'"
+              run: |
+                "$SSH_COMMAND 'rm -rf /home/ubuntu/lightsail_temp/*'"
+                "$SSH_COMMAND 'git clone --single-branch --branch production ${{ secrets.REPOSITORY_NAME }} /home/ubuntu/lightsail_temp'"
 
             - name: Stop current service
               run: |

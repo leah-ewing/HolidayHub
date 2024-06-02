@@ -6,7 +6,6 @@ on:
       - production
 
 env:
-    LIGHTSAIL_IP_ADDRESS: ${{ secrets.LIGHTSAIL_IP_ADDRESS }}
     SSH_COMMAND: ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.LIGHTSAIL_IP_ADDRESS }}
     APP_DIRECTORY: /home/ubuntu/HolidayHub/
 
@@ -24,7 +23,7 @@ jobs:
                 ssh-private-key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
 
             - name: Copy production branch to Lightsail
-              run: rsync -avz -e "$SSH_COMMAND" ./* ubuntu@$LIGHTSAIL_IP_ADDRESS:/home/ubuntu/lightsail_temp
+              run: rsync -avz -e "$SSH_COMMAND" ./* ubuntu@$${{ secrets.LIGHTSAIL_IP_ADDRESS }}:/home/ubuntu/lightsail_temp
 
             - name: Source secrets
               run: |

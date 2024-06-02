@@ -48,7 +48,7 @@ jobs:
               run: $SSH_COMMAND 'cp -r /home/ubuntu/lightsail_temp/* $APP_DIRECTORY'
 
             - name: Clear temp directory
-              run: $SSH_COMMAND 'rm -rf /home/ubuntu/lightsail_temp/*' ## create lightsail_temp/ directory manually on the instance
+              run: $SSH_COMMAND 'rm -rf /home/ubuntu/lightsail_temp/*'
 
             - name: Set file permissions
               run: $SSH_COMMAND 'chown -R ubuntu:ubuntu $APP_DIRECTORY'
@@ -56,8 +56,7 @@ jobs:
             - name: Activate virtual environment
               run: |
                 $SSH_COMMAND 'cd $APP_DIRECTORY'
-                $SSH_COMMAND 'source env/bin/activate' 
-            ## create virtual environment manually on the instance
+                $SSH_COMMAND 'source env/bin/activate'
 
             - name: Install dependencies
               run: |

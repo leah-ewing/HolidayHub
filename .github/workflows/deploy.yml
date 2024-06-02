@@ -25,6 +25,12 @@ jobs:
 
             - name: Copy production branch to Lightsail
               run: rsync -avz -e '$SSH_COMMAND' ./* ubuntu@$LIGHTSAIL_IP_ADDRESS:/home/ubuntu/lightsail_temp/
+
+            - name: Source secrets
+              run: |
+                $SSH_COMMAND 'cd $APP_DIRECTORY'
+                $SSH_COMMAND 'source .env.production'
+                $SSH_COMMAND 'sudo chmod 600 .env.production'
                   
             - name: Configure Nginx
               run: |
@@ -64,12 +70,6 @@ jobs:
               run: |
                 $SSH_COMMAND 'cd $APP_DIRECTORY'
                 $SSH_COMMAND 'pip3 install -r requirements.txt'
-
-            - name: Source secrets
-              run: |
-                $SSH_COMMAND 'cd $APP_DIRECTORY'
-                $SSH_COMMAND 'source .env.production'
-                $SSH_COMMAND 'sudo chmod 600 .env.production'
 
             - name: Create and initialize log files
               run: |

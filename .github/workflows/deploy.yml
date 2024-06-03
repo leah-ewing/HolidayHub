@@ -26,6 +26,9 @@ jobs:
               run: |
                 $SSH_COMMAND 'mkdir -p /home/ubuntu/lightsail_temp'
                 $SSH_COMMAND "git clone --single-branch --branch production ${{ secrets.REPOSITORY_NAME }} /home/ubuntu/lightsail_temp"
+            
+            - name: List contents of temporary directory
+              run: $SSH_COMMAND 'ls /home/ubuntu/lightsail_temp'
 
             - name: Stop current service
               run: |
@@ -36,8 +39,14 @@ jobs:
             - name: Remove files for replacement
               run: $SSH_COMMAND "cd $APP_DIRECTORY && find . -mindepth 1 ! -name 'encryption.py' ! -name '.env.production' ! -path './env*' ! -path './encryption*' ! -print0 | xargs -0 rm -rf"
 
+            - name: List contents of project directory | before copy
+              run: $SSH_COMMAND 'ls $APP_DIRECTORY'
+
             - name: Replace project files
               run: $SSH_COMMAND 'cp -r /home/ubuntu/lightsail_temp/* $APP_DIRECTORY'
+
+            - name: List contents of project directory | after copy
+              run: $SSH_COMMAND 'ls $APP_DIRECTORY'
 
             - name: Remove temp directory
               run: $SSH_COMMAND 'rm -rf /home/ubuntu/lightsail_temp'
@@ -46,7 +55,7 @@ jobs:
               run: $SSH_COMMAND "chown -R ubuntu:ubuntu ${APP_DIRECTORY}"
 
             - name: Activate virtual environment
-              run: $SSH_COMMAND 'cd $APP_DIRECTORY && source env/bin/activate'
+              run: $SSH_COMMAND 'cd $APP_DIRECTORY && pwd && source env/bin/activate'
 
             - name: Install dependencies
               run: $SSH_COMMAND 'cd $APP_DIRECTORY && pip3 install -r requirements.txt'

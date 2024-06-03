@@ -39,7 +39,7 @@ jobs:
 
             - name: Stop current service
               run: |
-                $SSH_COMMAND "cd $APP_DIRECTORY && if sudo systemctl is-active --quiet app.service; then
+                $SSH_COMMAND "cd /etc/systemd/system/ && if sudo systemctl is-active --quiet app.service; then
                   sudo systemctl stop app.service
                 fi"
 
@@ -50,10 +50,13 @@ jobs:
             #   run: $SSH_COMMAND "cp -r /home/ubuntu/lightsail_temp/* $APP_DIRECTORY"
 
             # - name: Remove temp directory
-            #   run: $SSH_COMMAND 'rm -rf /home/ubuntu/lightsail_temp'
+            #   run: $SSH_COMMAND "rm -rf /home/ubuntu/lightsail_temp"
 
             # - name: Set file permissions
             #   run: $SSH_COMMAND "chown -R ubuntu:ubuntu ${APP_DIRECTORY}"
+
+            - name: Move service file
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && sudo mv app.service /etc/systemd/system/ && sudo systemctl daemon-reload"
 
             # - name: Install requirements
             #   run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && pip3 install -r requirements.txt"
@@ -68,11 +71,11 @@ jobs:
                   sleep 1
                 done
 
-            - name: Seed database
-              run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.production && python3 database/seed_database.py"
+            # - name: Seed database
+            #   run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.production && python3 database/seed_database.py"
 
-            - name: Restart cron jobs
-              run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.production && python3 jobs/run_jobs.py"
+            # - name: Restart cron jobs
+            #   run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.production && python3 jobs/run_jobs.py"
 
             - name: Restart the service
               run: |

@@ -1,4 +1,4 @@
-name: Deploy HolidayHub to Lightsail
+name: Deploy to Lightsail
 
 on:
   push:
@@ -8,10 +8,21 @@ on:
 env:
     SSH_COMMAND: ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.LIGHTSAIL_IP_ADDRESS }}
     APP_DIRECTORY: /home/ubuntu/HolidayHub/
+    
 
 jobs:
     deploy:
         runs-on: ubuntu-latest
+
+        services:
+            postgres:
+              image: postgres:latest
+              env:
+                POSTGRES_DB: ${{ secrets.PROD_DB_NAME }}
+                POSTGRES_USER: ${{ secrets.PROD_DB_USERNAME }}
+                POSTGRES_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
+              ports:
+                - 5432:5432
     
         steps:
             - name: Checkout code
@@ -45,12 +56,19 @@ jobs:
             - name: Set file permissions
               run: $SSH_COMMAND "chown -R ubuntu:ubuntu ${APP_DIRECTORY}"
 
-            - name: Install requirements
-              run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && pip3 install -r requirements.txt"
+            # - name: Install requirements
+            #   run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && pip3 install -r requirements.txt"
 
             - name: Create and initialize log files
               run: $SSH_COMMAND "cd $APP_DIRECTORY && touch errors/error_log.json && echo '[]' > errors/error_log.json && touch jobs/jobs_log.json && echo '[]' > jobs/jobs_log.json"
 
+            - name: Start Postgres service
+              run: |
+                until pg_isready -h localhost -p 5432; do
+                  echo "Waiting for PostgreSQL to start..."
+                  sleep 1
+                done
+                
             - name: Seed database
               run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.production && python3 database/seed_database.py"
 

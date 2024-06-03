@@ -22,6 +22,11 @@ jobs:
               with:
                 ssh-private-key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
 
+            - name: Copy production branch to Lightsail temp directory
+              run: |
+                $SSH_COMMAND 'mkdir -p /home/ubuntu/lightsail_temp'
+                $SSH_COMMAND "git clone --single-branch --branch production ${{ secrets.REPOSITORY_NAME }} /home/ubuntu/lightsail_temp"
+
             - name: Stop current service
               run: |
                 $SSH_COMMAND 'cd $APP_DIRECTORY && if sudo systemctl is-active --quiet app.service; then
@@ -31,8 +36,14 @@ jobs:
             - name: Remove files for replacement
               run: $SSH_COMMAND "cd $APP_DIRECTORY && find . -mindepth 1 ! -name 'encryption.py' ! -name '.env.production' ! -path './env*' ! -path './encryption*' ! -print0 | xargs -0 rm -rf"
 
-            - name: Copy production branch to Lightsail instance
-              run: $SSH_COMMAND "git clone --single-branch --branch production ${{ secrets.REPOSITORY_NAME }} $APP_DIRECTORY"
+            - name: Replace project files
+              run: $SSH_COMMAND 'cp -r /home/ubuntu/lightsail_temp/* $APP_DIRECTORY'
+
+            - name: Remove temp directory
+              run: $SSH_COMMAND 'rm -rf /home/ubuntu/lightsail_temp'
+
+            - name: Set file permissions
+              run: $SSH_COMMAND "chown -R ubuntu:ubuntu ${APP_DIRECTORY}"
 
             - name: Activate virtual environment
               run: $SSH_COMMAND 'cd $APP_DIRECTORY && source env/bin/activate'

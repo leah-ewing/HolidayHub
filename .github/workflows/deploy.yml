@@ -29,15 +29,12 @@ jobs:
 
             - name: Stop current service
               run: |
-                $SSH_COMMAND 'cd $APP_DIRECTORY'
-                $SSH_COMMAND 'if sudo systemctl is-active --quiet app.service; then
+                $SSH_COMMAND 'cd $APP_DIRECTORY && if sudo systemctl is-active --quiet app.service; then
                   sudo systemctl stop app.service
                 fi'
 
             - name: Remove files for replacement
-              run: |
-                $SSH_COMMAND 'cd $APP_DIRECTORY'
-                $SSH_COMMAND "find . -mindepth 1 ! -name 'encryption.py' ! -name '.env.production' ! -path './env*' ! -path './encryption*' ! -print0 | xargs -0 rm -rf" ## copy all these files manually onto the lightsail instance from local machine
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && find . -mindepth 1 ! -name 'encryption.py' ! -name '.env.production' ! -path './env*' ! -path './encryption*' ! -print0 | xargs -0 rm -rf"
 
             - name: Replace project files
               run: $SSH_COMMAND 'cp -r /home/ubuntu/lightsail_temp/* $APP_DIRECTORY'
@@ -49,39 +46,25 @@ jobs:
               run: $SSH_COMMAND 'chown -R ubuntu:ubuntu $APP_DIRECTORY'
 
             - name: Activate virtual environment
-              run: |
-                $SSH_COMMAND 'cd $APP_DIRECTORY'
-                $SSH_COMMAND 'source env/bin/activate'
+              run: $SSH_COMMAND 'cd $APP_DIRECTORY && source env/bin/activate'
 
             - name: Install dependencies
-              run: |
-                $SSH_COMMAND 'cd $APP_DIRECTORY'
-                $SSH_COMMAND 'pip3 install -r requirements.txt'
+              run: $SSH_COMMAND 'cd $APP_DIRECTORY && pip3 install -r requirements.txt'
 
             - name: Source secrets
-              run: |
-                $SSH_COMMAND 'cd $APP_DIRECTORY'
-                $SSH_COMMAND 'source .env.production'
+              run: $SSH_COMMAND 'cd $APP_DIRECTORY && source .env.production'
 
             - name: Create and initialize log files
-              run: |
-                $SSH_COMMAND 'cd $APP_DIRECTORY'
-                $SSH_COMMAND 'touch errors/error_log.json && echo "[]" > errors/error_log.json'
-                $SSH_COMMAND 'touch jobs/jobs_log.json && echo "[]" > jobs/jobs_log.json'
+              run: $SSH_COMMAND 'cd $APP_DIRECTORY && touch errors/error_log.json && echo "[]" > errors/error_log.json && touch jobs/jobs_log.json && echo "[]" > jobs/jobs_log.json'
 
             - name: Seed database
-              run: |
-                $SSH_COMMAND 'cd $APP_DIRECTORY'
-                $SSH_COMMAND 'python3 database/seed_database.py'
+              run: $SSH_COMMAND 'cd $APP_DIRECTORY && python3 database/seed_database.py'
 
             - name: Restart cron jobs
-              run: |
-                $SSH_COMMAND 'cd $APP_DIRECTORY'
-                $SSH_COMMAND 'python3 jobs/run_jobs.py'
+              run: $SSH_COMMAND 'cd $APP_DIRECTORY && python3 jobs/run_jobs.py'
 
             - name: Restart the service
               run: |
-                $SSH_COMMAND 'cd $APP_DIRECTORY'
-                $SSH_COMMAND 'deactivate'
+                $SSH_COMMAND 'cd $APP_DIRECTORY && deactivate'
                 $SSH_COMMAND 'sudo systemctl daemon-reload'
-                $SSH_COMMAND 'sudo systemctl start app.service'
+                $SSH_COMMAND 'cd $APP_DIRECTORY && sudo systemctl start app.service'

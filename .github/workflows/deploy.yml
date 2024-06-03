@@ -9,7 +9,6 @@ env:
     SSH_COMMAND: ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.LIGHTSAIL_IP_ADDRESS }}
     APP_DIRECTORY: /home/ubuntu/HolidayHub/
     
-
 jobs:
     deploy:
         runs-on: ubuntu-latest
@@ -44,23 +43,23 @@ jobs:
                   sudo systemctl stop app.service
                 fi"
 
-            - name: Remove files for replacement
-              run: $SSH_COMMAND "cd $APP_DIRECTORY && find . -mindepth 1 ! -name 'encryption.py' ! -name '.env.production' ! -path './env*' ! -path './encryption*' ! -print0 | xargs -0 rm -rf"
+            # - name: Remove files for replacement
+            #   run: $SSH_COMMAND "cd $APP_DIRECTORY && find . -mindepth 1 ! -name 'encryption.py' ! -name '.env.production' ! -path './env*' ! -path './encryption*' ! -print0 | xargs -0 rm -rf"
 
-            - name: Replace project files
-              run: $SSH_COMMAND "cp -r /home/ubuntu/lightsail_temp/* $APP_DIRECTORY"
+            # - name: Replace project files
+            #   run: $SSH_COMMAND "cp -r /home/ubuntu/lightsail_temp/* $APP_DIRECTORY"
 
             # - name: Remove temp directory
             #   run: $SSH_COMMAND 'rm -rf /home/ubuntu/lightsail_temp'
 
-            - name: Set file permissions
-              run: $SSH_COMMAND "chown -R ubuntu:ubuntu ${APP_DIRECTORY}"
+            # - name: Set file permissions
+            #   run: $SSH_COMMAND "chown -R ubuntu:ubuntu ${APP_DIRECTORY}"
 
             # - name: Install requirements
             #   run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && pip3 install -r requirements.txt"
 
-            - name: Create and initialize log files
-              run: $SSH_COMMAND "cd $APP_DIRECTORY && touch errors/error_log.json && echo '[]' > errors/error_log.json && touch jobs/jobs_log.json && echo '[]' > jobs/jobs_log.json"
+            # - name: Create and initialize log files
+            #   run: $SSH_COMMAND "cd $APP_DIRECTORY && touch errors/error_log.json && echo '[]' > errors/error_log.json && touch jobs/jobs_log.json && echo '[]' > jobs/jobs_log.json"
 
             - name: Start Postgres service
               run: |
@@ -68,7 +67,7 @@ jobs:
                   echo "Waiting for PostgreSQL to start..."
                   sleep 1
                 done
-                
+
             - name: Seed database
               run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.production && python3 database/seed_database.py"
 

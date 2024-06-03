@@ -43,7 +43,7 @@ jobs:
               run: $SSH_COMMAND 'rm -rf /home/ubuntu/lightsail_temp'
 
             - name: Set file permissions
-              run: $SSH_COMMAND 'chown -R ubuntu:ubuntu $APP_DIRECTORY'
+              run: $SSH_COMMAND "chown -R ubuntu:ubuntu ${APP_DIRECTORY}"
 
             - name: Activate virtual environment
               run: $SSH_COMMAND 'cd $APP_DIRECTORY && source env/bin/activate'

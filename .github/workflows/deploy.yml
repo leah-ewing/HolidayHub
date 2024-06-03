@@ -45,26 +45,16 @@ jobs:
             - name: Set file permissions
               run: $SSH_COMMAND "chown -R ubuntu:ubuntu ${APP_DIRECTORY}"
 
-            - name: Activate virtual environment
-              run: $SSH_COMMAND "cd $APP_DIRECTORY && pwd && source env/bin/activate"
-
-            - name: Install dependencies
-              run: $SSH_COMMAND "cd $APP_DIRECTORY && pip3 install -r requirements.txt"
-
-            - name: Source secrets
-              run: $SSH_COMMAND "cd $APP_DIRECTORY && source .env.production"
+            - name: Configure app
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && pip3 install -r requirements.txt && source .env.production && python3 database/seed_database.py"
 
             - name: Create and initialize log files
               run: $SSH_COMMAND "cd $APP_DIRECTORY && touch errors/error_log.json && echo '[]' > errors/error_log.json && touch jobs/jobs_log.json && echo '[]' > jobs/jobs_log.json"
-
-            - name: Seed database
-              run: $SSH_COMMAND "cd $APP_DIRECTORY && python3 database/seed_database.py"
 
             - name: Restart cron jobs
               run: $SSH_COMMAND "cd $APP_DIRECTORY && python3 jobs/run_jobs.py"
 
             - name: Restart the service
               run: |
-                $SSH_COMMAND "cd $APP_DIRECTORY && deactivate"
                 $SSH_COMMAND "sudo systemctl daemon-reload"
                 $SSH_COMMAND "cd $APP_DIRECTORY && sudo systemctl start app.service"

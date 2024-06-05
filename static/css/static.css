@@ -678,6 +678,7 @@ button:focus,
     font-size: 28px;
     font-weight: 600;
     line-height: 40px;
+    padding-left: 30px;
 }
 
 #calendar-view-nav-buttons {
@@ -1023,6 +1024,10 @@ button:focus,
 @media only screen and (max-width: 991px) {
     .calendar-title {
         margin-top: 35px;
+    }
+
+    #calendar-view-nav-buttons-col button {
+        font-size: 20px;
     }
 }
 

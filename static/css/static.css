@@ -102,7 +102,7 @@ button:focus,
 }
 
 .brightened-image {
-    filter: brightness(105%)
+    filter: brightness(105%);
 }
 
 .sized-image {
@@ -146,6 +146,7 @@ button:focus,
         color: var(--dark-purple);
         text-decoration: none;
         margin-right: 10px;
+        font-size: 23px;
     }
 
     #phone-navlinks a:hover {
@@ -529,13 +530,18 @@ button:focus,
 
 @media only screen and (max-width: 695px) {
     #invalid-email-inner-row {
-        font-size: 50px;
-        line-height: 55px;
-        margin-top: 25px;
+        font-size: 300%;
+        line-height: 45px;
+        margin-top: 30px;
     }
 
     #invalid-email-outer-row {
         max-height: 75%;
+    }
+
+    #invalid-email-buttons button,
+    #duplicate-email-buttons button {
+        font-size: 20px;
     }
 
     #duplicate-email-text,
@@ -592,15 +598,21 @@ button:focus,
 #calendar-outer-row {
     justify-content: top;
     padding-left: 25px;
-    padding-right: 25px;
     padding-bottom: 50px;
+    padding-right: 0px;
 }
 
 #calendar-inner-row {
     margin-top: 5px;
-    padding: 25px;
+    /* padding: 25px; */
+    padding-right: 15px;
+    padding-left: 0px;
+    padding-top: 25px;
+    margin-left: 0px;
+    margin-right: 25px;
     max-width: 75%;
     place-content: center;
+    padding-bottom: 25px;
 }
 
 #calendar-col {
@@ -629,12 +641,14 @@ button:focus,
 .calendar {
     height: max-content;
     background-color: var(--bg-main);
-    padding: 20px;
+    padding: 15px;
     position: relative;
     overflow: hidden;
     background-color: var(--calendar-pink);
     width: 600px;
     height: 625px;
+    margin-right: -25px;
+    padding-right: 25px;
 }
 
 .calendar-header {
@@ -1137,12 +1151,17 @@ button:focus,
 @media only screen and (max-width: 695px) {
     .popup-window {
         width: 400px;
+        max-width: 95vw;
         height: 375px;
     }
 
     .popup-outer-row {
-        max-height: 90%;
+        max-height: 80%;
         padding-bottom: 25px;
+    }
+
+    .share-button {
+        font-size: 23px;
     }
 
     #share-popup-window-text text {
@@ -1158,7 +1177,9 @@ button:focus,
     }
 
     #thank-you-for-sharing-text {
-        margin-top: 15px;
+        padding-top: 10px;
+        margin-top: 45px;
+        line-height: 55px;
     }
 
     #enter-email-outer-row {
@@ -1167,11 +1188,6 @@ button:focus,
 
     #enter-credentials-text {
         display: none;
-    }
-
-    #email-form input {
-        max-width: 275px;
-        margin-bottom: -20px;
     }
 
     #submit-email-buttons {
@@ -1255,34 +1271,30 @@ button:focus,
 }
 
 .orange-flower-1 {
-    position: fixed;
-    margin-left: 10px;
-    margin-top: 10px;
+    position: absolute;
+    left: 2%;
+    top: 2%;
+    width: 20%;
 }
 
 .orange-flower-2 {
-    position: fixed;
-    margin-left: 490px;
-    margin-top: 330px;
+    position: absolute;
+    margin-right: 10px;
+    bottom: 23%;
+    right: -5px;
+    width: 10%;
 }
 
 .purple-flower-1 {
-    position: fixed;
-    margin-left: 460px;
-    margin-top: 385px;
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    width: 15%;
 }
 
 @media only screen and (max-width: 695px) {
-    .orange-flower-2 {
-        position: absolute;
-        margin-left: 340px;
-        margin-top: 250px;
-    }
-    
-    .purple-flower-1 {
-        position: absolute;
-        margin-left: 285px;
-        margin-top: 290px;
+    .x-close{
+        font-size: 20px;
     }
 }
 
@@ -1361,15 +1373,17 @@ button:focus,
     line-height: 25px;
     text-shadow: var(--thin-text-shadow);
     background: var(--white-more-opaque-popup);
+    text-align: center;
+    padding-top: 20px;
 }
 
 #add-email input {
     font-size: 25px;
-    width: 300px;
+    width: 100%;
+    max-width: 100%;
     height: 35px;
     max-height: 35px;
     color: var(--light-purple);
-    margin-left: 15px;
     padding-left: 10px;
 }
 
@@ -2054,9 +2068,21 @@ button:focus,
     color: var(--light-purple); 
 }
 
+#link-phone {
+    visibility: hidden;
+}
+
 @media only screen and (max-width: 991px) {
     #footer {
         margin-top: -100px;
+    }
+
+    #link-browser {
+        visibility: hidden;
+    }
+
+    #link-phone {
+        visibility: visible;
     }
 }
 
@@ -2068,7 +2094,7 @@ button:focus,
     font-family: var(--main-font);
     color: var(--dark-purple);
     letter-spacing: -4px;
-    font-size: 100px;
+    font-size: 675%;
     line-height: 100px;
 }
 
@@ -2091,12 +2117,15 @@ button:focus,
 #password-form label {
     margin-bottom: 5px;
     font-size: 50px;
+    line-height: 40px;
+    padding-bottom: 25px;
 }
 
 #password-form input {
     margin-bottom: 15px;
     width: 400px;
     text-align: center;
+    margin-left: 10px;
 }
 
 #password-form button {
@@ -2120,12 +2149,12 @@ button:focus,
     }
 
     #welcome-text {
-        font-size: 75px;
-        line-height: 65px;
+        font-size: 65px;
+        line-height: 55px;
     }
 
     #welcome-text span {
-        font-size: 65px;
+        font-size: 55px;
     }
 
     #password-form {
@@ -2133,8 +2162,12 @@ button:focus,
     }
 
     #password-form label {
-        font-size: 40px;
-        margin-bottom: -5px;
+        font-size: 30px;
+        margin-bottom: -20px;
+    }
+
+    #password-form input {
+        max-width: 250px;
     }
 }
 

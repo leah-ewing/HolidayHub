@@ -32,10 +32,10 @@ jobs:
               with:
                 ssh-private-key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
 
-            # - name: Clone production branch to Lightsail temp directory
-            #   run: |
-            #     $SSH_COMMAND "mkdir -p /home/ubuntu/lightsail_temp"
-            #     $SSH_COMMAND "git clone --single-branch --branch production ${{ secrets.REPOSITORY_NAME }} /home/ubuntu/lightsail_temp"
+            - name: Clone production branch to Lightsail temp directory
+              run: |
+                $SSH_COMMAND "mkdir -p /home/ubuntu/lightsail_temp"
+                $SSH_COMMAND "git clone --single-branch --branch production ${{ secrets.REPOSITORY_NAME }} /home/ubuntu/lightsail_temp"
 
             - name: Stop current service
               run: |
@@ -43,26 +43,26 @@ jobs:
                   sudo systemctl stop app.service
                 fi"
 
-            # - name: Remove files for replacement
-            #   run: $SSH_COMMAND "cd $APP_DIRECTORY && find . -mindepth 1 ! -name 'encryption.py' ! -name '.env.production' ! -path './env*' ! -path './encryption*' ! -print0 | xargs -0 rm -rf"
+            - name: Remove files for replacement
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && find . -mindepth 1 ! -name 'encryption.py' ! -name '.env.production' ! -path './env*' ! -path './encryption*' ! -print0 | xargs -0 rm -rf"
 
-            # - name: Replace project files
-            #   run: $SSH_COMMAND "cp -r /home/ubuntu/lightsail_temp/* $APP_DIRECTORY"
+            - name: Replace project files
+              run: $SSH_COMMAND "cp -r /home/ubuntu/lightsail_temp/* $APP_DIRECTORY"
 
-            # - name: Remove temp directory
-            #   run: $SSH_COMMAND "rm -rf /home/ubuntu/lightsail_temp"
+            - name: Remove temp directory
+              run: $SSH_COMMAND "rm -rf /home/ubuntu/lightsail_temp"
 
-            # - name: Set file permissions
-            #   run: $SSH_COMMAND "chown -R ubuntu:ubuntu ${APP_DIRECTORY}"
+            - name: Set file permissions
+              run: $SSH_COMMAND "chown -R ubuntu:ubuntu ${APP_DIRECTORY}"
 
             - name: Move service file
               run: $SSH_COMMAND "cd $APP_DIRECTORY && sudo mv app.service /etc/systemd/system/ && sudo systemctl daemon-reload"
 
-            # - name: Install requirements
-            #   run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && pip3 install -r requirements.txt"
+            - name: Install requirements
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && pip3 install -r requirements.txt"
 
-            # - name: Create and initialize log files
-            #   run: $SSH_COMMAND "cd $APP_DIRECTORY && touch errors/error_log.json && echo '[]' > errors/error_log.json && touch jobs/jobs_log.json && echo '[]' > jobs/jobs_log.json"
+            - name: Create and initialize log files
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && touch errors/error_log.json && echo '[]' > errors/error_log.json && touch jobs/jobs_log.json && echo '[]' > jobs/jobs_log.json"
 
             - name: Start Postgres service
               run: |
@@ -71,11 +71,11 @@ jobs:
                   sleep 1
                 done
 
-            # - name: Seed database
-            #   run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.production && python3 database/seed_database.py"
+            - name: Seed database
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.production && python3 database/seed_database.py"
 
-            # - name: Restart cron jobs
-            #   run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.production && python3 jobs/run_jobs.py"
+            - name: Restart cron jobs
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.production && python3 jobs/run_jobs.py"
 
             - name: Restart the service
               run: |

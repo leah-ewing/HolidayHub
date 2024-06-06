@@ -1,6 +1,6 @@
 """Script to seed database."""
 
-import os, sys, json
+import os, sys, json, sqlalchemy
 
 root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_directory)
@@ -12,8 +12,9 @@ from model import db
 DB_NAME = os.environ['DB_NAME']
 DB_URI = os.environ['DB_URI']
 
-os.system(f'dropdb {DB_NAME}')
-os.system(f'createdb {DB_NAME}')
+## Uncomment if initiating db or need to also wipe Email table:
+# os.system(f'dropdb {DB_NAME}')
+# os.system(f'createdb {DB_NAME}')
 
 app = create_app(DB_URI)
 
@@ -33,6 +34,28 @@ with app.app_context():
             "october",
             "november",
             "december"]
+    
+
+    def reset_sequence(table_name):
+        """ Resets primary key sequence for a table """
+
+        command = sqlalchemy.sql.text(f"SELECT setval(pg_get_serial_sequence('{table_name}', '{table_name}_id'), 1, false);")
+        db.session.execute(command)
+        db.session.commit()
+
+
+    def reset_db():
+        """ Resets database (leaves Email table)"""
+
+        tables = ['monthly_holiday', 'holiday', 'month']
+
+        for table in tables:
+            command = sqlalchemy.sql.text(f'DELETE FROM {table}')
+            db.session.execute(command)
+            reset_sequence(table)
+            db.session.commit()
+
+        db.session.rollback()
 
 
     def seed_months():
@@ -91,6 +114,7 @@ with app.app_context():
                 crud.create_monthly_holiday(monthly_holiday_name, monthly_holiday_month)
 
 
+    reset_db() ## Comment if initiating db or need to also wipe Email table
     seed_months()
     seed_daily_holidays()
     seed_monthly_holidays()

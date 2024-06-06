@@ -1117,6 +1117,7 @@ button:focus,
     font-style: italic;
     font-size: 20px;
     margin-top: -10px;
+    line-height: 18px;
 }
 
 #slideshow-holiday-name {
@@ -1436,7 +1437,8 @@ button:focus,
     height: 35px;
     max-height: 35px;
     color: var(--light-purple);
-    margin-left: 50px;
+    margin-left: 55px;
+    text-align: center;
 }
 
 #add-email label {

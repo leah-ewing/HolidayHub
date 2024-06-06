@@ -694,6 +694,7 @@ button:focus,
     text-align: center;
     height: fit-content;
     line-height: 50px;
+    padding-left: 10px;
 }
 
 #monthly-holiday-list {
@@ -957,7 +958,6 @@ button:focus,
     }
 
     #monthly-holiday-list {
-        margin-bottom: -25px;
         width: fit-content;
     }
 
@@ -986,6 +986,10 @@ button:focus,
         padding: 10px;
         width: 30px;
         height: 30px;
+    }
+
+    .calendar-week-day div {
+        font-size: 20px;
     }
     
     .month-picker {
@@ -1046,11 +1050,6 @@ button:focus,
     #calendar-view-nav-buttons-col button {
         font-size: 20px;
     }
-
-
-    .calendar-week-day div {
-        font-size: 25px;
-    }
 }
 
 @media only screen and (max-width: 679px) {
@@ -1064,19 +1063,20 @@ button:focus,
         width: 22px;
         height: 22px;
         font-size: 15px;
+        margin-left: 10px;
     }
     
     .year-picker {
         margin-left: 30px;
     } 
 
-    .calendar-week-day div {
-        margin: 5.2px;
+    #calendar-week-day div {
+        margin-left: 11px;
     }
 
-    .calendar {
+    /* .calendar {
         margin-bottom: 45px;
-    }
+    } */
 }
 
 

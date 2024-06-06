@@ -145,7 +145,7 @@ class TestServer(unittest.TestCase):
             client = app.test_client()
             response = client.get(f'/search-results/{search_term}/{page}/')
 
-            assert b'No Results Found For:' in response.data
+            assert b'No Results For:' in response.data
             assert b'sdfaf' in response.data
 
         

@@ -510,7 +510,6 @@ button:focus,
         display: inline-block;
         text-align: center;
         padding: 25px;
-        max-width: 95%;
     }
 
     #phone-blurb {
@@ -520,7 +519,7 @@ button:focus,
     }
 
     .holiday-image {
-        max-width: 43vw;
+        max-width: 60vw;
     }
 
     #holiday-buttons-div {
@@ -561,6 +560,17 @@ button:focus,
     #thank-you-email-outer-row {
         margin-top: -25px;
         max-height: 65%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #previous-date-button,
+    #next-date-button {
+        font-size: 22px;
+    }
+
+    #next-date-button {
+        margin-left: -3px;
     }
 }
 
@@ -1847,7 +1857,7 @@ button:focus,
 #password-inner-row {
     display: flex;
     place-items: center;
-    max-width: 80%;
+    max-width: 95%;
 }
 
 #unsubscribe-text-row-1 {
@@ -1855,7 +1865,7 @@ button:focus,
     font-family: var(--title-font);
     font-size: 80px;
     text-shadow: var(--thin-text-shadow);
-    margin-bottom: -25px;
+    padding-top: 25px;
 }
 
 #unsubscribe-text-row-2 {
@@ -1882,30 +1892,38 @@ button:focus,
 @media only screen and (max-width: 970px) {
     #unsubscribe-text-row-1 {
         font-size: 50px;
+        line-height: 45px;
     }
 
     #unsubscribe-text-row-2 {
         margin-top: 15px;
         font-size: 40px;
+        line-height: 40px;
+        margin-bottom: 25px;
     }
 
     #unsubscribe-text-row-3 {
-        margin-bottom: -30px;
+        margin-bottom: -15px;
     }
 }
 
 @media only screen and (max-width: 663px) {
     #unsubscribe-text-row-1 {
         font-size: 40px;
+        line-height: 40px;
+        padding-left: 30px;
     }
 
     #unsubscribe-text-row-2 {
-        font-size: 35px;
+        font-size: 23px;
+        line-height: 30px;
+        padding-left: 30px;
     }
 
     #unsubscribe-text-row-3 {
         margin-bottom: -30px;
         font-size: 18px;
+        padding-left: 30px;
     }
 
     #unsubscribe-inner-row {
@@ -1919,6 +1937,8 @@ button:focus,
 
 #error-image-col {
     max-width: 40%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #error-image {
@@ -1966,6 +1986,7 @@ button:focus,
     #oh-no {
         font-size: 100px;
         margin-bottom: -20px;
+        line-height: 50px;
     }
 
     #oh-no-text {
@@ -1978,14 +1999,19 @@ button:focus,
 @media only screen and (max-width: 1118px) {
 
     #oh-no {
-        font-size: 80px;
-        margin-bottom: -20px;
+        font-size: 60px;
+        margin-bottom: -50px;
+        line-height: 75px;
     }
 
     #oh-no-text {
-        font-size: 40px;
-        line-height: 35px;
-        margin-bottom: -20px;
+        font-size: 30px;
+        line-height: 25px;
+        margin-top: 0px;
+    }
+
+    #back-to-homepage-error {
+        font-size: 17px;
     }
 }
 
@@ -2156,6 +2182,7 @@ button:focus,
     #welcome-text {
         font-size: 65px;
         line-height: 55px;
+        padding-left: 8px;
     }
 
     #welcome-text span {

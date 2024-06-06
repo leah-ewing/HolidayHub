@@ -10,24 +10,30 @@
         <div class="search-results-page-container grid-center width-100">
 
             {% if results_count == 0 %}
+
                 <div class="row width-100 grid-center outer-row outer-row-search-results" id="outer-row-no-results">
-                    <div class="row inner-row" id="inner-row-no-results">
+
+                    <!-- <div class="row inner-row" id="inner-row-no-results">
                         <div class="pink-text grid-center" id="no-results-text">
                             <text>
                                 No Results Found For: <b>"{{search_term}}"</b>
                             </text>
                         </div>
-                    </div>
+                    </div> -->
+                    
                 </div>
+
             {% else %}
                 <div class="row width-100 grid-center outer-row outer-row-search-results" id="outer-row-results">
-                    <div class="row inner-row" id="inner-row-results">
-                        <div class="pink-text grid-center" id="search-results-text">
+
+                    <!-- <div class="row inner-row" id="inner-row-results"> -->
+                        <!-- <div class="pink-text grid-center" id="search-results-text">
                             <text>
                                 {{results_count}} Results For: <b>"<span id="search-term">{{search_term}}</span>"</b>
                             </text>
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
+
                 </div>
                 <div class="row width-100 outer-row" id="search-result-outer-row">
                     <div class="grid-center" id="search-results-list">

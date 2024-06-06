@@ -13,26 +13,26 @@
 
                 <div class="row width-100 grid-center outer-row outer-row-search-results" id="outer-row-no-results">
 
-                    <!-- <div class="row inner-row" id="inner-row-no-results">
+                    <div class="row inner-row" id="inner-row-no-results">
                         <div class="pink-text grid-center" id="no-results-text">
                             <text>
-                                No Results Found For: <b>"{{search_term}}"</b>
+                                No Results For: <b>"{{search_term}}"</b>
                             </text>
                         </div>
-                    </div> -->
+                    </div>
                     
                 </div>
 
             {% else %}
                 <div class="row width-100 grid-center outer-row outer-row-search-results" id="outer-row-results">
 
-                    <!-- <div class="row inner-row" id="inner-row-results"> -->
-                        <!-- <div class="pink-text grid-center" id="search-results-text">
+                    <div class="row inner-row" id="inner-row-results">
+                        <div class="pink-text grid-center" id="search-results-text">
                             <text>
                                 {{results_count}} Results For: <b>"<span id="search-term">{{search_term}}</span>"</b>
                             </text>
-                        </div> -->
-                    <!-- </div> -->
+                        </div>
+                    </div>
 
                 </div>
                 <div class="row width-100 outer-row" id="search-result-outer-row">
@@ -43,13 +43,12 @@
                                 <text class="search-result-name" id="search-result-name-{{search_result.result_num}}" href="/{{search_result.holiday_name}}">
                                     {{search_result.holiday_name}}
                                 </text>
-                                <div class="row">
+                                <div class="row width-100" id="holiday-image-row">
                                     <div class="col grid-center" id="search-result-image">
                                         <a href="/{{search_result.holiday_name}}">
                                             <div class="image-container">
                                                 <img
                                                     src = "{{search_result.holiday_img}}"
-                                                    width = 200,
                                                     id = "search-result-img",
                                                     class = "brightened-image">
                                                 </img>

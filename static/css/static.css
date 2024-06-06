@@ -459,6 +459,10 @@ button:focus,
     display: none;
 }
 
+/* #phone-linebreak {
+    display: none;
+} */
+
 @media only screen and (max-width: 991px) {
     #holiday-outer-row {
         margin-top: -25px;
@@ -524,6 +528,15 @@ button:focus,
 
     #holiday-buttons-div {
         line-height: 60px;
+    }
+
+    /* #phone-linebreak {
+        display: block;
+    } */
+
+    #back-to-homepage-from-random,
+    #another-random-holiday {
+        font-size: 15px;
     }
 }
 
@@ -1466,29 +1479,19 @@ button:focus,
 
 /* Search Results Page */
 .outer-row-search-results {
-    margin-top: 85px;
-}
-
-#inner-row-no-results {
-    width: 90%;
-    margin: 40px;
-}
-
-@media only screen and (max-width: 991px) {
-    #outer-row-no-results {
-        margin-top: 40px;
-        line-height: 70px;
-        text-align: center;
-    }
+    margin-top: 25px;
+    padding: 25px;
 }
 
 #no-results-text {
-    font-size: 75px;
+    font-size: 340%;
     font-weight: 700;
     padding-top: 10px;
     padding-bottom: 65px;
     text-shadow: var(--thin-text-shadow);
     margin-top: 50px;
+    line-height: 50px;
+    text-align: center;
 }
 
 #no-results-text b {
@@ -1498,15 +1501,13 @@ button:focus,
 }
 
 #inner-row-results {
-    width: 57%;
-    margin: 40px;
     height: fit-content;
     padding: 25px;
     text-align: center;
 }
 
 #search-results-text {
-    font-size: 60px;
+    font-size: 340%;
     font-weight: 700;
     text-shadow: var(--thin-text-shadow);
     line-height: 50px;
@@ -1516,16 +1517,6 @@ button:focus,
     font-weight: 600;
     font-style: italic;
     color: var(--dark-purple);
-}
-
-@media only screen and (max-width: 991px) {
-    #outer-row-results {
-        margin-top: 40px;
-    }
-
-    #inner-row-results {
-        width: 90%;
-    }
 }
 
 #search-results-buttons {
@@ -1603,10 +1594,6 @@ button:focus,
 }
 
 @media only screen and (max-width: 991px) {
-    .search-result {
-        width: 90%;
-    }
-
     .search-result-name {
         font-size: 28px;
         line-height: 27px;
@@ -1622,9 +1609,9 @@ button:focus,
     }
 }
 
-@media only screen and (max-width: 623px) {
+@media only screen and (max-width: 750px) {
     .search-result {
-        width: 110%;
+       width: 100%;
     }
 
     #search-result-date {
@@ -1635,10 +1622,11 @@ button:focus,
         font-size: 16px;
         line-height: 17px;
     }
+}
 
-    #search-result-img {
-        height: 130px;
-        width: 170px;
+@media only screen and (max-width: 623px) {
+    #search-result-image {
+        min-width: 100%;
     }
 }
 
@@ -2100,7 +2088,7 @@ button:focus,
 }
 
 #link-phone {
-    visibility: hidden;
+    display: none;
 }
 
 @media only screen and (max-width: 991px) {
@@ -2109,11 +2097,11 @@ button:focus,
     }
 
     #link-browser {
-        visibility: hidden;
+        display: none;
     }
 
     #link-phone {
-        visibility: visible;
+        display: block;
     }
 }
 

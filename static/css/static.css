@@ -627,10 +627,9 @@ button:focus,
 
 #calendar-inner-row {
     margin-top: 5px;
-    /* padding: 25px; */
     padding-right: 15px;
     padding-left: 0px;
-    padding-top: 25px;
+    padding-top: 15px;
     margin-left: 0px;
     margin-right: 25px;
     max-width: 75%;
@@ -715,7 +714,7 @@ button:focus,
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     font-weight: 600;
-    font-size: 25px;
+    font-size: 35px;
     font-style: italic;
     font-weight: 600;
 }
@@ -965,7 +964,6 @@ button:focus,
     .calendar {
         width: 350px;
         height: 450px;
-        margin-bottom: 45px;
     }
     
     #this-month {
@@ -988,10 +986,6 @@ button:focus,
         padding: 10px;
         width: 30px;
         height: 30px;
-    }
-
-    .calendar-week-day {
-        margin-left: 12px;
     }
     
     .month-picker {
@@ -1051,6 +1045,37 @@ button:focus,
 
     #calendar-view-nav-buttons-col button {
         font-size: 20px;
+    }
+
+
+    .calendar-week-day div {
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 679px) {
+    .calendar {
+        width: 300px;
+        height: 400px;
+        margin-bottom: 45px;
+    }
+
+    .calendar-days div {
+        width: 22px;
+        height: 22px;
+        font-size: 15px;
+    }
+    
+    .year-picker {
+        margin-left: 30px;
+    } 
+
+    .calendar-week-day div {
+        margin: 5.2px;
+    }
+
+    .calendar {
+        margin-bottom: 45px;
     }
 }
 

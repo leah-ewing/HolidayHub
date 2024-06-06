@@ -1432,12 +1432,11 @@ button:focus,
 
 #add-email input {
     font-size: 25px;
-    width: 100%;
-    max-width: 100%;
+    width: 350px;
     height: 35px;
     max-height: 35px;
     color: var(--light-purple);
-    padding-left: 10px;
+    margin-left: 50px;
 }
 
 #add-email label {
@@ -1449,6 +1448,11 @@ button:focus,
     #add-email {
         margin-top: 5px;
         padding-top: 10px;
+    }
+
+    #add-email input {
+        max-width: 235px;
+        margin-left: 35px;
     }
 }
 

@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, json
 from freezegun import freeze_time
 import unittest, pytest
 from ..test_db_config import seed_test_months, seed_test_holiday, seed_test_monthly_holidays, seed_test_emails, reset_test_db, app
@@ -26,12 +26,33 @@ class TestServer(unittest.TestCase):
 
             assert b'Homepage' in response.data
 
-    # @pytest.mark.slow ### pytest -m slow
+
     def test_get_homepage_holiday(self):
         """ Tests that the '/get-homepage-holiday' route returns a holiday for a given date to be displayed on the homepage """
-        pass
+        
+        with app.app_context():
+            reset_test_db()
+            seed_test_months()
+            seed_test_holiday()
 
-    # @pytest.mark.slow ### pytest -m slow
+            current_date = {'current_date': '2024-12-13'}
+
+            client = app.test_client()
+            response = client.post('/get-homepage-holiday',
+                                    data=json.dumps(current_date),
+                                    content_type='application/json')
+            
+            response_data = json.loads(response.data)
+
+            expected_response = {
+                                    'holiday_name': 'National Violin Day',
+                                    'holiday_img': 'test'
+                                }
+            
+            assert response_data == expected_response
+
+
+    @pytest.mark.slow ### pytest -m slow
     def test_get_password(self):
         """ Tests that the '/check-password' route should get the password input from the 'password-screen' form """
         pass

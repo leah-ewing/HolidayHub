@@ -47,7 +47,7 @@ def create_app(db_uri=None):
 
     @app.route('/get-homepage-holiday', methods = ['POST'])
     def get_homepage_holiday():
-        """ Gets a holiday for a given date to be displayed on the homepage """
+        """ Gets a holiday for the client's current date to be displayed on the homepage """
 
         current_date = request.json.get('current_date')
 

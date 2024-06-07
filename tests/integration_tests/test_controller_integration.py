@@ -10,6 +10,7 @@ from server import create_app
 import controller
 
 DEVELOPER = os.environ['DEVELOPER']
+TEST_USER_PASSWORD = os.environ['TEST_USER_PASSWORD']
 
 
 class TestController(unittest.TestCase):
@@ -29,7 +30,29 @@ class TestController(unittest.TestCase):
 
             assert controller.get_formatted_github_image_url(holiday.holiday_name) == expected_url
 
+    def test_check_valid_password_valid(self):
+        """ Checks if a given password is valid and should return True if valid """
+        
+        with app.app_context():
+            reset_test_db()
+
+            seed_test_months()
+            seed_test_holiday()
+
+            assert controller.check_valid_password(TEST_USER_PASSWORD) == True
+
+
+    def test_check_valid_password_invalid(self):
+        """ Checks if a given password is valid and should return False if invalid """
+        
+        with app.app_context():
+            reset_test_db()
+
+            seed_test_months()
+            seed_test_holiday()
+        
+            assert controller.check_valid_password('invalid_password') == False
+
 
 if __name__ == "__main__":
     unittest.main()
-    

@@ -15,7 +15,7 @@ ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']
 
 class TestCrud(unittest.TestCase):
 
-    @pytest.mark.slow ### pytest -m slow
+    # @pytest.mark.slow ### pytest -m slow
     def test_create_month(self):
         """ Should create a month and add it to the database """
 
@@ -98,6 +98,11 @@ class TestCrud(unittest.TestCase):
             assert MonthlyHoliday.query.first().monthly_holiday_name == monthly_holiday_name
             assert MonthlyHoliday.query.first().monthly_holiday_month == monthly_holiday_month
 
+    @pytest.mark.slow ### pytest -m slow
+    def test_update_holiday_name(self):
+        """ Should update a holiday's name """
+        pass
+
     
     def test_update_holiday_image(self):
         """ Should update a holiday's image """
@@ -148,6 +153,16 @@ class TestCrud(unittest.TestCase):
 
             assert Holiday.query.first().holiday_name == 'National Violin Day'
             assert Holiday.query.first().holiday_email == new_holiday_email
+
+    @pytest.mark.slow ### pytest -m slow
+    def test_update_holiday_date(self):
+        """ Should update the date for a given holiday """
+        pass
+
+    @pytest.mark.slow ### pytest -m slow
+    def test_remove_holiday(self):
+        """ Should remove a given holiday from the database """
+        pass
 
 
     def test_get_month_by_name(self):
@@ -238,6 +253,11 @@ class TestCrud(unittest.TestCase):
             db.session.commit()
 
             assert crud.get_random_holiday_on_date(12, 13, 'Test Holiday').holiday_name == 'National Violin Day'
+
+    @pytest.mark.slow ### pytest -m slow
+    def test_get_random_holiday(self):
+        """ Should return a random holiday from the database """
+        pass
 
     
     def test_get_month_by_number(self):

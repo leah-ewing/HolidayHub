@@ -84,7 +84,7 @@ def create_app(db_uri=None):
                 session.permanent = True
                 app.permanent_session_lifetime = timedelta(seconds=1)
 
-                return redirect('/password-login')
+                return redirect(request.referrer or '/password-login')
         
         except Exception as error:
             print(f'\n Error: {error} \n')
@@ -157,7 +157,7 @@ def create_app(db_uri=None):
 
     @app.route('/search-results/<search_term>/<page>/', methods = ["GET"])
     def show_search_results(search_term, page):
-        """ Checks if a search-term has any results and routes to the search-results page """
+        """ Checks if a search-term has any results and renders the search-results page """
 
         try:
             results_and_count = crud.get_search_results(search_term.lower())
@@ -201,7 +201,7 @@ def create_app(db_uri=None):
 
 
     @app.route('/calendar-view')
-    def calendarView():
+    def calendar_view():
         """ Routes to Calendar page """
 
         try:
@@ -450,7 +450,7 @@ def create_app(db_uri=None):
 
 
     @app.route('/error')
-    def errorPage():
+    def error_page():
         """ Directs the user to the error page """
 
         return render_template('error-page.html')

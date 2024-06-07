@@ -76,13 +76,15 @@ def create_app(db_uri=None):
                 session.permanent = True
                 app.permanent_session_lifetime = timedelta(minutes=5)
 
+                return redirect('/')
+
             else:
                 session['invalid_user'] = 'invalid_user'
 
                 session.permanent = True
                 app.permanent_session_lifetime = timedelta(seconds=1)
 
-            return redirect('/')
+                return redirect('/password-login')
         
         except Exception as error:
             print(f'\n Error: {error} \n')

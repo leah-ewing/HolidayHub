@@ -98,10 +98,22 @@ class TestCrud(unittest.TestCase):
             assert MonthlyHoliday.query.first().monthly_holiday_name == monthly_holiday_name
             assert MonthlyHoliday.query.first().monthly_holiday_month == monthly_holiday_month
 
-    @pytest.mark.slow ### pytest -m slow
+
     def test_update_holiday_name(self):
         """ Should update a holiday's name """
-        pass
+        with app.app_context():
+            reset_test_db()
+            seed_test_months()
+            seed_test_holiday()
+
+            new_holiday_name = 'National Egg Day'
+            test_holiday = Holiday.query.first()
+
+            assert test_holiday.holiday_name == 'National Violin Day'
+
+            crud.update_holiday_name(test_holiday.holiday_name, new_holiday_name)
+
+            assert test_holiday.holiday_name == new_holiday_name
 
     
     def test_update_holiday_image(self):
@@ -154,15 +166,45 @@ class TestCrud(unittest.TestCase):
             assert Holiday.query.first().holiday_name == 'National Violin Day'
             assert Holiday.query.first().holiday_email == new_holiday_email
 
-    @pytest.mark.slow ### pytest -m slow
+
     def test_update_holiday_date(self):
         """ Should update the date for a given holiday """
-        pass
+        with app.app_context():
+            reset_test_db()
+            seed_test_months()
+            seed_test_holiday()
 
-    @pytest.mark.slow ### pytest -m slow
+            test_holiday = Holiday.query.first()
+            new_holiday_date = 9
+
+            crud.update_holiday_date(test_holiday.holiday_name, new_holiday_date)
+
+            assert Holiday.query.first().holiday_name == 'National Violin Day'
+            assert Holiday.query.first().holiday_date == new_holiday_date
+
+
     def test_remove_holiday(self):
         """ Should remove a given holiday from the database """
-        pass
+        with app.app_context():
+            reset_test_db()
+            seed_test_months()
+            seed_test_holiday()
+
+            test_holiday = Holiday(holiday_name = 'Test Holiday', 
+                         holiday_month = 1, 
+                         holiday_date = 2, 
+                         holiday_img = 'test', 
+                         holiday_blurb = 'test', 
+                         holiday_email = 'test')
+            
+            db.session.add(test_holiday)
+            db.session.commit()
+
+            assert len(Holiday.query.all()) == 2
+
+            crud.remove_holiday(Holiday.query.first().holiday_name)
+
+            assert len(Holiday.query.all()) == 1
 
 
     def test_get_month_by_name(self):
@@ -254,10 +296,27 @@ class TestCrud(unittest.TestCase):
 
             assert crud.get_random_holiday_on_date(12, 13, 'Test Holiday').holiday_name == 'National Violin Day'
 
-    @pytest.mark.slow ### pytest -m slow
+
     def test_get_random_holiday(self):
         """ Should return a random holiday from the database """
-        pass
+        with app.app_context():
+            reset_test_db()
+            seed_test_months()
+            seed_test_holiday()
+
+            test_holiday = Holiday(holiday_name = 'Test Holiday', 
+                         holiday_month = 1, 
+                         holiday_date = 2, 
+                         holiday_img = 'test', 
+                         holiday_blurb = 'test', 
+                         holiday_email = 'test')
+            
+            db.session.add(test_holiday)
+            db.session.commit()
+
+            random_holiday = crud.get_random_holiday()
+
+            assert random_holiday == test_holiday.holiday_name or 'National Violin Day'
 
     
     def test_get_month_by_number(self):

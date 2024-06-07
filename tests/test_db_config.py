@@ -90,22 +90,14 @@ with app.app_context():
     
     def seed_test_holiday():
         """ Seeds holiday into test database """
-
-        holiday = {
-                    'holiday_name': 'National Violin Day',
-                    'holiday_month': 12,
-                    'holiday_date': 13,
-                    'holiday_img': 'test',
-                    'holiday_blurb': 'test',
-                    'holiday_email': 'test'
-                }
         
-        test_holiday = Holiday(holiday_name = holiday['holiday_name'], 
-                         holiday_month = holiday['holiday_month'], 
-                         holiday_date = holiday['holiday_date'], 
-                         holiday_img = holiday['holiday_img'], 
-                         holiday_blurb = holiday['holiday_blurb'], 
-                         holiday_email = holiday['holiday_email'])
+        test_holiday = Holiday(holiday_name = 'National Violin Day', 
+                         holiday_month = 12, 
+                         holiday_date = 13, 
+                         holiday_img = 'test', 
+                         holiday_blurb = 'test', 
+                         holiday_email = 'test')
+        
         db.session.add(test_holiday)
         db.session.commit()
 

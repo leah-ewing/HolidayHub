@@ -26,31 +26,32 @@ class TestServer(unittest.TestCase):
 
             assert b'Homepage' in response.data
 
-    @pytest.mark.slow ### pytest -m slow
+    # @pytest.mark.slow ### pytest -m slow
     def test_get_homepage_holiday(self):
         """ Tests that the '/get-homepage-holiday' route returns a holiday for a given date to be displayed on the homepage """
         pass
 
-    @pytest.mark.slow ### pytest -m slow
+    # @pytest.mark.slow ### pytest -m slow
     def test_get_password(self):
         """ Tests that the '/check-password' route should get the password input from the 'password-screen' form """
         pass
 
-    @pytest.mark.slow ### pytest -m slow
+    # @pytest.mark.slow ### pytest -m slow
     def test_password_login(self):
         """ Tests that the '/password-login' route directs a user to the Beta Tester login pagec correctly """
         pass
 
+    # @pytest.mark.slow ### pytest -m slow
     def test_logout_user(self):
         """ Test that the '/logout' route logs out a beta user """
         pass
 
-    @pytest.mark.slow ### pytest -m slow
+    # @pytest.mark.slow ### pytest -m slow
     def test_get_slideshow_holidays(self):
         """ Tests that the '/get-slideshow-holidays' route grabs a list of holidays to be displayed in the 'Explore More...' slideshow """
         pass
 
-    @pytest.mark.slow ### pytest -m slow
+    # @pytest.mark.slow ### pytest -m slow
     def test_get_search_results(self):
         """ Tests that the '/get-search-term' route checks if a search-term has any results and renders the search-results page """
         pass
@@ -113,17 +114,17 @@ class TestServer(unittest.TestCase):
             assert b'Holiday Picker' in response.data
             assert b'This month' in response.data
 
-    @pytest.mark.slow ### pytest -m slow
+    # @pytest.mark.slow ### pytest -m slow
     def test_add_new_email(self):
         """ Tests that the '/add-email' route adds a new email from input form """
         pass
 
-    @pytest.mark.slow ### pytest -m slow
+    # @pytest.mark.slow ### pytest -m slow
     def test_get_clicked_date(self):
         """ Tests that the '/day-picker/<month>/<day>/' route directs a user to that day's holiday page when a calendar day is clicked """
         pass
 
-    @pytest.mark.slow ### pytest -m slow
+    # @pytest.mark.slow ### pytest -m slow
     def test_random_holiday_on_date(self):
         """ Tests that the '/random-holiday/<month>/<day>/<holiday>/' route takes a user to another random holiday on a given date discluding the current holiday being viewed """
         pass
@@ -190,22 +191,22 @@ class TestServer(unittest.TestCase):
             response = client.get('/get-monthly-holidays/March')
             assert b'["Endometriosis Awareness Month','National Celery Month"]' in response.data
 
-    @pytest.mark.slow ### pytest -m slow
+    # @pytest.mark.slow ### pytest -m slow
     def test_unsubscribe_email(self):
         """ Tests that the '/unsubscribe/<email>/' route changes an email's opt-in status for receiving daily emails """
         pass
 
-    @pytest.mark.slow ### pytest -m slow
+    # @pytest.mark.slow ### pytest -m slow
     def test_unsubscribe(self):
         """ Tests that the '/unsubscribed' route renders the 'Unsubscribe' page correctly """
         pass
 
-    @pytest.mark.slow ### pytest -m slow
+    # @pytest.mark.slow ### pytest -m slow
     def test_privacy_policy(self):
         """ Tests that the '/privacy-policy' route renders the 'Privacy Policy' page correctly """
         pass
 
-    @pytest.mark.slow ### pytest -m slow
+    # @pytest.mark.slow ### pytest -m slow
     def test_error_page(self):
         """ Tests that the '/error' route renders the 'Error' page correctly """
         pass

@@ -1510,7 +1510,7 @@ button:focus,
 
 /* Search Results Page */
 .outer-row-search-results {
-    margin-top: 25px;
+    margin-top: 100px;
     padding: 25px;
 }
 
@@ -1637,6 +1637,10 @@ button:focus,
     #search-result-blurb {
         font-size: 18px;
         line-height: 19px;
+    }
+
+    .outer-row-search-results {
+        margin-top: 25px;
     }
 }
 

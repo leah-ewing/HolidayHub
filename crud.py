@@ -2,6 +2,7 @@
 
 from model import db, connect_to_db, Month, Holiday, Email, MonthlyHoliday
 from datetime import datetime
+from sqlalchemy import text
 import random, sys, os, sqlalchemy
 import encryption, controller
 
@@ -12,6 +13,7 @@ import send_welcome_email
 
 ENCRYPTION_DEV_KEY = os.environ['ENCRYPTION_DEV_KEY']
 ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']
+TEST_DB_NAME = os.environ['TEST_DB_NAME']
 
 
 def create_month(month_name):
@@ -43,11 +45,11 @@ def create_holiday(holiday_name, holiday_month,
     return new_holiday
 
 
-def create_email_address(email_firstname, email_address, testing=False):
+def create_email_address(first_name, email_address):
     """ Create and return a new email entry """
 
     encrypted_email = encryption.encrypt_data(email_address.lower().strip())
-    encrypted_firstname = encryption.encrypt_data(email_firstname.lower().strip())
+    encrypted_firstname = encryption.encrypt_data(first_name.lower().strip())
 
     current_date = datetime.now()
 
@@ -59,7 +61,9 @@ def create_email_address(email_firstname, email_address, testing=False):
     db.session.add(new_email)
     db.session.commit()
 
-    if testing == False:
+    database = db.session.execute(text("SELECT current_database()")).fetchone()[0]
+
+    if database != TEST_DB_NAME:
         send_welcome_email.send_welcome_email(email_address)
         return print('200: Encrypted email created and welcome email sent successfully')
     

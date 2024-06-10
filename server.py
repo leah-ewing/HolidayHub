@@ -61,7 +61,7 @@ def create_app(db_uri=None):
 
     @app.route('/check-password', methods = ["GET"])
     def get_password():
-        """ Gets the password input from the password-screen form """
+        """ Gets the password input from the password-screen form and logs in user if valid """
 
         try:
             password = request.args.get("password").strip()

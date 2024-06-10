@@ -69,7 +69,7 @@ class TestCrud(unittest.TestCase):
             email_firstname = 'Jane'
             email_address = 'test@test.test'
 
-            crud.create_email_address(email_firstname, email_address, True)
+            crud.create_email_address(email_firstname, email_address)
 
             decrypted_firstname = encryption.decrypt_first_name(Email.query.first().email_firstname, 
                                                                 ENCRYPTION_DEV_KEY,
@@ -358,7 +358,7 @@ class TestCrud(unittest.TestCase):
             first_name = 'Jane'
             email_address = 'test@test.test'
 
-            crud.create_email_address(first_name, email_address, True)
+            crud.create_email_address(first_name, email_address)
 
             assert crud.check_for_email(email_address) == True
             assert crud.check_for_email('test2@test.test') == False
@@ -374,7 +374,7 @@ class TestCrud(unittest.TestCase):
             first_name = 'Jane'
             email_address = 'test@test.test'
 
-            crud.create_email_address(first_name, email_address, True)
+            crud.create_email_address(first_name, email_address)
 
             assert crud.get_fname_by_email(email_address) == first_name
 
@@ -389,12 +389,12 @@ class TestCrud(unittest.TestCase):
             first_name = 'Jane'
             email_address = 'test@test.test'
 
-            crud.create_email_address(first_name, email_address, True)
+            crud.create_email_address(first_name, email_address)
             crud.update_opt_in_status('test@test.test')
 
             assert Email.query.first().email_opt_in == False
 
-    
+
     def test_remove_opted_out_emails(self):
         """ Should remove all emails with an opt-in status of false from the db """
 
@@ -406,7 +406,7 @@ class TestCrud(unittest.TestCase):
             email_firstname = 'Jane'
             email_address = 'test@test.test'
 
-            crud.create_email_address(email_firstname, email_address, True)
+            crud.create_email_address(email_firstname, email_address)
 
             original_email_count = len(Email.query.all())
             
@@ -427,7 +427,7 @@ class TestCrud(unittest.TestCase):
             email_firstname = 'Jane'
             email_address = 'test@test.test'
 
-            crud.create_email_address(email_firstname, email_address, True)
+            crud.create_email_address(email_firstname, email_address)
 
             opt_in_list = crud.get_opted_in_emails()
             email_list = []
@@ -450,15 +450,20 @@ class TestCrud(unittest.TestCase):
             search_term = 'io'
             search_results = crud.get_search_results(search_term)
 
-            assert search_results == {'results_pages': [[{'holiday_name': 'National Violin Day',
-                                                        'holiday_month': 'December', 
-                                                        'holiday_date': 13, 
-                                                        'holiday_img': 'test', 
-                                                        'holiday_blurb': 'test', 
-                                                        'date_suffix': 'th', 
-                                                        'result_num': 1}]],
-                                                        'results_count': 1,
-                                                        'page_count': 1}
+            expected_results = {'results_pages': [[{
+                                                    'holiday_name': 'National Violin Day',
+                                                    'holiday_month': 'December', 
+                                                    'holiday_date': 13, 
+                                                    'holiday_img': 'test', 
+                                                    'holiday_blurb': 'test', 
+                                                    'date_suffix': 'th', 
+                                                    'result_num': 1
+                                                }]],
+                                                    'results_count': 1,
+                                                    'page_count': 1
+                                }
+
+            assert search_results == expected_results
 
     
     def test_get_search_results_no_valid_results(self):
@@ -484,32 +489,38 @@ class TestCrud(unittest.TestCase):
             seed_test_holiday()
 
             test_holiday_2 = Holiday(holiday_name = 'Test Holiday', 
-                        holiday_month = 3, 
-                        holiday_date = 23, 
-                        holiday_img = 'test', 
-                        holiday_blurb = 'test', 
-                        holiday_email = 'test')
+                                    holiday_month = 3, 
+                                    holiday_date = 23, 
+                                    holiday_img = 'test', 
+                                    holiday_blurb = 'test', 
+                                    holiday_email = 'test')
             
             db.session.add(test_holiday_2)
             db.session.commit()
 
             slideshow_holidays = crud.get_slideshow_holidays_list()
 
-            assert {'holiday_id': 1,
-                    'holiday_name': 'National Violin Day', 
-                    'holiday_month': 'December', 
-                    'holiday_date': 13, 
-                    'holiday_img': 'test', 
-                    'holiday_blurb': 'test', 
-                    'date_suffix': 'th'} in slideshow_holidays
-            
-            assert {'holiday_id': 2,
-                    'holiday_name': 'Test Holiday', 
-                    'holiday_month': 'March', 
-                    'holiday_date': 23, 
-                    'holiday_img': 'test', 
-                    'holiday_blurb': 'test', 
-                    'date_suffix': 'rd'} in slideshow_holidays
+            expected_holiday_1 = {
+                                    'holiday_id': 1,
+                                    'holiday_name': 'National Violin Day', 
+                                    'holiday_month': 'December', 
+                                    'holiday_date': 13, 
+                                    'holiday_img': 'test', 
+                                    'holiday_blurb': 'test', 
+                                    'date_suffix': 'th'
+                                }
+            expected_holiday_2 = {
+                                    'holiday_id': 2,
+                                    'holiday_name': 'Test Holiday', 
+                                    'holiday_month': 'March', 
+                                    'holiday_date': 23, 
+                                    'holiday_img': 'test', 
+                                    'holiday_blurb': 'test', 
+                                    'date_suffix': 'rd'
+                                }
+
+            assert expected_holiday_1 in slideshow_holidays
+            assert expected_holiday_2 in slideshow_holidays
         
 
 if __name__ == "__main__":

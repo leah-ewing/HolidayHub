@@ -58,8 +58,8 @@ jobs:
             - name: Move service file
               run: $SSH_COMMAND "cd $APP_DIRECTORY && sudo mv app.service /etc/systemd/system/ && sudo systemctl daemon-reload"
 
-            # - name: Install requirements
-            #   run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && pip3 install -r requirements.txt"
+            - name: Install requirements
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && pip3 install -r requirements.txt"
 
             - name: Create and initialize log files
               run: $SSH_COMMAND "cd $APP_DIRECTORY && touch errors/error_log.json && echo '[]' > errors/error_log.json && touch jobs/jobs_log.json && echo '[]' > jobs/jobs_log.json"
@@ -71,11 +71,11 @@ jobs:
                   sleep 1
                 done
 
-            # - name: Seed database
-            #   run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.production && python3 database/seed_database.py"
+            - name: Seed database
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.production && python3 database/seed_database.py"
 
-            # - name: Restart cron jobs
-            #   run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.production && python3 jobs/run_jobs.py"
+            - name: Restart cron jobs
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.production && python3 jobs/run_jobs.py"
 
             - name: Restart the service
               run: |

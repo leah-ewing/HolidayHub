@@ -1453,8 +1453,8 @@ button:focus,
     }
 
     #add-email input {
-        max-width: 235px;
-        margin-left: 20px;
+        max-width: 100%;
+        margin-left: 0px;
     }
 }
 

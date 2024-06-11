@@ -10,6 +10,7 @@ encryption.py
 error_log.json
 .env.local
 .env.production
+.env.development
 holidayhub.service
 ubuntu.txt
 spreadsheets

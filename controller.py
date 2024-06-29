@@ -5,6 +5,7 @@ import crud, random
 import os, sys
 
 DEVELOPER = os.environ['DEVELOPER']
+DEVELOPMENT_PASSWORD = os.environ['DEVELOPMENT_PASSWORD']
 TEST_USER_PASSWORD = os.environ['TEST_USER_PASSWORD']
 
 errors_directory = os.path.join(os.path.dirname(__file__), "errors")
@@ -258,4 +259,14 @@ def check_valid_password(password):
         return True
     
     error_handling.log_error_json(f'Invalid Password', '/check-password')
+    return False
+
+
+def check_valid_developer_password(password):
+    """ Checks if a given developer password is valid """
+
+    if password == DEVELOPMENT_PASSWORD:
+        return True
+    
+    error_handling.log_error_json(f'Invalid DEVELOPER Password', '/check-password')
     return False

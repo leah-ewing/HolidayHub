@@ -23,336 +23,353 @@
       {% endblock %}
     </title>
 
-    <!-- FULL SIZE NAVBAR -->
-      <nav class="navbar container-fluid navbar-expand-lg" id="navbar">
-        <ul class="navbar-nav me-auto" id="navbar-links">
-          <li class="nav-item" id="navbar-logo-div">
-            <a class="navbar-brand pink-text pink-hover" aria-current="page" id="navbar-logo" href="/">
-              <text>
-                HolidayHub
-              </text>
-            </a>
-            <br>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link pointer-cursor" id="share-button">Share</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about" id="about-button">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link pointer-cursor" id="popup-button">
-              {% if 'valid_user' in session %}
-                Sign Up for Daily Emails!
-              {% endif %}
-            </a>
-          </li>
-        </ul>
+    {% if environment == 'development' and 'developer' not in session %}
+      <style>
 
-        <!-- SEARCH BAR -->
-        <form class="d-flex" role="search" action="/get-search-term" method="GET">
-          <input class="form-control me-2" name="search-term" type="search" placeholder="Holiday Search" aria-label="Search" autocomplete="off" required/>
-          <button class="btn submit-search" type="submit"><text>Go</text></button>
-        </form>
-      </nav>
+        #navbar
+        #phone-navbar {
+          display: none;
+          margin-bottom: -100px;
+        }
 
+        #footer {
+          display: none;
+        }
 
+      </style>
 
-      <!-- PHONE SCREEN NAVBAR -->
-      <div class="container" id="phone-navbar">
-        <a class="navbar-brand pink-text pink-hover" aria-current="page" id="navbar-logo" href="/">
-          <text>
-            HolidayHub
-          </text>
-        </a>
-        <span id="phone-navlinks">
-          <a class="pointer-cursor" id="share-button-phone">Share</a>
-          <a  href="/about" id="about-button">About</a>
-          <a class="pointer-cursor" id="popup-button-phone">
-            {% if 'valid_user' in session %}
-              Sign Up!
-            {% endif %}
-          </a>
-        </span>
-        <div id="phone-search-bar">
+    {% else %}
+
+      <!-- FULL SIZE NAVBAR -->
+        <nav class="navbar container-fluid navbar-expand-lg" id="navbar">
+          <ul class="navbar-nav me-auto" id="navbar-links">
+            <li class="nav-item" id="navbar-logo-div">
+              <a class="navbar-brand pink-text pink-hover" aria-current="page" id="navbar-logo" href="/">
+                <text>
+                  HolidayHub
+                </text>
+              </a>
+              <br>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pointer-cursor" id="share-button">Share</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about" id="about-button">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pointer-cursor" id="popup-button">
+                {% if 'valid_user' in session %}
+                  Sign Up for Daily Emails!
+                {% endif %}
+              </a>
+            </li>
+          </ul>
+
+          <!-- SEARCH BAR -->
           <form class="d-flex" role="search" action="/get-search-term" method="GET">
             <input class="form-control me-2" name="search-term" type="search" placeholder="Holiday Search" aria-label="Search" autocomplete="off" required/>
             <button class="btn submit-search" type="submit"><text>Go</text></button>
           </form>
-        </div>
-      </div>
+        </nav>
 
 
-    <!-- POP-UPS -->
 
-    <!-- SHARE -->
-    <div class="popup-window" id="share-popup-window">
-
-      <div class="x-close" id="x-close-share">
-        <a>x</a>
-      </div>
-
-      <img
-        class = "orange-flower-1"
-        id = "orange-flower-share-1"
-        src="{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
-      </img>
-
-      <img
-        class = "orange-flower-2"
-        id = "orange-flower-share-2"
-        src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
-      </img>
-
-      <img
-        class = "purple-flower-1"
-        id = "purple-flower-share-1"
-        src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}">
-      </img>
-
-      <div class="row popup-outer-row share-buttons grid-center">
-        <div class="row" id="share-popup-window-text">
-          <text>
-            Share:
-          </text>
-        </div>
-        <div class="row inner-button-row grid-center">
-          <div class="row share-popup-window-inner-row" id="share-popup-window-row-1">
-            <div class="col">
-              <button id="twitter-share-button" class="btn share-button pink-button">Twitter</button>
-              <button id="facebook-share-button" class="btn share-button pink-button">Facebook</button>
-            </div>
-          </div>
-
-          <div class="row share-popup-window-inner-row" id="share-popup-window-row-2">
-            <div class="col">
-              <button id="pinterest-share-button" class="btn share-button">Pinterest</button>
-              <button id="email-share-button" class="btn share-button">Email</button><br>
-            </div>
-          </div>
-
-          <div class="row share-popup-window-inner-row" id="share-popup-window-row-3">
-            <div class="col">
-              <button id="copy-link-button" class="btn share-button pink-button">Copy Page Link</button><br>
-              <small>
-                <span id="link-copied-label"></span><br>
-              </small>
-            </div>
-          </div>
-        </div>
-        <div class="row share-popup-window-inner-row" id="share-popup-window-row-4">
-          <div class="col">
-            <button id="share-close-button" class="btn">Go Back</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="popup-window" id="thank-you-for-sharing-window">
-
-      <div class="x-close" id="x-close-thank-you-for-sharing">
-        <a>x</a>
-      </div>
-
-      <img
-        class = "orange-flower-1"
-        id = "orange-flower-thank-you-share-1"
-        src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
-      </img>
-
-      <img
-        class = "orange-flower-2"
-        id = "orange-flower-thank-you-share-2"
-        src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
-      </img>
-
-      <img
-        class = "purple-flower-1"
-        id = "purple-flower-thank-you-share-1"
-        src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}">
-      </img>
-
-      <div class="row popup-outer-row grid-center" id="thank-you-for-sharing-outer-row">
-        <div class="row popup-inner-row pink-text grid-center" id="thank-you-for-sharing-text">
-          Thank you <br>
-          for sharing!
-          <div class="row popup-buttons" id="thank-you-for-sharing-row-2">
-            <div class="col">
-              <button id="close-button-thank-you-for-sharing" class="btn">Go Back</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ENTER EMAIL -->
-    <div class="popup-window" id="popup-window">
-
-      <div class="x-close" id="x-close-enter-email">
-        <a>x</a>
-      </div>
-
-      <img
-        class = "orange-flower-1"
-        id = "orange-flower-enter-email-1"
-        src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
-      </img>
-
-      <img
-        class = "orange-flower-2"
-        id = "orange-flower-enter-email-2"
-        src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
-      </img>
-
-      <img
-        class = "purple-flower-1"
-        id = "purple-flower-enter-email-1"
-        src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}">
-      </img>
-
-      <div id="enter-email-outer-row">
-        <div class="row" id="add-email">
-          <form action="/add-email" method = "POST" id="email-form">
-            <label for="fname">First Name:</label><br>
-            <input class="form-control me-2" id="fname" name="fname" autocomplete="off" type="text" required /></textarea><br>
-            <label for="email">Email:</label><br>
-            <input class="form-control me-2" id="email" name="email" type="email" autocomplete="off" required /></textarea><br>
-            <div class="col" id="submit-email-buttons">
-              <button id="submit-button" class="btn submit-button pink-button" type="submit">Submit!</button>
-              <button id="close-button" class="btn">Go Back</button>
-            </div>
-          </form>
-        </div>
-        <div class="row" id="disclaimer-text">
+        <!-- PHONE SCREEN NAVBAR -->
+        <div class="container" id="phone-navbar">
+          <a class="navbar-brand pink-text pink-hover" aria-current="page" id="navbar-logo" href="/">
             <text>
-              By clicking submit you are giving HolidayHub permission to send you
-              <span id="disclaimer-breakpoint-phone"><br></span>
-              daily emails,
-              <span id="disclaimer-breakpoint"><br></span>
-              you may opt out at any time.
+              HolidayHub
             </text>
-        </div>
-      </div>
-
-      <div class="popup-window" id="thank-you-window">
-
-        <div class="x-close" id="x-close-thank-you">
-          <a>x</a>
-        </div>
-
-      <img
-        class = "orange-flower-1"
-        id = "orange-flower-thank-you-email-1"
-        src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
-      </img>
-
-      <img
-        class = "orange-flower-2"
-        id = "orange-flower-thank-you-email-2"
-        src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
-      </img>
-
-      <img
-        class = "purple-flower-1"
-        id = "purple-flower-thank-you-email-1"
-        src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}">
-      </img>
-
-        <div class="row popup-outer-row grid-center" id="thank-you-email-outer-row">
-          <div class="row popup-inner-row pink-text grid-center" id="thank-you-email-text">
-              Thank you!
-            <div class="row">
-              <div class="col popup-buttons" id="thank-you-email-buttons">
-                <button id="close-button-thank-you" class="btn">Close</button>
-              </div>
-            </div>
+          </a>
+          <span id="phone-navlinks">
+            <a class="pointer-cursor" id="share-button-phone">Share</a>
+            <a  href="/about" id="about-button">About</a>
+            <a class="pointer-cursor" id="popup-button-phone">
+              {% if 'valid_user' in session %}
+                Sign Up!
+              {% endif %}
+            </a>
+          </span>
+          <div id="phone-search-bar">
+            <form class="d-flex" role="search" action="/get-search-term" method="GET">
+              <input class="form-control me-2" name="search-term" type="search" placeholder="Holiday Search" aria-label="Search" autocomplete="off" required/>
+              <button class="btn submit-search" type="submit"><text>Go</text></button>
+            </form>
           </div>
         </div>
-      </div>
 
-      <div class="popup-window" id="duplicate-email-window">
 
-        <div class="x-close" id="x-close-duplicate-email">
+      <!-- POP-UPS -->
+
+      <!-- SHARE -->
+      <div class="popup-window" id="share-popup-window">
+
+        <div class="x-close" id="x-close-share">
           <a>x</a>
         </div>
 
         <img
           class = "orange-flower-1"
-          id = "orange-flower-duplicate-email-1"
-          src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
+          id = "orange-flower-share-1"
+          src="{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
         </img>
 
         <img
           class = "orange-flower-2"
-          id = "orange-flower-duplicate-email-2"
+          id = "orange-flower-share-2"
           src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
         </img>
 
         <img
           class = "purple-flower-1"
-          id = "purple-flower-duplicate-email-1"
+          id = "purple-flower-share-1"
           src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}">
         </img>
 
-        <div class="row popup-outer-row grid-center" id="duplicate-email-outer-row">
-          <div class="row popup-inner-row grid-center" id="duplicate-email-text">
+        <div class="row popup-outer-row share-buttons grid-center">
+          <div class="row" id="share-popup-window-text">
             <text>
-              Email already exists, please try again!
+              Share:
             </text>
-            <div class="row popup-buttons" id="duplicate-email-buttons">
+          </div>
+          <div class="row inner-button-row grid-center">
+            <div class="row share-popup-window-inner-row" id="share-popup-window-row-1">
               <div class="col">
-                <button id="try-again-button" class="btn pink-button">Try again</button>
-                <button id="close-button-duplicate-email" class="btn">Close</button>
+                <button id="twitter-share-button" class="btn share-button pink-button">Twitter</button>
+                <button id="facebook-share-button" class="btn share-button pink-button">Facebook</button>
               </div>
+            </div>
+
+            <div class="row share-popup-window-inner-row" id="share-popup-window-row-2">
+              <div class="col">
+                <button id="pinterest-share-button" class="btn share-button">Pinterest</button>
+                <button id="email-share-button" class="btn share-button">Email</button><br>
+              </div>
+            </div>
+
+            <div class="row share-popup-window-inner-row" id="share-popup-window-row-3">
+              <div class="col">
+                <button id="copy-link-button" class="btn share-button pink-button">Copy Page Link</button><br>
+                <small>
+                  <span id="link-copied-label"></span><br>
+                </small>
+              </div>
+            </div>
+          </div>
+          <div class="row share-popup-window-inner-row" id="share-popup-window-row-4">
+            <div class="col">
+              <button id="share-close-button" class="btn">Go Back</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="popup-window" id="invalid-email-window">
+      <div class="popup-window" id="thank-you-for-sharing-window">
 
-        <div class="x-close" id="x-close-invalid-email">
+        <div class="x-close" id="x-close-thank-you-for-sharing">
           <a>x</a>
         </div>
 
         <img
           class = "orange-flower-1"
-          id = "orange-flower-invalid-email-1"
+          id = "orange-flower-thank-you-share-1"
           src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
         </img>
 
         <img
           class = "orange-flower-2"
-          id = "orange-flower-invalid-email-2"
+          id = "orange-flower-thank-you-share-2"
           src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
         </img>
 
         <img
           class = "purple-flower-1"
-          id = "purple-flower-invalid-email-1"
+          id = "purple-flower-thank-you-share-1"
           src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}">
         </img>
 
-        <div class="row popup-outer-row grid-center" id="invalid-email-outer-row">
-          <div class="row popup-inner-row" id="invalid-email-inner-row">
-            Invalid input, please try again!
-            <div class="row">
-              <div class="col popup-buttons" id="invalid-email-buttons">
-                  <button class="btn pink-button" id="try-again-button-invalid-email">Try again</button>
-                  <button class="btn" id="close-button-invalid-email">Close</button>
+        <div class="row popup-outer-row grid-center" id="thank-you-for-sharing-outer-row">
+          <div class="row popup-inner-row pink-text grid-center" id="thank-you-for-sharing-text">
+            Thank you <br>
+            for sharing!
+            <div class="row popup-buttons" id="thank-you-for-sharing-row-2">
+              <div class="col">
+                <button id="close-button-thank-you-for-sharing" class="btn">Go Back</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENTER EMAIL -->
+      <div class="popup-window" id="popup-window">
+
+        <div class="x-close" id="x-close-enter-email">
+          <a>x</a>
+        </div>
+
+        <img
+          class = "orange-flower-1"
+          id = "orange-flower-enter-email-1"
+          src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
+        </img>
+
+        <img
+          class = "orange-flower-2"
+          id = "orange-flower-enter-email-2"
+          src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
+        </img>
+
+        <img
+          class = "purple-flower-1"
+          id = "purple-flower-enter-email-1"
+          src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}">
+        </img>
+
+        <div id="enter-email-outer-row">
+          <div class="row" id="add-email">
+            <form action="/add-email" method = "POST" id="email-form">
+              <label for="fname">First Name:</label><br>
+              <input class="form-control me-2" id="fname" name="fname" autocomplete="off" type="text" required /></textarea><br>
+              <label for="email">Email:</label><br>
+              <input class="form-control me-2" id="email" name="email" type="email" autocomplete="off" required /></textarea><br>
+              <div class="col" id="submit-email-buttons">
+                <button id="submit-button" class="btn submit-button pink-button" type="submit">Submit!</button>
+                <button id="close-button" class="btn">Go Back</button>
+              </div>
+            </form>
+          </div>
+          <div class="row" id="disclaimer-text">
+              <text>
+                By clicking submit you are giving HolidayHub permission to send you
+                <span id="disclaimer-breakpoint-phone"><br></span>
+                daily emails,
+                <span id="disclaimer-breakpoint"><br></span>
+                you may opt out at any time.
+              </text>
+          </div>
+        </div>
+
+        <div class="popup-window" id="thank-you-window">
+
+          <div class="x-close" id="x-close-thank-you">
+            <a>x</a>
+          </div>
+
+        <img
+          class = "orange-flower-1"
+          id = "orange-flower-thank-you-email-1"
+          src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
+        </img>
+
+        <img
+          class = "orange-flower-2"
+          id = "orange-flower-thank-you-email-2"
+          src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
+        </img>
+
+        <img
+          class = "purple-flower-1"
+          id = "purple-flower-thank-you-email-1"
+          src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}">
+        </img>
+
+          <div class="row popup-outer-row grid-center" id="thank-you-email-outer-row">
+            <div class="row popup-inner-row pink-text grid-center" id="thank-you-email-text">
+                Thank you!
+              <div class="row">
+                <div class="col popup-buttons" id="thank-you-email-buttons">
+                  <button id="close-button-thank-you" class="btn">Close</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
+        <div class="popup-window" id="duplicate-email-window">
+
+          <div class="x-close" id="x-close-duplicate-email">
+            <a>x</a>
+          </div>
+
+          <img
+            class = "orange-flower-1"
+            id = "orange-flower-duplicate-email-1"
+            src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
+          </img>
+
+          <img
+            class = "orange-flower-2"
+            id = "orange-flower-duplicate-email-2"
+            src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
+          </img>
+
+          <img
+            class = "purple-flower-1"
+            id = "purple-flower-duplicate-email-1"
+            src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}">
+          </img>
+
+          <div class="row popup-outer-row grid-center" id="duplicate-email-outer-row">
+            <div class="row popup-inner-row grid-center" id="duplicate-email-text">
+              <text>
+                Email already exists, please try again!
+              </text>
+              <div class="row popup-buttons" id="duplicate-email-buttons">
+                <div class="col">
+                  <button id="try-again-button" class="btn pink-button">Try again</button>
+                  <button id="close-button-duplicate-email" class="btn">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="popup-window" id="invalid-email-window">
+
+          <div class="x-close" id="x-close-invalid-email">
+            <a>x</a>
+          </div>
+
+          <img
+            class = "orange-flower-1"
+            id = "orange-flower-invalid-email-1"
+            src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
+          </img>
+
+          <img
+            class = "orange-flower-2"
+            id = "orange-flower-invalid-email-2"
+            src = "{{ url_for('static', filename='media/other_images/orange-flower.png') }}">
+          </img>
+
+          <img
+            class = "purple-flower-1"
+            id = "purple-flower-invalid-email-1"
+            src = "{{ url_for('static', filename='media/other_images/purple-flower.png') }}">
+          </img>
+
+          <div class="row popup-outer-row grid-center" id="invalid-email-outer-row">
+            <div class="row popup-inner-row" id="invalid-email-inner-row">
+              Invalid input, please try again!
+              <div class="row">
+                <div class="col popup-buttons" id="invalid-email-buttons">
+                    <button class="btn pink-button" id="try-again-button-invalid-email">Try again</button>
+                    <button class="btn" id="close-button-invalid-email">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- JAVASCRIPT -->
+        <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+
       </div>
-
-      <!-- JAVASCRIPT -->
-      <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
-
-    </div>
-
+    {% endif %}
   {% endblock %}
 </head>
 

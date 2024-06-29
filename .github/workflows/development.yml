@@ -1,0 +1,83 @@
+name: Deploy to Development Server
+
+on:
+  push:
+    branches:
+      - development
+
+env:
+    SSH_COMMAND: ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.DEV_LIGHTSAIL_IP_ADDRESS }}
+    APP_DIRECTORY: /home/ubuntu/HolidayHub_development/
+    
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        services:
+            postgres:
+              image: postgres:latest
+              env:
+                POSTGRES_DB: ${{ secrets.DEV_DB_NAME }}
+                POSTGRES_USER: ${{ secrets.DEV_DB_USERNAME }}
+                POSTGRES_PASSWORD: ${{ secrets.DEV_DB_PASSWORD }}
+              ports:
+                - 5432:5432
+    
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+    
+            - name: Set up SSH
+              uses: webfactory/ssh-agent@v0.5.3
+              with:
+                ssh-private-key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+
+            - name: Clone development branch to Lightsail temp directory
+              run: |
+                $SSH_COMMAND "mkdir -p /home/ubuntu/lightsail_temp"
+                $SSH_COMMAND "git clone --single-branch --branch development ${{ secrets.REPOSITORY_NAME }} /home/ubuntu/lightsail_temp"
+
+            - name: Stop current service
+              run: |
+                $SSH_COMMAND "cd /etc/systemd/system/ && if sudo systemctl is-active --quiet development.service; then
+                  sudo systemctl stop development.service
+                fi"
+
+            - name: Remove files for replacement
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && find . -mindepth 1 ! -name 'encryption.py' ! -name '.env.development' ! -path './env*' ! -path './encryption*' ! -print0 | xargs -0 rm -rf"
+
+            - name: Replace project files
+              run: $SSH_COMMAND "cp -r /home/ubuntu/lightsail_temp/* $APP_DIRECTORY"
+
+            - name: Remove temp directory
+              run: $SSH_COMMAND "rm -rf /home/ubuntu/lightsail_temp"
+
+            - name: Set file permissions
+              run: $SSH_COMMAND "chown -R ubuntu:ubuntu ${APP_DIRECTORY}"
+
+            - name: Move service file
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && sudo mv app.service /etc/systemd/system/ && sudo systemctl daemon-reload"
+
+            - name: Install requirements
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && pip3 install -r requirements.txt"
+
+            - name: Create and initialize log files
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && touch errors/error_log.json && echo '[]' > errors/error_log.json && touch jobs/jobs_log.json && echo '[]' > jobs/jobs_log.json"
+
+            - name: Start Postgres service
+              run: |
+                until pg_isready -h localhost -p 5432; do
+                  echo "Waiting for PostgreSQL to start..."
+                  sleep 1
+                done
+
+            - name: Seed database
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.development && python3 database/seed_database.py"
+
+            - name: Restart cron jobs
+              run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.development && python3 jobs/run_jobs.py"
+
+            - name: Restart the service
+              run: |
+                $SSH_COMMAND "sudo systemctl daemon-reload"
+                $SSH_COMMAND "cd $APP_DIRECTORY && sudo systemctl start development.service"

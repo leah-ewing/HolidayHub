@@ -848,6 +848,8 @@ button:focus,
 .year-picker {
     padding-top: 15px;
     display: flex;
+    position: absolute;
+    right: 40px;
     align-items: center center;
     font-size: 50px;
     text-shadow: var(--thin-text-shadow);
@@ -894,6 +896,7 @@ button:focus,
 .month-list {
     position: absolute;
     height: 100%;
+    width: 100%;
     top: 0;
     left: 0;
     background-color: var(--calendar-yellow);
@@ -1000,6 +1003,7 @@ button:focus,
     .year-picker {
         font-size: 40px;
         padding-bottom: 15px;
+        right: 5px;
     }
     
     .year-picker pre {
@@ -1067,16 +1071,31 @@ button:focus,
     }
     
     .year-picker {
-        margin-left: 30px;
+        font-size: 35px;
+        width: 150px;
     } 
 
     #calendar-week-day div {
         margin-left: 11px;
     }
 
-    /* .calendar {
-        margin-bottom: 45px;
-    } */
+    #month-picker {
+        font-size: 38px;
+    }
+
+    #year {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #left,
+    #right {
+        font-size: 25px;
+    }
+
+    .month-list > div > div {
+        font-size: 20px;
+    }
 }
 
 

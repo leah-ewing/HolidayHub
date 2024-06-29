@@ -20,6 +20,7 @@ env:
   DB_USERNAME: ${{ secrets.DB_USERNAME }}
   DEVELOPER: ${{ secrets.DEVELOPER }}
   DEV_KEY: ${{ secrets.DEV_KEY }}
+  DEVELOPMENT_PASSWORD: ${{secrets.DEVELOPMENT_PASSWORD}}
   DOMAIN: ${{ secrets.DOMAIN }}
   EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
   EMAIL_PREFIX: ${{ secrets.EMAIL_PREFIX }}

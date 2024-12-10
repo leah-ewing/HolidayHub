@@ -10,7 +10,7 @@ env:
     APP_DIRECTORY: /home/ubuntu/HolidayHub_development/
     
 jobs:
-    deploy:
+    deploy_development:
         runs-on: ubuntu-latest
 
         services:

@@ -7,6 +7,7 @@ User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/HolidayHub_development
 ExecStart=/bin/bash -c 'source env/bin/activate && source .env.development && gunicorn -b 0.0.0.0:8000 "server:create_app()"'
+ExecStartPost=/bin/bash -c 'source env/bin/activate && source .env.development && python3 jobs/run_jobs.py'
 Restart=always
 RestartSec=3
 

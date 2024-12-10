@@ -125,7 +125,7 @@ def create_app(db_uri=None):
 
     @app.route('/password-login')
     def password_login():
-        """ Directs a user to the Beta Tester login page """
+        """ Directs a user to the Beta Tester or Developer login page """
 
         if ENVIRONMENT == 'development' and 'developer' not in session:
             if 'invalid_developer' in session:

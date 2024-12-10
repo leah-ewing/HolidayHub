@@ -74,9 +74,6 @@ jobs:
             - name: Seed database
               run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.development && python3 database/seed_database.py"
 
-            - name: Restart cron jobs
-              run: $SSH_COMMAND "cd $APP_DIRECTORY && source env/bin/activate && source .env.development && python3 jobs/run_jobs.py"
-
             - name: Restart the service
               run: |
                 $SSH_COMMAND "sudo systemctl daemon-reload"

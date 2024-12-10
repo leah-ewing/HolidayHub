@@ -2111,6 +2111,7 @@ button:focus,
 }
 
 #footer {
+    margin-top: 75px;
     padding: 14px 16px;
     bottom: 0;
     position: sticky bottom;
@@ -2179,8 +2180,7 @@ button:focus,
 
 #password-outer-row {
     padding: 50px;
-    margin-top: 25px;
-    margin-bottom: -40px;
+    margin-top: 75px;
 }
 
 #password-inner-row {

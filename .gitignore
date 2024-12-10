@@ -11,8 +11,6 @@ error_log.json
 .env.local
 .env.production
 .env.development
-app.service
-development.service
 ubuntu.txt
 spreadsheets
 nginx_file.txt

@@ -2253,6 +2253,7 @@ button:focus,
 #privacy-policy-text a {
     color: var(--dark-purple);
     font-size: 15px;
+    margin-left: -100px;
 }
 
 #privacy-policy-text a:hover {
@@ -2263,7 +2264,7 @@ button:focus,
     max-width: 60%;
     padding-top: 45px;
     padding-bottom: 45px;
-    padding-left: 100px;
+    padding-left: 25px;
     padding-right: 100px;
     margin: 10px;
     font-size: 20px;

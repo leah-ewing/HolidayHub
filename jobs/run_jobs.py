@@ -6,6 +6,8 @@ root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 cron = CronTab(user=True)
 
+ENVIRONMENT = os.environ['ENVIRONMENT']
+
 
 def stop_all_jobs():
     """ Stops all cron jobs """
@@ -24,11 +26,11 @@ def schedule_daily_email_job():
 
     cron = CronTab(user=True)
 
-    command_with_secrets = f'source {root_directory}/.env && {root_directory}/env/bin/python3 {root_directory}/jobs/send_daily_email.py'
+    command_with_secrets = f'source {root_directory}/.env.{ENVIRONMENT} && {root_directory}/env/bin/python3 {root_directory}/jobs/send_daily_email.py'
 
     jobs_with_secrets = cron.new(command=command_with_secrets)
     jobs_with_secrets.setall('0 10 * * *')
-    # jobs_with_secrets.setall('20 5 * * *') # test
+    # jobs_with_secrets.setall('27 12 * * *') # test
     cron.write() 
 
     print('***************\n')
@@ -43,11 +45,11 @@ def schedule_opt_out_removal_job():
 
     cron = CronTab(user=True)
 
-    command_with_secrets = f'source {root_directory}/.env && python3 {root_directory}/jobs/opt_out_removal.py'
+    command_with_secrets = f'source {root_directory}/.env.{ENVIRONMENT} && {root_directory}/env/bin/python3 {root_directory}/jobs/opt_out_removal.py'
 
     jobs_with_secrets = cron.new(command=command_with_secrets)
     jobs_with_secrets.setall('0 */12 * * *')
-    # jobs_with_secrets.setall('25 10 * * *') # test
+    # jobs_with_secrets.setall('56 12 * * *') # test
     cron.write() 
 
     print('OPT-OUT REMOVAL JOB STARTED')

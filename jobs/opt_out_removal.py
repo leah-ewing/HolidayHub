@@ -1,21 +1,18 @@
 """ Job for removing opted-out emails from the database """
 
-if __name__ == '__main__':
-	import sys, os
+import sys, os
 
-	root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-	sys.path.append(root_directory)
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(root_directory)
 
-	from server import create_app
-	import crud
-	import jobs_logging
+from server import create_app
+from model import connect_to_db
+import crud
+import jobs_logging
 
-	app = create_app()
+app = create_app()
 
-	with app.app_context():
-		from model import connect_to_db
-		connect_to_db(app)
+with app.app_context():
+	crud.remove_opted_out_emails()
 
-		crud.remove_opted_out_emails()
-
-		jobs_logging.log_job_json('emails-removed')
+	jobs_logging.log_job_json('emails-removed')

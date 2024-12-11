@@ -41,7 +41,7 @@ class TestController(unittest.TestCase):
             seed_hyphenated_test_holiday()
 
             holiday = Holiday.query.first()
-            expected_url = f"https://github.com/{DEVELOPER}/HolidayHub/blob/main/static/media/holiday_images/12-december/12-13-national_yo_yo_day.jpg?raw=true"
+            expected_url = f"https://github.com/{DEVELOPER}/HolidayHub/blob/main/static/media/holiday_images/6-june/6-6-national_yo_yo_day.jpg?raw=true"
 
             assert controller.get_formatted_github_image_url(holiday.holiday_name) == expected_url
 

@@ -89,10 +89,10 @@ The site is fully dynamic and is able to be viewed on any size screen or mobile 
 * **Monitoring and Logging:** AWS CloudWatch
 * **WSGI HTTP Server:** Gunicorn
 * **Reverse Proxy/Load Balancer:** Nginx
-* **SSL Certificate:** Certbot
 
 ---
 
 ### <a name="security"></a>Security
+* **SSL Certificate:** Certbot
 * **Email Security:** SPF, DKIM, CNAME, DMARC
 * **Information Encryption:** Personal information is encrypted before being added to database

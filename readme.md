@@ -4,7 +4,7 @@
 
 ## Description:
 
-**HolidayHub** is a web application that showcases little-known daily holidays. The site includes the ability to utilize a calendar to view any day of the year and its holidays or view a random holiday. Currently in development is functionality to sign-up for daily emails that provides the user with the daily holiday with a short description. Subscribers and choose to unsubscribe at any time. 
+**HolidayHub** is a web application that showcases little-known daily holidays. The site includes the ability to utilize a calendar to view any day of the year and its holidays or view a random holiday. Currently in development is functionality to sign-up for daily emails that provides the user with the daily holiday with a short description. Subscribers can choose to unsubscribe at any time. 
 
 The site is fully dynamic and is able to be viewed on any size screen or mobile device.
 

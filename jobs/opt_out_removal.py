@@ -6,9 +6,11 @@ if __name__ == '__main__':
 	root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 	sys.path.append(root_directory)
 
-	from server import app
+	from server import create_app
 	import crud
 	import jobs_logging
+
+	app = create_app
 
 	with app.app_context():
 		from model import connect_to_db

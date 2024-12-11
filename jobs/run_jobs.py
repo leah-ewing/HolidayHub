@@ -28,7 +28,7 @@ def schedule_daily_email_job():
 
     jobs_with_secrets = cron.new(command=command_with_secrets)
     jobs_with_secrets.setall('0 10 * * *')
-    # jobs_with_secrets.setall('25 10 * * *') # test
+    # jobs_with_secrets.setall('20 5 * * *') # test
     cron.write() 
 
     print('***************\n')

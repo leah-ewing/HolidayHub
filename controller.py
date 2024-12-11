@@ -235,7 +235,7 @@ def get_random_email_sign_off():
 def get_formatted_github_holiday_name(holiday_name):
     """ Returns the formatted holiday name for a Github URL """
 
-    holiday_name = "_".join(holiday_name.lower().split())
+    holiday_name = "_".join(holiday_name.lower().split()).replace('-', '_')
 
     return holiday_name
 

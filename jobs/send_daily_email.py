@@ -6,7 +6,7 @@ from jinja2 import Template
 root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_directory)
 
-from server import app
+from server import create_app
 from model import db, connect_to_db
 import controller, crud, encryption
 import requests
@@ -20,6 +20,7 @@ ENCRYPTION_DEV_KEY = os.environ['ENCRYPTION_DEV_KEY']
 ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']
 LOGO_URL = os.environ['LOGO_URL']
 
+app = create_app()
 
 class ApiClient:
 	apiUri = API_URI

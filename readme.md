@@ -17,7 +17,7 @@ Emails are sent to users in the database every morning to opted-in users using a
 * Cron jobs
 * PostresQL/SQLAlchemy -->
 
-### HolidayHub
+# HolidayHub
 
 ---
 
@@ -42,14 +42,14 @@ The site is fully dynamic and is able to be viewed on any size screen or mobile 
 
 ---
 
-# <a name="back-end"></a>Back End
+### <a name="back-end"></a>Back End
 
 **Language:** Python
 **Web Framework:** Flask
 
 ---
 
-# <a name="front-end"></a>Front End
+### <a name="front-end"></a>Front End
 
 **Languages:** HTML, CSS, Javascript
 **Template Engine:** Jinja2
@@ -57,49 +57,49 @@ The site is fully dynamic and is able to be viewed on any size screen or mobile 
 
 ---
 
-# <a name="database"></a>Relational Database
+### <a name="database"></a>Relational Database
 
 **Management System:** Postgresql
 **Database Client:** Postico
 
 ---
 
-# <a name="apis"></a>APIs
+### <a name="apis"></a>APIs
 
 **ElasticEmail:** Sending automated emails to subscribed users *(currently in beta)*
 **OpenAI:** Creating holiday descriptions and daily emails
 
 ---
 
-# <a name="testing"></a>Testing
+### <a name="testing"></a>Testing
 
 **Testing Framework:** Pytest
 **Tests Included:** Unit, Integration
 
 ---
 
-# <a name="cronjobs"></a>CronJobs
+### <a name="cronjobs"></a>CronJobs
 
 * Sending daily emails *(once daily)*
 * Purging database for unsubscribed emails *(twice daily)*
 
 ---
 
-# <a name="deployment"></a>Deployment
+### <a name="deployment"></a>Deployment
 
 **Deployed via:** Github Actions
 **CI/CD:** Main > Development *(deploys to development environment)* > Production *(deploys to production environment)*
 
 ---
 
-# <a name="servers"></a>Servers
+### <a name="servers"></a>Servers
 
 **Development Environment:** dev.holidayhub.app
 **Production Environment:** holidayhub.app
 
 ---
 
-# <a name="network-specs"></a>Network Specs
+### <a name="network-specs"></a>Network Specs
 **Domain Host:** GoDaddy
 **Web Host:** AWS Lightsail (Ubuntu)
 **Event Scheduling:** AWS EventBridge

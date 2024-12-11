@@ -1,4 +1,4 @@
-import unittest
+import unittest, pytest
 import sys, os
 
 root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
@@ -9,6 +9,7 @@ import controller
 
 class TestGetDateSuffix(unittest.TestCase):
 
+    # @pytest.mark.slow  ### pytest -m slow
     def test_get_date_suffix_th(self):
         """ Should return 'th' when given '12' """
 
@@ -256,6 +257,13 @@ class TestGetFormattedGithubUrl(unittest.TestCase):
         """ Should return the formatted holiday name for a Github URL """
 
         assert controller.get_formatted_github_holiday_name('National Violin Day') == "national_violin_day"
+
+
+    def test_get_formatted_github_holiday_name_with_hyphen(self):
+        """ Should return the formatted holiday name for a Github URL """
+
+        assert controller.get_formatted_github_holiday_name('National Yo-Yo Day') == "national_yo_yo_day"
+
 
 
 if __name__ == "__main__":

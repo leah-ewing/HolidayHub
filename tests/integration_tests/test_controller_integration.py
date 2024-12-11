@@ -30,7 +30,7 @@ class TestController(unittest.TestCase):
 
             assert controller.get_formatted_github_image_url(holiday.holiday_name) == expected_url
 
-    @pytest.mark.slow  ### pytest -m slow
+
     def test_get_formatted_github_image_url_with_hyphen(self):
         """ Should return the formatted Github URL for a given hyphenated holiday """
 

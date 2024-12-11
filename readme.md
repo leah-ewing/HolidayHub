@@ -1,4 +1,4 @@
-## Coming soon...
+<!-- ## Coming soon...
 
 In-progress calendar web application for viewing unique and sometimes silly daily holidays. Users will be able to sign up for daily emails that update them on what holiday each day is, along with a little background on the holiday itself. The calendar is clickable, so users can view holidays for any day they choose, and the calendar page also tells the user additional monthly holidays for the current month being viewed. 
 
@@ -15,4 +15,94 @@ Emails are sent to users in the database every morning to opted-in users using a
 * OpenAI API
 * ElasticEmail API
 * Cron jobs
-* PostresQL/SQLAlchemy
+* PostresQL/SQLAlchemy -->
+
+### HolidayHub
+
+---
+
+## Description:
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In finibus tellus sem, faucibus commodo tellus sollicitudin eget. Interdum et malesuada fames ac ante ipsum primis in faucibus. In gravida augue imperdiet libero maximus pulvinar. Cras libero augue, pulvinar vulputate sem nec, sollicitudin venenatis justo. Donec eleifend viverra tempus. Sed dapibus lacus nec pharetra tincidunt. Nam gravida risus risus, ut tincidunt risus hendrerit et. Proin euismod magna venenatis, aliquet metus ac, consequat nulla. Nam turpis enim, rutrum sit amet turpis ut, porttitor viverra turpis.
+
+---
+
+## Tech Stack
+* [Back End](#back-end)
+* [Front End](#front-end)
+* [Relational Database](#database)
+* [APIs](#apis)
+* [Testing](#testing)
+* [CronJobs](#cronjobs)
+* [Deployment](#deployment)
+* [Servers](#servers)
+* [Network Specs](#network-specs)
+
+---
+
+# <a name="back-end"></a>Back End
+
+**Language:** Python
+**Web Framework:** Flask
+
+---
+
+# <a name="front-end"></a>Front End
+
+**Languages:** HTML, CSS, Javascript
+**Template Engine:** Jinja2
+**Framework Library:** Bootstrap
+
+---
+
+# <a name="database"></a>Relational Database
+
+**Management System:** Postgresql
+**Database Client:** Postico
+
+---
+
+# <a name="apis"></a>APIs
+
+**ElasticEmail:** Sending automated emails to subscribed users *(currently in beta)*
+**OpenAI:** Creating holiday descriptions and daily emails
+
+---
+
+# <a name="testing"></a>Testing
+
+**Testing Framework:** Pytest
+**Tests Included:** Unit, Integration
+
+---
+
+# <a name="cronjobs"></a>CronJobs
+
+* Sending daily emails *(once daily)*
+* Purging database for unsubscribed emails *(twice daily)*
+
+---
+
+# <a name="deployment"></a>Deployment
+
+**Deployed via:** Github Actions
+**CI/CD:** Main > Development *(deploys to development environment)* > Production *(deploys to production environment)*
+
+---
+
+# <a name="servers"></a>Servers
+
+**Development Environment:** dev.holidayhub.app
+**Production Environment:** holidayhub.app
+
+---
+
+# <a name="network-specs"></a>Network Specs
+**Domain Host:** GoDaddy
+**Web Host:** AWS Lightsail (Ubuntu)
+**Event Scheduling:** AWS EventBridge
+**Event Handling:** AWS Lambda
+**Monitoring and Logging:** AWS CloudWatch
+**WSGI HTTP Server:** Gunicorn
+**Reverse Proxy/Load Balancer:** Nginx
+**SSL Certificate:** Certbot

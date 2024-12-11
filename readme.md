@@ -44,37 +44,37 @@ The site is fully dynamic and is able to be viewed on any size screen or mobile 
 
 ### <a name="back-end"></a>Back End
 
-**Language:** Python
-**Web Framework:** Flask
+* **Language:** Python
+* **Web Framework:** Flask
 
 ---
 
 ### <a name="front-end"></a>Front End
 
-**Languages:** HTML, CSS, Javascript
-**Template Engine:** Jinja2
-**Framework Library:** Bootstrap
+* **Languages:** HTML, CSS, Javascript
+* **Template Engine:** Jinja2
+* **Framework Library:** Bootstrap
 
 ---
 
 ### <a name="database"></a>Relational Database
 
-**Management System:** Postgresql
-**Database Client:** Postico
+* **Management System:** Postgresql
+* **Database Client:** Postico
 
 ---
 
 ### <a name="apis"></a>APIs
 
-**ElasticEmail:** Sending automated emails to subscribed users *(currently in beta)*
-**OpenAI:** Creating holiday descriptions and daily emails
+* **ElasticEmail:** Sending automated emails to subscribed users *(currently in beta)*
+* **OpenAI:** Creating holiday descriptions and daily emails
 
 ---
 
 ### <a name="testing"></a>Testing
 
-**Testing Framework:** Pytest
-**Tests Included:** Unit, Integration
+* **Testing Framework:** Pytest
+* **Tests Included:** Unit, Integration
 
 ---
 
@@ -87,24 +87,24 @@ The site is fully dynamic and is able to be viewed on any size screen or mobile 
 
 ### <a name="deployment"></a>Deployment
 
-**Deployed via:** Github Actions
-**CI/CD:** Main > Development *(deploys to development environment)* > Production *(deploys to production environment)*
+* **Deployed via:** Github Actions
+* **CI/CD:** Main > Development *(deploys to development environment)* > Production *(deploys to production environment)*
 
 ---
 
 ### <a name="servers"></a>Servers
 
-**Development Environment:** dev.holidayhub.app
-**Production Environment:** holidayhub.app
+* **Development Environment:** dev.holidayhub.app
+* **Production Environment:** holidayhub.app
 
 ---
 
 ### <a name="network-specs"></a>Network Specs
-**Domain Host:** GoDaddy
-**Web Host:** AWS Lightsail (Ubuntu)
-**Event Scheduling:** AWS EventBridge
-**Event Handling:** AWS Lambda
-**Monitoring and Logging:** AWS CloudWatch
-**WSGI HTTP Server:** Gunicorn
-**Reverse Proxy/Load Balancer:** Nginx
-**SSL Certificate:** Certbot
+* **Domain Host:** GoDaddy
+* **Web Host:** AWS Lightsail (Ubuntu)
+* **Event Scheduling:** AWS EventBridge
+* **Event Handling:** AWS Lambda
+* **Monitoring and Logging:** AWS CloudWatch
+* **WSGI HTTP Server:** Gunicorn
+* **Reverse Proxy/Load Balancer:** Nginx
+* **SSL Certificate:** Certbot

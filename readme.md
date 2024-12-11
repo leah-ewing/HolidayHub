@@ -23,7 +23,9 @@ Emails are sent to users in the database every morning to opted-in users using a
 
 ## Description:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In finibus tellus sem, faucibus commodo tellus sollicitudin eget. Interdum et malesuada fames ac ante ipsum primis in faucibus. In gravida augue imperdiet libero maximus pulvinar. Cras libero augue, pulvinar vulputate sem nec, sollicitudin venenatis justo. Donec eleifend viverra tempus. Sed dapibus lacus nec pharetra tincidunt. Nam gravida risus risus, ut tincidunt risus hendrerit et. Proin euismod magna venenatis, aliquet metus ac, consequat nulla. Nam turpis enim, rutrum sit amet turpis ut, porttitor viverra turpis.
+**HolidayHub** is a calendar web application that showcases little-known daily holidays. The site includes the ability to utilize a calendar to view any day of the year and its holidays or view a random holiday. Currently in development is functionality to sign-up for daily emails that provides the user with the daily holiday with a short description. Subscribers and choose to unsubscribe at any time. 
+
+The site is fully dynamic and is able to be viewed on any size screen or mobile device.
 
 ---
 

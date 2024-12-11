@@ -101,6 +101,20 @@ with app.app_context():
         db.session.add(test_holiday)
         db.session.commit()
 
+    
+    def seed_hyphenated_test_holiday():
+        """ Seeds hyphenated holiday into test database """
+
+        test_holiday = Holiday(holiday_name = 'National Yo-Yo Day',
+                        holiday_month = 6,
+                        holiday_date = 6,
+                        holiday_img = 'test',
+                        holiday_blurb = 'test',
+                        holiday_email = 'test')
+        
+        db.session.add(test_holiday)
+        db.session.commit
+
 
     def seed_test_emails():
         """ Seeds emails into test database """

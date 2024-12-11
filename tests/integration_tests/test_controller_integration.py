@@ -1,6 +1,6 @@
 import os, sys
 import unittest, pytest
-from ..test_db_config import app, reset_test_db, seed_test_months, seed_test_holiday
+from ..test_db_config import app, reset_test_db, seed_test_months, seed_test_holiday, seed_hyphenated_test_holiday
 
 root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(root_directory)
@@ -17,7 +17,7 @@ class TestController(unittest.TestCase):
 
     # @pytest.mark.slow  ### pytest -m slow
     def test_get_formatted_github_image_url(self):
-        """Should return the formatted Github URL for a given holiday"""
+        """ Should return the formatted Github URL for a given holiday """
 
         with app.app_context():
             reset_test_db()
@@ -29,6 +29,22 @@ class TestController(unittest.TestCase):
             expected_url = f"https://github.com/{DEVELOPER}/HolidayHub/blob/main/static/media/holiday_images/12-december/12-13-national_violin_day.jpg?raw=true"
 
             assert controller.get_formatted_github_image_url(holiday.holiday_name) == expected_url
+
+    @pytest.mark.slow  ### pytest -m slow
+    def test_get_formatted_github_image_url_with_hyphen(self):
+        """ Should return the formatted Github URL for a given hyphenated holiday """
+
+        with app.app_context():
+            reset_test_db()
+
+            seed_test_months()
+            seed_hyphenated_test_holiday()
+
+            holiday = Holiday.query.first()
+            expected_url = f"https://github.com/{DEVELOPER}/HolidayHub/blob/main/static/media/holiday_images/12-december/12-13-national_yo_yo_day.jpg?raw=true"
+
+            assert controller.get_formatted_github_image_url(holiday.holiday_name) == expected_url
+
 
     def test_check_valid_password_valid(self):
         """ Checks if a given password is valid and should return True if valid """

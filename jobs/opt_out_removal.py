@@ -10,7 +10,7 @@ if __name__ == '__main__':
 	import crud
 	import jobs_logging
 
-	app = create_app
+	app = create_app()
 
 	with app.app_context():
 		from model import connect_to_db

@@ -9,7 +9,7 @@ import encryption, controller
 jobs_directory = os.path.join(os.path.dirname(__file__), "jobs")
 sys.path.append(jobs_directory)
 
-import send_welcome_email
+from jobs import send_welcome_email
 
 ENCRYPTION_DEV_KEY = os.environ['ENCRYPTION_DEV_KEY']
 ENCRYPTION_CIPHER_KEY = os.environ['ENCRYPTION_CIPHER_KEY']

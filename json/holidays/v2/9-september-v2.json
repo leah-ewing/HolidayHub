@@ -135,10 +135,10 @@
     "holiday_email": ""
 },
 {
-    "holiday_name": "Rice Krispies Treats Day",
+    "holiday_name": "World Bamboo Day",
     "holiday_month": 9,
     "holiday_date": 18,
-    "holiday_img": "/static/media/holiday_images/9-september/9-18-rice_krispies_treats_day.jpg",
+    "holiday_img": "/static/media/holiday_images/9-september/9-18-world_bamboo_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -151,18 +151,18 @@
     "holiday_email": ""
 },
 {
-    "holiday_name": "National Dance Day",
+    "holiday_name": "National Fried Rice Day",
     "holiday_month": 9,
     "holiday_date": 20,
-    "holiday_img": "/static/media/holiday_images/9-september/9-20-national_dance_day.jpg",
+    "holiday_img": "/static/media/holiday_images/9-september/9-20-national_fried_rice_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
 {
-    "holiday_name": "Earth, Wind & Fire Day",
+    "holiday_name": "National Chai Day",
     "holiday_month": 9,
     "holiday_date": 21,
-    "holiday_img": "/static/media/holiday_images/9-september/9-21-earth_wind_&_fire_day.jpg",
+    "holiday_img": "/static/media/holiday_images/9-september/9-21-national_chai_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -175,42 +175,42 @@
     "holiday_email": ""
 },
 {
-    "holiday_name": "",
-    "holiday_month": 9,
-    "holiday_date": 23,
-    "holiday_img": "/static/media/holiday_images/9-september/9-23-.jpg",
-    "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
-    "holiday_email": ""
-},
-{
     "holiday_name": "National Great American Pot Pie Day",
     "holiday_month": 9,
-    "holiday_date": 24,
-    "holiday_img": "/static/media/holiday_images/9-september/9-24-national_great_american_pot_pie_day.jpg",
+    "holiday_date": 23,
+    "holiday_img": "/static/media/holiday_images/9-september/9-23-national_great_american_pot_pie_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
 {
-    "holiday_name": "National Horchata Day",
+    "holiday_name": "National Punctuation Day",
     "holiday_month": 9,
-    "holiday_date": 25,
-    "holiday_img": "/static/media/holiday_images/9-september/9-25-national_horchata_day.jpg",
+    "holiday_date": 24,
+    "holiday_img": "/static/media/holiday_images/9-september/9-24-national_punctuation_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
 {
     "holiday_name": "National Quesadilla Day",
     "holiday_month": 9,
-    "holiday_date": 26,
-    "holiday_img": "/static/media/holiday_images/9-september/9-26-national_quesadilla_day.jpg",
+    "holiday_date": 25,
+    "holiday_img": "/static/media/holiday_images/9-september/9-25-national_quesadilla_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
 {
     "holiday_name": "Alpaca Day",
     "holiday_month": 9,
+    "holiday_date": 26,
+    "holiday_img": "/static/media/holiday_images/9-september/9-26-alpaca_day.jpg",
+    "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
+    "holiday_email": ""
+},
+{
+    "holiday_name": "National Scarf Day",
+    "holiday_month": 9,
     "holiday_date": 27,
-    "holiday_img": "/static/media/holiday_images/9-september/9-27-alpaca_day.jpg",
+    "holiday_img": "/static/media/holiday_images/9-september/9-27-national_scarf_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },

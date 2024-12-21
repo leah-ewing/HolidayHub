@@ -1,8 +1,8 @@
 [{
-    "holiday_name": "National Peppermint Bark Day",
+    "holiday_name": "National Cookie Cutter Day",
     "holiday_month": 12,
     "holiday_date": 1,
-    "holiday_img": "/static/media/holiday_images/12-december/12-1-national_peppermint_bark_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-1-national_cookie_cutter_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -10,16 +10,16 @@
     "holiday_name": "National Fritters Day",
     "holiday_month": 12,
     "holiday_date": 2,
-    "holiday_img": "/static/media/holiday_images/12-december/12-2-national_fritters_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-2-national_fritters_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 }
 ,
 {
-    "holiday_name": "National Green Bean Casserole Day",
+    "holiday_name": "Let's Hug Day",
     "holiday_month": 12,
     "holiday_date": 3,
-    "holiday_img": "/static/media/holiday_images/12-december/12-3-national_green_bean_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-3-lets_hug_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -27,7 +27,7 @@
     "holiday_name": "National Cookie Day",
     "holiday_month": 12,
     "holiday_date": 4,
-    "holiday_img": "/static/media/holiday_images/12-december/12-4-national_cookie_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-4-national_cookie_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -35,7 +35,7 @@
     "holiday_name": "International Ninja Day",
     "holiday_month": 12,
     "holiday_date": 5,
-    "holiday_img": "/static/media/holiday_images/12-december/12-5-international_ninja_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-5-international_ninja_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -43,7 +43,7 @@
     "holiday_name": "National Gazpacho Day",
     "holiday_month": 12,
     "holiday_date": 6,
-    "holiday_img": "/static/media/holiday_images/12-december/12-6-national_gazpacho_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-6-national_gazpacho_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -51,7 +51,7 @@
     "holiday_name": "National Slime Day",
     "holiday_month": 12,
     "holiday_date": 7,
-    "holiday_img": "/static/media/holiday_images/12-december/12-7-national_slime_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-7-national_slime_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -59,7 +59,7 @@
     "holiday_name": "National Christmas Tree Day",
     "holiday_month": 12,
     "holiday_date": 8,
-    "holiday_img": "/static/media/holiday_images/12-december/12-8-national_christmas_tree_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-8-national_christmas_tree_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -67,7 +67,7 @@
     "holiday_name": "National Pastry Day",
     "holiday_month": 12,
     "holiday_date": 9,
-    "holiday_img": "/static/media/holiday_images/12-december/12-9-national_pastry_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-9-national_pastry_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -75,7 +75,7 @@
     "holiday_name": "Dewey Decimal System Day",
     "holiday_month": 12,
     "holiday_date": 10,
-    "holiday_img": "/static/media/holiday_images/12-december/12-10-dewey_decimal_system_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-10-dewey_decimal_system_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -83,7 +83,7 @@
     "holiday_name": "International Mountain Day",
     "holiday_month": 12,
     "holiday_date": 11,
-    "holiday_img": "/static/media/holiday_images/12-december/12-11-international_mountain_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-11-international_mountain_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -91,7 +91,7 @@
     "holiday_name": "National Poinsettia Day",
     "holiday_month": 12,
     "holiday_date": 12,
-    "holiday_img": "/static/media/holiday_images/12-december/12-12-national_poinsettia_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-12-national_poinsettia_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -99,7 +99,7 @@
     "holiday_name": "National Horse Day",
     "holiday_month": 12,
     "holiday_date": 13,
-    "holiday_img": "/static/media/holiday_images/12-december/12-13-national_horse_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-13-national_horse_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -107,7 +107,7 @@
     "holiday_name": "Roast Chestnuts Day",
     "holiday_month": 12,
     "holiday_date": 14,
-    "holiday_img": "/static/media/holiday_images/12-december/12-14-roast_chestnuts_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-14-roast_chestnuts_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -115,7 +115,7 @@
     "holiday_name": "National Wear Your Pearls Day",
     "holiday_month": 12,
     "holiday_date": 15,
-    "holiday_img": "/static/media/holiday_images/12-december/12-15-national_wear_your_pearls_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-15-national_wear_your_pearls_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -123,7 +123,7 @@
     "holiday_name": "National Chocolate Covered Anything Day",
     "holiday_month": 12,
     "holiday_date": 16,
-    "holiday_img": "/static/media/holiday_images/12-december/12-16-national_chocolate_covered_anything_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-16-national_chocolate_covered_anything_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -131,7 +131,7 @@
     "holiday_name": "National Device Appreciation Day",
     "holiday_month": 12,
     "holiday_date": 17,
-    "holiday_img": "/static/media/holiday_images/12-december/12-17-national_device_appreciation_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-17-national_device_appreciation_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -139,7 +139,7 @@
     "holiday_name": "Bake Cookies Day",
     "holiday_month": 12,
     "holiday_date": 18,
-    "holiday_img": "/static/media/holiday_images/12-december/12-18-bake_cookies_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-18-bake_cookies_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -147,7 +147,7 @@
     "holiday_name": "National Hard Candy Day",
     "holiday_month": 12,
     "holiday_date": 19,
-    "holiday_img": "/static/media/holiday_images/12-december/12-19-national_hard_candy_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-19-national_hard_candy_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -155,7 +155,7 @@
     "holiday_name": "National Sangria Day",
     "holiday_month": 12,
     "holiday_date": 20,
-    "holiday_img": "/static/media/holiday_images/12-december/12-20-national_sangria_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-20-national_sangria_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -163,15 +163,15 @@
     "holiday_name": "National French Fried Shrimp Day",
     "holiday_month": 12,
     "holiday_date": 21,
-    "holiday_img": "/static/media/holiday_images/12-december/12-21-national_fried_shrimp_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-21-national_french_fried_shrimp_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
 {
-    "holiday_name": "National Short Person Day",
+    "holiday_name": "National Date Nut Bread Day",
     "holiday_month": 12,
     "holiday_date": 22,
-    "holiday_img": "/static/media/holiday_images/12-december/12-22-national_short_person_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-22-national_date_nut_bread_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -179,7 +179,7 @@
     "holiday_name": "National Christmas Movie Marathon Day",
     "holiday_month": 12,
     "holiday_date": 23,
-    "holiday_img": "/static/media/holiday_images/12-december/12-23-national_christmas_movie_marathon_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-23-national_christmas_movie_marathon_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -187,7 +187,7 @@
     "holiday_name": "Last-Minute Shopper's Day",
     "holiday_month": 12,
     "holiday_date": 24,
-    "holiday_img": "/static/media/holiday_images/12-december/12-24-last_minute_shoppers_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-24-last_minute_shoppers_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -195,7 +195,7 @@
     "holiday_name": "No 'L' Day",
     "holiday_month": 12,
     "holiday_date": 25,
-    "holiday_img": "/static/media/holiday_images/12-december/12-25-no_l_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-25-no_l_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -203,7 +203,7 @@
     "holiday_name": "National 'Thank You' Note Day",
     "holiday_month": 12,
     "holiday_date": 26,
-    "holiday_img": "/static/media/holiday_images/12-december/12-26-national_thank_you_note_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-26-national_thank_you_note_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -211,7 +211,7 @@
     "holiday_name": "National Fruitcake Day",
     "holiday_month": 12,
     "holiday_date": 27,
-    "holiday_img": "/static/media/holiday_images/12-december/12-27-national_fruitcake_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-27-national_fruitcake_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -219,7 +219,7 @@
     "holiday_name": "National Short Film Day",
     "holiday_month": 12,
     "holiday_date": 28,
-    "holiday_img": "/static/media/holiday_images/12-december/12-28-national_short_film_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-28-national_short_film_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -227,7 +227,7 @@
     "holiday_name": "Still Need To Do Day",
     "holiday_month": 12,
     "holiday_date": 29,
-    "holiday_img": "/static/media/holiday_images/12-december/12-29-still_need_to_do_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-29-still_need_to_do_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -235,7 +235,7 @@
     "holiday_name": "Festival of Enormous Changes at the Last Minute",
     "holiday_month": 12,
     "holiday_date": 30,
-    "holiday_img": "/static/media/holiday_images/12-december/12-30-festival_of_enormous_changes_at_the_last_minute.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-30-festival_of_enormous_changes_at_the_last_minute.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 },
@@ -243,7 +243,7 @@
     "holiday_name": "National Champagne Day",
     "holiday_month": 12,
     "holiday_date": 31,
-    "holiday_img": "/static/media/holiday_images/12-december/12-31-national_champagne_day.jpg",
+    "holiday_img": "/static/media/holiday_images/12-december-v2/12-31-national_champagne_day.jpg",
     "holiday_blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac laoreet augue, eget convallis dui. Mauris posuere nulla placerat, convallis quam semper, viverra tortor. Pellentesque eu lectus quis libero pharetra tincidunt. Phasellus sit amet libero ut lectus porttitor posuere. In ut mattis felis, eget auctor ligula. Nam lobortis risus eu egestas egestas. Praesent feugiat mauris in magna euismod, quis lobortis orci faucibus. Aenean eget purus tempus, tempor orci ut, rutrum justo. Vivamus tincidunt vel diam iaculis congue. Vestibulum suscipit dolor in neque condimentum, et finibus nulla ultricies. Phasellus est erat, tincidunt vel placerat eget, efficitur eget metus.",
     "holiday_email": ""
 }]
